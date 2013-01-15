@@ -87,3 +87,4 @@ everything_public:
 	-cp -r theme/static/* $(OUTPUTDIR)
 	-ghp-import $(OUTPUTDIR)
 	-git push origin gh-pages
+	-rm -rf $(OUTPUTDIR)
