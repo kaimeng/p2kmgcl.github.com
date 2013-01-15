@@ -1,0 +1,42 @@
+{% include "header.html" %}
+    <section id="mainContent">
+        <h1>Contenido principal</h1>
+        <article class="entry single {{ article.category }} {% if article.cover %}cover{% endif %}">
+            <header class="entryHeader">
+                <h1 class="title">{{ article.title }}</h1>
+                <abbr class="published" title="{{ article.date.isoformat() }}">{{ article.locale_date }}</abbr>
+                {% include "translations.html" %}
+
+                {% if article.cover %}
+                    <figure class="cover"><img src="{{ article.cover }}" alt="{{ article.covername }}" title="{{ article.covername}}" /></figure>
+                {% endif %}
+            </header>
+            <section class="entryContent">
+                {{ article.content }}
+            </section>
+            <footer class="entryFooter">
+                <section class="tags">
+                    <h1><i class="icon-tags"></i>Etiquetas</h1>
+                    <ul>{% for tag in article.tags %}
+                        <li><a href="{{ SITEURL}}/{{ tag.url }}">{{ tag }}</a></li>
+                    {% endfor %}</ul>
+                </section>
+                <section class="comments">
+                    <h1>Comentarios</h1>
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                        var disqus_shortname = 'p2kmgcl',
+                            disqus_identifier = '/{{ article.url }}';
+                        (function() {
+                            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </section>
+            </footer>
+        </article>
+    </section>
+{% include "footer.html" %}

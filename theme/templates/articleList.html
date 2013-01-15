@@ -1,0 +1,20 @@
+{% for article in articles_page.object_list %}
+    <article class="entry list {{ article.category }} {% if article.cover %}cover{% endif %}">
+        <header class="entryHeader">
+            <h1 class="title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Enlace permanente a {{ article.title|striptags }}">{{ article.title }}</a></h1>
+            <abbr class="published" title="{{ article.date.isoformat() }}">{{ article.locale_date }}</abbr>
+            {% include "translations.html" %}
+
+            {% if article.cover %}
+                <figure class="cover"><img src="{{ article.cover }}" alt="{{ article.covername }}" title="{{ article.covername}}" /></figure>
+            {% endif %}
+        </header>
+        <section class="entryContent">
+            {{ article.summary }}
+        </section>
+        <footer class="entryFooter">
+            <a href="{{ SITEURL }}/{{ article.url }}" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
+        </footer>
+    </article>
+{% endfor %}
+{% include 'pagination.html' %}

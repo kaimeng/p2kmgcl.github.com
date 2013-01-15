@@ -1,0 +1,14 @@
+{% include "header.html" %}
+    <section id="mainContent">
+        <h1>Contenido principal</h1>
+        <article class="entry page">
+            <header class="entryHeader">
+                <h1 class="title">{{ page.title }}</h1>
+                {% include "translations.html" %}
+            </header>
+            <section class="entryContent">
+                {{ page.content }}
+            </section>
+        </article>
+    </section>
+{% include "footer.html" %}
