@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>	<meta charset="utf-8" />
+	<title>					Antes de saludar al mundo (introducción a la programación) | 
+				Pablo Molina | Piensa, inventa, comparte
+	</title>
+	<meta name="viewport" content="width=device-width"/>
+
+	<link href="http://feeds.p2kmgcl.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="p2kmgcl Full RSS Feed" />	<link href="http://feeds.p2kmgcl.com/feeds/main.rss.xml" type="application/rss+xml" rel="alternate" title="p2kmgcl RSS Feed" />	<link href="http://feeds.p2kmgcl.com/feeds/category-General.rss.xml" type="application/rss+xml" rel="alternate" title="p2kmgcl Categories RSS Feed" />	
+	<link rel="stylesheet" href="../../theme/styles/codehilite.css" />
+	<link rel="stylesheet" href="../../theme/styles/font-awesome.min.css" />
+	<link rel="stylesheet" href="../../theme/styles/font-awesome-ie7.min.css" />
+	<link rel="stylesheet" href="../../theme/styles/themes/loremipsum.css" />
+
+	<script src="../../theme/scripts/vendor/prefixfree.min.js"></script>
+</head>
+
+<body>
+	<article class="alert">
+		<i class="icon-info-sign"></i>
+		<i class="icon-remove-sign"></i>
+		<h1>Bienvenido a mi web</h1>
+		Todavía estoy terminando la mudanza desde blogger, así que faltan algunas entradas. Si echas en falta algo, busca en <a href="http://p2kmgcl.blogspot.com" target="_blank">mi antiguo blog</a>.
+	</article>
+	<header id="mainHeader">
+		<h1><a href="../..">p2kmgcl</a></h1>
+		<nav id="mainMenu">
+			<h1>Menú principal</h1>
+			<ul>
+				<li >
+					<i class="icon-home"></i>
+					<a href="../..">Index</a>
+				</li>
+				
+															<li><i class="icon-user"></i><a href="../../pages/contact.html">¿Quien soy?</a></li>
+											<li><i class="icon-file-alt"></i><a href="../../pages/curriculum.html">Currículum</a></li>
+												</ul>
+		</nav>
+	</header>
+
+	<aside id="mainSidebar">
+		<div id="vcard">
+			<h1>¿Quién soy?</h1>
+			<figure class="profile">
+				<img alt="Foto de perfil de Pablo Molina" title="Foto de perfil de Pablo Molina" src="http://dl.dropbox.com/u/6037255/perfil_75x75.jpg" width="75" height="75" />
+				<figcaption>Pablo Molina</figcaption>
+			</figure>
+			<ul class="social">
+									<li class="Google+">
+						<i class="icon-google-plus"></i>
+						<a href="https://plus.google.com/117214944861012231268/" target="_blank">Google+</a>
+					</li>
+									<li class="GitHub">
+						<i class="icon-github"></i>
+						<a href="https://github.com/p2kmgcl" target="_blank">GitHub</a>
+					</li>
+									<li class="Twitter">
+						<i class="icon-twitter"></i>
+						<a href="https://twitter.com/#!/p2kmgcl" target="_blank">Twitter</a>
+					</li>
+									<li class="Facebook">
+						<i class="icon-facebook"></i>
+						<a href="https://www.facebook.com/p2kmgcl" target="_blank">Facebook</a>
+					</li>
+									<li class="LinkedIn">
+						<i class="icon-linkedin"></i>
+						<a href="http://es.linkedin.com/pub/pablo-molina/34/b06/180" target="_blank">LinkedIn</a>
+					</li>
+									<li class="LastFm">
+						<i class="icon-music"></i>
+						<a href="http://www.lastfm.es/user/p2kmgcl" target="_blank">LastFm</a>
+					</li>
+									<li class="DeviantArt">
+						<i class="icon-pencil"></i>
+						<a href="http://p2kmgcl.deviantart.com/" target="_blank">DeviantArt</a>
+					</li>
+									<li class="Youtube">
+						<i class="icon-facetime-video"></i>
+						<a href="http://www.youtube.com/p2kmgcl" target="_blank">Youtube</a>
+					</li>
+							</ul>
+		</div>
+	</aside>    <section id="mainContent">
+        <h1>Contenido principal</h1>
+        <article class="entry single General cover">
+            <header class="entryHeader">
+                <h1 class="title">Antes de saludar al mundo (introducción a la programación)</h1>
+                <abbr class="published" title="2011-10-09T00:00:00">09/10/2011</abbr>
+                    
+                                    <figure class="cover"><img src="http://1.bp.blogspot.com/-mDFwSjxq-AM/TpFvWqQWh7I/AAAAAAAAAWY/-YHg8IVN2IE/s320/__CODE___C_by_webblaster48.png" alt="Logotipo del lenguaje de programación C" title="Logotipo del lenguaje de programación C" /></figure>
+                            </header>
+            <section class="entryContent">
+                <p>Muchas guías empiezan con una típica "presentacion" al lenguaje que vamos a aprender con un texto tal que así:</p>
+<div class="codehilite"><pre><span class="c">#include &lt;stdio.h&gt;</span>
+
+<span class="n">int</span> <span class="n">main</span><span class="p">(){</span>
+    <span class="nb">printf</span><span class="p">(</span><span class="s">&quot;Hola Mundo&quot;</span><span class="p">);</span>
+    <span class="k">return</span> 0<span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Pero antes de nada hay que preguntar: ¿qué son todas esas letras? ¿qué son esos comandos y por qué se colocan de esa manera? En este post voy a hacer una introducción al lenguaje de programación C y a la programación en general.</p>
+<h1>¿Qué es un lenguaje de programación?</h1>
+<p>Según la wikipedia: </p>
+<blockquote>
+<p>Un lenguaje de programación es un idioma artificial diseñado para expresar computaciones que pueden ser llevadas a cabo por máquinas como las computadoras. Pueden usarse para crear programas que controlen el comportamiento físico y lógico de una máquina, para expresar algoritmos con precisión, o como modo de comunicación humana.1 Está formado por un conjunto de símbolos y reglas sintácticas y semánticas que definen su estructura y el significado de sus elementos y expresiones. Al proceso por el cual se escribe, se prueba, se depura, se compila y se mantiene el código fuente de un programa informático se le llama programación.</p>
+</blockquote>
+<p>Esto es, un lenguaje de programación no es más que una serie de instrucciones que nosotros escribimos y que un ordenador es capaz de ejecutar cuantas veces se quiera.</p>
+<p>Es importante que para que un lenguaje sea considerado "de programación" debe poder tener diferentes salidas en función de los parámetros de entrada que se le pase, por ello un lenguaje como HTML no es programado, ya que su función no es procesar datos, sino añadir información semántica a un texto.</p>
+<h1>Tipos de lenguajes</h1>
+<h2>Según su ejecución</h2>
+<p>En general existen dos tipos de lenguajes de programación: los compilados y los interpretados. (También existen lenguajes semicompilados pero eso es algo que se escapa de la introducción).</p>
+<p>Su diferencia reside en qué es lo que tenemos que hacer con el código (véase el de más arriba) una vez que lo tenemos escrito, formando la siguiente clasificación.</p>
+<h3>Compilados</h3>
+<p>Existen unos programas llamados compiladores que se encargan de traducir la información de nuestro programa al lenguaje de los ordenadores: el sistema de numeración binario. De forma que lo transforma en un ejecutable repleto de unos y ceros que resulta ilegible y no digamos escribible para un ser humano. Este tipo de lenguajes guardan la ventaja de ocupar un espacio mínimo una vez compilados, pero la desventaja de que a no ser que aportemos el código fuente será imposible que otros vean como está hecho. Además para la mayoría de los lenguajes compilados necesitaremos una compilación distinta según el entorno en el que ejecutemos el programa (Windows, MACOS o Linux, 32 o 64 bits, MAC o PC... ).</p>
+<blockquote>
+<p>Los que no requieran distintas compilaciones serán llamados multiplataforma.</p>
+</blockquote>
+<h3>Interpretados</h3>
+<p>Estos lenguajes precisan de un intérprete que examina su contenido y lo ejecuta linealmente, obteniendo el resultado del programa desde el código fuente.</p>
+<h2>Según sus variables</h2>
+<p>Según la forma en la que el lenguaje <em>trata</em> a sus variables, distinguimos entre lenguajes tipados y no tipados. Bien, para comprender está clasificación solo tenéis que saber que una variable no es más que <em>algo</em> que guarda un dato (después ahondaremos más en este asunto). Por ejemplo en C:</p>
+<div class="codehilite"><pre><span class="n">int</span>    <span class="n">var1</span><span class="p">=</span>12<span class="p">;</span>
+<span class="n">string</span> <span class="n">var2</span><span class="p">=</span>&quot;<span class="n">Hola</span>&quot;<span class="p">;</span>
+</pre></div>
+
+
+<p>En este ejemplo la variable <code>var1</code> tiene en su interior un número entero, el valor <code>12</code> y la variable <code>var2</code> tiene una cadena de caracteres con el valor <code>Hola</code>. Cada una en su declaración (primera vez que escribimos la variable tiene escrito el tipo de variable. Sin embargo en JavaScript:</p>
+<div class="codehilite"><pre><span class="n">var</span> <span class="n">var1</span><span class="p">=</span>12<span class="p">;</span>
+<span class="n">var</span> <span class="n">var2</span><span class="p">=</span>&quot;<span class="n">Hola</span>&quot;<span class="p">;</span>
+</pre></div>
+
+
+<p>No es necesario declarar de qué tipo es nuestra variable, sino que lo interpreta según el valor que tenga. En este ejemplo var1 y var2 siguen siendo de tipos entero y cadena, sólo que no tenemos que declararlo. Además al ejecutar el siguiente código en cada uno de los lenguajes (asignar el valor de var2 a var1):</p>
+<div class="codehilite"><pre><span class="n">var1</span><span class="p">=</span><span class="n">var2</span><span class="p">;</span>
+</pre></div>
+
+
+<p>En C nos daría un error por ser variables de distinto tipo, sin embargo en JavaScript se haría sin problema y var1 pasaría a ser una variable entera con el valor 12.
+Aparentemente parece que la forma más sencilla de programar es usando un lenguaje no tipado como JavaScript y olvidarnos del tipo de variable pero existen varias razones por las que podemos apostar por un lenguaje tipado:</p>
+<ul>
+<li>Organización: este es el tema menos importante pero al leer nuestro código, resulta más fácil que el lenguaje nos "obligue" a ser ordenados con nuestras variables, no cambiando continuamente el tipo de ésta.</li>
+<li>Optimización: es cierto que un lenguaje no tipado está optimizado para que no existan errores en cuanto a las variables pero, ¿qué ocurre si estamos diseñando un programa para una máquina con pocos recursos? o ¿qué pasa si nuestro programa usa una enorme cantidad de memoria y queremos reducirla todo lo posible? Un lenguaje tipado nos permite usar el tipo de variable que queramos para que estemos usando la memoria precisa para guardarla, mientras que en uno no tipado tendremos que ingeniárnoslas para que las variables se almacenen como queramos.</li>
+</ul>
+<p>Además los lenguajes tipados tienen funciones que nos permiten convertir un dato a otro tipo para así poder obtener una nueva variable (NO cambiar el tipo de variable, SÍ crear una nueva).</p>
+<p><strong>Notas interesantes</strong></p>
+<blockquote>
+<ul>
+<li>C, siendo un lenguaje tipado, nos permite optimizar hasta tal punto que podemos crear variables que usen bloques de memoria del tamaño que nos de la gana (dentro de la disponible), desde un simple bit, hasta cientos o miles de megabytes.</li>
+<li>Hay lenguajes que consienten cierta conversión de variables, como la de pasar números enteros a reales (pero no al revés).</li>
+<li>En los lenguajes no tipados, ¡cuidado con la declaración de tus variables! una variable <code>var=12</code> será de tipo entero, pero una <code>var=12.0</code> será de tipo real (datos que ocupan el doble de memoria).</li>
+</ul>
+</blockquote>
+            </section>
+            <footer class="entryFooter">
+                <section class="tags">
+                    <h1><i class="icon-tags"></i>Etiquetas</h1>
+                    <ul>                        <li><a href="../../tag/destino-c.html">Destino... C</a></li>
+                                            <li><a href="../../tag/destino-pro.html">Destino... Pro</a></li>
+                                            <li><a href="../../tag/guia-basica.html">Guia Básica</a></li>
+                                            <li><a href="../../tag/programacion.html">Programación</a></li>
+                    </ul>
+                </section>
+                <section class="comments">
+                    <h1>Comentarios</h1>
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                        var disqus_shortname = 'p2kmgcl',
+                            disqus_identifier = '/2011/10/antes-de-saludar-al-mundo-introduccion.html';
+                        (function() {
+                            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </section>
+            </footer>
+        </article>
+    </section>
+    <footer id="mainFooter">        <section id="license">
+            <h1>Licencia</h1>
+            <figure>
+                <img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Licencia Creative Commons By" title="Licencia Creative Commons By" />
+                <figcaption>Todo esto es tuyo, tan solo recuerda mi nombre.</figcaption>
+            </figure>
+        </section>
+        <section id="ownerInfo">
+            <h1>Propietario</h1>
+            <span>Administrador, propietario y diseñador: Pablo Molina &lt;<a href="mailto:p2kmgcl@gmail.com">p2kmgcl@gmail.com</a>&gt;.</span>
+        </section>
+        <section id="webTags">
+            <h1>Etiquetas de la web</h1>
+            <ul>
+                <li><a href="http://www.w3.org/html/logo/"><img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-graphics-performance-semantics.png" width="229" height="64" alt="HTML5 Powered with CSS3 / Styling, Graphics, 3D &amp; Effects, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Graphics, 3D &amp; Effects, Performance &amp; Integration, and Semantics"></a></li>
+                <li><a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="¡CSS Válido!" /></a></li>
+            </ul>
+        </section>
+    </footer>
+
+    <script src="../../theme/scripts/vendor/modernizr.min.js"></script>
+    <script src="../../theme/scripts/vendor/jquery.min.js"></script>
+    <script src="../../theme/scripts/main.js"></script>
+</body>
+</html>
