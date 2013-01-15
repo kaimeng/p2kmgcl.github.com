@@ -117,7 +117,7 @@ a {
     cursor: pointer;
     opacity: 0.7;
     transition: ease 0.3s;
-    transition-propery: color, background-color, box-shadow, max-height, padding, margin, opacity;
+    transition-property: color, background-color, box-shadow, max-height, padding, margin, opacity;
     overflow: hidden;
     max-height: 10em;
 }
