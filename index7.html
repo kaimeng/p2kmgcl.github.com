@@ -5,22 +5,27 @@
 	</title>
 	<meta name="viewport" content="width=device-width"/>
 
-	<link href="http://feeds.p2kmgcl.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="p2kmgcl Full RSS Feed" />	<link href="http://feeds.p2kmgcl.com/feeds/main.rss.xml" type="application/rss+xml" rel="alternate" title="p2kmgcl RSS Feed" />	<link href="http://feeds.p2kmgcl.com/feeds/category-.rss.xml" type="application/rss+xml" rel="alternate" title="p2kmgcl Categories RSS Feed" />	
+	<link href="http://p2kmgcl.com/feeds/all.rss" type="application/rss+xml" rel="alternate" title="p2kmgcl Full RSS Feed" />
 	<link rel="stylesheet" href="./theme/styles/codehilite.css" />
 	<link rel="stylesheet" href="./theme/styles/font-awesome.min.css" />
 	<link rel="stylesheet" href="./theme/styles/font-awesome-ie7.min.css" />
 	<link rel="stylesheet" href="./theme/styles/themes/loremipsum.css" />
 
 	<script src="./theme/scripts/vendor/prefixfree.min.js"></script>
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-17072152-2']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
 </head>
 
 <body>
-	<article class="alert">
-		<i class="icon-info-sign"></i>
-		<i class="icon-remove-sign"></i>
-		<h1>Bienvenido a mi web</h1>
-		Todavía estoy terminando la mudanza desde blogger, así que faltan algunas entradas. Si echas en falta algo, busca en <a href="http://p2kmgcl.blogspot.com" target="_blank">mi antiguo blog</a>.
-	</article>
 	<header id="mainHeader">
 		<h1><a href=".">p2kmgcl</a></h1>
 		<nav id="mainMenu">
@@ -45,6 +50,10 @@
 				<figcaption>Pablo Molina</figcaption>
 			</figure>
 			<ul class="social">
+				<li class="rss">
+					<i class="icon-rss"></i>
+					<a href="http://p2kmgcl.com/feeds/all.rss" type="application/rss+xml" target="_blank">RSS</a>
+				</li>
 									<li class="Google+">
 						<i class="icon-google-plus"></i>
 						<a href="https://plus.google.com/117214944861012231268/" target="_blank">Google+</a>
@@ -85,127 +94,200 @@
         </header>
             <article class="entry list General cover">
         <header class="entryHeader">
-            <h1 class="title"><a href="./2011/10/code-is-poetry.html" rel="bookmark" title="Enlace permanente a Obteniendo una web mediante un script">Obteniendo una web mediante un script</a></h1>
-            <abbr class="published" title="2011-10-11T00:00:00">11/10/2011</abbr>
+            <h1 class="title"><a href="./2011/11/como-anadir-tu-rss-un-canal-o-usuario.html" rel="bookmark" title="Enlace permanente a Como añadir a tu RSS un canal o usuario de Youtube">Como añadir a tu RSS un canal o usuario de Youtube</a></h1>
+            <abbr class="published" title="2011-11-05T00:00:00">05/11/2011</abbr>
                 
-                            <figure class="cover"><img src="http://2.bp.blogspot.com/-DgtTMiS-bQs/TpGj7b5BayI/AAAAAAAAAWg/vT5pduqc3Zk/s320/code-is-poetry.jpg" alt="Texto 'Code is Poetry' sobre fondo negro" title="Texto 'Code is Poetry' sobre fondo negro" /></figure>
+                            <figure class="cover"><img src="http://3.bp.blogspot.com/-GKVo4Pri8Fo/TrUf3BO_WRI/AAAAAAAAAjs/HuF8hN21C-k/s640/Sin+t%25C3%25ADtulo.png" alt="Muestra de la página a la que hay que acceder" title="Muestra de la página a la que hay que acceder" /></figure>
                     </header>
         <section class="entryContent">
-            <p>Hoy mi novia me ha dicho que estaba copiando el texto de una web para que su padre tuviera unos apuntes offline en un documento de texto. Sorpresa la mía cuando he visto que dicha web tenía 11 secciones, y cada sección tenía unos 30 capítulos dentro (vamos que estaba mas cerca de quedarse sin mano que de copiarla entera).</p>
-<p>El caso es que he visto que la url tenía siempre la misma estructura, así que he hecho un script que le ha descargado la estructura de documentos para poder leerlos sin problemas:</p>
-<div class="codehilite"><pre><span class="c">#!/bin/csh</span>
-
-@ <span class="nv">seccion</span> <span class="o">=</span> 1
-@ <span class="nv">capitulo</span> <span class="o">=</span> 1
-<span class="nb">set </span><span class="nv">url1</span> <span class="o">=</span> <span class="s2">&quot;http://www.eccpn.aibarra.org/temario/seccion&quot;</span>
-<span class="nb">set </span><span class="nv">url2</span> <span class="o">=</span> <span class="s2">&quot;/capitulo&quot;</span>
-<span class="nb">set </span><span class="nv">url3</span> <span class="o">=</span> <span class="s2">&quot;/capitulo&quot;</span>
-<span class="nb">set </span><span class="nv">url4</span> <span class="o">=</span> <span class="s2">&quot;.htm&quot;</span>
-
-<span class="k">while</span> <span class="o">(</span> <span class="nv">$seccion</span> &lt; 15 <span class="o">)</span>
-    mkdir <span class="s2">&quot;Seccion $seccion&quot;</span>
-    <span class="nb">echo</span> <span class="s2">&quot;Sec ...</span></pre></div>
+            <p>Para aquellos que no uséis el RSS para leer noticias esto es sonará a chino, pero es una forma muy cómoda de llevar un control de las noticias que queremos leer (para los que no lo hayáis probado nunca, os recomiendo pasar por <a href="https://google.es/reader">Google Reader</a> y darle una oportunidad.</p>
+<p>Pues bien, para añadir cualquier dato de youtube a tu rss tenemos que visitar la <a href="http://gdata.youtube.com/demo/index.html">web de datos de youtube</a>. Aquí nos aparecen bastantes opciones para personalizar los canales que queremos seguir, yo voy a mostrar un ejemplo de como añadir los vídeos de problemas de análisis de mi profesor <a href="https://sites.google.com/site/pacorrok/">Paco Roca</a>.</p>
+<p>Para este caso tenemos que marcar la opción de subidas (Uploads) y escribir el nombre del usuario al que queremos seguir (en este caso ...</p>
         </section>
         <footer class="entryFooter">
-            <a href="./2011/10/code-is-poetry.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
+            <a href="./2011/11/como-anadir-tu-rss-un-canal-o-usuario.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
         </footer>
     </article>
     <article class="entry list General cover">
         <header class="entryHeader">
-            <h1 class="title"><a href="./2011/10/busqueda-secuencial-algoritmo.html" rel="bookmark" title="Enlace permanente a Búsqueda Secuencial (algoritmo, explicación e implementación genérica)">Búsqueda Secuencial (algoritmo, explicación e implementación genérica)</a></h1>
-            <abbr class="published" title="2011-10-10T00:00:00">10/10/2011</abbr>
+            <h1 class="title"><a href="./2011/11/nuevo-aspecto-de-google-reader.html" rel="bookmark" title="Enlace permanente a Nuevo aspecto de google reader">Nuevo aspecto de google reader</a></h1>
+            <abbr class="published" title="2011-11-01T00:00:00">01/11/2011</abbr>
                 
-                            <figure class="cover"><img src="http://1.bp.blogspot.com/-xvBGQfnVU8g/TpF3W0Uu8AI/AAAAAAAAAWc/rBnqztURpTo/s400/656px-Linear_sorption_isotherm.svg.png" alt="Muestra de la eficiencia de la búsqueda secuencial" title="Muestra de la eficiencia de la búsqueda secuencial" /></figure>
+                            <figure class="cover"><img src="http://3.bp.blogspot.com/-c3zv2frAK4c/Tq_-rF2pHSI/AAAAAAAAAi8/ymZ87LtJsuw/s1600/Sin+t%25C3%25ADtulo.png" alt="Nuevo aspecto de Google Reader con pequeñas modificaciones" title="Nuevo aspecto de Google Reader con pequeñas modificaciones" /></figure>
+                    </header>
+        <section class="entryContent">
+            <p>Yo, desde casita, apruebo el nuevo aspecto de google reader que la verdad me parece que encaja bastante con el nuevo aspecto de sus aplicaciones en general. No obstante, he creado una pequeña modificación con CSS3 que le da un aspecto para mi gusto más atractivo:</p>
+<p><img alt="" src="http://2.bp.blogspot.com/-Itq2yp7R5Tc/Tq_-qRHibaI/AAAAAAAAAi4/mfJJOtqXs-8/s640/Sin+t%25C3%25ADtulo3.png" /></p>
+<p>Aquí está el código que he usado para la modificación:</p>
+<div class="codehilite"><pre><span class="nf">#top-bar</span><span class="p">{</span>
+   <span class="k">border-bottom</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+   <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">-10px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#logo-container</span><span class="p">{</span>
+   <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#search</span><span class="p">{</span>
+   <span class="k">margin-left</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#viewer-header</span><span class="p">{</span>
+   <span class="k">height</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+   <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+   <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+   <span class="k">margin</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#viewer-header-container</span><span class="p">{</span>
+   <span class="k">border-top</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+   <span class="k">border-bottom</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+   <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+   <span class="k">padding-left</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+   <span class="k">margin</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#title-and-status-holder</span><span class="p">{</span>
+   <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#chrome-view-links</span><span class="p">{</span>
+   <span class="k">position</span><span class="o">:</span> <span class="k">fixed</span><span class="p">;</span>
+   <span class="k">right</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+   <span class="k">top</span><span class="o">:</span> <span class="m">45px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#entries</span><span class="p">{</span>
+   <span class="k">text-align</span><span class="o">:</span> <span class="k">justify</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.entry-title</span><span class="p">{</span>
+   <span class="k">text-align</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.entry-title-link</span><span class="o">,</span> <span class="nc">.entry-title-link</span> <span class="o">*</span><span class="p">{</span>
+   <span class="k">padding-right</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+   <span class="k">text-align</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.card.card-common</span><span class="p">{</span>
+   <span class="k">max-width</span><span class="o">:</span> <span class="m">660px</span><span class="p">;</span>
+   <span class="k">padding</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+   <span class="k">margin</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+   <span class="k">border</span><span class="o">:</span> <span class="k">dashed</span> <span class="k">thin</span> <span class="n">grey</span><span class="p">;</span>
+   <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.entry ...</span></pre></div>
+        </section>
+        <footer class="entryFooter">
+            <a href="./2011/11/nuevo-aspecto-de-google-reader.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
+        <header class="entryHeader">
+            <h1 class="title"><a href="./2011/10/radix-sort-y-su-magnifica-ordenacion.html" rel="bookmark" title="Enlace permanente a Radix Sort y su magnífica ordenación por cubetas">Radix Sort y su magnífica ordenación por cubetas</a></h1>
+            <abbr class="published" title="2011-10-14T00:00:00">14/10/2011</abbr>
+                
+                            <figure class="cover"><img src="http://3.bp.blogspot.com/-HizowRgez3A/TpHChO5xXGI/AAAAAAAAAWs/kM6dEAlCy2I/s1600/bucket_sort_2.png" alt="Muestra de las cubetas que usa el algoritmo" title="Muestra de las cubetas que usa el algoritmo" /></figure>
+                    </header>
+        <section class="entryContent">
+            <p>La ordenación Radix se basa en la clasificación de los datos que queremos ordenar por una clave. Dicha clave ha de ser una característica de cada dato que pueda ser descompuesta el elementos más pequeños que permitan clasificar los elementos poco a poco. Suponiendo los números enteros, la clave se tomaría como las cifras.</p>
+<h1>Explicación</h1>
+<p>Supongamos un vector de elementos sencillo con números del 0 al 99 que queremos ordenar, como por ejemplo <code>91 35 25 79 17 1</code>.</p>
+<h1>Primer paso: Creando las cubetas</h1>
+<p>Para ordenar los elementos tenemos que crear un número finito de cubetas, de forma que en cada cubeta los elementos estén relacionados por la clave y que así podamos separarlos. Por ello en nuestro caso, como la clave son las cifras ...</p>
+        </section>
+        <footer class="entryFooter">
+            <a href="./2011/10/radix-sort-y-su-magnifica-ordenacion.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
+        <header class="entryHeader">
+            <h1 class="title"><a href="./2011/10/ordenacion-por-seleccion-explicacion-e.html" rel="bookmark" title="Enlace permanente a Ordenación por selección (explicación e implementación)">Ordenación por selección (explicación e implementación)</a></h1>
+            <abbr class="published" title="2011-10-13T00:00:00">13/10/2011</abbr>
+                
+                            <figure class="cover"><img src="http://1.bp.blogspot.com/-LvexjstZmqU/TpHBwl-kG0I/AAAAAAAAAWo/FvxOyfgtnhs/s320/seleccion.gif" alt="Muestra el funcionamiento del algoritmo" title="Muestra el funcionamiento del algoritmo" /></figure>
+                    </header>
+        <section class="entryContent">
+            <p>Este algoritmo de eficiencia lineal es adecuado para conjuntos relativamente pequeños. Hace n (número de elementos del vector) pasadas eliminando en cada una el elemento más pequeño encontrado y colocándolo al principio.</p>
+<h1>Implementación en C (enteros)</h1>
+<div class="codehilite"><pre><span class="cm">/**</span>
+<span class="cm"> * @brief Procedimiento para ordenacion por seleccion genérica</span>
+<span class="cm"> * @param vector Vector de elementos para ordenar</span>
+<span class="cm"> * @param tamv Número de elementos del vector</span>
+<span class="cm"> */</span>
+<span class="k">void</span> <span class="n">ordenacion_Seleccion</span><span class="p">(</span><span class="k">int</span> <span class="o">*</span><span class="n">v</span><span class="p">,</span> <span class="k">int</span> <span class="n">tamv</span><span class="p">){</span>
+    <span class="k">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>                <span class="c1">//&lt; Variables contador</span>
+    <span class="k">int</span> <span class="n">posmin</span><span class="p">;</span>             <span class="c1">//&lt; Posición del próximo elemento que se cambiará</span>
+    <span class="k">int</span> <span class="n">min</span><span class="p">;</span>                <span class="c1">//&lt; Variable auxiliar para cambiar un elemento</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mh">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">tamv</span><span class="o">-</span><span class="mh">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">min</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">posmin</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mh">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">tamv</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;</span><span class="n">min</span><span class="p">){</span>
+                <span class="n">min</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+                <span class="n">posmin</span><span class="o">=</span><span class="n">j</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">v</span><span class="p">[</span><span class="n">posmin</span><span class="p">]</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="n">min</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h1>Implementación en C (genérico ...</h1>
+        </section>
+        <footer class="entryFooter">
+            <a href="./2011/10/ordenacion-por-seleccion-explicacion-e.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
+        <header class="entryHeader">
+            <h1 class="title"><a href="./2011/10/busqueda-binaria-iterativa-algoritmo.html" rel="bookmark" title="Enlace permanente a Búsqueda Binaria Iterativa (algoritmo, explicación e implementación genérica)">Búsqueda Binaria Iterativa (algoritmo, explicación e implementación genérica)</a></h1>
+            <abbr class="published" title="2011-10-12T00:00:00">12/10/2011</abbr>
+                
+                            <figure class="cover"><img src="http://2.bp.blogspot.com/-94o6-37-CHk/TpHBG96WQaI/AAAAAAAAAWk/RiMVwwNMiIQ/s320/binary_search.png" alt="Demostración del funcionamiento del algoritmo" title="Demostración del funcionamiento del algoritmo" /></figure>
                     </header>
         <section class="entryContent">
             <h1>Datos</h1>
 <ul>
-<li>Eficiencia lineal.</li>
-<li>Examina los elementos de uno en uno</li>
-<li>El conjunto de datos no tiene por qué estar ordenado</li>
-<li>Es adecuada sólo para conjuntos de datos pequeños</li>
-<li>Si el elemento no pertenece al conjunto, éste se recorre entero</li>
+<li>Eficiencia logarítmica.</li>
+<li>Comprueba el elemento de la mitad del conjunto, si no es el buscado, se deshace de la mitad del vector y busca nuevamente en la mitad.</li>
+<li>El conjunto de datos tiene que estar ordenado</li>
+<li>Adecuado para conjuntos grandes de elementos</li>
 </ul>
 <h1>Algoritmo</h1>
-<div class="codehilite"><pre>Funcion busqueda_Secuencial <span class="p">(</span>x:Telemento<span class="p">;</span> A:Tconjunto<span class="p">;</span> tam:Entero<span class="p">)</span>: Entero
+<div class="codehilite"><pre>Función Búsqueda_Binaria <span class="p">(</span>x:Telemento<span class="p">;</span> A:Tconjunto<span class="p">,</span> tam:Entero<span class="p">)</span>: Tposicion<span class="p">;</span>
 Variables
-     i: Entero
+    bajo<span class="p">,</span> alto<span class="p">,</span> mitad: Entero<span class="p">;</span>
 Inicio
-     i<span class="o">&lt;-</span><span class="m">1</span>
-     Mientras <span class="p">(</span>i<span class="o">&lt;=</span>tam<span class="p">)</span> hacer
-          Si A<span class="p">[</span>i<span class="p">]</span><span class="o">==</span>x Entonces
-               Devolver i
-          Si_No
-               i<span class="o">&lt;-</span>i<span class="o">+</span><span class="m">1</span>
-          Fin_si
-     Fin_Mientras
-     Devolver <span class="m">-1</span>
-Fin
+    bajo<span class="o">&lt;-</span>A<span class="p">[</span><span class="m">1</span><span class="p">];</span>
+    alto<span class="o">&lt;-</span>tam<span class="p">;</span>
+    encontrado<span class="o">&lt;-</span>falso<span class="p">;</span>
+    Mientras <span class="p">(</span>bajo<span class="o">&lt;=</span>alto<span class="p">)</span> hacer
+        mitad<span class="o">&lt;-</span>pos_central<span class="p">(</span>A<span class="p">,</span> bajo<span class="p">,</span> alto<span class="p">);</span>
+        Si x<span class="o">==</span>A<span class="p">[</span>mitad<span class="p">]</span> Entonces
+            Devolver mitad<span class="p">;</span>
+        Si_No
+            Si x<span class="o">&lt;</span>A<span class="p">[</span>mitad<span class="p">]</span> Entonces
+                alto<span class="o">&lt;-</span>mitad<span class="o">-</span><span class="m">1</span>
+            Si_No
+                bajo<span class="o">&lt;-</span>mitad<span class="o">+</span><span class="m">1</span>
+            Fin_Si
+        Fin_Si
+    Fin_Mientras
+Fin.
 </pre></div>
 
 
 <h1>Implementación en C (enteros)</h1>
 <div class="codehilite"><pre><span class="cm">/**</span>
-<span class="cm"> * @brief Funcion de búsqueda secuencial genérica</span>
+<span class="cm"> * @brief Funcion de búsqueda binaria iterativa para enteros</span>
 <span class="cm"> * @param a Elemento a buscar</span>
-<span class="cm"> * @param vector Vector de elementos donde buscar</span>
-<span class="cm"> * @param tamv Número de elementos del vector</span>
-<span class="cm"> * @return Devuelve la posición del elemento si lo encuentra, -1 si no.</span>
-<span class="cm"> */</span>
-<span class="kt">int</span> <span class="n">busqueda_Secuencial</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">vector</span><span class="p">,</span> <span class="kt">int</span> <span class="n">tamv</span><span class="p">){</span>
-    <span class="kt">int ...</span></pre></div>
+<span class="cm"> * @param vector Vector de elementos donde buscar (ha de ...</span></pre></div>
         </section>
         <footer class="entryFooter">
-            <a href="./2011/10/busqueda-secuencial-algoritmo.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
-        </footer>
-    </article>
-    <article class="entry list General cover">
-        <header class="entryHeader">
-            <h1 class="title"><a href="./2011/10/antes-de-saludar-al-mundo-introduccion.html" rel="bookmark" title="Enlace permanente a Antes de saludar al mundo (introducción a la programación)">Antes de saludar al mundo (introducción a la programación)</a></h1>
-            <abbr class="published" title="2011-10-09T00:00:00">09/10/2011</abbr>
-                
-                            <figure class="cover"><img src="http://1.bp.blogspot.com/-mDFwSjxq-AM/TpFvWqQWh7I/AAAAAAAAAWY/-YHg8IVN2IE/s320/__CODE___C_by_webblaster48.png" alt="Logotipo del lenguaje de programación C" title="Logotipo del lenguaje de programación C" /></figure>
-                    </header>
-        <section class="entryContent">
-            <p>Muchas guías empiezan con una típica "presentacion" al lenguaje que vamos a aprender con un texto tal que así:</p>
-<div class="codehilite"><pre><span class="c">#include &lt;stdio.h&gt;</span>
-
-<span class="n">int</span> <span class="n">main</span><span class="p">(){</span>
-    <span class="nb">printf</span><span class="p">(</span><span class="s">&quot;Hola Mundo&quot;</span><span class="p">);</span>
-    <span class="k">return</span> 0<span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<p>Pero antes de nada hay que preguntar: ¿qué son todas esas letras? ¿qué son esos comandos y por qué se colocan de esa manera? En este post voy a hacer una introducción al lenguaje de programación C y a la programación en general.</p>
-<h1>¿Qué es un lenguaje de programación?</h1>
-<p>Según la wikipedia: </p>
-<blockquote>
-<p>Un lenguaje de programación es un idioma artificial diseñado para expresar computaciones que pueden ser llevadas a cabo por máquinas como las computadoras. Pueden usarse para crear programas que controlen el comportamiento físico y lógico de una máquina, para expresar algoritmos con precisión, o ...</p></blockquote>
-        </section>
-        <footer class="entryFooter">
-            <a href="./2011/10/antes-de-saludar-al-mundo-introduccion.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
-        </footer>
-    </article>
-    <article class="entry list General cover">
-        <header class="entryHeader">
-            <h1 class="title"><a href="./2011/09/cuarta-temporada-de-true-blood.html" rel="bookmark" title="Enlace permanente a Cuarta temporada de True Blood">Cuarta temporada de True Blood</a></h1>
-            <abbr class="published" title="2011-09-29T00:00:00">29/09/2011</abbr>
-                
-                            <figure class="cover"><img src="http://2.bp.blogspot.com/-I6B8Olv7jmg/ToRnLg1RpWI/AAAAAAAAAWI/SCD1CKRrprE/s320/truebloodcartel.jpg" alt="Anuncio de la serie True Blood" title="Anuncio de la serie True Blood" /></figure>
-                    </header>
-        <section class="entryContent">
-            <p>Hace nada que comenzó la nueva temporada de true blood (la cuarta) y esta tarde me toca maratón con mi novia. Digo maratón pero son los tres primeros capítulos, a ver cómo está de interesante. Aquí dejo una sinopsis de la serie por si a alguien le interesa empezar a verla:</p>
-<blockquote>
-<p>En un pequeño pueblo del estado de Lousiana, la aparición de una serie de brutales asesinatos hace peligrar la convivencia entre vampiros y seres humanos, que hasta entonces han sido capaces de convivir en armonía gracias a una bebida japonesa compuesta de sangre sintética. Dicha convivencia no era bienvenida por todos, pues entre los vampiros desconfían y reniegan aquellos que prefieren seguir alimentándose de sangre humana, y por otro lado algunos hombres tampoco la ...</p></blockquote>
-        </section>
-        <footer class="entryFooter">
-            <a href="./2011/09/cuarta-temporada-de-true-blood.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
+            <a href="./2011/10/busqueda-binaria-iterativa-algoritmo.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
         </footer>
     </article>
 <p class="paginator">
                         <a href="./index6.html"><i class="icon-caret-left"></i></a>
-                Página 7 de 7
+                Página 7 de 8
+            <a href="./index8.html"><i class="icon-caret-right"></i></a>
     </p>
     </section>
     <footer id="mainFooter">        <section id="license">

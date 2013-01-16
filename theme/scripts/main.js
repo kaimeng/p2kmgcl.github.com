@@ -82,7 +82,8 @@ p2kmgcl = {
             var _href = $(this).attr('href');
 
             // Enlace interno, hagamos magia :)
-            if (!/(http|https):\/\/.*/.test(_href)) {
+            if (!/(http|https):\/\/.*/.test(_href) &&
+                _href !== "javascript:void(0)") {
 
                 // Transformamos la cadena
                 if (!/.*\.(html|php)/.test(_href)) {

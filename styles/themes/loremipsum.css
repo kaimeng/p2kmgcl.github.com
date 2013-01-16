@@ -252,6 +252,7 @@ a {
                     left: -40%;
                     color: black;
                 }
+                    #vcard > .social > li:hover > i.icon-rss { color: #F99000; }
                     #vcard > .social > li:hover > i.icon-google-plus { color: #D34836; }
                     #vcard > .social > li:hover > i.icon-github { color: #000; }
                     #vcard > .social > li:hover > i.icon-twitter { color: #5DB5DE; }
@@ -260,6 +261,13 @@ a {
                     #vcard > .social > li:hover > i.icon-music { color: #FC0807; }
                     #vcard > .social > li:hover > i.icon-pencil { color: #9E7070; }
                     #vcard > .social > li:hover > i.icon-facetime-video { color: #AF2B26; }
+
+                    @keyframes socialRainbowRSS {
+                        0% { color: #444; }
+                        50% { color: #F99000; }
+                        100% { color: #444; }
+                    }
+                    #vcard > .social > li > i.icon-rss { animation: socialRainbowRSS 2s ease-in-out 0.7s 1; }
 
                     @keyframes socialRainbowGooglePlus {
                         0% { color: #444; }
@@ -509,6 +517,13 @@ a {
             margin: 0;
         }
 
+    .entryContent code {
+        background-color: #eefafc;
+        border: solid thin #c2ecf5;
+        padding: 0.1em;
+        border-radius: 0.25em;
+    }
+
     .entryContent > embed,
     .entryContent > iframe {
         border: solid #aaa thin;
@@ -615,16 +630,25 @@ a {
             list-style: none;
             padding: 0;
             padding-left: 5em;
-            margin-top: 3em;
+            margin-top: 0;
             margin-bottom: 0;
             position: relative;
         }
 
+        .entryFooter > .share {
+            margin-top: 3em;
+
+        }
+
             .entryFooter > .tags > h1,
-            .entryFooter > .comments > h1 {
+            .entryFooter > .share > a {
                 display: inline-block;
                 margin: 0;
                 font-weight: normal;
+                font-family: 'Fjalla One';
+                font-size: 1.3em;
+                color: #222;
+                border-bottom: none;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -632,6 +656,19 @@ a {
                 .entryFooter > .tags > h1:after {
                     content: ': ';
                 }
+
+            .entryFooter > .share > a {
+                position: relative;
+                margin-bottom: 0.25em;
+            }
+
+                .entryFooter > .share:hover > a {
+                    color: #126272;
+                }
+
+            .entryFooter > .tags > ul {
+                margin-top: 0;
+            }
 
             .entryFooter > .tags > ul > li {
                 display: inline-block;

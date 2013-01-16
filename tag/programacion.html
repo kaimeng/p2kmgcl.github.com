@@ -5,22 +5,27 @@
 	</title>
 	<meta name="viewport" content="width=device-width"/>
 
-	<link href="http://feeds.p2kmgcl.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="p2kmgcl Full RSS Feed" />	<link href="http://feeds.p2kmgcl.com/feeds/main.rss.xml" type="application/rss+xml" rel="alternate" title="p2kmgcl RSS Feed" />	<link href="http://feeds.p2kmgcl.com/feeds/category-.rss.xml" type="application/rss+xml" rel="alternate" title="p2kmgcl Categories RSS Feed" />	
+	<link href="http://p2kmgcl.com/feeds/all.rss" type="application/rss+xml" rel="alternate" title="p2kmgcl Full RSS Feed" />
 	<link rel="stylesheet" href="../theme/styles/codehilite.css" />
 	<link rel="stylesheet" href="../theme/styles/font-awesome.min.css" />
 	<link rel="stylesheet" href="../theme/styles/font-awesome-ie7.min.css" />
 	<link rel="stylesheet" href="../theme/styles/themes/loremipsum.css" />
 
 	<script src="../theme/scripts/vendor/prefixfree.min.js"></script>
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-17072152-2']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
 </head>
 
 <body>
-	<article class="alert">
-		<i class="icon-info-sign"></i>
-		<i class="icon-remove-sign"></i>
-		<h1>Bienvenido a mi web</h1>
-		Todavía estoy terminando la mudanza desde blogger, así que faltan algunas entradas. Si echas en falta algo, busca en <a href="http://p2kmgcl.blogspot.com" target="_blank">mi antiguo blog</a>.
-	</article>
 	<header id="mainHeader">
 		<h1><a href="..">p2kmgcl</a></h1>
 		<nav id="mainMenu">
@@ -45,6 +50,10 @@
 				<figcaption>Pablo Molina</figcaption>
 			</figure>
 			<ul class="social">
+				<li class="rss">
+					<i class="icon-rss"></i>
+					<a href="http://p2kmgcl.com/feeds/all.rss" type="application/rss+xml" target="_blank">RSS</a>
+				</li>
 									<li class="Google+">
 						<i class="icon-google-plus"></i>
 						<a href="https://plus.google.com/117214944861012231268/" target="_blank">Google+</a>
@@ -84,6 +93,37 @@
             <h1><i class="icon-tag"></i>Mostrando etiqueta Programación</h1>
         </header>
             <article class="entry list General cover">
+        <header class="entryHeader">
+            <h1 class="title"><a href="../2013/01/mvc-iintroduccion-y-parte-1-songmodel.html" rel="bookmark" title="Enlace permanente a MVC I: Reproductor de música HTML5 con Backbone. Introducción y Parte I: SongModel">MVC I: Reproductor de música HTML5 con Backbone. Introducción y Parte I: SongModel</a></h1>
+            <abbr class="published" title="2013-01-03T00:00:00">03/01/2013</abbr>
+                
+                            <figure class="cover"><img src="https://lh6.googleusercontent.com/-oZSKLu62A1k/UOTCfG2L8yI/AAAAAAAAjDY/bj61pVTcEEM/s400/4036379423_c08eea8b91_z.jpg" alt="Reproductor de música" title="Reproductor de música" /></figure>
+                    </header>
+        <section class="entryContent">
+            <p>Llevo unos días probando la librería Backbone.js, una librería que implementa el MVC (Modelo Vista Controlador) en JavaScript para proporcionar una abstracción de la información manejada en una aplicación y no tener que guardar todo en el DOM. Esto es especialmente útil cuando quieres manejar datos en el cliente mediante JavaScript, ya que sin abstracciones como ésta puedes acabar haciendo <em>código espagueti</em> sin darte cuenta.</p>
+<p>Si no conocías esta librería y quieres aprender como funciona o cual es la idea de esta estructura en general, te recomiendo que le eches un vistazo a <a href="https://github.com/addyosmani/backbone-fundamentals">Backbone fundamentals</a>, un libro completamente gratuito que merece la pena leer.</p>
+<p>Para probar definitivamente la librería, he intentado hacer algo distinto a la clásica aplicación de lista de tareas que he ...</p>
+        </section>
+        <footer class="entryFooter">
+            <a href="../2013/01/mvc-iintroduccion-y-parte-1-songmodel.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
+        <header class="entryHeader">
+            <h1 class="title"><a href="../2012/08/usando-const-en-c-con-objetos.html" rel="bookmark" title="Enlace permanente a Usando const en C++ con objetos">Usando const en C++ con objetos</a></h1>
+            <abbr class="published" title="2012-08-24T00:00:00">24/08/2012</abbr>
+                
+                            <figure class="cover"><img src="http://3.bp.blogspot.com/-DOgSFKOoCVw/UDdXCheQfPI/AAAAAAAAh5Y/vXVrgJdvNR4/s400/Dibujo.JPG" alt="Logo de C++ con una función que devuelve una referencia constante" title="Logo de C++ con una función que devuelve una referencia constante" /></figure>
+                    </header>
+        <section class="entryContent">
+            <p>Hace una semana y pico <a href="https://plus.google.com/u/0/112373452810480328056/">David</a> me comentó que había estado debatiendo con <a href="https://plus.google.com/u/0/110730426033836231511/">Soraya</a> el uso que tenía el <strong>const</strong> dentro de c++, y si realmente funcionaría bien con objetos en lugar de tipos simples. Para los que no lo sepáis, en el lenguaje c++ y en c los objetos por defecto se "pasan" por copia, es decir, cuando ponemos como parámetro de una función una variable, la función usará una copia de ésta y no la original, dejando a la primera intacta.
+Como he dicho, este comportamiento es solo por defecto y podemos alterarlo usando punteros (una variable que sólo guarda una dirección de memoria, lo cual ocupa bastante menos espacio que la mayoría de los objetos), o, en c++, una referencia, que nos ...</p>
+        </section>
+        <footer class="entryFooter">
+            <a href="../2012/08/usando-const-en-c-con-objetos.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
         <header class="entryHeader">
             <h1 class="title"><a href="../2012/05/sublime-text-un-editor-de-texto-sublime.html" rel="bookmark" title="Enlace permanente a Sublime Text - Un editor de texto sublime">Sublime Text - Un editor de texto sublime</a></h1>
             <abbr class="published" title="2012-05-20T00:00:00">20/05/2012</abbr>
@@ -152,68 +192,8 @@ Para jugar no tenéis más que pinchar en el enlace <strong>Juego</strong> que a
             <a href="../2011/11/woso-el-oso-en-la-web.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
         </footer>
     </article>
-    <article class="entry list General cover">
-        <header class="entryHeader">
-            <h1 class="title"><a href="../2011/10/radix-sort-y-su-magnifica-ordenacion.html" rel="bookmark" title="Enlace permanente a Radix Sort y su magnífica ordenación por cubetas">Radix Sort y su magnífica ordenación por cubetas</a></h1>
-            <abbr class="published" title="2011-10-14T00:00:00">14/10/2011</abbr>
-                
-                            <figure class="cover"><img src="http://3.bp.blogspot.com/-HizowRgez3A/TpHChO5xXGI/AAAAAAAAAWs/kM6dEAlCy2I/s1600/bucket_sort_2.png" alt="Muestra de las cubetas que usa el algoritmo" title="Muestra de las cubetas que usa el algoritmo" /></figure>
-                    </header>
-        <section class="entryContent">
-            <p>La ordenación Radix se basa en la clasificación de los datos que queremos ordenar por una clave. Dicha clave ha de ser una característica de cada dato que pueda ser descompuesta el elementos más pequeños que permitan clasificar los elementos poco a poco. Suponiendo los números enteros, la clave se tomaría como las cifras.</p>
-<h1>Explicación</h1>
-<p>Supongamos un vector de elementos sencillo con números del 0 al 99 que queremos ordenar, como por ejemplo <code>91 35 25 79 17 1</code>.</p>
-<h1>Primer paso: Creando las cubetas</h1>
-<p>Para ordenar los elementos tenemos que crear un número finito de cubetas, de forma que en cada cubeta los elementos estén relacionados por la clave y que así podamos separarlos. Por ello en nuestro caso, como la clave son las cifras ...</p>
-        </section>
-        <footer class="entryFooter">
-            <a href="../2011/10/radix-sort-y-su-magnifica-ordenacion.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
-        </footer>
-    </article>
-    <article class="entry list General cover">
-        <header class="entryHeader">
-            <h1 class="title"><a href="../2011/10/ordenacion-por-seleccion-explicacion-e.html" rel="bookmark" title="Enlace permanente a Ordenación por selección (explicación e implementación)">Ordenación por selección (explicación e implementación)</a></h1>
-            <abbr class="published" title="2011-10-13T00:00:00">13/10/2011</abbr>
-                
-                            <figure class="cover"><img src="http://1.bp.blogspot.com/-LvexjstZmqU/TpHBwl-kG0I/AAAAAAAAAWo/FvxOyfgtnhs/s320/seleccion.gif" alt="Muestra el funcionamiento del algoritmo" title="Muestra el funcionamiento del algoritmo" /></figure>
-                    </header>
-        <section class="entryContent">
-            <p>Este algoritmo de eficiencia lineal es adecuado para conjuntos relativamente pequeños. Hace n (número de elementos del vector) pasadas eliminando en cada una el elemento más pequeño encontrado y colocándolo al principio.</p>
-<h1>Implementación en C (enteros)</h1>
-<div class="codehilite"><pre><span class="cm">/**</span>
-<span class="cm"> * @brief Procedimiento para ordenacion por seleccion genérica</span>
-<span class="cm"> * @param vector Vector de elementos para ordenar</span>
-<span class="cm"> * @param tamv Número de elementos del vector</span>
-<span class="cm"> */</span>
-<span class="k">void</span> <span class="n">ordenacion_Seleccion</span><span class="p">(</span><span class="k">int</span> <span class="o">*</span><span class="n">v</span><span class="p">,</span> <span class="k">int</span> <span class="n">tamv</span><span class="p">){</span>
-    <span class="k">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>                <span class="c1">//&lt; Variables contador</span>
-    <span class="k">int</span> <span class="n">posmin</span><span class="p">;</span>             <span class="c1">//&lt; Posición del próximo elemento que se cambiará</span>
-    <span class="k">int</span> <span class="n">min</span><span class="p">;</span>                <span class="c1">//&lt; Variable auxiliar para cambiar un elemento</span>
-
-    <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mh">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">tamv</span><span class="o">-</span><span class="mh">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
-        <span class="n">min</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="n">posmin</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
-        <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mh">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">tamv</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;</span><span class="n">min</span><span class="p">){</span>
-                <span class="n">min</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
-                <span class="n">posmin</span><span class="o">=</span><span class="n">j</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="n">v</span><span class="p">[</span><span class="n">posmin</span><span class="p">]</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="n">min</span><span class="p">];</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<h1>Implementación en C (genérico ...</h1>
-        </section>
-        <footer class="entryFooter">
-            <a href="../2011/10/ordenacion-por-seleccion-explicacion-e.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
-        </footer>
-    </article>
 <p class="paginator">
-        Página 1 de 2
+        Página 1 de 3
             <a href="../tag/programacion2.html"><i class="icon-caret-right"></i></a>
     </p>
     </section>

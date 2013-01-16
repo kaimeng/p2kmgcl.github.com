@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>p2kmgcl</title><link>http://p2kmgcl.com/</link><description>Piensa, inventa, comparte</description><atom:link href="http://p2kmgcl.com/feeds/main-es.rss" rel="self"></atom:link><lastBuildDate>Thu, 03 Jan 2013 00:00:00 +0100</lastBuildDate><item><title>MVC I: Reproductor de música HTML5 con Backbone. Introducción y Parte I: SongModel</title><link>http://p2kmgcl.com/2013/01/mvc-iintroduccion-y-parte-1-songmodel.html</link><description>&lt;p&gt;Llevo unos días probando la librería Backbone.js, una librería que implementa el MVC (Modelo Vista Controlador) en JavaScript para proporcionar una abstracción de la información manejada en una aplicación y no tener que guardar todo en el DOM. Esto es especialmente útil cuando quieres manejar datos en el cliente mediante JavaScript, ya que sin abstracciones como ésta puedes acabar haciendo &lt;em&gt;código espagueti&lt;/em&gt; sin darte cuenta.&lt;/p&gt;
+&lt;p&gt;Si no conocías esta librería y quieres aprender como funciona o cual es la idea de esta estructura en general, te recomiendo que le eches un vistazo a &lt;a href="https://github.com/addyosmani/backbone-fundamentals"&gt;Backbone fundamentals&lt;/a&gt;, un libro completamente gratuito que merece la pena leer.&lt;/p&gt;
+&lt;p&gt;Para probar definitivamente la librería, he intentado hacer algo distinto a la clásica aplicación de lista de tareas que he visto en todas partes, así que lo que vamos a desarrollar es un reproductor de música que contendrá:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SongModel&lt;/strong&gt;: Un modelo que guarda la información de una canción y permite reproducirla.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PlayerView&lt;/strong&gt;: Un reproductor que mostrará la información de la canción y unos controles para manejar la reproducción. Esta vista además se divide en:&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La clase PlayerView&lt;/strong&gt;: es la que interactúa con el modelo de canción que creamos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La plantilla del reproductor&lt;/strong&gt;: Esto es básicamente HTML + CSS, pero vamos a dedicarle unos minutos para que veáis como usar plantillas con las vistas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ApplicationModel (&amp;amp; View)&lt;/strong&gt;: Una aplicación que básicamente construye los anteriores elementos y los inserta en el DOM.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Primera parte: SongModel&lt;/h1&gt;
+&lt;p&gt;Antes de comenzar debo mencionar algo que seguramente notaréis: aunque en teoría usamos esta librería para poder abstraernos del DOM, el modelo SongModel tendrá un atributo domElement. Puede parecer una contradicción, pero vamos a usarlo exclusivamente para reproducir la canción (ni si quiera lo insertaremos en el DOM), así que la abstracción sigue latente ;).&lt;/p&gt;
+&lt;h2&gt;Estructura de la clase&lt;/h2&gt;
+&lt;p&gt;Primero vamos a definir qué queremos hacer con nuestra canción, creando la estructura de la clase que poco a poco iremos rellenando. Las acciones comunes en una canción son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reproducir la canción.&lt;/li&gt;
+&lt;li&gt;Pausar la reproducción.&lt;/li&gt;
+&lt;li&gt;Seguir la reproducción por donde iba.&lt;/li&gt;
+&lt;li&gt;Detener la reproducción.&lt;/li&gt;
+&lt;li&gt;Cambiar el volumen.&lt;/li&gt;
+&lt;li&gt;Reproducir un instante concreto.&lt;/li&gt;
+&lt;li&gt;Comprobar si la canción se está reproduciendo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ahora creemos la estructura del modelo que nos permitirá hacer todo esto. Para ello creamos diversos métodos para cada una de las acciones que acabamos de mencionar.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nx"&gt;SongModel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;Backbone&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;extend&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+    &lt;span class="c1"&gt;// Soy un constructor ^^&lt;/span&gt;
+    &lt;span class="nx"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{},&lt;/span&gt;
+
+    &lt;span class="nx"&gt;play&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{},&lt;/span&gt;
+    &lt;span class="nx"&gt;togglePause&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{},&lt;/span&gt;
+    &lt;span class="nx"&gt;stop&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{},&lt;/span&gt;
+    &lt;span class="nx"&gt;setVolume&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{},&lt;/span&gt;
+    &lt;span class="nx"&gt;setTime&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{},&lt;/span&gt;
+    &lt;span class="nx"&gt;isPaused&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ahora tenemos que añadir algunos atributos que nos serán útiles para reproducir la canción. Backbone se encarga de almacenarlos cuando son pasados al constructor, pero nosotros vamos a definirlos para asegurarnos de que al menos existen:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nx"&gt;SongModel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;Backbone&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;extend&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+    &lt;span class="nx"&gt;defaults&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;artist&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;albumTitle&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;albumCover&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+
+        &lt;span class="nx"&gt;elapsedTime&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;totalTime&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;volume&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+
+        &lt;span class="nx"&gt;songUrl&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{},&lt;/span&gt;
+        &lt;span class="nx"&gt;domElement&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+
+    &lt;span class="cm"&gt;/** Resto del modelo... */&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;Backbone permite crear un método validates que comprueba en la validez de los atributos, pero vamos a obviarlo por sencillez en la aplicación.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Initialize()&lt;/h2&gt;
+&lt;p&gt;Este método será el primero en ejecutarse cada vez que creemos una instancia de la clase. En nuestro caso lo único que necesitamos es crear un objeto domAudio si no nos lo han pasado:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nx"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;params&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;params&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domElement&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;domElement&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;createElement&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;audio&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Como he dicho antes, en caso de que &lt;code&gt;params.domElement&lt;/code&gt; exista, no necesitamos almacenarlo, Backbone lo hará por nosotros.&lt;/p&gt;
+&lt;h3&gt;Nota: Eventos y fin de reproducción&lt;/h3&gt;
+&lt;p&gt;Una de las muchas ventajas que ofrece Backbone, es el manejo de eventos personalizados. Así con el método &lt;code&gt;trigger()&lt;/code&gt; podemos activar un evento cuando lo creamos oportuno. A lo largo de la aplicación crearemos eventos personalizados que comenzarán por &lt;code&gt;song:&lt;/code&gt;. Este comienzo no es obligatorio, tan solo nos ayuda a mantener un orden en la aplicación.&lt;/p&gt;
+&lt;p&gt;Como primer evento vamos a escuchar el evento &lt;code&gt;ended&lt;/code&gt; del objeto que hemos creado, y relanzarlo como &lt;code&gt;song:end&lt;/code&gt; para notificar que la canción a finalizado.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nx"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;params&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="cm"&gt;/* ... */&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Prepara el evento de fin de reproducción&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;me&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;dom&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;me&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;domElement&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addEventListener&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ended&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;me&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;setTime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="nx"&gt;me&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;trigger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;song:end&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Play()&lt;/h2&gt;
+&lt;p&gt;Lo que haremos en este momento será comprobar si la canción ha sido cargada, y en caso de que no lo haya hecho prepararla y empezar la reproducción cuando esté lista.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nx"&gt;play&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;dom&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;domElement&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// La canción ya se está reproduciendo.&lt;/span&gt;
+    &lt;span class="c1"&gt;// No hace falta hacer nada.&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;paused&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Empezamos la carga de la cancion&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;typeof&lt;/span&gt; &lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;undefined&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;songUrl&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;preload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;auto&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+            &lt;span class="c1"&gt;// Nuestro volumen será un porcentaje (de 0% a 100%)&lt;/span&gt;
+            &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;volume&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;volume&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="c1"&gt;// Mandamos la orden de reproducción al objeto del DOM&lt;/span&gt;
+        &lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;play&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Lanza el evento de reproduccion&lt;/span&gt;
+        &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;trigger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;song:play&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Como vemos hemos lanzado un evento &lt;code&gt;song:play&lt;/code&gt; para que cuando usemos este modelo desde fuera sepamos que efectivamente la reproducción ha empezado. Aún falta un pequeño dato, y es que mientras la canción esté en reproducción, necesitamos saber en que instante de ella nos encontramos. Para esto establecemos un intervalo que lo comprobará:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nx"&gt;play&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;paused&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="cm"&gt;/* ... */&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Guarda el instante de reproducción&lt;/span&gt;
+        &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;me&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;getCurrentTime&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="c1"&gt;// Por si se acaba la reproducción&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;paused&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="nx"&gt;me&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;set&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+                    &lt;span class="s1"&gt;&amp;#39;elapsedTime&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;currentTime&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="c1"&gt;// Haremos esta misma comprobación cada segundo mientras se reproduzca la canción&lt;/span&gt;
+                    &lt;span class="s1"&gt;&amp;#39;elapsedTimeTimeout&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;setTimeout&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;getCurrentTime&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="p"&gt;});&lt;/span&gt;
+
+                &lt;span class="c1"&gt;// Si el total esta listo, lo obtiene&lt;/span&gt;
+                &lt;span class="c1"&gt;// Es posible que este dato tarde en cargar (cagará cuando haya cargado la canción). Por eso en el bucle vamos comprobando si está listo o no.&lt;/span&gt;
+                &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;readyState&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nx"&gt;me&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;totalTime&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="nx"&gt;me&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;totalTime&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;duration&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                &lt;span class="p"&gt;}&lt;/span&gt;
+            &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="nx"&gt;getCurrentTime&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+        &lt;span class="cm"&gt;/* ... */&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;TogglePause()&lt;/h2&gt;
+&lt;p&gt;Con este método podemos y alternando entre pausa y reproducción, pero vamos a añadir un pequeño matiz: una variable booleana &lt;code&gt;forcePause&lt;/code&gt; que intente hacer siempre una pausa (por si queremos intentar detener la reproducción esté o no esté en ejecución). Lanzamos también un evento de pausa para notificaciones externas.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nx"&gt;togglePause&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;forcePause&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;domElement&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;paused&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;forcePause&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;play&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;domElement&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;pause&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="c1"&gt;// Evento de pausa&lt;/span&gt;
+        &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;trigger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;song:pause&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Stop()&lt;/h2&gt;
+&lt;p&gt;Esto es de lo mas sencillo, nos apoyamos en el método anterior para pausar la reproducción, y luego ponemos la canción en el instante 0, ya que es el comportamiento habitual en los reproductores.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nx"&gt;stop&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;togglePause&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;setTime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;SetVolume()&lt;/h2&gt;
+&lt;p&gt;Para cambiar el volumen necesitamos una variable para el nuevo volumen. Aunque el objeto del DOM maneja el volumen con un valor entre 0 y 1, nosotros usaremos un porcentaje, que es bastante más claro de cara al usuario (usaremos algo similar en &lt;code&gt;setTime&lt;/code&gt;).&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nx"&gt;setVolume&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;volume&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;dom&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;domElement&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+        &lt;span class="nx"&gt;volume&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;volume&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Comprobamos si se ha pasado por arriba o por abajo...&lt;/span&gt;
+    &lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;volume&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;volume&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+               &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;volume&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+               &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;volume&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="c1"&gt;// Guardamos el volumen final&lt;/span&gt;
+    &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;volume&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;volume&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Evento de cambio de volumen&lt;/span&gt;
+    &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;trigger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;song:changeVolume&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Opcional: Modificación con &lt;code&gt;alter&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Es una acción lógica querer subir o bajar el volumen sin conocer que valor exacto tiene, por ello añadimos un parámetro opcional &lt;code&gt;alter&lt;/code&gt;, el cual provocará el que volumen pasado se sume al actual. He aquí la implementación y un ejemplo:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nx"&gt;setVolume&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;volume&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;alter&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;volume&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;alter&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="nx"&gt;volume&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;volume&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;volume&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="cm"&gt;/* ... */&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Establecemos el volumen a 50&lt;/span&gt;
+&lt;span class="nx"&gt;setVolume&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Aumentamos el volumen 5 puntos&lt;/span&gt;
+&lt;span class="nx"&gt;setVolume&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="c1"&gt;// Ahora el volumen es 55&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Reducimos el volumen 25 puntos&lt;/span&gt;
+&lt;span class="nx"&gt;setVolume&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="c1"&gt;// Ahora el volumen es 30&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;SetTime()&lt;/h2&gt;
+&lt;p&gt;El cambio de tiempo se comportará de forma similar el cambio de volumen, ya que recibiremos un porcentaje y haremos una regla de tres para determinar a qué segundo se corresponde. También añadimos el parámetro &lt;code&gt;alter&lt;/code&gt; para avanzar/retroceder en la reproducción.&lt;/p&gt;
+&lt;p&gt;En caso de que la canción no se haya cargado por completo no podemos determinar que segundo es, así que no haremos nada.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nx"&gt;setTime&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;time&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;alter&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;totalTime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;totalTime&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;totalTime&lt;/span&gt; &lt;span class="o"&gt;!==&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="c1"&gt;// Transforma el tiempo de porcentaje a segundos&lt;/span&gt;
+        &lt;span class="nx"&gt;time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;totalTime&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="nx"&gt;time&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+        &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;dom&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;domElement&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+            &lt;span class="nx"&gt;time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;alter&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="nx"&gt;time&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;currentTime&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;time&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+        &lt;span class="nx"&gt;dom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;currentTime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;time&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+                        &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;time&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;totalTime&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="nx"&gt;totalTime&lt;/span&gt;
+                        &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;time&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;elapsedTime&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;time&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Evento de cambio de tiempo&lt;/span&gt;
+        &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;trigger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;song:changeTime&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;IsPaused()&lt;/h2&gt;
+&lt;p&gt;Y por último, si el usuario necesita saber si se está reproduciendo, puede usar este método.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nx"&gt;isPaused&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;domElement&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;paused&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Ejemplo final&lt;/h2&gt;
+&lt;p&gt;Y esto es todo por hoy. Si queréis ver un ejemplo de lo que hemos implementado podéis hacerlo en el &lt;a href="http://codepen.io/p2kmgcl/full/ipEFL"&gt;siguiente ejemplo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;En las próximas entradas veremos la implementación de la vista, que hace que el reproductor sea bastante más atractivo. Gracias por vuestra lectura y ¡hasta la próxima!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Portada ~ &lt;a href="http://www.flickr.com/photos/guidosportaal/4036379423/sizes/z/in/photostream/"&gt;Flickr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ejemplo completo ~ &lt;a href="http://codepen.io/p2kmgcl/full/ipEFL"&gt;Codepen&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Pablo Molina</dc:creator><pubDate>Thu, 03 Jan 2013 00:00:00 +0100</pubDate><guid>tag:p2kmgcl.com,2013-01-03:2013/01/mvc-iintroduccion-y-parte-1-songmodel.html</guid><category>Backbone</category><category>CSS</category><category>HTML</category><category>Javascript</category><category>jQuery</category><category>MVC</category><category>MVC1</category><category>Música</category><category>Programación</category><category>Reproductor</category></item><item><title>¿Qué hacer con 679 euros?</title><link>http://p2kmgcl.com/2012/09/que-hacer-con-679-euros.html</link><description>&lt;p&gt;Comenzando esta entrada con una fotografía de un teléfono cogido al azar en Google, hoy os voy a presentar una lista de artículos electrónicos que podéis adquirir por 679€ o menos (esta cifra también ha sido cogida al azar y no tiene ningún tipo de relación el precio del nuevo iPhone 5).&lt;/p&gt;
+&lt;p&gt;En primer lugar hablemos de los artículos más obvios: los móviles. ¿Quién en su sano juicio no desea gastarse casi 700 euros en un bicho tan precioso?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Samsung Galaxy S III&lt;/strong&gt; 16GB (libre, sin ataduras): 535€. Nos sobra para comprarnos un buen pack de accesorios e invitar a todos nuestros amigos a una caña.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Galaxy Nexus&lt;/strong&gt;: 325€. Lo último de Android en tus manos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Xperia Neo V&lt;/strong&gt;: 200€. Un móvil más que decente para disfrutar del sistema operativo de Google.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nokia 1616&lt;/strong&gt;: 28€. Este móvil lo puedes encontrar en simyo libre contratando una línea de prepago sin permanencia ni consumo mínimo. No es un smartphone, pero es un móvil "como los de toa la vida".&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ahora vamos con una lista más suculenta, con gadgets y otras ideas para consumir esta cantidad.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.changers.com/en/shop/eu/products"&gt;&lt;strong&gt;Módulo solar&lt;/strong&gt;&lt;/a&gt;: 91€. Carga móviles y cualquier aparato electrónico con el sol y olvídate de gastar luz.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.camarasreflex.com/camara-panasonic-dmc-fz150.html"&gt;&lt;strong&gt;Cámara Panasonic DMC-FZ150&lt;/strong&gt;&lt;/a&gt;: 397€. Una reflex para los entendidos del mundo de la fotografía.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.system76.com/laptops/model/lemu4"&gt;&lt;strong&gt;Portátil a medida Lemur Ultra&lt;/strong&gt;&lt;/a&gt;: 528€. Un portátil, por-tá-til, creo que no tengo que explicar esto...&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.tomtom.com/es_es/cart/basket.jsp"&gt;&lt;strong&gt;TomTom GoLive&lt;/strong&gt;&lt;/a&gt; con todos los mapas para europa: 280€.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Y por último y no menos importante... &lt;strong&gt;¡Comida!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;13580 chicles/caramelos.&lt;/li&gt;
+&lt;li&gt;6790 palmeras de chocolate.&lt;/li&gt;
+&lt;li&gt;226 McFlurrys.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Y no es que tenga hambre, pero me voy a desayunar.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Imagen de una deliciosa tostada gratinada" src="http://2.bp.blogspot.com/-nLSUcRgJr8E/UFL76d8fToI/AAAAAAAAiBY/dbO1I91oySA/s1600/1639.jpg" /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Portada ~ &lt;a href="http://www.fotopedia.com/items/H-W5XA-CBU8-rW1FCq0FvpM"&gt;Fotopedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Imagen desayuno ~ &lt;a href="http://capl.washjeff.edu/browseresults.php?langID=7&amp;amp;photoID=1639&amp;amp;size=m"&gt;washjeff.edu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Pablo Molina</dc:creator><pubDate>Wed, 12 Sep 2012 00:00:00 +0200</pubDate><guid>tag:p2kmgcl.com,2012-09-12:2012/09/que-hacer-con-679-euros.html</guid><category>Android</category><category>Apple</category><category>Comida</category><category>Compra</category><category>Cámara</category><category>Energías renovables</category><category>Fotos</category><category>Gadgets</category><category>Google</category><category>GPS</category><category>iPhone</category><category>Módulo solar</category><category>Nokia</category><category>Portátil</category><category>Samsung</category><category>Sony</category><category>Tecnología</category><category>TomTom</category></item><item><title>Compartiendo música desde todas partes</title><link>http://p2kmgcl.com/2012/08/compartiendo-musica-desde-todas-partes.html</link><description>&lt;p&gt;Como aficionado a la música que soy, me gusta &lt;strong&gt;compartir y escuchar canciones&lt;/strong&gt; que escuchan los demás, es por eso que cuando descubrí hace unos años lastfm me encantó la idea de poder hacer scrobbling: compartir desde tu reproductor la música que estás escuchando con los demás. El problema es que por aquel entonces era un poco más difícil ya que a no ser que escucharas música siempre en el ordenador no podías ir compartiendo canciones.
+Pero ahora en el mundo de los smartphones existen aplicaciones que son capaces de &lt;strong&gt;sincronizar las canciones que escuchamos hasta estando offline&lt;/strong&gt; (las almacenan en el dispositivo y sincronizan cuando tenemos conexión). Por ello en este artículo voy a recomendar dos medios por lo que sincronizo lo que voy escuchando.&lt;/p&gt;
+&lt;h1&gt;En el ordenador&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://www.clementine-player.org/"&gt;&lt;img alt="Botón del reproductor de música Clementine" src="http://1.bp.blogspot.com/-617PPhCWlww/UD9NeOI9G1I/AAAAAAAAh7I/XO2w6zUEzuY/s1600/preview6.jpeg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Cuando escucho la música que tengo guardada uso &lt;a href="http://www.clementine-player.org/"&gt;Clementine&lt;/a&gt;, un reproductor libre, gratuito y multiplataforma que lleva el scrobbling a lastfm integrado entre otras sorpresas -además tiene una interfaz bastante agradable a la vista-. Lo recomiendo encarecidamente a aquel que no lo conozca.&lt;/p&gt;
+&lt;h1&gt;En el navegador (chrome)&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://chrome.google.com/webstore/detail/hhinaapppaileiechjoiifaancjggfjm"&gt;&lt;img alt="Logotipo de la aplicación Last.fm Scrobbler" src="http://1.bp.blogspot.com/-DRou5LCVebc/UD9NeB8TT4I/AAAAAAAAh7I/NsLMNwVvyBk/s1600/preview4.jpeg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Desde que existen servicios como Spotify, Grooveshark, Google Play Music (al cual le dedicaré un artículo próximamente) y otros muchos, escuchar música en el navegador es lo más sencillo del mundo, sin tener que preocuparte de donde tienes guardadas unas canciones u otras. Para hacer scrobbling desde él uso una extensión para Google Chrome llamada &lt;a href="https://chrome.google.com/webstore/detail/hhinaapppaileiechjoiifaancjggfjm"&gt;Last.fm Scrobbler&lt;/a&gt;, la cual comparte la música que escuchamos en todos esto servicios y hasta en vídeos de youtube.&lt;/p&gt;
+&lt;h1&gt;En el móvil (android)&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://play.google.com/store/apps/details?id=com.adam.aslfms&amp;amp;feature=nav_other#?t=W251bGwsMSwxLDYsImNvbS5hZGFtLmFzbGZtcyJd"&gt;&lt;img alt="Logotipo de la aplicación Simple Last.fm Scrobbler" src="http://4.bp.blogspot.com/-5wuwEdYcYIA/UD9PUGR1fHI/AAAAAAAAh7U/YY_EURim9FE/s1600/preview5.jpeg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Y por último, tal y como decía en la introducción, utilizo la aplicación &lt;a href="https://play.google.com/store/apps/details?id=com.adam.aslfms&amp;amp;feature=nav_other#?t=W251bGwsMSwxLDYsImNvbS5hZGFtLmFzbGZtcyJd"&gt;Simple Last.fm Scrobbler&lt;/a&gt; para compartir la música que escucho en mi móvil hasta cuando no estoy conectado (algo bastante frecuente para mí, ya que no tengo tarifa de datos).&lt;/p&gt;
+&lt;p&gt;Y vosotros, ¿&lt;strong&gt;qué método usáis&lt;/strong&gt; para compartir la música con vuestros amigos?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Portada ~ &lt;a href="http://www.flickr.com/photos/aschwabe/2951078801/"&gt;Flickr&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Pablo Molina</dc:creator><pubDate>Thu, 30 Aug 2012 00:00:00 +0200</pubDate><guid>tag:p2kmgcl.com,2012-08-30:2012/08/compartiendo-musica-desde-todas-partes.html</guid><category>Chrome</category><category>Clementine</category><category>Compartir</category><category>Lastfm</category><category>Música</category><category>Navegador</category></item><item><title>Usando const en C++ con objetos</title><link>http://p2kmgcl.com/2012/08/usando-const-en-c-con-objetos.html</link><description>&lt;p&gt;Hace una semana y pico &lt;a href="https://plus.google.com/u/0/112373452810480328056/"&gt;David&lt;/a&gt; me comentó que había estado debatiendo con &lt;a href="https://plus.google.com/u/0/110730426033836231511/"&gt;Soraya&lt;/a&gt; el uso que tenía el &lt;strong&gt;const&lt;/strong&gt; dentro de c++, y si realmente funcionaría bien con objetos en lugar de tipos simples. Para los que no lo sepáis, en el lenguaje c++ y en c los objetos por defecto se "pasan" por copia, es decir, cuando ponemos como parámetro de una función una variable, la función usará una copia de ésta y no la original, dejando a la primera intacta.
+Como he dicho, este comportamiento es solo por defecto y podemos alterarlo usando punteros (una variable que sólo guarda una dirección de memoria, lo cual ocupa bastante menos espacio que la mayoría de los objetos), o, en c++, una referencia, que nos es más que indicar que la variable que queremos proporcionar es la original y no una copia. Como podéis imaginar, estos dos métodos &lt;strong&gt;son mucho más eficientes que el paso por copia&lt;/strong&gt;, en el sentido de que cuesta mucho menos computacionalmente hablando copiar una dirección de memoria o usar el mismo objeto que generar uno nuevo similar.&lt;/p&gt;
+&lt;h1&gt;Usando el const&lt;/h1&gt;
+&lt;p&gt;En este punto es donde entra el uso de const, esta palabra usada junto a una variable &lt;strong&gt;impide que sea modificada a lo largo del código&lt;/strong&gt;, pudiendo pasar esta variable mediante un puntero a ella o por referencia pero con la seguridad de que no será modificada. Un ejemplo:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;ordenaVector&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;tam&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;// Intentamos modificar la variable tam&lt;/span&gt;
+    &lt;span class="n"&gt;tam&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;En este código el cometido de la variable tam es proporcionarnos el número de elementos que se guardan en el vector v, por ello no tendría sentido modificar la variable. Al usar const se nos asegura que la variable no será modificada, de hecho, sin intentamos compilar el código anterior el propio compilador nos dirá que no podemos modificar una variable constante y abortará la ejecución.&lt;/p&gt;
+&lt;h1&gt;Const y objetos como parámetros&lt;/h1&gt;
+&lt;p&gt;Y en este punto es donde surge la pregunta: ¿cómo se comporta un objeto constante cuando llamamos a sus métodos? Pues bien, la respuesta es sencilla y compleja a la vez: el compilador se comporta de una forma bastante inteligente en estos casos, ya que sólo nos impedirá llamar a los métodos de un objeto constante si éstos son modificadores, es decir, si alteran el contenido de los atributos del objeto. De esta forma, en el siguiente objeto:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Pelota&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="k"&gt;public&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;Pelota&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;tam&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{};&lt;/span&gt;
+    &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;setTam&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;tam&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;tam&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tam&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;getTam&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;tam&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;span class="k"&gt;private&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;tam&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;Pelota&lt;/span&gt; &lt;span class="n"&gt;p1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Se nos permitirá llamar al método &lt;code&gt;getTam()&lt;/code&gt; de &lt;code&gt;p1&lt;/code&gt;, pero no al método &lt;code&gt;setTam()&lt;/code&gt;, ya que éste último modifica el valor del atributo &lt;code&gt;tam&lt;/code&gt;.&lt;/p&gt;
+&lt;h1&gt;Conclusión&lt;/h1&gt;
+&lt;p&gt;Seguramente alguno habrá pensado que el uso de const es opcional ya que podemos usar punteros y referencias y esperando que los métodos llamados no modifiquen el valor de las variables, pero es una forma más de añadir consistencia a nuestro código eliminando algunas posibles fugas que nos pueden provocar un quebradero de cabeza.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Pablo Molina</dc:creator><pubDate>Fri, 24 Aug 2012 00:00:00 +0200</pubDate><guid>tag:p2kmgcl.com,2012-08-24:2012/08/usando-const-en-c-con-objetos.html</guid><category>Análisis</category><category>C</category><category>C++</category><category>Const</category><category>Programación</category></item><item><title>La nube de Matrix - ToS;DR</title><link>http://p2kmgcl.com/2012/08/la-nube-de-matrix-tos-dr.html</link><description>&lt;p&gt;En los últimos meses la revolución tecnológica ha llegado a las manos de muchos pudientes, personas que han descubierto el -a veces asequible- mundo de los móviles inteligentes y el &lt;strong&gt;almacenamiento tecnológico&lt;/strong&gt;. Una larga lista de empresas ha creado servicios que nos permiten optimizar &lt;strong&gt;nuestros datos y guardarlos online&lt;/strong&gt; para que no se pierdan, o compartir con personas que usan el mismo servicio imágenes, vídeos, palabras y pensamientos. Pero, ¿hasta qué punto somos conscientes de lo que estamos haciendo al compartir una imagen?&lt;/p&gt;
+&lt;p&gt;Ciertas personas -entre las que me incluyo- hemos decidido estudiar un mundo de unos y ceros y gracias ha ello nos enseñan como toda esta información fluye de un lugar a otro por cables y ondas. Nos enseñan buenas prácticas que debemos tener en cuenta para que la información no sea filtrada ni alterada. Pero esta práctica de mantener la información intacta hace que se nos olviden unos principios que mucha gente no tiene en cuenta cuando carga una web de información. Y es que parece obvio que si tu subes una foto a una red social &lt;strong&gt;esa foto es de tu propiedad&lt;/strong&gt; y tú eliges cuando deja de estar ahí. Pues bien, toda esta lógica tan humana y fantástica, en la mayoría de los casos, &lt;strong&gt;es mentira&lt;/strong&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Después de nueve años ¿sabes de qué me doy cuenta? La ignorancia es la felicidad.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Existe una falsedad universal que se resume en la frase "He aceptado los términos y condiciones". Esta lectura que podemos hacer opcionalmente antes de un registro en una web nos haría &lt;strong&gt;descubrir cómo va a tratar la empresa nuestros datos&lt;/strong&gt; y qué derechos tiene sobre ellos, algo que en el mundo de la tecnología es muy importante porque la dificultad de difundir todos nuestros datos es mínima. Pero, ¿&lt;strong&gt;quién tiene ganas de leerse un documento&lt;/strong&gt; de dos o tres páginas con letra pequeña y a veces en inglés sobre eso? Nadie.&lt;/p&gt;
+&lt;p&gt;Y como solución, ¿y si alguien se ofreciera desinteresadamente a leerse todo ese documento y a darte un &lt;strong&gt;resumen sobre lo que esta bien y mal&lt;/strong&gt;? Pues bien, un señor llamado &lt;a href="http://hugoroy.eu/index.en.html"&gt;Hugo Roy&lt;/a&gt; tuvo la misma idea, y comenzó el proyecto ToS-DR que consiste en eso mismo: Es una web en la que puedes leer un resumen de los términos y condiciones de muchos servicios y así valorar que harán con tus cosas. Cabe decir que es de libre colaboración y además están desarrollando &lt;strong&gt;extensiones para que los navegadores&lt;/strong&gt; te avisen cuando hay una "traducción" de los términos disponible.&lt;/p&gt;
+&lt;p&gt;El proyecto aún está en una etapa temprana, así que la solución alternativa de momento es leer los términos por nosotros mismos e intentar entenderlos. Y vosotros, ¿conocéis alguna solución alternativa? ¿Os habéis llevado alguna sorpresa al leer este documento en alguna web?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enlace ~ &lt;a href="http://tos-dr.info/"&gt;ToS;DR&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Pablo Molina</dc:creator><pubDate>Thu, 16 Aug 2012 00:00:00 +0200</pubDate><guid>tag:p2kmgcl.com,2012-08-16:2012/08/la-nube-de-matrix-tos-dr.html</guid><category>Google</category><category>La nube</category><category>Matrix</category><category>ToS-DR</category><category>Términos y condiciones</category></item><item><title>Sublime Text - Un editor de texto sublime</title><link>http://p2kmgcl.com/2012/05/sublime-text-un-editor-de-texto-sublime.html</link><description>&lt;p&gt;Como programador que soy, me gusta explorar en busca de nuevas herramientas que hagan la tarea de crear un programa o una web más fácil o más entretenida. Pues bien, hace ya unos meses que uso esta herramienta, y creo que es algo digno de mención.&lt;/p&gt;
+&lt;h1&gt;Descripción&lt;/h1&gt;
+&lt;p&gt;A grandes rasgos es un editor de texto multiplataforma escrito en python, pero cuando lo hayáis probado este programa veréis que la ligereza que tiene no está reñida con su potencia. Y es que en Sublime Text puede personalizarse cada milímetro de la interfaz para hacer el que sea la herramienta la que se adapte a su dueño, y no al revés.&lt;/p&gt;
+&lt;p&gt;Esta personalización va desde snippets (atajos que hacen que programar sea más automático) hasta plugins, temas y la personalización de todas las combinaciones de teclas del programa. Podemos crear nuestras propias herramientas y publicarlas para compartir nuestra forma de trabajar. Si googleáis un poco no es difícil encontrar como configurarlo, pero os dejo un enlace al final de la web que tenéis que visitar para saber como instalar plugins y demás.&lt;/p&gt;
+&lt;p&gt;Más allá de la personalización, el programa cuenta con cosas tan fascinantes como multiselección (que si encima no sabes lo que es como me pasaba a mí alucinarás), reordenación de código, comprobación de ortografía, capacidad de crear proyectos o un minimapa del documento actual.&lt;/p&gt;
+&lt;p&gt;En cuanto a la descarga e instalación, al final de la entrada podéis ver un enlace con la web donde podéis descargarlo. El autor concede una prueba gratuita por tiempo indefinido para uso personal pero si deseáis recibir las actualizaciones más frecuentemente o queréis usarlo en una empresa tendréis que comprar la licencia por unos 46€ (el precio se reduce conforme compráis un mayor número). Una vez comprada tenéis derecho a instalar el programa en todos los equipos y plataformas que deseéis (cumpliendo la promesa de que una licencia es para un solo usuario).&lt;/p&gt;
+&lt;h1&gt;Mi configuración&lt;/h1&gt;
+&lt;p&gt;Por último dejo una lista de plugins y temas que uso tras haberlo probado en profundidad. Tengo que decir que tras haberlos instalado todos y haber visto como quedaba la carpeta de configuración con todos los plugins tan sólo ocupa 13MB (incluídos los paquetes de serie) y el programa se abre en apenas una fracción de segundo. Dicho esto la lista de plugins es:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Abacus&lt;/strong&gt;: Este plugin permite seleccionar un bloque de texto y tabular el contenido para que se quede bien nivelado. En este caso creo que un ejemplo lo explica perfectamente:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c1"&gt;// Texto original&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;uno&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;dieciocho&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Texto nivelado&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;uno&lt;/span&gt;       &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;dieciocho&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Colorpicker&lt;/strong&gt;: Creo que el nombre lo dice por sí solo: abre una ventana para que seleccionemos un color e inserta el código del color correspondiente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DocBlockr&lt;/strong&gt;: Este plugin facilita escribir documentación tipo Doxygen creando los bloques de comentario automáticamente (añade parámetros, valores devueltos por funciones...).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Livereload&lt;/strong&gt;: Este plugin me ha dado la vida. Combinado con una extensión para chrome o firefox (no estoy seguro de si está para más plataformas) y con un servidor local correctamente configurado, recarga automáticamente la vista de lo que estamos editando sin que tengamos que refrescar la página, tan sólo guardando el archivo. Además cuando editamos un archivo css sólo recarga la hoja de estilos, no la web entera, por lo que editar y ver como queda se hace coser y cantar.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SidebarEnhancements&lt;/strong&gt;: De serie la barra lateral tiene muy pocas funcionalidades (en las próximas versiones el autor tiene pendiente optimizar este aspecto), pero este plugin añade varias opciones como crear y eliminar archivos/carpetas, abrir la carpeta de un archivo o abrir archivos con una aplicación concreta.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SideBarGit&lt;/strong&gt;: Integra la barra lateral con un repositorio git mostrando la rama en la que estamos y permitiendo hacer todas las operaciones disponibles así como abrir gitk, gitgui o el programa que tengamos configurado para mostrar las diferencias entre archivos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SublimeTODO&lt;/strong&gt;: Con una llamada a este plugin muestra todas las tareas de los archivos abiertos o del proyecto con enlaces a ellas. Se puede configurar para que busque la etiqueta que deseemos (TODO, FIXME...).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Theme Soda&lt;/strong&gt;: No es más que un tema para sublime text, pero los que quieran tener una interfaz sin colores oscuros instalarán esta extensión y darán gracias a su creador.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;YUICompressor&lt;/strong&gt;: Para quien no lo conozca, este programa convertido en plugin es un compresor de archivos JavaScript y CSS que nos permite minimizar el tamaño de estos archivos eliminando espacios, saltos de línea, comentarios y, en el caso de javascript, sustituyendo los nombres de las variables por nombres cortos (a,b,c...). Es la "compilación" que se utiliza para estos archivos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Zen Coding&lt;/strong&gt;: Eso es, los chicos de Zen Coding también tienen una extensión para Sublime Text que nos permite adoptar este estilo de generación de HTML tan potente.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;Enlace ~ &lt;a href="http://www.sublimetext.com/2"&gt;Sublime Text&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Configuración ~ &lt;a href="http://wbond.net/sublime_packages/package_control"&gt;wbond.net&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Pablo Molina</dc:creator><pubDate>Sun, 20 May 2012 00:00:00 +0200</pubDate><guid>tag:p2kmgcl.com,2012-05-20:2012/05/sublime-text-un-editor-de-texto-sublime.html</guid><category>CSS</category><category>Herramientas</category><category>HTML</category><category>Javascript</category><category>Programación</category></item><item><title>Creando una vistosa barra de progreso en HTML5</title><link>http://p2kmgcl.com/2012/02/creando-una-vistosa-barra-de-progreso.html</link><description>&lt;p&gt;Viendo un tutorial rápido en &lt;a href="http://vector.tutsplus.com/tutorials/tools-tips/quick-tip-create-a-modern-volume-bar-with-adobe-illustrator/"&gt;vectortuts&lt;/a&gt; he recordado que tenía ganas de probar qué se puede lograr con una imagen svg incrustada en el código de tu web. Pues bien, con este pequeño experimento he creado una barra de progreso (móvil, por supuesto) sumamente vistosa. Para los que quieran ver directamente los resultados he dejado al final del post un enlace a jsBin para que veáis cómo ha quedado. Los pasos que he seguido son los siguientes:&lt;/p&gt;
+&lt;h1&gt;Imagen vectorial&lt;/h1&gt;
+&lt;p&gt;Siguiendo un poco el tutorial de la web mencionada anteriormente, he creado con &lt;a href="http://inkscape.org/"&gt;inkscape&lt;/a&gt; la imagen vectorial que ha servido de base para la barra de progreso. Por facilidad también le he dado a la barra principal la etiqueta "principal" para poder referenciarla de forma más cómoda desde el código javascript.&lt;/p&gt;
+&lt;p&gt;Si no sabes lo que es una imagen vectorial o no has usado nunca un programa de este tipo, basta saber que se procesa más o menos cono un canvas en HTML5: no se guarda la información de los píxeles, sino el aspecto y las formas de la imagen -de ahí que se pueda incrustar el código en una web-.&lt;/p&gt;
+&lt;h1&gt;Insertando el código&lt;/h1&gt;
+&lt;p&gt;Para insertar la imagen creada en la web no hay más que guardar la imagen como un archivo svg plano y seguidamente abrirla con un editor de texto. Es importante que sea svg plano y no del propio del programa para que los navegadores sepan interpretarlo correctamente.&lt;/p&gt;
+&lt;p&gt;Una vez abierto, copiamos todo el texto del contenido menos la primera o primeras líneas, ya que solo son la declaración del tipo de documento:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;!&lt;span class="o"&gt;--&lt;/span&gt;?&lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&amp;quot;1&lt;span class="p"&gt;.&lt;/span&gt;0&amp;quot; &lt;span class="n"&gt;encoding&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&amp;quot;&lt;span class="n"&gt;UTF&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;8&amp;quot; &lt;span class="n"&gt;standalone&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&amp;quot;&lt;span class="n"&gt;no&lt;/span&gt;&amp;quot;?&lt;span class="o"&gt;--&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;!&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;Created&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;Inkscape&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;inkscape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;--&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ahora pegamos el texto copiado directamente en nuestro fichero html y voilá, ya tenemos la imagen insertada.&lt;/p&gt;
+&lt;h1&gt;Creando la animación&lt;/h1&gt;
+&lt;p&gt;En resumen, lo que vamos a hacer a continuación es acceder al elemento "principal" del svg incrustado y vamos a modificar sus atributos "height" (altura) e "y" (posición vertical en el archivo svg).
+La modificación de la posición vertical no es más que un detalle para que la barra se rellene de abajo a arriba y no al revés, pero no es necesario cambiar este atributo.&lt;/p&gt;
+&lt;p&gt;&lt;a class="jsbin-embed" href="http://jsbin.com/ubiqex/5/embed?live"&gt;&lt;/a&gt;&lt;script src="http://static.jsbin.com/js/embed.js"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Resultado ~ &lt;a href="http://jsbin.com/ubiqex/5/edit#preview"&gt;jsBin&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Pablo Molina</dc:creator><pubDate>Sun, 26 Feb 2012 00:00:00 +0100</pubDate><guid>tag:p2kmgcl.com,2012-02-26:2012/02/creando-una-vistosa-barra-de-progreso.html</guid><category>CSS</category><category>Diseño web</category><category>HTML</category><category>Javascript</category><category>SVG</category><category>Tutoriales</category></item><item><title>Soluciones para columnas con CSS</title><link>http://p2kmgcl.com/2012/02/soluciones-para-columnas-con-css.html</link><description>&lt;p&gt;Un post muy cortito para aquellos que quieran crear un texto en HTML con varias columnas. Dejo dos soluciones sencillas.&lt;/p&gt;
+&lt;h1&gt;Si te da igual qué tiene cada columna&lt;/h1&gt;
+&lt;p&gt;Si lo único que quieres es distribuir el texto en varias columnas y no te importa demasiado o no es importante el dónde se produce el salto de columna (a lo texto periodístico), utiliza este pequeño añadido que tiene css para estructurar el texto.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nt"&gt;article&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;text-align&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;     &lt;span class="k"&gt;justify&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;max-width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;      &lt;span class="m"&gt;800px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;margin&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;         &lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;column&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;   &lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;column&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;gap&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;     &lt;span class="m"&gt;25px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Si el contenido exacto es importante&lt;/h1&gt;
+&lt;p&gt;Si por el contrario te interesa poner un contenido concreto en cada columna lo mejor es separarlo en bloques distintos (además semánticamente es lo más lógico). Para esto crea una clase columna y aplícasela a cada una de ellas.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nt"&gt;body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;text-align&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;   &lt;span class="k"&gt;center&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nc"&gt;.columna&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;text-align&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;       &lt;span class="k"&gt;left&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;          &lt;span class="k"&gt;inline&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;vertical-align&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;   &lt;span class="k"&gt;top&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+  &lt;span class="c"&gt;/* Espaciado pensado para 4 columnas */&lt;/span&gt;
+  &lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;    &lt;span class="m"&gt;20&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;  &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;margin&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;   &lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+  &lt;span class="c"&gt;/* Cada uno trata el overflow como quiere ^^ */&lt;/span&gt;
+  &lt;span class="k"&gt;overflow&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;hidden&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Enlace ejemplo 1 ~ &lt;a href="http://jsbin.com/ezayem/edit#html,live"&gt;Demostración en jsBin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Enlace ejemplo 2 ~ &lt;a href="http://jsbin.com/epejen/2/edit#html,live"&gt;Demostración en jsBin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Imagen ~ &lt;a href="http://wallbase.cc/wallpaper/1671149"&gt;Wallbase&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Pablo Molina</dc:creator><pubDate>Sun, 19 Feb 2012 00:00:00 +0100</pubDate><guid>tag:p2kmgcl.com,2012-02-19:2012/02/soluciones-para-columnas-con-css.html</guid><category>Columnas</category><category>CSS</category><category>Código</category><category>Diseño web</category><category>HTML</category><category>Tutoriales</category></item><item><title>Ventana y lluvia</title><link>http://p2kmgcl.com/2012/02/ventana-y-lluvia.html</link><description>&lt;p&gt;Hay veces que nos comportamos como si estuviéramos dentro de una película, y creemos que al fin y al cabo todo el mundo va a comportarse de la misma forma, ocurriendo las típicas situaciones como en la que no pides ayuda aunque la necesites pero alguien viene a socorrerte.
+Pues bien, la verdad es que no va a aparecer nadie si no lo pides. Si esto ocurre, es una vez entre un millón y créeme, tu no vas a ser una de esas personas.
+Si no quieres la ayuda de alguien debes decírselo, y si la necesitas díselo igualmente porque, si le dices que no, no aparecerá bajo la lluvia gritando por tu ventana alguna frase perfecta, eso no va a pasar.
+Puede que siente mal creer en algo de una forma tan pesimista, pero esa persona en quien confías es una persona corriente, como tú y como yo y... ¿Tú que harías? Seguir con tu vida.&lt;/p&gt;
+&lt;p&gt;Se supone que los seres humanos nos ayudamos entre nosotros, pero la realidad es que cuando alguien se siente mal, lo que nuestra mente nos pide que hagamos es esquivarlo y continuar andando. Es una panacea instantánea para nosotros pero el castigo más cruel para el que lo necesita.&lt;/p&gt;
+&lt;p&gt;Todos, incluso yo, hemos sufrido esto alguna vez, hemos necesitado toda la ayuda del mundo y no la hemos pedido. Hemos necesitado una mano en nuestro hombro y no la hemos rogado. Si realmente quieres que cambie sólo existe una solución: pídelo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Imagen ~ &lt;a href="http://browse.deviantart.com/?qh=&amp;amp;section=&amp;amp;q=window+rain#/d1t7o4t"&gt;deviantArt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Pablo Molina</dc:creator><pubDate>Fri, 17 Feb 2012 00:00:00 +0100</pubDate><guid>tag:p2kmgcl.com,2012-02-17:2012/02/ventana-y-lluvia.html</guid><category>Cine</category><category>Comportamiento</category><category>Pensamiento</category><category>Sociedad</category></item><item><title>Canción de la ley SOPA</title><link>http://p2kmgcl.com/2012/02/si-piensas-que-este-post-va-ser-una.html</link><description>&lt;p&gt;Si piensas que este post va a ser una reflexión lenta como las que me gusta hacer, siento decepcionarte, hoy me encuentro algo más animado que de costumbre y las cosas van bastante bien, así que esto va a ser más rápido y real que lo que suelo escribir.&lt;/p&gt;
+&lt;p&gt;Mi hermana estaba escuchando hace un momento la "canción" del pan americano y ahora Holiday, de Greenday, es un contraste un poco extraño, pero me alegro de que no solo escuche cosas canis. Bueno no me enrrollo:&lt;/p&gt;
+&lt;p&gt;Resulta que desde los 14 o 15 años, que es cuando dejé de estar agilipollado para estar gilipollas (algo muy distinto por cierto) empecé a valorar la frase "life is music" o "la vida es música" bastante, sobretodo desde que amplié un poco mis horizontes escuchando Dikers, La Fuga y Marea. Sobretodo Marea era algo distinto a las 4 o 5 canciones de radio que solía escuchar. Desde entonces he ido escuchando música más variada hasta hoy. No me considero ni soy un gran entendido de la música, pero me alegro de poder afirmar que escucho una gran variedad de música.&lt;/p&gt;
+&lt;p&gt;Pero lo que importa es que la música sigue alegrando a la gente que ama a la música, y que sigue habiendo gente que hace música que merece la pena escuchar.&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/csBUUEz5Wk8" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Imagen ~ &lt;a href="http://browse.deviantart.com/?qh=&amp;amp;section=&amp;amp;q=musica#/d1aq4lx"&gt;DeviantArt&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Pablo Molina</dc:creator><pubDate>Wed, 01 Feb 2012 00:00:00 +0100</pubDate><guid>tag:p2kmgcl.com,2012-02-01:2012/02/si-piensas-que-este-post-va-ser-una.html</guid><category>Música</category><category>Pensamiento</category><category>Protesta</category><category>SOPA</category></item></channel></rss>

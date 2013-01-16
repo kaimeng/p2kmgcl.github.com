@@ -5,22 +5,27 @@
 	</title>
 	<meta name="viewport" content="width=device-width"/>
 
-	<link href="http://feeds.p2kmgcl.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="p2kmgcl Full RSS Feed" />	<link href="http://feeds.p2kmgcl.com/feeds/main.rss.xml" type="application/rss+xml" rel="alternate" title="p2kmgcl RSS Feed" />	<link href="http://feeds.p2kmgcl.com/feeds/category-.rss.xml" type="application/rss+xml" rel="alternate" title="p2kmgcl Categories RSS Feed" />	
+	<link href="http://p2kmgcl.com/feeds/all.rss" type="application/rss+xml" rel="alternate" title="p2kmgcl Full RSS Feed" />
 	<link rel="stylesheet" href="../theme/styles/codehilite.css" />
 	<link rel="stylesheet" href="../theme/styles/font-awesome.min.css" />
 	<link rel="stylesheet" href="../theme/styles/font-awesome-ie7.min.css" />
 	<link rel="stylesheet" href="../theme/styles/themes/loremipsum.css" />
 
 	<script src="../theme/scripts/vendor/prefixfree.min.js"></script>
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-17072152-2']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
 </head>
 
 <body>
-	<article class="alert">
-		<i class="icon-info-sign"></i>
-		<i class="icon-remove-sign"></i>
-		<h1>Bienvenido a mi web</h1>
-		Todavía estoy terminando la mudanza desde blogger, así que faltan algunas entradas. Si echas en falta algo, busca en <a href="http://p2kmgcl.blogspot.com" target="_blank">mi antiguo blog</a>.
-	</article>
 	<header id="mainHeader">
 		<h1><a href="..">p2kmgcl</a></h1>
 		<nav id="mainMenu">
@@ -45,6 +50,10 @@
 				<figcaption>Pablo Molina</figcaption>
 			</figure>
 			<ul class="social">
+				<li class="rss">
+					<i class="icon-rss"></i>
+					<a href="http://p2kmgcl.com/feeds/all.rss" type="application/rss+xml" target="_blank">RSS</a>
+				</li>
 									<li class="Google+">
 						<i class="icon-google-plus"></i>
 						<a href="https://plus.google.com/117214944861012231268/" target="_blank">Google+</a>
@@ -85,6 +94,85 @@
         </header>
             <article class="entry list General cover">
         <header class="entryHeader">
+            <h1 class="title"><a href="../2011/10/radix-sort-y-su-magnifica-ordenacion.html" rel="bookmark" title="Enlace permanente a Radix Sort y su magnífica ordenación por cubetas">Radix Sort y su magnífica ordenación por cubetas</a></h1>
+            <abbr class="published" title="2011-10-14T00:00:00">14/10/2011</abbr>
+                
+                            <figure class="cover"><img src="http://3.bp.blogspot.com/-HizowRgez3A/TpHChO5xXGI/AAAAAAAAAWs/kM6dEAlCy2I/s1600/bucket_sort_2.png" alt="Muestra de las cubetas que usa el algoritmo" title="Muestra de las cubetas que usa el algoritmo" /></figure>
+                    </header>
+        <section class="entryContent">
+            <p>La ordenación Radix se basa en la clasificación de los datos que queremos ordenar por una clave. Dicha clave ha de ser una característica de cada dato que pueda ser descompuesta el elementos más pequeños que permitan clasificar los elementos poco a poco. Suponiendo los números enteros, la clave se tomaría como las cifras.</p>
+<h1>Explicación</h1>
+<p>Supongamos un vector de elementos sencillo con números del 0 al 99 que queremos ordenar, como por ejemplo <code>91 35 25 79 17 1</code>.</p>
+<h1>Primer paso: Creando las cubetas</h1>
+<p>Para ordenar los elementos tenemos que crear un número finito de cubetas, de forma que en cada cubeta los elementos estén relacionados por la clave y que así podamos separarlos. Por ello en nuestro caso, como la clave son las cifras ...</p>
+        </section>
+        <footer class="entryFooter">
+            <a href="../2011/10/radix-sort-y-su-magnifica-ordenacion.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
+        <header class="entryHeader">
+            <h1 class="title"><a href="../2012/02/si-piensas-que-este-post-va-ser-una.html" rel="bookmark" title="Enlace permanente a Canción de la ley SOPA">Canción de la ley SOPA</a></h1>
+            <abbr class="published" title="2012-02-01T00:00:00">01/02/2012</abbr>
+                
+                            <figure class="cover"><img src="http://2.bp.blogspot.com/-fPFPAwVbNUU/TyGptmK78iI/AAAAAAAAK4o/r1nfeCwoeoQ/s320/in_musica_by_BitaMig.jpg" alt="Un violín destrozándose" title="Un violín destrozándose" /></figure>
+                    </header>
+        <section class="entryContent">
+            <p>Si piensas que este post va a ser una reflexión lenta como las que me gusta hacer, siento decepcionarte, hoy me encuentro algo más animado que de costumbre y las cosas van bastante bien, así que esto va a ser más rápido y real que lo que suelo escribir.</p>
+<p>Mi hermana estaba escuchando hace un momento la "canción" del pan americano y ahora Holiday, de Greenday, es un contraste un poco extraño, pero me alegro de que no solo escuche cosas canis. Bueno no me enrrollo:</p>
+<p>Resulta que desde los 14 o 15 años, que es cuando dejé de estar agilipollado para estar gilipollas (algo muy distinto por cierto) empecé a valorar la frase "life is music" o "la vida es música" bastante, sobretodo desde ...</p>
+        </section>
+        <footer class="entryFooter">
+            <a href="../2012/02/si-piensas-que-este-post-va-ser-una.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
+        <header class="entryHeader">
+            <h1 class="title"><a href="../2012/02/soluciones-para-columnas-con-css.html" rel="bookmark" title="Enlace permanente a Soluciones para columnas con CSS">Soluciones para columnas con CSS</a></h1>
+            <abbr class="published" title="2012-02-19T00:00:00">19/02/2012</abbr>
+                
+                            <figure class="cover"><img src="http://3.bp.blogspot.com/-COGjUVjgld0/T0FmDVIy_QI/AAAAAAAANhA/Tqqz5HXvusI/s400/wallpaper-1671149.jpg" alt="Logo de HTML5 y CSS3" title="Logo de HTML5 y CSS3" /></figure>
+                    </header>
+        <section class="entryContent">
+            <p>Un post muy cortito para aquellos que quieran crear un texto en HTML con varias columnas. Dejo dos soluciones sencillas.</p>
+<h1>Si te da igual qué tiene cada columna</h1>
+<p>Si lo único que quieres es distribuir el texto en varias columnas y no te importa demasiado o no es importante el dónde se produce el salto de columna (a lo texto periodístico), utiliza este pequeño añadido que tiene css para estructurar el texto.</p>
+<div class="codehilite"><pre><span class="nt">article</span> <span class="p">{</span>
+    <span class="k">text-align</span><span class="o">:</span>     <span class="k">justify</span><span class="p">;</span>
+    <span class="k">max-width</span><span class="o">:</span>      <span class="m">800px</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span>         <span class="k">auto</span><span class="p">;</span>
+    <span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span>   <span class="m">3</span><span class="p">;</span>
+    <span class="n">column</span><span class="o">-</span><span class="n">gap</span><span class="o">:</span>     <span class="m">25px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h1>Si el contenido exacto es importante</h1>
+<p>Si por el contrario te interesa poner un contenido concreto en cada columna lo mejor es separarlo en bloques distintos (además semánticamente es lo más lógico). Para esto crea una clase columna y aplícasela ...</p>
+        </section>
+        <footer class="entryFooter">
+            <a href="../2012/02/soluciones-para-columnas-con-css.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
+        <header class="entryHeader">
+            <h1 class="title"><a href="../2012/05/sublime-text-un-editor-de-texto-sublime.html" rel="bookmark" title="Enlace permanente a Sublime Text - Un editor de texto sublime">Sublime Text - Un editor de texto sublime</a></h1>
+            <abbr class="published" title="2012-05-20T00:00:00">20/05/2012</abbr>
+                
+                            <figure class="cover"><img src="http://1.bp.blogspot.com/-QGeI-P_WA7A/T7kAAH9G4TI/AAAAAAAAZQs/1cf2S_yIQXo/s1600/sublimetext.jpg" alt="SublimeText con los temas claro y oscuro" title="SublimeText con los temas claro y oscuro" /></figure>
+                    </header>
+        <section class="entryContent">
+            <p>Como programador que soy, me gusta explorar en busca de nuevas herramientas que hagan la tarea de crear un programa o una web más fácil o más entretenida. Pues bien, hace ya unos meses que uso esta herramienta, y creo que es algo digno de mención.</p>
+<h1>Descripción</h1>
+<p>A grandes rasgos es un editor de texto multiplataforma escrito en python, pero cuando lo hayáis probado este programa veréis que la ligereza que tiene no está reñida con su potencia. Y es que en Sublime Text puede personalizarse cada milímetro de la interfaz para hacer el que sea la herramienta la que se adapte a su dueño, y no al revés.</p>
+<p>Esta personalización va desde snippets (atajos que hacen que programar sea más automático) hasta plugins, temas ...</p>
+        </section>
+        <footer class="entryFooter">
+            <a href="../2012/05/sublime-text-un-editor-de-texto-sublime.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
+        <header class="entryHeader">
             <h1 class="title"><a href="../2011/12/tiene-eco-el-graznido-de-un-pato.html" rel="bookmark" title="Enlace permanente a ¿Tiene eco el graznido de un pato?">¿Tiene eco el graznido de un pato?</a></h1>
             <abbr class="published" title="2011-12-04T00:00:00">04/12/2011</abbr>
                 
@@ -101,62 +189,10 @@
             <a href="../2011/12/tiene-eco-el-graznido-de-un-pato.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
         </footer>
     </article>
-    <article class="entry list General cover">
-        <header class="entryHeader">
-            <h1 class="title"><a href="../2012/01/una-nueva-red.html" rel="bookmark" title="Enlace permanente a Una nueva red">Una nueva red</a></h1>
-            <abbr class="published" title="2012-01-23T00:00:00">23/01/2012</abbr>
-                
-                            <figure class="cover"><img src="http://2.bp.blogspot.com/-41l4AeSWshI/TxwZFNzFx3I/AAAAAAAAK3M/PfgADeGb5Fw/s320/google%252B.png" alt="Imagen del registro en Google+" title="Imagen del registro en Google+" /></figure>
-                    </header>
-        <section class="entryContent">
-            <p>Ya hace algo de tiempo que google sacó su propia red social, google+, y desde entonces el número de usuarios ha subido de una forma vertiginosa. Pero algo que es innegable es que tanto Facebook en el mundo como Tuenti en españa están en la cima en cuanto a número de usuarios se refiere.</p>
-<p>Desde que salió la red social e incluso durante su fase de pruebas, quise probarla por la novedad que suponía una red social creada por una empresa tan grande como google. Facebook y Tuenti nacieron como redes sociales en sí mismas y no como creaciones de otras empresas, pero esto era algo nuevo y distinto, ahora teníamos a picasa, noticias, correo y contactos, todo unido en una red social.</p>
-<p>Desde entonces ...</p>
-        </section>
-        <footer class="entryFooter">
-            <a href="../2012/01/una-nueva-red.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
-        </footer>
-    </article>
-    <article class="entry list General cover">
-        <header class="entryHeader">
-            <h1 class="title"><a href="../2012/02/ventana-y-lluvia.html" rel="bookmark" title="Enlace permanente a Ventana y lluvia">Ventana y lluvia</a></h1>
-            <abbr class="published" title="2012-02-17T00:00:00">17/02/2012</abbr>
-                
-                            <figure class="cover"><img src="http://2.bp.blogspot.com/-HxADjF3HziY/Tz55xSUlNHI/AAAAAAAANgw/WXVmdhih7b0/s320/Rain_at_the_Window_by_magoscuro.jpg" alt="Una sombra ante una ventana en un paisaje lluvioso" title="Una sombra ante una ventana en un paisaje lluvioso" /></figure>
-                    </header>
-        <section class="entryContent">
-            <p>Hay veces que nos comportamos como si estuviéramos dentro de una película, y creemos que al fin y al cabo todo el mundo va a comportarse de la misma forma, ocurriendo las típicas situaciones como en la que no pides ayuda aunque la necesites pero alguien viene a socorrerte.
-Pues bien, la verdad es que no va a aparecer nadie si no lo pides. Si esto ocurre, es una vez entre un millón y créeme, tu no vas a ser una de esas personas.
-Si no quieres la ayuda de alguien debes decírselo, y si la necesitas díselo igualmente porque, si le dices que no, no aparecerá bajo la lluvia gritando por tu ventana alguna frase perfecta, eso no va a pasar.
-Puede que siente ...</p>
-        </section>
-        <footer class="entryFooter">
-            <a href="../2012/02/ventana-y-lluvia.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
-        </footer>
-    </article>
-    <article class="entry list General cover">
-        <header class="entryHeader">
-            <h1 class="title"><a href="../2011/11/woso-el-oso-en-la-web.html" rel="bookmark" title="Enlace permanente a WOSO - El OSO en la web">WOSO - El OSO en la web</a></h1>
-            <abbr class="published" title="2011-11-21T00:00:00">21/11/2011</abbr>
-                
-                            <figure class="cover"><img src="http://1.bp.blogspot.com/-lu4o9VYMJgs/TslTSR-rQqI/AAAAAAAAAmY/GUCv9-wT030/s1600/250px-Juego_del_oso.svg.png" alt="" title="" /></figure>
-                    </header>
-        <section class="entryContent">
-            <p>Con la publicación original de <a href="https://plus.google.com/114571188949142574808/">Daniel Trujillo</a> he creado una adaptación web del juego OSO, un juego que consiste básicamente en formar la palabra OSO en el tablero todas las veces posibles, poniendo por turnos las letras <code>O</code> y <code>S</code>.
-Para jugar no tenéis más que pinchar en el enlace <strong>Juego</strong> que aparece más abajo y disfrutar. Espero que resulte un juego entretenido.</p>
-<ul>
-<li>Imagen ~ <a href="http://es.wikipedia.org/wiki/Oso_(juego)">Wikipedia</a></li>
-<li>Juego ~ <a href="http://dl.dropbox.com/u/6037255/woso.html">Dropbox de p2kmgcl</a></li>
-<li>Post original ~ <a href="https://plus.google.com/114571188949142574808/posts/Xyyxzrd6xHQ">Google+</a></li>
-</ul>
-        </section>
-        <footer class="entryFooter">
-            <a href="../2011/11/woso-el-oso-en-la-web.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
-        </footer>
-    </article>
 <p class="paginator">
                         <a href="../author/pablo-molina6.html"><i class="icon-caret-left"></i></a>
-                Página 7 de 7
+                Página 7 de 8
+            <a href="../author/pablo-molina8.html"><i class="icon-caret-right"></i></a>
     </p>
     </section>
     <footer id="mainFooter">        <section id="license">

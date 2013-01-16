@@ -5,22 +5,27 @@
 	</title>
 	<meta name="viewport" content="width=device-width"/>
 
-	<link href="http://feeds.p2kmgcl.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="p2kmgcl Full RSS Feed" />	<link href="http://feeds.p2kmgcl.com/feeds/main.rss.xml" type="application/rss+xml" rel="alternate" title="p2kmgcl RSS Feed" />	<link href="http://feeds.p2kmgcl.com/feeds/category-.rss.xml" type="application/rss+xml" rel="alternate" title="p2kmgcl Categories RSS Feed" />	
+	<link href="http://p2kmgcl.com/feeds/all.rss" type="application/rss+xml" rel="alternate" title="p2kmgcl Full RSS Feed" />
 	<link rel="stylesheet" href="../theme/styles/codehilite.css" />
 	<link rel="stylesheet" href="../theme/styles/font-awesome.min.css" />
 	<link rel="stylesheet" href="../theme/styles/font-awesome-ie7.min.css" />
 	<link rel="stylesheet" href="../theme/styles/themes/loremipsum.css" />
 
 	<script src="../theme/scripts/vendor/prefixfree.min.js"></script>
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-17072152-2']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
 </head>
 
 <body>
-	<article class="alert">
-		<i class="icon-info-sign"></i>
-		<i class="icon-remove-sign"></i>
-		<h1>Bienvenido a mi web</h1>
-		Todavía estoy terminando la mudanza desde blogger, así que faltan algunas entradas. Si echas en falta algo, busca en <a href="http://p2kmgcl.blogspot.com" target="_blank">mi antiguo blog</a>.
-	</article>
 	<header id="mainHeader">
 		<h1><a href="..">p2kmgcl</a></h1>
 		<nav id="mainMenu">
@@ -45,6 +50,10 @@
 				<figcaption>Pablo Molina</figcaption>
 			</figure>
 			<ul class="social">
+				<li class="rss">
+					<i class="icon-rss"></i>
+					<a href="http://p2kmgcl.com/feeds/all.rss" type="application/rss+xml" target="_blank">RSS</a>
+				</li>
 									<li class="Google+">
 						<i class="icon-google-plus"></i>
 						<a href="https://plus.google.com/117214944861012231268/" target="_blank">Google+</a>
@@ -84,6 +93,108 @@
             <h1>Índice de entradas</h1>
         </header>
             <article class="entry list General cover">
+        <header class="entryHeader">
+            <h1 class="title"><a href="../2011/11/mudanza-de-veoynocreo.html" rel="bookmark" title="Enlace permanente a Mudanza de veoynocreo">Mudanza de veoynocreo</a></h1>
+            <abbr class="published" title="2011-11-06T00:00:00">06/11/2011</abbr>
+                
+                            <figure class="cover"><img src="http://4.bp.blogspot.com/-Oem3vhyYfg8/TrVbepQiopI/AAAAAAAAAlM/gqbGRMF9DJk/s320/Eye_by_EmersonAlmeida.jpg" alt="Ojo editado con colores" title="Ojo editado con colores" /></figure>
+                    </header>
+        <section class="entryContent">
+            <p>Voy a empezar a trasladar las entradas del blog de veoynocreo que tenía antes. Cuando tenga algo de contenido creo que haré una página de presentación o algo por el estilo ^^.</p>
+<p>De momento hasta enero del año que viene tengo contenido para publicar una entrada por semana, a ver si consigo mantener el ritmo.</p>
+<p>Si se os ocurren entradas o preguntas que queráis contestar, poned un comentario y las iré poniendo en mi cola de posts.</p>
+<ul>
+<li>Portada ~ <a href="http://browse.deviantart.com/?qh=&amp;section=&amp;q=eye#/d1axv56">Eye by ~EmersonAlmeida</a></li>
+</ul>
+        </section>
+        <footer class="entryFooter">
+            <a href="../2011/11/mudanza-de-veoynocreo.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
+        <header class="entryHeader">
+            <h1 class="title"><a href="../2013/01/mvc-iintroduccion-y-parte-1-songmodel.html" rel="bookmark" title="Enlace permanente a MVC I: Reproductor de música HTML5 con Backbone. Introducción y Parte I: SongModel">MVC I: Reproductor de música HTML5 con Backbone. Introducción y Parte I: SongModel</a></h1>
+            <abbr class="published" title="2013-01-03T00:00:00">03/01/2013</abbr>
+                
+                            <figure class="cover"><img src="https://lh6.googleusercontent.com/-oZSKLu62A1k/UOTCfG2L8yI/AAAAAAAAjDY/bj61pVTcEEM/s400/4036379423_c08eea8b91_z.jpg" alt="Reproductor de música" title="Reproductor de música" /></figure>
+                    </header>
+        <section class="entryContent">
+            <p>Llevo unos días probando la librería Backbone.js, una librería que implementa el MVC (Modelo Vista Controlador) en JavaScript para proporcionar una abstracción de la información manejada en una aplicación y no tener que guardar todo en el DOM. Esto es especialmente útil cuando quieres manejar datos en el cliente mediante JavaScript, ya que sin abstracciones como ésta puedes acabar haciendo <em>código espagueti</em> sin darte cuenta.</p>
+<p>Si no conocías esta librería y quieres aprender como funciona o cual es la idea de esta estructura en general, te recomiendo que le eches un vistazo a <a href="https://github.com/addyosmani/backbone-fundamentals">Backbone fundamentals</a>, un libro completamente gratuito que merece la pena leer.</p>
+<p>Para probar definitivamente la librería, he intentado hacer algo distinto a la clásica aplicación de lista de tareas que he ...</p>
+        </section>
+        <footer class="entryFooter">
+            <a href="../2013/01/mvc-iintroduccion-y-parte-1-songmodel.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
+        <header class="entryHeader">
+            <h1 class="title"><a href="../2011/11/nuevo-aspecto-de-google-reader.html" rel="bookmark" title="Enlace permanente a Nuevo aspecto de google reader">Nuevo aspecto de google reader</a></h1>
+            <abbr class="published" title="2011-11-01T00:00:00">01/11/2011</abbr>
+                
+                            <figure class="cover"><img src="http://3.bp.blogspot.com/-c3zv2frAK4c/Tq_-rF2pHSI/AAAAAAAAAi8/ymZ87LtJsuw/s1600/Sin+t%25C3%25ADtulo.png" alt="Nuevo aspecto de Google Reader con pequeñas modificaciones" title="Nuevo aspecto de Google Reader con pequeñas modificaciones" /></figure>
+                    </header>
+        <section class="entryContent">
+            <p>Yo, desde casita, apruebo el nuevo aspecto de google reader que la verdad me parece que encaja bastante con el nuevo aspecto de sus aplicaciones en general. No obstante, he creado una pequeña modificación con CSS3 que le da un aspecto para mi gusto más atractivo:</p>
+<p><img alt="" src="http://2.bp.blogspot.com/-Itq2yp7R5Tc/Tq_-qRHibaI/AAAAAAAAAi4/mfJJOtqXs-8/s640/Sin+t%25C3%25ADtulo3.png" /></p>
+<p>Aquí está el código que he usado para la modificación:</p>
+<div class="codehilite"><pre><span class="nf">#top-bar</span><span class="p">{</span>
+   <span class="k">border-bottom</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+   <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">-10px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#logo-container</span><span class="p">{</span>
+   <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#search</span><span class="p">{</span>
+   <span class="k">margin-left</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#viewer-header</span><span class="p">{</span>
+   <span class="k">height</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+   <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+   <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+   <span class="k">margin</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#viewer-header-container</span><span class="p">{</span>
+   <span class="k">border-top</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+   <span class="k">border-bottom</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+   <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+   <span class="k">padding-left</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+   <span class="k">margin</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#title-and-status-holder</span><span class="p">{</span>
+   <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#chrome-view-links</span><span class="p">{</span>
+   <span class="k">position</span><span class="o">:</span> <span class="k">fixed</span><span class="p">;</span>
+   <span class="k">right</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+   <span class="k">top</span><span class="o">:</span> <span class="m">45px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#entries</span><span class="p">{</span>
+   <span class="k">text-align</span><span class="o">:</span> <span class="k">justify</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.entry-title</span><span class="p">{</span>
+   <span class="k">text-align</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.entry-title-link</span><span class="o">,</span> <span class="nc">.entry-title-link</span> <span class="o">*</span><span class="p">{</span>
+   <span class="k">padding-right</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+   <span class="k">text-align</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.card.card-common</span><span class="p">{</span>
+   <span class="k">max-width</span><span class="o">:</span> <span class="m">660px</span><span class="p">;</span>
+   <span class="k">padding</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+   <span class="k">margin</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+   <span class="k">border</span><span class="o">:</span> <span class="k">dashed</span> <span class="k">thin</span> <span class="n">grey</span><span class="p">;</span>
+   <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.entry ...</span></pre></div>
+        </section>
+        <footer class="entryFooter">
+            <a href="../2011/11/nuevo-aspecto-de-google-reader.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
         <header class="entryHeader">
             <h1 class="title"><a href="../2011/10/ordenacion-por-seleccion-explicacion-e.html" rel="bookmark" title="Enlace permanente a Ordenación por selección (explicación e implementación)">Ordenación por selección (explicación e implementación)</a></h1>
             <abbr class="published" title="2011-10-13T00:00:00">13/10/2011</abbr>
@@ -142,71 +253,9 @@
             <a href="../2011/12/por-que-bostezamos.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
         </footer>
     </article>
-    <article class="entry list General cover">
-        <header class="entryHeader">
-            <h1 class="title"><a href="../2012/01/por-que-el-cancer-enfermedad-recibe.html" rel="bookmark" title="Enlace permanente a ¿Por qué el cáncer (enfermedad) recibe este nombre?">¿Por qué el cáncer (enfermedad) recibe este nombre?</a></h1>
-            <abbr class="published" title="2012-01-01T00:00:00">01/01/2012</abbr>
-                
-                            <figure class="cover"><img src="http://1.bp.blogspot.com/-3rjWydBkvns/TrUrIfGUKdI/AAAAAAAAAk0/V3SVdHRzvzo/s320/CancerCC_cropped.jpg" alt="Constelación Cáncer en el cielo" title="Constelación Cáncer en el cielo" /></figure>
-                    </header>
-        <section class="entryContent">
-            <p>La verdad es que no me ha costado demasiado indagar para contestar esta pregunta, la he encontrado en yahoo respuestas, pero luego he intentado confirmarlo en distintas fuentes y es cierto. Aquí va la historia:</p>
-<p>Para los que no lo sepan, existe un signo del zodiaco llamado cáncer que recibe este nombre por la forma de cangrejo que tiene esta constelación. Pues bien, resulta que las ramas que forman las estrellas de esta constelación y que se asemejan a un cangrejo se parecen mucho a las ramificaciones que se forman en los tumores y en las células afectadas por esta enfermedad. La verdad leerlo me ha impresionado mucho, es una lástima que algo tan bonito represente a una enfermedad tan hiriente... pero bueno, espero que ...</p>
-        </section>
-        <footer class="entryFooter">
-            <a href="../2012/01/por-que-el-cancer-enfermedad-recibe.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
-        </footer>
-    </article>
-    <article class="entry list General cover">
-        <header class="entryHeader">
-            <h1 class="title"><a href="../2012/01/por-que-se-puede-hacer-una-llamada-de.html" rel="bookmark" title="Enlace permanente a ¿Por qué se puede hacer una llamada de emergencia sin cobertura?">¿Por qué se puede hacer una llamada de emergencia sin cobertura?</a></h1>
-            <abbr class="published" title="2012-01-29T00:00:00">29/01/2012</abbr>
-                
-                            <figure class="cover"><img src="http://4.bp.blogspot.com/-koHHN9RFdQU/TxrIIM1lpBI/AAAAAAAAKf0/e7nNsk8Q8Z0/s320/6200088105_03e32e7ae8_o.jpg" alt="Samsung Galaxy Mini con una antena de telefonía de fondo" title="Samsung Galaxy Mini con una antena de telefonía de fondo" /></figure>
-                    </header>
-        <section class="entryContent">
-            <p>Siempre he sentido curiosidad acerca de este asunto, y es que, para quien no se haya dado cuenta, si tenemos un teléfono móvil siempre SIEMPRE podemos hacer una llamada de emergencia al 112 tengamos o no tengamos cobertura. Y, ¿cual es la razón? ¿nos vigilan y controlan todos nuestros pasos? Gracias a Dios la explicación es más sencilla que eso.</p>
-<p>Nuestro teléfono móvil dispone de una antena que utiliza para comunicarse con los satélites proveedores de cobertura móvil, hasta aquí bien, pero lo que no contamos, es que aunque tengamos una tarjeta de una compañía y sea su red la que utilizamos, esto no quiere decir que nuestro móvil no reciba la señal de los satélites de otras compañías. Es decir, que cuando nos quedamos ...</p>
-        </section>
-        <footer class="entryFooter">
-            <a href="../2012/01/por-que-se-puede-hacer-una-llamada-de.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
-        </footer>
-    </article>
-    <article class="entry list General cover">
-        <header class="entryHeader">
-            <h1 class="title"><a href="../2012/01/probando-la-funcion-position-de-jquery.html" rel="bookmark" title="Enlace permanente a Probando la función "position" de jQuery UI">Probando la función "position" de jQuery UI</a></h1>
-            <abbr class="published" title="2012-01-05T00:00:00">05/01/2012</abbr>
-                
-                            <figure class="cover"><img src="http://3.bp.blogspot.com/-LSFtjMtQnU8/TxrH_qzeS6I/AAAAAAAAKfs/vrSl6XBAvcQ/s320/2510326188_2d113eb317_b.jpg" alt="Conferencia de jQuery en Tokio" title="Conferencia de jQuery en Tokio" /></figure>
-                    </header>
-        <section class="entryContent">
-            <p>Esta nueva función de jQuery UI permite posicionar un elemento junto a otro de la forma más sencilla posible. Para ver la sencillez no hay más que ver la sintaxis:</p>
-<blockquote>
-<p>Mi izquierda a la derecha del objeto (my left at right of object).</p>
-</blockquote>
-<p>Además permite posicionar en las esquinas (left top, right bottom...), dejar una separación en un determinado lado y especificar si queremos que el objeto sufra algún tipo de colisión durante su posicionado.</p>
-<p>Aquí dejo un ejemplo sencillo:</p>
-<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">o1</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;selector1&quot;</span><span class="p">),</span>
-    <span class="nx">o2</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;selector2&quot;</span><span class="p">);</span>
-
-<span class="nx">o1</span><span class="p">.</span><span class="nx">position</span><span class="p">({</span>
-    <span class="nx">my</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
-    <span class="nx">at</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span>
-    <span class="nx">of</span><span class="o">:</span> <span class="nx">o2</span>
-<span class="p">});</span>
-</pre></div>
-
-
-<p>Con esto dejaría al primer objeto a la derecha del segundo.</p>
-<p>Para probarlo he creado la siguiente animación en JavaScript. Los objetos Box y Square están fijos y cuando se pase el ...</p>
-        </section>
-        <footer class="entryFooter">
-            <a href="../2012/01/probando-la-funcion-position-de-jquery.html" class="moreLink">Seguir leyendo <i class="icon-arrow-right"></i></a>
-        </footer>
-    </article>
 <p class="paginator">
                         <a href="../author/pablo-molina4.html"><i class="icon-caret-left"></i></a>
-                Página 5 de 7
+                Página 5 de 8
             <a href="../author/pablo-molina6.html"><i class="icon-caret-right"></i></a>
     </p>
     </section>
