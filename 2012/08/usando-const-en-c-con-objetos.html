@@ -89,15 +89,29 @@
 					</li>
 							</ul>
 		</div>
-	</aside>    <section id="mainContent">
+	</aside>
+    <section id="mainContent">
         <h1>Contenido principal</h1>
         <article class="entry single General cover">
             <header class="entryHeader">
-                <h1 class="title">Usando const en C++ con objetos</h1>
-                <abbr class="published" title="2012-08-24T00:00:00">24/08/2012</abbr>
-                    
-                                    <figure class="cover"><img src="http://3.bp.blogspot.com/-DOgSFKOoCVw/UDdXCheQfPI/AAAAAAAAh5Y/vXVrgJdvNR4/s400/Dibujo.JPG" alt="Logo de C++ con una función que devuelve una referencia constante" title="Logo de C++ con una función que devuelve una referencia constante" /></figure>
-                            </header>
+                <h1 class="title">
+        Usando const en C++ con objetos
+    </h1>
+        <time class="published"
+          title="24/08/2012"
+          datetime="2012-08-24T00:00:00">
+          24/08/2012
+    </time>
+    
+            <figure class="cover">
+            <img src="http://3.bp.blogspot.com/-DOgSFKOoCVw/UDdXCheQfPI/AAAAAAAAh5Y/vXVrgJdvNR4/s400/Dibujo.JPG"
+                 alt=""
+                 title=""
+            />
+        </figure>
+    
+    
+            </header>
             <section class="entryContent">
                 <p>Hace una semana y pico <a href="https://plus.google.com/u/0/112373452810480328056/">David</a> me comentó que había estado debatiendo con <a href="https://plus.google.com/u/0/110730426033836231511/">Soraya</a> el uso que tenía el <strong>const</strong> dentro de c++, y si realmente funcionaría bien con objetos en lugar de tipos simples. Para los que no lo sepáis, en el lenguaje c++ y en c los objetos por defecto se "pasan" por copia, es decir, cuando ponemos como parámetro de una función una variable, la función usará una copia de ésta y no la original, dejando a la primera intacta.
 Como he dicho, este comportamiento es solo por defecto y podemos alterarlo usando punteros (una variable que sólo guarda una dirección de memoria, lo cual ocupa bastante menos espacio que la mayoría de los objetos), o, en c++, una referencia, que nos es más que indicar que la variable que queremos proporcionar es la original y no una copia. Como podéis imaginar, estos dos métodos <strong>son mucho más eficientes que el paso por copia</strong>, en el sentido de que cuesta mucho menos computacionalmente hablando copiar una dirección de memoria o usar el mismo objeto que generar uno nuevo similar.</p>
@@ -135,43 +149,41 @@ Como he dicho, este comportamiento es solo por defecto y podemos alterarlo usand
             </section>
             <footer class="entryFooter">
                 <section class="share">
-                    <!-- Lockerz Share BEGIN -->
-                    <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=2012/08/usando-const-en-c-con-objetos.html"><i class="icon-share"></i>Compartir</a>
-                    <script type="text/javascript">
-                    var a2a_config = a2a_config || {};
-                    a2a_config.linkname = "Usando const en C++ con objetos | Pablo Molina";
-                    a2a_config.linkurl = "http://p2kmgcl.com/2012/08/usando-const-en-c-con-objetos.html";
-                    a2a_config.locale = "es";
-                    a2a_config.num_services = 6;
-                    a2a_config.prioritize = ["google_plus", "facebook", "twitter", "tuenti", "reddit", "email"];
-                    </script>
-                    <script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
-                    <!-- Lockerz Share END -->
-                </section>
+        <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=2012/08/usando-const-en-c-con-objetos.html">
+            <i class="icon-share"></i>Compartir
+        </a>
+        <script type="text/javascript">
+        var a2a_config = a2a_config || {};
+        a2a_config.linkname = "Usando const en C++ con objetos";
+        a2a_config.linkurl = "2012/08/usando-const-en-c-con-objetos.html";
+        a2a_config.locale = "es";
+        a2a_config.num_services = 6;
+        a2a_config.prioritize = ["google_plus", "facebook", "twitter", "tuenti", "reddit", "email"];
+        </script>
+        <script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+    </section>
                 <section class="tags">
-                    <h1><i class="icon-tags"></i>Etiquetas</h1>
-                    <ul>                        <li><a href="../../tag/analisis.html">Análisis</a></li>
-                                            <li><a href="../../tag/c.html">C</a></li>
-                                            <li><a href="../../tag/c.html">C++</a></li>
-                                            <li><a href="../../tag/const.html">Const</a></li>
-                                            <li><a href="../../tag/programacion.html">Programación</a></li>
-                    </ul>
-                </section>
+        <h1><i class="icon-tags"></i>Etiquetas</h1>
+        <ul>
+        <li><a href="/tag/analisis.html">Análisis</a></li><li><a href="/tag/c.html">C</a></li><li><a href="/tag/c.html">C++</a></li><li><a href="/tag/const.html">Const</a></li><li><a href="/tag/programacion.html">Programación</a></li>        </ul>
+    </section>
                 <section class="comments">
-                    <h1>Comentarios</h1>
-                    <div id="disqus_thread"></div>
-                    <script type="text/javascript">
-                        var disqus_shortname = 'p2kmgcl',
-                            disqus_identifier = '/2012/08/usando-const-en-c-con-objetos.html';
-                        (function() {
-                            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                        })();
-                    </script>
-                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-                </section>
+        <h1>Comentarios</h1>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'p2kmgcl',
+                // No usa la url al generar las entradas, asi evita problemas si se cambia de dominio
+                disqus_identifier = '/2012/08/usando-const-en-c-con-objetos.html';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </section>
             </footer>
         </article>
     </section>
