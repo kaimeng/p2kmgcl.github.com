@@ -532,6 +532,10 @@ a {
 .entryHeader {
 
 }
+    .entryHeader > .author {
+        display: none;
+    }
+
     .entryHeader > .published {
         color: #f8b580;
         font-weight: bolder;
