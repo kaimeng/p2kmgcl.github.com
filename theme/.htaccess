@@ -1,5 +1,2 @@
-# Manifiesto de la cache
-AddType text/cache-manifest .appcache
-
 # Juego de caracteres
 AddDefaultCharset utf-8
