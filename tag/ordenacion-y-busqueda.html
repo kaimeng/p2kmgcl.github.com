@@ -105,7 +105,7 @@
     <article class="entry list General cover">
         <header class="entryHeader">
             <h1 class="title">
-    <a href="2011/10/radix-sort-y-su-magnifica-ordenacion.html">Radix Sort y su magnífica ordenación por cubetas</a>    </h1>
+    <a href="2011/10/radix-sort-y-su-magnifica-ordenacion.html" title="Enlace permanente a 'Radix Sort y su magnífica ordenación por cubetas'">Radix Sort y su magnífica ordenación por cubetas</a>    </h1>
         <time class="published"
           title="14/10/2011"
           datetime="2011-10-14T00:00:00">
@@ -114,8 +114,8 @@
         <span class="author">Autor: Pablo Molina</span>
         <figure class="cover">
         <img src="http://3.bp.blogspot.com/-HizowRgez3A/TpHChO5xXGI/AAAAAAAAAWs/kM6dEAlCy2I/s1600/bucket_sort_2.png"
-             alt=""
-             title=""
+             alt="Muestra de las cubetas que usa el algoritmo"
+             title="Muestra de las cubetas que usa el algoritmo"
         />
     </figure>
     
@@ -129,7 +129,7 @@
 <p>Para ordenar los elementos tenemos que crear un número finito de cubetas, de forma que en cada cubeta los elementos estén relacionados por la clave y que así podamos separarlos. Por ello en nuestro caso, como la clave son las cifras ...</p>
         </section>
         <footer class="entryFooter">
-            <a href="../2011/10/radix-sort-y-su-magnifica-ordenacion.html" class="moreLink">
+            <a href="../2011/10/radix-sort-y-su-magnifica-ordenacion.html#content" class="moreLink" title="Seguir leyendo 'Radix Sort y su magnífica ordenación por cubetas'">
                 Seguir leyendo <i class="icon-arrow-right"></i>
             </a>
         </footer>
@@ -137,7 +137,7 @@
     <article class="entry list General cover">
         <header class="entryHeader">
             <h1 class="title">
-    <a href="2011/10/ordenacion-por-seleccion-explicacion-e.html">Ordenación por selección (explicación e implementación)</a>    </h1>
+    <a href="2011/10/ordenacion-por-seleccion-explicacion-e.html" title="Enlace permanente a 'Ordenación por selección (explicación e implementación)'">Ordenación por selección (explicación e implementación)</a>    </h1>
         <time class="published"
           title="13/10/2011"
           datetime="2011-10-13T00:00:00">
@@ -146,8 +146,8 @@
         <span class="author">Autor: Pablo Molina</span>
         <figure class="cover">
         <img src="http://1.bp.blogspot.com/-LvexjstZmqU/TpHBwl-kG0I/AAAAAAAAAWo/FvxOyfgtnhs/s320/seleccion.gif"
-             alt=""
-             title=""
+             alt="Muestra el funcionamiento del algoritmo"
+             title="Muestra el funcionamiento del algoritmo"
         />
     </figure>
     
@@ -185,7 +185,7 @@
 <h1>Implementación en C (genérico ...</h1>
         </section>
         <footer class="entryFooter">
-            <a href="../2011/10/ordenacion-por-seleccion-explicacion-e.html" class="moreLink">
+            <a href="../2011/10/ordenacion-por-seleccion-explicacion-e.html#content" class="moreLink" title="Seguir leyendo 'Ordenación por selección (explicación e implementación)'">
                 Seguir leyendo <i class="icon-arrow-right"></i>
             </a>
         </footer>
@@ -193,7 +193,7 @@
     <article class="entry list General cover">
         <header class="entryHeader">
             <h1 class="title">
-    <a href="2011/10/busqueda-binaria-iterativa-algoritmo.html">Búsqueda Binaria Iterativa (algoritmo, explicación e implementación genérica)</a>    </h1>
+    <a href="2011/10/busqueda-binaria-iterativa-algoritmo.html" title="Enlace permanente a 'Búsqueda Binaria Iterativa (algoritmo, explicación e implementación genérica)'">Búsqueda Binaria Iterativa (algoritmo, explicación e implementación genérica)</a>    </h1>
         <time class="published"
           title="12/10/2011"
           datetime="2011-10-12T00:00:00">
@@ -202,8 +202,8 @@
         <span class="author">Autor: Pablo Molina</span>
         <figure class="cover">
         <img src="http://2.bp.blogspot.com/-94o6-37-CHk/TpHBG96WQaI/AAAAAAAAAWk/RiMVwwNMiIQ/s320/binary_search.png"
-             alt=""
-             title=""
+             alt="Demostración del funcionamiento del algoritmo"
+             title="Demostración del funcionamiento del algoritmo"
         />
     </figure>
     
@@ -218,9 +218,9 @@
 <li>Adecuado para conjuntos grandes de elementos</li>
 </ul>
 <h1>Algoritmo</h1>
-<div class="codehilite"><pre>Función Búsqueda_Binaria <span class="p">(</span>x:Telemento<span class="p">;</span> A:Tconjunto<span class="p">,</span> tam:Entero<span class="p">)</span>: Tposicion<span class="p">;</span>
+<div class="codehilite"><pre>Función Búsqueda_Binaria <span class="p">(</span>x<span class="o">:</span>Telemento<span class="p">;</span> A<span class="o">:</span>Tconjunto<span class="p">,</span> tam<span class="o">:</span>Entero<span class="p">)</span><span class="o">:</span> Tposicion<span class="p">;</span>
 Variables
-    bajo<span class="p">,</span> alto<span class="p">,</span> mitad: Entero<span class="p">;</span>
+    bajo<span class="p">,</span> alto<span class="p">,</span> mitad<span class="o">:</span> Entero<span class="p">;</span>
 Inicio
     bajo<span class="o">&lt;-</span>A<span class="p">[</span><span class="m">1</span><span class="p">];</span>
     alto<span class="o">&lt;-</span>tam<span class="p">;</span>
@@ -231,9 +231,9 @@ Inicio
             Devolver mitad<span class="p">;</span>
         Si_No
             Si x<span class="o">&lt;</span>A<span class="p">[</span>mitad<span class="p">]</span> Entonces
-                alto<span class="o">&lt;-</span>mitad<span class="o">-</span><span class="m">1</span>
+                alto<span class="o">&lt;-</span>mitad<span class="m">-1</span>
             Si_No
-                bajo<span class="o">&lt;-</span>mitad<span class="o">+</span><span class="m">1</span>
+                bajo<span class="o">&lt;-</span>mitad<span class="m">+1</span>
             Fin_Si
         Fin_Si
     Fin_Mientras
@@ -248,7 +248,7 @@ Fin.
 <span class="cm"> * @param vector Vector de elementos donde buscar (ha de ...</span></pre></div>
         </section>
         <footer class="entryFooter">
-            <a href="../2011/10/busqueda-binaria-iterativa-algoritmo.html" class="moreLink">
+            <a href="../2011/10/busqueda-binaria-iterativa-algoritmo.html#content" class="moreLink" title="Seguir leyendo 'Búsqueda Binaria Iterativa (algoritmo, explicación e implementación genérica)'">
                 Seguir leyendo <i class="icon-arrow-right"></i>
             </a>
         </footer>
@@ -256,7 +256,7 @@ Fin.
     <article class="entry list General cover">
         <header class="entryHeader">
             <h1 class="title">
-    <a href="2011/10/busqueda-secuencial-algoritmo.html">Búsqueda Secuencial (algoritmo, explicación e implementación genérica)</a>    </h1>
+    <a href="2011/10/busqueda-secuencial-algoritmo.html" title="Enlace permanente a 'Búsqueda Secuencial (algoritmo, explicación e implementación genérica)'">Búsqueda Secuencial (algoritmo, explicación e implementación genérica)</a>    </h1>
         <time class="published"
           title="10/10/2011"
           datetime="2011-10-10T00:00:00">
@@ -265,8 +265,8 @@ Fin.
         <span class="author">Autor: Pablo Molina</span>
         <figure class="cover">
         <img src="http://1.bp.blogspot.com/-xvBGQfnVU8g/TpF3W0Uu8AI/AAAAAAAAAWc/rBnqztURpTo/s400/656px-Linear_sorption_isotherm.svg.png"
-             alt=""
-             title=""
+             alt="Muestra de la eficiencia de la búsqueda secuencial"
+             title="Muestra de la eficiencia de la búsqueda secuencial"
         />
     </figure>
     
@@ -282,16 +282,16 @@ Fin.
 <li>Si el elemento no pertenece al conjunto, éste se recorre entero</li>
 </ul>
 <h1>Algoritmo</h1>
-<div class="codehilite"><pre>Funcion busqueda_Secuencial <span class="p">(</span>x:Telemento<span class="p">;</span> A:Tconjunto<span class="p">;</span> tam:Entero<span class="p">)</span>: Entero
+<div class="codehilite"><pre>Funcion busqueda_Secuencial <span class="p">(</span>x<span class="o">:</span>Telemento<span class="p">;</span> A<span class="o">:</span>Tconjunto<span class="p">;</span> tam<span class="o">:</span>Entero<span class="p">)</span><span class="o">:</span> Entero
 Variables
-     i: Entero
+     i<span class="o">:</span> Entero
 Inicio
      i<span class="o">&lt;-</span><span class="m">1</span>
      Mientras <span class="p">(</span>i<span class="o">&lt;=</span>tam<span class="p">)</span> hacer
           Si A<span class="p">[</span>i<span class="p">]</span><span class="o">==</span>x Entonces
                Devolver i
           Si_No
-               i<span class="o">&lt;-</span>i<span class="o">+</span><span class="m">1</span>
+               i<span class="o">&lt;-</span>i<span class="m">+1</span>
           Fin_si
      Fin_Mientras
      Devolver <span class="m">-1</span>
@@ -307,11 +307,11 @@ Fin
 <span class="cm"> * @param tamv Número de elementos del vector</span>
 <span class="cm"> * @return Devuelve la posición del elemento si lo encuentra, -1 si no.</span>
 <span class="cm"> */</span>
-<span class="kt">int</span> <span class="n">busqueda_Secuencial</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">vector</span><span class="p">,</span> <span class="kt">int</span> <span class="n">tamv</span><span class="p">){</span>
+<span class="kt">int</span> <span class="nf">busqueda_Secuencial</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">vector</span><span class="p">,</span> <span class="kt">int</span> <span class="n">tamv</span><span class="p">){</span>
     <span class="kt">int ...</span></pre></div>
         </section>
         <footer class="entryFooter">
-            <a href="../2011/10/busqueda-secuencial-algoritmo.html" class="moreLink">
+            <a href="../2011/10/busqueda-secuencial-algoritmo.html#content" class="moreLink" title="Seguir leyendo 'Búsqueda Secuencial (algoritmo, explicación e implementación genérica)'">
                 Seguir leyendo <i class="icon-arrow-right"></i>
             </a>
         </footer>

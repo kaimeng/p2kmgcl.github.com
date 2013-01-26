@@ -105,7 +105,70 @@
     <article class="entry list General cover">
         <header class="entryHeader">
             <h1 class="title">
-    <a href="2011/10/antes-de-saludar-al-mundo-introduccion.html">Antes de saludar al mundo (introducción a la programación)</a>    </h1>
+    <a href="2011/10/busqueda-secuencial-algoritmo.html" title="Enlace permanente a 'Búsqueda Secuencial (algoritmo, explicación e implementación genérica)'">Búsqueda Secuencial (algoritmo, explicación e implementación genérica)</a>    </h1>
+        <time class="published"
+          title="10/10/2011"
+          datetime="2011-10-10T00:00:00">
+          10/10/2011
+    </time>
+        <span class="author">Autor: Pablo Molina</span>
+        <figure class="cover">
+        <img src="http://1.bp.blogspot.com/-xvBGQfnVU8g/TpF3W0Uu8AI/AAAAAAAAAWc/rBnqztURpTo/s400/656px-Linear_sorption_isotherm.svg.png"
+             alt="Muestra de la eficiencia de la búsqueda secuencial"
+             title="Muestra de la eficiencia de la búsqueda secuencial"
+        />
+    </figure>
+    
+    
+        </header>
+        <section class="entryContent">
+            <h1>Datos</h1>
+<ul>
+<li>Eficiencia lineal.</li>
+<li>Examina los elementos de uno en uno</li>
+<li>El conjunto de datos no tiene por qué estar ordenado</li>
+<li>Es adecuada sólo para conjuntos de datos pequeños</li>
+<li>Si el elemento no pertenece al conjunto, éste se recorre entero</li>
+</ul>
+<h1>Algoritmo</h1>
+<div class="codehilite"><pre>Funcion busqueda_Secuencial <span class="p">(</span>x<span class="o">:</span>Telemento<span class="p">;</span> A<span class="o">:</span>Tconjunto<span class="p">;</span> tam<span class="o">:</span>Entero<span class="p">)</span><span class="o">:</span> Entero
+Variables
+     i<span class="o">:</span> Entero
+Inicio
+     i<span class="o">&lt;-</span><span class="m">1</span>
+     Mientras <span class="p">(</span>i<span class="o">&lt;=</span>tam<span class="p">)</span> hacer
+          Si A<span class="p">[</span>i<span class="p">]</span><span class="o">==</span>x Entonces
+               Devolver i
+          Si_No
+               i<span class="o">&lt;-</span>i<span class="m">+1</span>
+          Fin_si
+     Fin_Mientras
+     Devolver <span class="m">-1</span>
+Fin
+</pre></div>
+
+
+<h1>Implementación en C (enteros)</h1>
+<div class="codehilite"><pre><span class="cm">/**</span>
+<span class="cm"> * @brief Funcion de búsqueda secuencial genérica</span>
+<span class="cm"> * @param a Elemento a buscar</span>
+<span class="cm"> * @param vector Vector de elementos donde buscar</span>
+<span class="cm"> * @param tamv Número de elementos del vector</span>
+<span class="cm"> * @return Devuelve la posición del elemento si lo encuentra, -1 si no.</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">busqueda_Secuencial</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">vector</span><span class="p">,</span> <span class="kt">int</span> <span class="n">tamv</span><span class="p">){</span>
+    <span class="kt">int ...</span></pre></div>
+        </section>
+        <footer class="entryFooter">
+            <a href="../2011/10/busqueda-secuencial-algoritmo.html#content" class="moreLink" title="Seguir leyendo 'Búsqueda Secuencial (algoritmo, explicación e implementación genérica)'">
+                Seguir leyendo <i class="icon-arrow-right"></i>
+            </a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
+        <header class="entryHeader">
+            <h1 class="title">
+    <a href="2011/10/antes-de-saludar-al-mundo-introduccion.html" title="Enlace permanente a 'Antes de saludar al mundo (introducción a la programación)'">Antes de saludar al mundo (introducción a la programación)</a>    </h1>
         <time class="published"
           title="09/10/2011"
           datetime="2011-10-09T00:00:00">
@@ -114,8 +177,8 @@
         <span class="author">Autor: Pablo Molina</span>
         <figure class="cover">
         <img src="http://1.bp.blogspot.com/-mDFwSjxq-AM/TpFvWqQWh7I/AAAAAAAAAWY/-YHg8IVN2IE/s320/__CODE___C_by_webblaster48.png"
-             alt=""
-             title=""
+             alt="Logotipo del lenguaje de programación C"
+             title="Logotipo del lenguaje de programación C"
         />
     </figure>
     
@@ -127,7 +190,7 @@
 
 <span class="n">int</span> <span class="n">main</span><span class="p">(){</span>
     <span class="nb">printf</span><span class="p">(</span><span class="s">&quot;Hola Mundo&quot;</span><span class="p">);</span>
-    <span class="k">return</span> 0<span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -139,7 +202,7 @@
 <p>Un lenguaje de programación es un idioma artificial diseñado para expresar computaciones que pueden ser llevadas a cabo por máquinas como las computadoras. Pueden usarse para crear programas que controlen el comportamiento físico y lógico de una máquina, para expresar algoritmos con precisión, o ...</p></blockquote>
         </section>
         <footer class="entryFooter">
-            <a href="../2011/10/antes-de-saludar-al-mundo-introduccion.html" class="moreLink">
+            <a href="../2011/10/antes-de-saludar-al-mundo-introduccion.html#content" class="moreLink" title="Seguir leyendo 'Antes de saludar al mundo (introducción a la programación)'">
                 Seguir leyendo <i class="icon-arrow-right"></i>
             </a>
         </footer>

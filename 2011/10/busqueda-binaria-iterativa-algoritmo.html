@@ -113,14 +113,14 @@
         <span class="author">Autor: Pablo Molina</span>
         <figure class="cover">
         <img src="http://2.bp.blogspot.com/-94o6-37-CHk/TpHBG96WQaI/AAAAAAAAAWk/RiMVwwNMiIQ/s320/binary_search.png"
-             alt=""
-             title=""
+             alt="Demostración del funcionamiento del algoritmo"
+             title="Demostración del funcionamiento del algoritmo"
         />
     </figure>
     
     
             </header>
-            <section class="entryContent">
+            <section class="entryContent" id="content">
                 <h1>Datos</h1>
 <ul>
 <li>Eficiencia logarítmica.</li>
@@ -129,9 +129,9 @@
 <li>Adecuado para conjuntos grandes de elementos</li>
 </ul>
 <h1>Algoritmo</h1>
-<div class="codehilite"><pre>Función Búsqueda_Binaria <span class="p">(</span>x:Telemento<span class="p">;</span> A:Tconjunto<span class="p">,</span> tam:Entero<span class="p">)</span>: Tposicion<span class="p">;</span>
+<div class="codehilite"><pre>Función Búsqueda_Binaria <span class="p">(</span>x<span class="o">:</span>Telemento<span class="p">;</span> A<span class="o">:</span>Tconjunto<span class="p">,</span> tam<span class="o">:</span>Entero<span class="p">)</span><span class="o">:</span> Tposicion<span class="p">;</span>
 Variables
-    bajo<span class="p">,</span> alto<span class="p">,</span> mitad: Entero<span class="p">;</span>
+    bajo<span class="p">,</span> alto<span class="p">,</span> mitad<span class="o">:</span> Entero<span class="p">;</span>
 Inicio
     bajo<span class="o">&lt;-</span>A<span class="p">[</span><span class="m">1</span><span class="p">];</span>
     alto<span class="o">&lt;-</span>tam<span class="p">;</span>
@@ -142,9 +142,9 @@ Inicio
             Devolver mitad<span class="p">;</span>
         Si_No
             Si x<span class="o">&lt;</span>A<span class="p">[</span>mitad<span class="p">]</span> Entonces
-                alto<span class="o">&lt;-</span>mitad<span class="o">-</span><span class="m">1</span>
+                alto<span class="o">&lt;-</span>mitad<span class="m">-1</span>
             Si_No
-                bajo<span class="o">&lt;-</span>mitad<span class="o">+</span><span class="m">1</span>
+                bajo<span class="o">&lt;-</span>mitad<span class="m">+1</span>
             Fin_Si
         Fin_Si
     Fin_Mientras

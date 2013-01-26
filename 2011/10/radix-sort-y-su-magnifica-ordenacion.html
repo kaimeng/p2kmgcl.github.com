@@ -113,14 +113,14 @@
         <span class="author">Autor: Pablo Molina</span>
         <figure class="cover">
         <img src="http://3.bp.blogspot.com/-HizowRgez3A/TpHChO5xXGI/AAAAAAAAAWs/kM6dEAlCy2I/s1600/bucket_sort_2.png"
-             alt=""
-             title=""
+             alt="Muestra de las cubetas que usa el algoritmo"
+             title="Muestra de las cubetas que usa el algoritmo"
         />
     </figure>
     
     
             </header>
-            <section class="entryContent">
+            <section class="entryContent" id="content">
                 <p>La ordenación Radix se basa en la clasificación de los datos que queremos ordenar por una clave. Dicha clave ha de ser una característica de cada dato que pueda ser descompuesta el elementos más pequeños que permitan clasificar los elementos poco a poco. Suponiendo los números enteros, la clave se tomaría como las cifras.</p>
 <h1>Explicación</h1>
 <p>Supongamos un vector de elementos sencillo con números del 0 al 99 que queremos ordenar, como por ejemplo <code>91 35 25 79 17 1</code>.</p>
@@ -129,17 +129,17 @@
 <h1>Segundo paso: Obteniendo la clave</h1>
 <p>Ahora tenemos que recorrer el vector entero colocando cada uno de los elementos en una de las cubetas observando su clave. ¿Cómo obtenemos dicha clave? Sabiendo que cada elemento puede tener como máximo 2 cifras, la primera clasificación ha de ser por la menos significativa: las unidades.</p>
 <p>Para obtener las unidades de un número entero:</p>
-<div class="codehilite"><pre>76 <span class="o">-&gt;</span> 76 <span class="c">% 10 = 6</span>
+<div class="codehilite"><pre><span class="mi">76</span> <span class="o">-&gt;</span> <span class="mi">76</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">=</span> <span class="mi">6</span>
 </pre></div>
 
 
 <p>Y las decenas:</p>
-<div class="codehilite"><pre>76 <span class="o">-&gt;</span> 76 <span class="c">% 100 = 7</span>
+<div class="codehilite"><pre><span class="mi">76</span> <span class="o">-&gt;</span> <span class="mi">76</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">=</span> <span class="mi">7</span>
 </pre></div>
 
 
 <p>Y si nos pasamos:</p>
-<div class="codehilite"><pre>76 <span class="o">-&gt;</span> 76 <span class="c">% 1000 (o más) = 0</span>
+<div class="codehilite"><pre><span class="mi">76</span> <span class="o">-&gt;</span> <span class="mi">76</span> <span class="o">%</span> <span class="mi">1000</span> <span class="p">(</span><span class="n">o</span> <span class="n">m</span><span class="err">á</span><span class="n">s</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 
 
@@ -188,7 +188,7 @@
         <span class="kt">int</span> <span class="n">max</span><span class="p">;</span>    <span class="c1">///&lt; Maximo de elementos en la urna</span>
 <span class="p">}</span><span class="n">Turna</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="n">mayor</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">tamv</span><span class="p">){</span>
+<span class="kt">int</span> <span class="nf">mayor</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">tamv</span><span class="p">){</span>
     <span class="kt">int</span> <span class="n">max</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i</span><span class="p">;</span>
     <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">tamv</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
         <span class="k">if</span><span class="p">(</span><span class="n">max</span><span class="o">&lt;</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
@@ -196,7 +196,7 @@
     <span class="k">return</span> <span class="n">max</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="n">Turna</span> <span class="n">urna_Insertar</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">,</span> <span class="n">Turna</span> <span class="n">urna</span><span class="p">){</span>
+<span class="n">Turna</span> <span class="nf">urna_Insertar</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">,</span> <span class="n">Turna</span> <span class="n">urna</span><span class="p">){</span>
     <span class="k">if</span><span class="p">(</span><span class="n">urna</span><span class="p">.</span><span class="n">tam</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
         <span class="n">urna</span><span class="p">.</span><span class="n">num</span><span class="o">=</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
         <span class="n">urna</span><span class="p">.</span><span class="n">num</span><span class="p">[</span><span class="n">urna</span><span class="p">.</span><span class="n">tam</span><span class="p">]</span><span class="o">=</span><span class="n">num</span><span class="p">;</span>
@@ -213,7 +213,7 @@
     <span class="k">return</span> <span class="n">urna</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="n">Turna</span> <span class="n">urna_Concatenar</span><span class="p">(</span><span class="n">Turna</span> <span class="n">u1</span><span class="p">,</span> <span class="n">Turna</span> <span class="n">u2</span><span class="p">){</span>
+<span class="n">Turna</span> <span class="nf">urna_Concatenar</span><span class="p">(</span><span class="n">Turna</span> <span class="n">u1</span><span class="p">,</span> <span class="n">Turna</span> <span class="n">u2</span><span class="p">){</span>
     <span class="n">Turna</span> <span class="n">u3</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 
@@ -230,7 +230,7 @@
     <span class="k">return</span> <span class="n">u3</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="n">ordenacion_RadixSort_Enteros</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">tamv</span><span class="p">){</span>
+<span class="kt">void</span> <span class="nf">ordenacion_RadixSort_Enteros</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">tamv</span><span class="p">){</span>
     <span class="kt">int</span> <span class="n">aux</span><span class="o">=</span><span class="n">mayor</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">tamv</span><span class="p">);</span>   <span class="c1">//&lt; Mayor elemento de v</span>
     <span class="kt">int</span> <span class="n">n_digitos</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>        <span class="c1">//&lt; Número de urnas</span>
     <span class="kt">int</span> <span class="n">peso</span><span class="p">,</span><span class="n">d</span><span class="p">;</span>

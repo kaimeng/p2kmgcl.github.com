@@ -113,14 +113,14 @@
         <span class="author">Autor: Pablo Molina</span>
         <figure class="cover">
         <img src="http://4.bp.blogspot.com/-EpcjXPuAyRo/T0OSeNixawI/AAAAAAAANhs/S9gYek3jxAE/s1600/pantallazo2.jpg"
-             alt=""
-             title=""
+             alt="Barra resultado"
+             title="Barra resultado"
         />
     </figure>
     
     
             </header>
-            <section class="entryContent">
+            <section class="entryContent" id="content">
                 <p>Viendo un tutorial rápido en <a href="http://vector.tutsplus.com/tutorials/tools-tips/quick-tip-create-a-modern-volume-bar-with-adobe-illustrator/">vectortuts</a> he recordado que tenía ganas de probar qué se puede lograr con una imagen svg incrustada en el código de tu web. Pues bien, con este pequeño experimento he creado una barra de progreso (móvil, por supuesto) sumamente vistosa. Para los que quieran ver directamente los resultados he dejado al final del post un enlace a jsBin para que veáis cómo ha quedado. Los pasos que he seguido son los siguientes:</p>
 <h1>Imagen vectorial</h1>
 <p>Siguiendo un poco el tutorial de la web mencionada anteriormente, he creado con <a href="http://inkscape.org/">inkscape</a> la imagen vectorial que ha servido de base para la barra de progreso. Por facilidad también le he dado a la barra principal la etiqueta "principal" para poder referenciarla de forma más cómoda desde el código javascript.</p>
@@ -128,8 +128,8 @@
 <h1>Insertando el código</h1>
 <p>Para insertar la imagen creada en la web no hay más que guardar la imagen como un archivo svg plano y seguidamente abrirla con un editor de texto. Es importante que sea svg plano y no del propio del programa para que los navegadores sepan interpretarlo correctamente.</p>
 <p>Una vez abierto, copiamos todo el texto del contenido menos la primera o primeras líneas, ya que solo son la declaración del tipo de documento:</p>
-<div class="codehilite"><pre><span class="o">&lt;</span>!<span class="o">--</span>?<span class="n">xml</span> <span class="n">version</span><span class="p">=</span>&quot;1<span class="p">.</span>0&quot; <span class="n">encoding</span><span class="p">=</span>&quot;<span class="n">UTF</span><span class="o">-</span>8&quot; <span class="n">standalone</span><span class="p">=</span>&quot;<span class="n">no</span>&quot;?<span class="o">--&gt;</span>
-<span class="o">&lt;</span>!<span class="o">--</span> <span class="n">Created</span> <span class="n">with</span> <span class="n">Inkscape</span> <span class="p">(</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">inkscape</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="p">)</span> <span class="o">--&gt;</span>
+<div class="codehilite"><pre><span class="o">&lt;!--?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s">&quot;1.0&quot;</span> <span class="n">encoding</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span> <span class="n">standalone</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="o">?--&gt;</span>
+<span class="o">&lt;!--</span> <span class="n">Created</span> <span class="n">with</span> <span class="n">Inkscape</span> <span class="p">(</span><span class="n">http</span><span class="o">:</span><span class="c1">//www.inkscape.org/) --&gt;</span>
 </pre></div>
 
 

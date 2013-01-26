@@ -113,19 +113,19 @@
         <span class="author">Autor: Pablo Molina</span>
         <figure class="cover">
         <img src="http://3.bp.blogspot.com/-DOgSFKOoCVw/UDdXCheQfPI/AAAAAAAAh5Y/vXVrgJdvNR4/s400/Dibujo.JPG"
-             alt=""
-             title=""
+             alt="Logo de C++ con una función que devuelve una referencia constante"
+             title="Logo de C++ con una función que devuelve una referencia constante"
         />
     </figure>
     
     
             </header>
-            <section class="entryContent">
+            <section class="entryContent" id="content">
                 <p>Hace una semana y pico <a href="https://plus.google.com/u/0/112373452810480328056/">David</a> me comentó que había estado debatiendo con <a href="https://plus.google.com/u/0/110730426033836231511/">Soraya</a> el uso que tenía el <strong>const</strong> dentro de c++, y si realmente funcionaría bien con objetos en lugar de tipos simples. Para los que no lo sepáis, en el lenguaje c++ y en c los objetos por defecto se "pasan" por copia, es decir, cuando ponemos como parámetro de una función una variable, la función usará una copia de ésta y no la original, dejando a la primera intacta.
 Como he dicho, este comportamiento es solo por defecto y podemos alterarlo usando punteros (una variable que sólo guarda una dirección de memoria, lo cual ocupa bastante menos espacio que la mayoría de los objetos), o, en c++, una referencia, que nos es más que indicar que la variable que queremos proporcionar es la original y no una copia. Como podéis imaginar, estos dos métodos <strong>son mucho más eficientes que el paso por copia</strong>, en el sentido de que cuesta mucho menos computacionalmente hablando copiar una dirección de memoria o usar el mismo objeto que generar uno nuevo similar.</p>
 <h1>Usando el const</h1>
 <p>En este punto es donde entra el uso de const, esta palabra usada junto a una variable <strong>impide que sea modificada a lo largo del código</strong>, pudiendo pasar esta variable mediante un puntero a ella o por referencia pero con la seguridad de que no será modificada. Un ejemplo:</p>
-<div class="codehilite"><pre><span class="n">function</span> <span class="n">ordenaVector</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">tam</span><span class="p">)</span> <span class="p">{</span>
+<div class="codehilite"><pre><span class="n">function</span> <span class="nf">ordenaVector</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">tam</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Intentamos modificar la variable tam</span>
     <span class="n">tam</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
 <span class="p">}</span>
@@ -136,15 +136,15 @@ Como he dicho, este comportamiento es solo por defecto y podemos alterarlo usand
 <h1>Const y objetos como parámetros</h1>
 <p>Y en este punto es donde surge la pregunta: ¿cómo se comporta un objeto constante cuando llamamos a sus métodos? Pues bien, la respuesta es sencilla y compleja a la vez: el compilador se comporta de una forma bastante inteligente en estos casos, ya que sólo nos impedirá llamar a los métodos de un objeto constante si éstos son modificadores, es decir, si alteran el contenido de los atributos del objeto. De esta forma, en el siguiente objeto:</p>
 <div class="codehilite"><pre><span class="k">class</span> <span class="nc">Pelota</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
+<span class="nl">public:</span>
     <span class="n">Pelota</span><span class="p">()</span><span class="o">:</span> <span class="n">tam</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">{};</span>
-    <span class="kt">void</span> <span class="n">setTam</span><span class="p">(</span><span class="kt">int</span> <span class="n">tam</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">tam</span> <span class="o">=</span> <span class="n">tam</span><span class="p">;</span> <span class="p">};</span>
-    <span class="kt">int</span> <span class="n">getTam</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">tam</span><span class="p">;</span> <span class="p">};</span>
-<span class="k">private</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="nf">setTam</span><span class="p">(</span><span class="kt">int</span> <span class="n">tam</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">tam</span> <span class="o">=</span> <span class="n">tam</span><span class="p">;</span> <span class="p">};</span>
+    <span class="kt">int</span> <span class="nf">getTam</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">tam</span><span class="p">;</span> <span class="p">};</span>
+<span class="nl">private:</span>
     <span class="kt">int</span> <span class="n">tam</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="n">main</span> <span class="p">()</span> <span class="p">{</span>
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
     <span class="k">const</span> <span class="n">Pelota</span> <span class="n">p1</span><span class="p">;</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>

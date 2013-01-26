@@ -113,20 +113,20 @@
         <span class="author">Autor: Pablo Molina</span>
         <figure class="cover">
         <img src="http://1.bp.blogspot.com/-mDFwSjxq-AM/TpFvWqQWh7I/AAAAAAAAAWY/-YHg8IVN2IE/s320/__CODE___C_by_webblaster48.png"
-             alt=""
-             title=""
+             alt="Logotipo del lenguaje de programación C"
+             title="Logotipo del lenguaje de programación C"
         />
     </figure>
     
     
             </header>
-            <section class="entryContent">
+            <section class="entryContent" id="content">
                 <p>Muchas guías empiezan con una típica "presentacion" al lenguaje que vamos a aprender con un texto tal que así:</p>
 <div class="codehilite"><pre><span class="c">#include &lt;stdio.h&gt;</span>
 
 <span class="n">int</span> <span class="n">main</span><span class="p">(){</span>
     <span class="nb">printf</span><span class="p">(</span><span class="s">&quot;Hola Mundo&quot;</span><span class="p">);</span>
-    <span class="k">return</span> 0<span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -152,19 +152,19 @@
 <p>Estos lenguajes precisan de un intérprete que examina su contenido y lo ejecuta linealmente, obteniendo el resultado del programa desde el código fuente.</p>
 <h2>Según sus variables</h2>
 <p>Según la forma en la que el lenguaje <em>trata</em> a sus variables, distinguimos entre lenguajes tipados y no tipados. Bien, para comprender está clasificación solo tenéis que saber que una variable no es más que <em>algo</em> que guarda un dato (después ahondaremos más en este asunto). Por ejemplo en C:</p>
-<div class="codehilite"><pre><span class="n">int</span>    <span class="n">var1</span><span class="p">=</span>12<span class="p">;</span>
-<span class="n">string</span> <span class="n">var2</span><span class="p">=</span>&quot;<span class="n">Hola</span>&quot;<span class="p">;</span>
+<div class="codehilite"><pre><span class="kt">int</span>    <span class="n">var1</span><span class="o">=</span><span class="mi">12</span><span class="p">;</span>
+<span class="n">string</span> <span class="n">var2</span><span class="o">=</span><span class="s">&quot;Hola&quot;</span><span class="p">;</span>
 </pre></div>
 
 
 <p>En este ejemplo la variable <code>var1</code> tiene en su interior un número entero, el valor <code>12</code> y la variable <code>var2</code> tiene una cadena de caracteres con el valor <code>Hola</code>. Cada una en su declaración (primera vez que escribimos la variable tiene escrito el tipo de variable. Sin embargo en JavaScript:</p>
-<div class="codehilite"><pre><span class="n">var</span> <span class="n">var1</span><span class="p">=</span>12<span class="p">;</span>
-<span class="n">var</span> <span class="n">var2</span><span class="p">=</span>&quot;<span class="n">Hola</span>&quot;<span class="p">;</span>
+<div class="codehilite"><pre><span class="n">var</span> <span class="n">var1</span><span class="o">=</span><span class="mi">12</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">var2</span><span class="o">=</span><span class="s">&quot;Hola&quot;</span><span class="p">;</span>
 </pre></div>
 
 
 <p>No es necesario declarar de qué tipo es nuestra variable, sino que lo interpreta según el valor que tenga. En este ejemplo var1 y var2 siguen siendo de tipos entero y cadena, sólo que no tenemos que declararlo. Además al ejecutar el siguiente código en cada uno de los lenguajes (asignar el valor de var2 a var1):</p>
-<div class="codehilite"><pre><span class="n">var1</span><span class="p">=</span><span class="n">var2</span><span class="p">;</span>
+<div class="codehilite"><pre><span class="n">var1</span><span class="o">=</span><span class="n">var2</span><span class="p">;</span>
 </pre></div>
 
 
