@@ -105,6 +105,54 @@
     <article class="entry list General cover">
         <header class="entryHeader">
             <h1 class="title">
+    <a href="/2012/01/probando-la-funcion-position-de-jquery.html" title="Enlace permanente a 'Probando la función "position" de jQuery UI'">Probando la función "position" de jQuery UI</a>    </h1>
+        <time class="published"
+          title="2012/01/05"
+          datetime="2012-01-05T00:00:00">
+          2012/01/05
+    </time>
+    
+    <span class="author">Autor: Pablo Molina</span>
+
+    
+        <figure class="cover">
+        <img src="http://3.bp.blogspot.com/-LSFtjMtQnU8/TxrH_qzeS6I/AAAAAAAAKfs/vrSl6XBAvcQ/s320/2510326188_2d113eb317_b.jpg"
+             alt="Conferencia de jQuery en Tokio"
+             title="Conferencia de jQuery en Tokio"
+        />
+    </figure>
+    
+        </header>
+        <section class="entryContent">
+            <p>Esta nueva función de jQuery UI permite posicionar un elemento junto a otro de la forma más sencilla posible. Para ver la sencillez no hay más que ver la sintaxis:</p>
+<blockquote>
+<p>Mi izquierda a la derecha del objeto (my left at right of object).</p>
+</blockquote>
+<p>Además permite posicionar en las esquinas (left top, right bottom...), dejar una separación en un determinado lado y especificar si queremos que el objeto sufra algún tipo de colisión durante su posicionado.</p>
+<p>Aquí dejo un ejemplo sencillo:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">o1</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;selector1&quot;</span><span class="p">),</span>
+    <span class="nx">o2</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;selector2&quot;</span><span class="p">);</span>
+
+<span class="nx">o1</span><span class="p">.</span><span class="nx">position</span><span class="p">({</span>
+    <span class="nx">my</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+    <span class="nx">at</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span>
+    <span class="nx">of</span><span class="o">:</span> <span class="nx">o2</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<p>Con esto dejaría al primer objeto a la derecha del segundo.</p>
+<p>Para probarlo he creado la siguiente animación en JavaScript. Los objetos Box y Square están fijos y cuando se pase el ...</p>
+        </section>
+        <footer class="entryFooter">
+            <a href="..//2012/01/probando-la-funcion-position-de-jquery.html#content" class="moreLink" title="Seguir leyendo 'Probando la función "position" de jQuery UI'">
+                Seguir leyendo <i class="icon-arrow-right"></i>
+            </a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
+        <header class="entryHeader">
+            <h1 class="title">
     <a href="/2012/09/que-hacer-con-679-euros.html" title="Enlace permanente a '¿Qué hacer con 679 euros?'">¿Qué hacer con 679 euros?</a>    </h1>
         <time class="published"
           title="2012/09/12"
@@ -232,50 +280,6 @@
         </section>
         <footer class="entryFooter">
             <a href="..//2012/02/si-piensas-que-este-post-va-ser-una.html#content" class="moreLink" title="Seguir leyendo 'Canción de la ley SOPA'">
-                Seguir leyendo <i class="icon-arrow-right"></i>
-            </a>
-        </footer>
-    </article>
-    <article class="entry list General cover">
-        <header class="entryHeader">
-            <h1 class="title">
-    <a href="/2012/02/soluciones-para-columnas-con-css.html" title="Enlace permanente a 'Soluciones para columnas con CSS'">Soluciones para columnas con CSS</a>    </h1>
-        <time class="published"
-          title="2012/02/19"
-          datetime="2012-02-19T00:00:00">
-          2012/02/19
-    </time>
-    
-    <span class="author">Autor: Pablo Molina</span>
-
-    
-        <figure class="cover">
-        <img src="http://3.bp.blogspot.com/-COGjUVjgld0/T0FmDVIy_QI/AAAAAAAANhA/Tqqz5HXvusI/s400/wallpaper-1671149.jpg"
-             alt="Logo de HTML5 y CSS3"
-             title="Logo de HTML5 y CSS3"
-        />
-    </figure>
-    
-        </header>
-        <section class="entryContent">
-            <p>Un post muy cortito para aquellos que quieran crear un texto en HTML con varias columnas. Dejo dos soluciones sencillas.</p>
-<h1>Si te da igual qué tiene cada columna</h1>
-<p>Si lo único que quieres es distribuir el texto en varias columnas y no te importa demasiado o no es importante el dónde se produce el salto de columna (a lo texto periodístico), utiliza este pequeño añadido que tiene css para estructurar el texto.</p>
-<div class="codehilite"><pre><span class="nt">article</span> <span class="p">{</span>
-    <span class="k">text-align</span><span class="o">:</span>     <span class="k">justify</span><span class="p">;</span>
-    <span class="k">max-width</span><span class="o">:</span>      <span class="m">800px</span><span class="p">;</span>
-    <span class="k">margin</span><span class="o">:</span>         <span class="k">auto</span><span class="p">;</span>
-    <span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span>   <span class="m">3</span><span class="p">;</span>
-    <span class="n">column</span><span class="o">-</span><span class="n">gap</span><span class="o">:</span>     <span class="m">25px</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<h1>Si el contenido exacto es importante</h1>
-<p>Si por el contrario te interesa poner un contenido concreto en cada columna lo mejor es separarlo en bloques distintos (además semánticamente es lo más lógico). Para esto crea una clase columna y aplícasela ...</p>
-        </section>
-        <footer class="entryFooter">
-            <a href="..//2012/02/soluciones-para-columnas-con-css.html#content" class="moreLink" title="Seguir leyendo 'Soluciones para columnas con CSS'">
                 Seguir leyendo <i class="icon-arrow-right"></i>
             </a>
         </footer>

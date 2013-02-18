@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>p2kmgcl</title><link>http://p2kmgcl.com/</link><description>Piensa, inventa, comparte</description><atom:link href="http://p2kmgcl.com/feeds/main-.rss" rel="self"></atom:link><lastBuildDate>Fri, 01 Feb 2013 00:00:00 +0100</lastBuildDate><item><title>Navegación entre artículos vía JavaScript</title><link>http://p2kmgcl.com//2013/02/navegacion-entre-articulos-via-javascript.html</link><description>&lt;p&gt;Pues tal y como explica el título, podéis navegar entre artículo y artículo pulsando botones de &lt;code&gt;siguiente&lt;/code&gt; y &lt;code&gt;anterior&lt;/code&gt; o con las teclas &lt;code&gt;j&lt;/code&gt;  y &lt;code&gt;k&lt;/code&gt;.&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>p2kmgcl</title><link>http://p2kmgcl.com/</link><description>Piensa, inventa, comparte</description><atom:link href="http://p2kmgcl.com/feeds/main-.rss" rel="self"></atom:link><lastBuildDate>Mon, 18 Feb 2013 00:00:00 +0100</lastBuildDate><item><title>MVC I: Reproductor de música HTML5 con Backbone. Parte II: PlayerView</title><link>http://p2kmgcl.com//2013/02/mvci-playerview.html</link><description>&lt;p&gt;Hace unas semanas -bonito eufemismo- publiqué una entrada sobre como hacer un &lt;a href="http://www.p2kmgcl.com/2013/01/mvc-iintroduccion-y-parte-1-songmodel.html"&gt;reproductor de música con Backbone&lt;/a&gt;, el cual presentaba el "problema" de no tener interfaz. Pues bien, siguiendo con el uso de las vistas de Backbone, ya sabéis lo que toca hoy.&lt;/p&gt;
+&lt;p&gt;Aquí tenéis el reproductor completamente funcional. Visitando el enlace podéis probarlo o ver el código fuente (que incluye el modelo la anterior entrada). Recordad de nuevo que el archivo de música es un fichero mp3 por lo que si lo intentáis reproducir en algunos navegadores es posible que no funcione. Este reproductor está probado en Google Chrome.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.p2kmgcl.com/examples/MVC/0001_html5player/app/"&gt;Reproductor de música&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/p2kmgcl/p2kmgcl.github.com/tree/main/examples/MVC/0001_html5player"&gt;Código fuente&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Pablo Molina</dc:creator><pubDate>Mon, 18 Feb 2013 00:00:00 +0100</pubDate><guid>tag:p2kmgcl.com,2013-02-18:/2013/02/mvci-playerview.html</guid><category>Miniproyecto</category><category>Backbone</category><category>Vistas</category><category>Programación</category><category>JavaScript</category><category>Plantillas</category><category>JQuery</category></item><item><title>Navegación entre artículos vía JavaScript</title><link>http://p2kmgcl.com//2013/02/navegacion-entre-articulos-via-javascript.html</link><description>&lt;p&gt;Pues tal y como explica el título, podéis navegar entre artículo y artículo pulsando botones de &lt;code&gt;siguiente&lt;/code&gt; y &lt;code&gt;anterior&lt;/code&gt; o con las teclas &lt;code&gt;j&lt;/code&gt;  y &lt;code&gt;k&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;En el ejemplo que tenéis a continuación hago uso de jQuery y su método &lt;code&gt;scrollTop()&lt;/code&gt; tanto para calcular la posición en la que se encuentran los artículos como para mover la ventana hasta ellos. &lt;/p&gt;
 &lt;pre class="_cssdeck_embed" data-pane="output" data-user="p2kmgcl" data-href="javascript-article-navigation" data-version="0"&gt;&lt;/pre&gt;
 
@@ -414,42 +419,4 @@ La modificación de la posición vertical no es más que un detalle para que la 
 &lt;p&gt;&lt;a class="jsbin-embed" href="http://jsbin.com/ubiqex/5/embed?live"&gt;&lt;/a&gt;&lt;script src="http://static.jsbin.com/js/embed.js"&gt;&lt;/script&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Resultado ~ &lt;a href="http://jsbin.com/ubiqex/5/edit#preview"&gt;jsBin&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Pablo Molina</dc:creator><pubDate>Sun, 26 Feb 2012 00:00:00 +0100</pubDate><guid>tag:p2kmgcl.com,2012-02-26:/2012/02/creando-una-vistosa-barra-de-progreso.html</guid><category>CSS</category><category>Diseño web</category><category>HTML</category><category>Javascript</category><category>SVG</category><category>Tutoriales</category></item><item><title>Soluciones para columnas con CSS</title><link>http://p2kmgcl.com//2012/02/soluciones-para-columnas-con-css.html</link><description>&lt;p&gt;Un post muy cortito para aquellos que quieran crear un texto en HTML con varias columnas. Dejo dos soluciones sencillas.&lt;/p&gt;
-&lt;h1&gt;Si te da igual qué tiene cada columna&lt;/h1&gt;
-&lt;p&gt;Si lo único que quieres es distribuir el texto en varias columnas y no te importa demasiado o no es importante el dónde se produce el salto de columna (a lo texto periodístico), utiliza este pequeño añadido que tiene css para estructurar el texto.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nt"&gt;article&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;text-align&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;     &lt;span class="k"&gt;justify&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;max-width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;      &lt;span class="m"&gt;800px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;margin&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;         &lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="n"&gt;column&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;   &lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="n"&gt;column&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;gap&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;     &lt;span class="m"&gt;25px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h1&gt;Si el contenido exacto es importante&lt;/h1&gt;
-&lt;p&gt;Si por el contrario te interesa poner un contenido concreto en cada columna lo mejor es separarlo en bloques distintos (además semánticamente es lo más lógico). Para esto crea una clase columna y aplícasela a cada una de ellas.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nt"&gt;body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;text-align&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;   &lt;span class="k"&gt;center&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="nc"&gt;.columna&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;text-align&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;       &lt;span class="k"&gt;left&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;          &lt;span class="k"&gt;inline&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;vertical-align&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;   &lt;span class="k"&gt;top&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-  &lt;span class="c"&gt;/* Espaciado pensado para 4 columnas */&lt;/span&gt;
-  &lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;    &lt;span class="m"&gt;20&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;  &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;margin&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;   &lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-  &lt;span class="c"&gt;/* Cada uno trata el overflow como quiere ^^ */&lt;/span&gt;
-  &lt;span class="k"&gt;overflow&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;hidden&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Enlace ejemplo 1 ~ &lt;a href="http://jsbin.com/ezayem/edit#html,live"&gt;Demostración en jsBin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Enlace ejemplo 2 ~ &lt;a href="http://jsbin.com/epejen/2/edit#html,live"&gt;Demostración en jsBin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Imagen ~ &lt;a href="http://wallbase.cc/wallpaper/1671149"&gt;Wallbase&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Pablo Molina</dc:creator><pubDate>Sun, 19 Feb 2012 00:00:00 +0100</pubDate><guid>tag:p2kmgcl.com,2012-02-19:/2012/02/soluciones-para-columnas-con-css.html</guid><category>Columnas</category><category>CSS</category><category>Código</category><category>Diseño web</category><category>HTML</category><category>Tutoriales</category></item></channel></rss>
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Pablo Molina</dc:creator><pubDate>Sun, 26 Feb 2012 00:00:00 +0100</pubDate><guid>tag:p2kmgcl.com,2012-02-26:/2012/02/creando-una-vistosa-barra-de-progreso.html</guid><category>CSS</category><category>Diseño web</category><category>HTML</category><category>Javascript</category><category>SVG</category><category>Tutoriales</category></item></channel></rss>

@@ -105,6 +105,54 @@
     <article class="entry list General cover">
         <header class="entryHeader">
             <h1 class="title">
+    <a href="/2012/01/probando-la-funcion-position-de-jquery.html" title="Enlace permanente a 'Probando la función "position" de jQuery UI'">Probando la función "position" de jQuery UI</a>    </h1>
+        <time class="published"
+          title="2012/01/05"
+          datetime="2012-01-05T00:00:00">
+          2012/01/05
+    </time>
+    
+    <span class="author">Autor: Pablo Molina</span>
+
+    
+        <figure class="cover">
+        <img src="http://3.bp.blogspot.com/-LSFtjMtQnU8/TxrH_qzeS6I/AAAAAAAAKfs/vrSl6XBAvcQ/s320/2510326188_2d113eb317_b.jpg"
+             alt="Conferencia de jQuery en Tokio"
+             title="Conferencia de jQuery en Tokio"
+        />
+    </figure>
+    
+        </header>
+        <section class="entryContent">
+            <p>Esta nueva función de jQuery UI permite posicionar un elemento junto a otro de la forma más sencilla posible. Para ver la sencillez no hay más que ver la sintaxis:</p>
+<blockquote>
+<p>Mi izquierda a la derecha del objeto (my left at right of object).</p>
+</blockquote>
+<p>Además permite posicionar en las esquinas (left top, right bottom...), dejar una separación en un determinado lado y especificar si queremos que el objeto sufra algún tipo de colisión durante su posicionado.</p>
+<p>Aquí dejo un ejemplo sencillo:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">o1</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;selector1&quot;</span><span class="p">),</span>
+    <span class="nx">o2</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;selector2&quot;</span><span class="p">);</span>
+
+<span class="nx">o1</span><span class="p">.</span><span class="nx">position</span><span class="p">({</span>
+    <span class="nx">my</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+    <span class="nx">at</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span>
+    <span class="nx">of</span><span class="o">:</span> <span class="nx">o2</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<p>Con esto dejaría al primer objeto a la derecha del segundo.</p>
+<p>Para probarlo he creado la siguiente animación en JavaScript. Los objetos Box y Square están fijos y cuando se pase el ...</p>
+        </section>
+        <footer class="entryFooter">
+            <a href="..//2012/01/probando-la-funcion-position-de-jquery.html#content" class="moreLink" title="Seguir leyendo 'Probando la función "position" de jQuery UI'">
+                Seguir leyendo <i class="icon-arrow-right"></i>
+            </a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
+        <header class="entryHeader">
+            <h1 class="title">
     <a href="/2011/11/woso-el-oso-en-la-web.html" title="Enlace permanente a 'WOSO - El OSO en la web'">WOSO - El OSO en la web</a>    </h1>
         <time class="published"
           title="2011/11/21"
@@ -291,49 +339,6 @@ Fin.
         </section>
         <footer class="entryFooter">
             <a href="..//2011/10/busqueda-binaria-iterativa-algoritmo.html#content" class="moreLink" title="Seguir leyendo 'Búsqueda Binaria Iterativa (algoritmo, explicación e implementación genérica)'">
-                Seguir leyendo <i class="icon-arrow-right"></i>
-            </a>
-        </footer>
-    </article>
-    <article class="entry list General cover">
-        <header class="entryHeader">
-            <h1 class="title">
-    <a href="/2011/10/code-is-poetry.html" title="Enlace permanente a 'Obteniendo una web mediante un script'">Obteniendo una web mediante un script</a>    </h1>
-        <time class="published"
-          title="2011/10/11"
-          datetime="2011-10-11T00:00:00">
-          2011/10/11
-    </time>
-    
-    <span class="author">Autor: Pablo Molina</span>
-
-    
-        <figure class="cover">
-        <img src="http://2.bp.blogspot.com/-DgtTMiS-bQs/TpGj7b5BayI/AAAAAAAAAWg/vT5pduqc3Zk/s320/code-is-poetry.jpg"
-             alt="Texto 'Code is Poetry' sobre fondo negro"
-             title="Texto 'Code is Poetry' sobre fondo negro"
-        />
-    </figure>
-    
-        </header>
-        <section class="entryContent">
-            <p>Hoy mi novia me ha dicho que estaba copiando el texto de una web para que su padre tuviera unos apuntes offline en un documento de texto. Sorpresa la mía cuando he visto que dicha web tenía 11 secciones, y cada sección tenía unos 30 capítulos dentro (vamos que estaba mas cerca de quedarse sin mano que de copiarla entera).</p>
-<p>El caso es que he visto que la url tenía siempre la misma estructura, así que he hecho un script que le ha descargado la estructura de documentos para poder leerlos sin problemas:</p>
-<div class="codehilite"><pre><span class="c">#!/bin/csh</span>
-
-@ <span class="nv">seccion</span> <span class="o">=</span> 1
-@ <span class="nv">capitulo</span> <span class="o">=</span> 1
-<span class="nb">set </span><span class="nv">url1</span> <span class="o">=</span> <span class="s2">&quot;http://www.eccpn.aibarra.org/temario/seccion&quot;</span>
-<span class="nb">set </span><span class="nv">url2</span> <span class="o">=</span> <span class="s2">&quot;/capitulo&quot;</span>
-<span class="nb">set </span><span class="nv">url3</span> <span class="o">=</span> <span class="s2">&quot;/capitulo&quot;</span>
-<span class="nb">set </span><span class="nv">url4</span> <span class="o">=</span> <span class="s2">&quot;.htm&quot;</span>
-
-<span class="k">while</span> <span class="o">(</span> <span class="nv">$seccion</span> &lt; 15 <span class="o">)</span>
-    mkdir <span class="s2">&quot;Seccion $seccion&quot;</span>
-    <span class="nb">echo</span> <span class="s2">&quot;Sec ...</span></pre></div>
-        </section>
-        <footer class="entryFooter">
-            <a href="..//2011/10/code-is-poetry.html#content" class="moreLink" title="Seguir leyendo 'Obteniendo una web mediante un script'">
                 Seguir leyendo <i class="icon-arrow-right"></i>
             </a>
         </footer>

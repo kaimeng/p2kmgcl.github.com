@@ -105,6 +105,49 @@
     <article class="entry list General cover">
         <header class="entryHeader">
             <h1 class="title">
+    <a href="/2011/10/code-is-poetry.html" title="Enlace permanente a 'Obteniendo una web mediante un script'">Obteniendo una web mediante un script</a>    </h1>
+        <time class="published"
+          title="2011/10/11"
+          datetime="2011-10-11T00:00:00">
+          2011/10/11
+    </time>
+    
+    <span class="author">Autor: Pablo Molina</span>
+
+    
+        <figure class="cover">
+        <img src="http://2.bp.blogspot.com/-DgtTMiS-bQs/TpGj7b5BayI/AAAAAAAAAWg/vT5pduqc3Zk/s320/code-is-poetry.jpg"
+             alt="Texto 'Code is Poetry' sobre fondo negro"
+             title="Texto 'Code is Poetry' sobre fondo negro"
+        />
+    </figure>
+    
+        </header>
+        <section class="entryContent">
+            <p>Hoy mi novia me ha dicho que estaba copiando el texto de una web para que su padre tuviera unos apuntes offline en un documento de texto. Sorpresa la mía cuando he visto que dicha web tenía 11 secciones, y cada sección tenía unos 30 capítulos dentro (vamos que estaba mas cerca de quedarse sin mano que de copiarla entera).</p>
+<p>El caso es que he visto que la url tenía siempre la misma estructura, así que he hecho un script que le ha descargado la estructura de documentos para poder leerlos sin problemas:</p>
+<div class="codehilite"><pre><span class="c">#!/bin/csh</span>
+
+@ <span class="nv">seccion</span> <span class="o">=</span> 1
+@ <span class="nv">capitulo</span> <span class="o">=</span> 1
+<span class="nb">set </span><span class="nv">url1</span> <span class="o">=</span> <span class="s2">&quot;http://www.eccpn.aibarra.org/temario/seccion&quot;</span>
+<span class="nb">set </span><span class="nv">url2</span> <span class="o">=</span> <span class="s2">&quot;/capitulo&quot;</span>
+<span class="nb">set </span><span class="nv">url3</span> <span class="o">=</span> <span class="s2">&quot;/capitulo&quot;</span>
+<span class="nb">set </span><span class="nv">url4</span> <span class="o">=</span> <span class="s2">&quot;.htm&quot;</span>
+
+<span class="k">while</span> <span class="o">(</span> <span class="nv">$seccion</span> &lt; 15 <span class="o">)</span>
+    mkdir <span class="s2">&quot;Seccion $seccion&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Sec ...</span></pre></div>
+        </section>
+        <footer class="entryFooter">
+            <a href="..//2011/10/code-is-poetry.html#content" class="moreLink" title="Seguir leyendo 'Obteniendo una web mediante un script'">
+                Seguir leyendo <i class="icon-arrow-right"></i>
+            </a>
+        </footer>
+    </article>
+    <article class="entry list General cover">
+        <header class="entryHeader">
+            <h1 class="title">
     <a href="/2011/10/busqueda-secuencial-algoritmo.html" title="Enlace permanente a 'Búsqueda Secuencial (algoritmo, explicación e implementación genérica)'">Búsqueda Secuencial (algoritmo, explicación e implementación genérica)</a>    </h1>
         <time class="published"
           title="2011/10/10"
@@ -190,10 +233,10 @@ Fin
         </header>
         <section class="entryContent">
             <p>Muchas guías empiezan con una típica "presentacion" al lenguaje que vamos a aprender con un texto tal que así:</p>
-<div class="codehilite"><pre><span class="c">#include &lt;stdio.h&gt;</span>
+<div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
 
-<span class="n">int</span> <span class="n">main</span><span class="p">(){</span>
-    <span class="nb">printf</span><span class="p">(</span><span class="s">&quot;Hola Mundo&quot;</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hola Mundo&quot;</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>

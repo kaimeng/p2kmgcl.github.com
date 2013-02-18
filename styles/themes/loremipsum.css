@@ -750,6 +750,7 @@ a {
     body {
         width: 95%;
         padding: 1em 2.5%;
+        padding-top: 0;
         margin-top: 0;
         font-size: 16px;
     }
@@ -763,17 +764,32 @@ a {
     #mainHeader,
     #mainMenu,
     #vcard,
-    #vcard > .social {
-        position: static;
+    #vcard > .social,
+    #vcard > .profile {
+        position: relative;
+        top: 0;
+        right: 0;
     }
 
         #mainHeader {
-            margin-bottom: 1em;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding-top: 1em;
+            height: 15em;
+            background-image: url(http://dl.dropbox.com/u/6037255/cover.jpg);
+                    background-size: cover;
+            box-shadow: 0 0 1em #888;
         }
 
             #mainMenu {
                 padding-right: 0;
                 text-align: center;
+                background-color: transparent;
+                color: white;
+                text-shadow: 0 0 2px black,
+                             0 0 1.5em white;
             }
                 #mainMenu > ul {
                     text-align: center;
@@ -782,21 +798,56 @@ a {
                         padding: 0 0.2em;
                     }
 
+                    #mainMenu > ul > li > a {
+                        color: inherit;
+                    }
+
         #mainSidebar {
-            margin-bottom: 2em;
+            margin-bottom: 10em;
+            position: relative;
+            top: 5em;
         }
 
             #vcard {
                 text-align: center;
             }
+
+                #vcard > .profile {
+                    display: block;
+                    background-color: transparent;
+                }
+
+                    #vcard > .profile > img {
+                        display: none;
+                    }
+
+                    #vcard > .profile > figcaption {
+                        display: block;
+                        font-size: 3.5em;
+                        font-family: 'Fjalla One', Arial;
+                        color: white;
+                        text-shadow: 0 0 2px black,
+                                     0 0 1.5em white;
+                    }
+
+                        #vcard > .profile > figcaption > a {
+                            display: none;
+                        }
+
                 #vcard > .social {
+                    top: 0em;
                     padding-top: 0;
                     margin-top: 0.5em;
                     width: auto;
                     max-width: 15em;
                     text-align: center;
                     overflow: visible;
+                    background-color: transparent;
                 }
+                .-webkit- #vcard > .social {
+                    top: 1em;
+                }
+
                     #vcard > .social > li {
                         width: auto;
                         padding: 0;
@@ -804,6 +855,7 @@ a {
                         display: inline-block;
                         position: relative;
                         overflow: visible;
+                        background-color: transparent;
                     }
                         #vcard > .social > li > i,
                         #vcard > .social > li > i:hover,
@@ -811,6 +863,10 @@ a {
                             padding: 0;
                             left: 0;
                             z-index: 2;
+                            color: white;
+                            text-shadow: 0 0 2px black,
+                                         0 0 1.5em white;
+                            background-color: transparent;
                         }
 
                         #vcard > .social > li > a {
@@ -840,9 +896,58 @@ a {
                             z-index: 3;
                         }
 
+                        @keyframes socialRainbowRSS {
+                            0% { color: white; }
+                            50% { color: #F99000; }
+                            100% { color: white; }
+                        }
+                        @keyframes socialRainbowGooglePlus {
+                            0% { color: white; }
+                            50% { color: #D34836; }
+                            100% { color: white; }
+                        }
+                        @keyframes socialRainbowGithub {
+                            0% { color: white; }
+                            50% { color: #000; }
+                            100% { color: white; }
+                        }
+                        @keyframes socialRainbowTwitter {
+                            0% { color: white; }
+                            50% { color: #5DB5DE; }
+                            100% { color: white; }
+                        }
+                        @keyframes socialRainbowFacebook {
+                            0% { color: white; }
+                            50% { color: #335795; }
+                            100% { color: white; }
+                        }
+                        @keyframes socialRainbowLinkedin {
+                            0% { color: white; }
+                            50% { color: #0078A8; }
+                            100% { color: white; }
+                        }
+                        @keyframes socialRainbowMusic {
+                            0% { color: white; }
+                            50% { color: #FC0807; }
+                            100% { color: white; }
+                        }
+                        @keyframes socialRainbowPencil {
+                            0% { color: white; }
+                            50% { color: #9E7070; }
+                            100% { color: white; }
+                        }
+                        @keyframes socialRainbowFacetime {
+                            0% { color: white; }
+                            50% { color: #AF2B26; }
+                            100% { color: white; }
+                        }
+
     #mainContent,
     #mainFooter {
         width: 100%;
+    }
+    #mainContent {
+        margin-top: 5em;
     }
     /* Fix chrome */
     .-webkit- #mainContent,
@@ -858,6 +963,18 @@ a {
             margin: 0 auto;
         }
 
+    .entry:after {
+        position: relative;
+        left: -1em;
+        bottom: -2em;
+        width: 100%;
+        height: 1px;
+        background-color: #aaa;
+        display: block;
+        content: "";
+        padding: 0 1em;
+    }
+
     .entryHeader {
         text-align: center;
     }
@@ -872,3 +989,8 @@ a {
         }
 }
 
+@media (max-width: 290px) {
+    #mainHeader {
+        height: 21.5em;
+    }
+}
