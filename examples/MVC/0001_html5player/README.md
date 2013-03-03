@@ -6,7 +6,7 @@ Si has llegado hasta aquí quiere decir que te has tomado la molestia de indagar
 
 Este reproductor es mi primera prueba con Backbone.js (sin contar las chapucillas que he ido probando conforme aprendía). A lo largo de unas cuantas entradas en mi blog he ido documentando como hacer este reproductor, por lo que si te interesa aqui tienes la lista de entradas:
 
- - [Reproductor de música HTML5 con Backbone](http://www.p2kmgcl.com/2013/01/mvc-iintroduccion-y-parte-1-songmodel.html)
+ - [Reproductor de música HTML5 con Backbone](http://blog.pablomolina.me/2013/01/mvc-iintroduccion-y-parte-1-songmodel.html)
  - [... En proceso ...]
 
 Además este proyecto está generado con [Yeoman](http://yeoman.io/), por lo que si quieres generar el resultado solo tienes que hacer:
