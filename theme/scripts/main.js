@@ -117,7 +117,7 @@ p2kmgcl = {
      */
     init: function () {
         if (Modernizr.history) {
-            // p2kmgcl.modernNavigation();
+            p2kmgcl.modernNavigation();
         }
 
         p2kmgcl.hideAlerts();
