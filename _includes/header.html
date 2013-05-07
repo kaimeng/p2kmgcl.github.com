@@ -1,0 +1,11 @@
+<header id="mainHeader">
+    <h1><a href="{{ site.web.url }}" />{{ site.author.alias }}</a></h1>
+    <nav id="mainMenu">
+        <h1>Menú principal</h1>
+        <ul>
+            {% for page in site.pages %}{% if page.title and page.layout != 'tag' %}
+                <li><a href="{{ page.url }}">{{ page.title }}</a>{{ page.layout }}</li>
+            {% endif %}{% endfor %}
+        </ul>
+    </nav>
+</header>

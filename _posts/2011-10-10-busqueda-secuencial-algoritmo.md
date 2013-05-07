@@ -1,7 +1,10 @@
-Title: Búsqueda Secuencial (algoritmo, explicación e implementación genérica)
-Cover: http://1.bp.blogspot.com/-xvBGQfnVU8g/TpF3W0Uu8AI/AAAAAAAAAWc/rBnqztURpTo/s400/656px-Linear_sorption_isotherm.svg.png
-CoverName: Muestra de la eficiencia de la búsqueda secuencial
-Tags: Destino... C, Destino... Pro, Ordenación y Búsqueda, Programación
+---
+layout: post
+title: Búsqueda Secuencial (algoritmo, explicación e implementación genérica)
+image: Muestra de la eficiencia de la búsqueda secuencial
+tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
+categories: [Programación]
+---
 
 # Datos
 
@@ -30,7 +33,7 @@ Tags: Destino... C, Destino... Pro, Ordenación y Búsqueda, Programación
 
 # Implementación en C (enteros)
 
-    :::c
+    {% highlight c %}
     /**
      * @brief Funcion de búsqueda secuencial genérica
      * @param a Elemento a buscar
@@ -46,10 +49,11 @@ Tags: Destino... C, Destino... Pro, Ordenación y Búsqueda, Programación
                 return i;
         return -1;
     }
+    {% endhighlight %}
 
 # Implementación en C (genérico)
 
-    :::c
+    {% highlight c %}
     /**
      * @brief Funcion de búsqueda secuencial genérica
      * @param a Elemento a buscar
@@ -68,3 +72,4 @@ Tags: Destino... C, Destino... Pro, Ordenación y Búsqueda, Programación
 
         return -1;
     }
+    {% endhighlight %}
