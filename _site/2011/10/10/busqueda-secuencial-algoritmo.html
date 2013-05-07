@@ -1,0 +1,71 @@
+<h1 id='datos'>Datos</h1>
+
+<ul>
+<li>Eficiencia lineal.</li>
+
+<li>Examina los elementos de uno en uno</li>
+
+<li>El conjunto de datos no tiene por qué estar ordenado</li>
+
+<li>Es adecuada sólo para conjuntos de datos pequeños</li>
+
+<li>Si el elemento no pertenece al conjunto, éste se recorre entero</li>
+</ul>
+
+<h1 id='algoritmo'>Algoritmo</h1>
+
+<pre><code>Funcion busqueda_Secuencial (x:Telemento; A:Tconjunto; tam:Entero): Entero
+Variables
+     i: Entero
+Inicio
+     i&lt;-1
+     Mientras (i&lt;=tam) hacer
+          Si A[i]==x Entonces
+               Devolver i
+          Si_No
+               i&lt;-i+1
+          Fin_si
+     Fin_Mientras
+     Devolver -1
+Fin</code></pre>
+
+<h1 id='implementacin_en_c_enteros'>Implementación en C (enteros)</h1>
+
+<pre><code>:::c
+/**
+ * @brief Funcion de búsqueda secuencial genérica
+ * @param a Elemento a buscar
+ * @param vector Vector de elementos donde buscar
+ * @param tamv Número de elementos del vector
+ * @return Devuelve la posición del elemento si lo encuentra, -1 si no.
+ */
+int busqueda_Secuencial(int a, int *vector, int tamv){
+    int i;  //&lt; Variable contador
+
+    for(i=0;i&lt;tamv;i++)
+        if(vector[i]==a)
+            return i;
+    return -1;
+}</code></pre>
+
+<h1 id='implementacin_en_c_genrico'>Implementación en C (genérico)</h1>
+
+<pre><code>:::c
+/**
+ * @brief Funcion de búsqueda secuencial genérica
+ * @param a Elemento a buscar
+ * @param vector Vector de elementos donde buscar
+ * @param tama Tamaño de los elementos del vector
+ * @param tamv Número de elementos del vector
+ * @param fcomp Función de comparación de los elementos
+ * @return Devuelve la posición del elemento si lo encuentra, -1 si no.
+ */
+int busqueda_Secuencial(const void *a, const void *vector, int tama, int tamv, int (*fcomp) (const void *a, const void *b)){
+    int i;  //&lt; Variable contador
+
+    for(i=0;i&lt;tamv;i++)
+        if(fcomp(a,vector+(i*tama))==0)
+            return i;
+
+    return -1;
+}</code></pre>

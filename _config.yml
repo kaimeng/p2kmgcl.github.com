@@ -1,0 +1,40 @@
+safe:         false
+auto:         true
+server:       true
+server_port:  4000
+
+source:       .
+destination:  ./_site
+plugins:      ./_plugins
+
+lsi:          true
+future:       false
+pygments:     true
+markdown:     maruku
+permalink:    date
+
+maruku:
+  use_tex:    false
+  use_divs:   false
+  png_engine: blahtex
+  png_dir:    images/latex
+  png_url:    /images/latex
+
+author:
+    name:  "Pablo Molina"
+    alias: "p2kmgcl"
+    photo: "http://dl.dropbox.com/u/6037255/perfil.jpg"
+    mail:  "p2kmgcl@gmail.com"
+    links:
+      googleplus:
+        name: "Google+"
+        icon: "google-plus"
+      github:
+        name: "GitHub"
+        icon: "github"
+
+web:
+  url:      "http://pablomolina.me"
+  title:    "Pablo Molina"
+  subtitle: "Piensa, inventa, comparte"
+  disqus:   "p2kmgcl"
