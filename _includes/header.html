@@ -4,7 +4,7 @@
         <h1>Menú principal</h1>
         <ul>
             {% for page in site.pages %}{% if page.title and page.layout != 'tag' %}
-                <li><a href="{{ page.url }}">{{ page.title }}</a>{{ page.layout }}</li>
+                <li><a href="{{ page.url }}">{{ page.title }}</a></li>
             {% endif %}{% endfor %}
         </ul>
     </nav>
