@@ -2,8 +2,8 @@
 layout: post
 title: Búsqueda Secuencial (algoritmo, explicación e implementación genérica)
 image: Muestra de la eficiencia de la búsqueda secuencial
-tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
 categories: [Programación]
+tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
 ---
 
 # Datos
@@ -16,6 +16,7 @@ categories: [Programación]
 
 # Algoritmo
 
+    {% highlight c %}
     Funcion busqueda_Secuencial (x:Telemento; A:Tconjunto; tam:Entero): Entero
     Variables
          i: Entero
@@ -30,6 +31,7 @@ categories: [Programación]
          Fin_Mientras
          Devolver -1
     Fin
+    {% endhighlight %}
 
 # Implementación en C (enteros)
 
