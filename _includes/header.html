@@ -1,9 +1,13 @@
-<header id="mainHeader">
-    <h1><a href="{{ site.web.url }}" />{{ site.author.alias }}</a></h1>
-    <nav id="mainMenu">
+<header class="mainHeader">
+    <hgroup>
+        <h1><a href="/index.html" />{{ site.web.title }}</a></h1>
+        <h2>{{ site.web.subtitle }}</h2>
+    </hgroup>
+    
+    <nav class="mainMenu">
         <h1>Menú principal</h1>
         <ul>
-            {% for page in site.pages %}{% if page.title and page.layout != 'tag' %}
+            {% for page in site.pages limit:5 %}{% if page.title %}
                 <li><a href="{{ page.url }}">{{ page.title }}</a></li>
             {% endif %}{% endfor %}
         </ul>

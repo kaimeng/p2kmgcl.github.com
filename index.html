@@ -1,0 +1,57 @@
+---
+title: Inicio
+layout: index
+---
+
+{% if paginator.page == 1 %}
+    <section class="index">
+        <header>
+            <h1>Página principal</h1>
+        </header>
+
+        {% include quotes.html %}
+        {% include intro.html %}
+    </section>
+{% endif %}
+
+<section class="blog">
+    <header>
+        <h1>Blog</h1>
+    </header>
+
+    <section class="articleList infinite-container">
+        <header>
+            <h1>Lista de artículos</h1>
+        </header>
+
+        {% for post in paginator.posts %}
+            <article class="infinite-item">
+                <header>
+                    <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+                    <time>{{ post.date }}</time>
+                </header>
+                <div class="content">{{ post.content }}</div>
+            </article>
+        {% endfor %}
+    </section>
+
+    <nav class="pagination">
+        <header>
+            <h1>Navegación entre artículos</h1>
+        </header>
+
+        {% if paginator.previous_page %}<a href="{% if paginator.previous_page != 1 %}/page{{ paginator.previous_page }}{% else %}/index.html{% endif %}" class="previous">Anterior</a>{% else %}<span class="previous">Anterior</span>{% endif %}
+      
+        <span class="pageNumber">Página:
+            <span class="current">{{ paginator.page }}</span>
+             de 
+            <span class="total">{{ paginator.total_pages }}</span>
+        </span>
+
+        {% if paginator.next_page %}<a href="/page{{ paginator.next_page }}" class="next infinite-more-link">Siguiente</a>{% else %}<span class="next">Siguiente</span>{% endif %}
+    </nav>
+
+    {% if site.js.infiniteScroll %}
+        {% include congratulations.html %}
+    {% endif %}
+</section>

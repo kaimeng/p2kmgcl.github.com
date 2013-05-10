@@ -17,9 +17,9 @@ Muchas guías empiezan con una típica "presentación" al lenguaje que vamos a a
     }
     {% endhighlight %}
 
-Pero antes de nada hay que preguntar: ¿qué son todas esas letras? ¿qué son esos comandos y por qué se colocan de esa manera? En este post voy a hacer una introducción al lenguaje de programación C y a la programación en general.
+Pero antes de nada hay que preguntar: ¿qué son todas esas letras? ¿qué son esos comandos y por qué se colocan de esa manera? En esta entrada voy a hacer una introducción al lenguaje de programación C y a la programación en general.
 
-# ¿Qué es un lenguaje de programación?
+## ¿Qué es un lenguaje de programación?
 
 Según la wikipedia: 
  > Un lenguaje de programación es un idioma artificial diseñado para expresar computaciones que pueden ser llevadas a cabo por máquinas como las computadoras. Pueden usarse para crear programas que controlen el comportamiento físico y lógico de una máquina, para expresar algoritmos con precisión, o como modo de comunicación humana.1 Está formado por un conjunto de símbolos y reglas sintácticas y semánticas que definen su estructura y el significado de sus elementos y expresiones. Al proceso por el cual se escribe, se prueba, se depura, se compila y se mantiene el código fuente de un programa informático se le llama programación.
@@ -29,25 +29,25 @@ Esto es, un lenguaje de programación no es más que una serie de instrucciones 
 Es importante que para que un lenguaje sea considerado "de programación" debe poder tener diferentes salidas en función de los parámetros de entrada que se le pase, por ello un lenguaje como HTML no es programado, ya que su función no es procesar datos, sino añadir información semántica a un texto.
 
 
-# Tipos de lenguajes
+## Tipos de lenguajes
 
-## Según su ejecución
+### Según su ejecución
 
 En general existen dos tipos de lenguajes de programación: los compilados y los interpretados. (También existen lenguajes semicompilados pero eso es algo que se escapa de la introducción).
 
 Su diferencia reside en qué es lo que tenemos que hacer con el código (véase el de más arriba) una vez que lo tenemos escrito, formando la siguiente clasificación.
 
-### Compilados
+#### Compilados
 
 Existen unos programas llamados compiladores que se encargan de traducir la información de nuestro programa al lenguaje de los ordenadores: el sistema de numeración binario. De forma que lo transforma en un ejecutable repleto de unos y ceros que resulta ilegible y no digamos escribible para un ser humano. Este tipo de lenguajes guardan la ventaja de ocupar un espacio mínimo una vez compilados, pero la desventaja de que a no ser que aportemos el código fuente será imposible que otros vean como está hecho. Además para la mayoría de los lenguajes compilados necesitaremos una compilación distinta según el entorno en el que ejecutemos el programa (Windows, MACOS o Linux, 32 o 64 bits, MAC o PC... ).
 
  > Los que no requieran distintas compilaciones serán llamados multiplataforma.
 
-### Interpretados
+#### Interpretados
 
 Estos lenguajes precisan de un intérprete que examina su contenido y lo ejecuta linealmente, obteniendo el resultado del programa desde el código fuente.
 
-## Según sus variables
+### Según sus variables
 
 Según la forma en la que el lenguaje *trata* a sus variables, distinguimos entre lenguajes tipados y no tipados. Bien, para comprender está clasificación solo tenéis que saber que una variable no es más que *algo* que guarda un dato (después ahondaremos más en este asunto). Por ejemplo en C:
 

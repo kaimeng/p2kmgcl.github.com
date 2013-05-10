@@ -1,0 +1,38 @@
+<aside id="hcard-{{-site.author.givenName-}}-{{-site.author.familyName-}}" class="mainSidebar vcard">
+    <header>
+        <h1>Información del autor</h1>
+    </header>
+
+    <figure>
+        <img alt="Foto de perfil de {{ site.author.name }}" title="Foto de perfil de {{ site.author.name }}" src="{{ site.author.photo }}" width="125" height="125" class="photo" />
+        <figcaption>
+            <span class="fn n">
+                <span class="given-name">{{ site.author.givenName }}</span>
+                <span class="family-name">{{ site.author.familyName }}</span>
+            </span>
+            <span class="nickname">{{ site.author.alias }}</span>
+            <time class="bday">{{ site.author.bday }}</time>
+            <a href="mailto:{{ site.author.mail }}" class="email">
+                <i class="icon-envelope"></i>
+                {{ site.author.mail }}
+            </a>
+            <a href="{{ site.web.url }}" class="url">{{ site.author.url }}</a>
+            <span class="adr">
+                <span class="country-name">España</span>
+            </span>
+            <span class="role">Estudiante</span>
+        </figcaption>
+    </figure>
+    <ul class="links">
+        <li class="rss">
+            <i class="icon-rss"></i>
+            <a href="{{ site.data.rss }}" type="application/rss+xml" target="_blank">RSS</a>
+        </li>
+    {% for link in site.author.links %}
+        <li class="link.name">
+            <i class="icon-{{ link.icon }}"></i>
+            <a href="{{ link.url }}" class="url">{{ link.name }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</aside>

@@ -6,7 +6,7 @@ categories: [Programación]
 tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
 ---
 
-# Datos
+## Datos
 
  - Eficiencia lineal.
  - Examina los elementos de uno en uno
@@ -14,7 +14,7 @@ tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
  - Es adecuada sólo para conjuntos de datos pequeños
  - Si el elemento no pertenece al conjunto, éste se recorre entero
 
-# Algoritmo
+## Algoritmo
 
     {% highlight c %}
     Funcion busqueda_Secuencial (x:Telemento; A:Tconjunto; tam:Entero): Entero
@@ -33,7 +33,7 @@ tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
     Fin
     {% endhighlight %}
 
-# Implementación en C (enteros)
+## Implementación en C (enteros)
 
     {% highlight c %}
     /**
@@ -53,7 +53,7 @@ tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
     }
     {% endhighlight %}
 
-# Implementación en C (genérico)
+## Implementación en C (genérico)
 
     {% highlight c %}
     /**
