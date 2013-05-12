@@ -33,6 +33,8 @@ window.p2kmgcl = {
     init: function () {
         p2kmgcl.module('infiniteScroll', true);
         p2kmgcl.module('cheatList', true);
+        p2kmgcl.module('randomQuote', true);
+        p2kmgcl.module('introWaypoint', true);
     }
 };
 

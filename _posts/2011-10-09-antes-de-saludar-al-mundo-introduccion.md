@@ -7,15 +7,13 @@ tags: [Destino... C, Destino... Pro, Guia Básica]
 ---
 
 Muchas guías empiezan con una típica "presentación" al lenguaje que vamos a aprender con un texto tal que así:
-    
-    {% highlight c %}
+
     #include <stdio.h>
 
     int main(){
         printf("Hola Mundo");
         return 0;
     }
-    {% endhighlight %}
 
 Pero antes de nada hay que preguntar: ¿qué son todas esas letras? ¿qué son esos comandos y por qué se colocan de esa manera? En esta entrada voy a hacer una introducción al lenguaje de programación C y a la programación en general.
 
@@ -51,23 +49,17 @@ Estos lenguajes precisan de un intérprete que examina su contenido y lo ejecuta
 
 Según la forma en la que el lenguaje *trata* a sus variables, distinguimos entre lenguajes tipados y no tipados. Bien, para comprender está clasificación solo tenéis que saber que una variable no es más que *algo* que guarda un dato (después ahondaremos más en este asunto). Por ejemplo en C:
 
-    {% highlight c %}
-    int    var1=12;
-    string var2="Hola";
-    {% endhighlight %}
+    int    var1 = 12;
+    string var2 = "Hola";
 
 En este ejemplo la variable `var1` tiene en su interior un número entero, el valor `12` y la variable `var2` tiene una cadena de caracteres con el valor `Hola`. Cada una en su declaración (primera vez que escribimos la variable tiene escrito el tipo de variable. Sin embargo en JavaScript:
 
-    {% highlight js %}
-    var var1=12;
-    var var2="Hola";
-    {% endhighlight %}
+    var var1 = 12;
+    var var2 = "Hola";
 
 No es necesario declarar de qué tipo es nuestra variable, sino que lo interpreta según el valor que tenga. En este ejemplo var1 y var2 siguen siendo de tipos entero y cadena, sólo que no tenemos que declararlo. Además al ejecutar el siguiente código en cada uno de los lenguajes (asignar el valor de var2 a var1):
 
-    {% highlight js %}
-    var1=var2;
-    {% endhighlight %}
+    var1 = var2;
 
 En C nos daría un error por ser variables de distinto tipo, sin embargo en JavaScript se haría sin problema y var1 pasaría a ser una variable entera con el valor 12.
 Aparentemente parece que la forma más sencilla de programar es usando un lenguaje no tipado como JavaScript y olvidarnos del tipo de variable pero existen varias razones por las que podemos apostar por un lenguaje tipado:
@@ -80,5 +72,5 @@ Además los lenguajes tipados tienen funciones que nos permiten convertir un dat
 **Notas interesantes**
 
  > - C, siendo un lenguaje tipado, nos permite optimizar hasta tal punto que podemos crear variables que usen bloques de memoria del tamaño que nos de la gana (dentro de la disponible), desde un simple bit, hasta cientos o miles de megabytes.
-   - Hay lenguajes que consienten cierta conversión de variables, como la de pasar números enteros a reales (pero no al revés).
-   - En los lenguajes no tipados, ¡cuidado con la declaración de tus variables! una variable `var=12` será de tipo entero, pero una `var=12.0` será de tipo real (datos que ocupan el doble de memoria).
+ > - Hay lenguajes que consienten cierta conversión de variables, como la de pasar números enteros a reales (pero no al revés).
+ > - En los lenguajes no tipados, ¡cuidado con la declaración de tus variables! una variable `var = 12` será de tipo entero, pero una `var = 12.0` será de tipo real (datos que ocupan el doble de memoria).

@@ -10,7 +10,6 @@ Hoy mi novia me ha dicho que estaba copiando el texto de una web para que su pad
 
 El caso es que he visto que la url tenía siempre la misma estructura, así que he hecho un script que le ha descargado la estructura de documentos para poder leerlos sin problemas:
 
-    {% highlight sh %}
     #!/bin/csh
 
     @ seccion = 1
@@ -31,4 +30,3 @@ El caso es que he visto que la url tenía siempre la misma estructura, así que 
         end
         @ seccion = $seccion + 1
     end
-    {% endhighlight %}

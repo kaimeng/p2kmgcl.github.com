@@ -1,0 +1,17 @@
+---
+layout: index
+---
+
+<section class="blog">
+    <header>
+        <h1>Entrada de blog</h1>
+    </header>
+
+    <article class="articleSingle">
+        <header>
+            <h1>{{ page.title }}</h1>
+            <time>{{ page.date | date: "%d/%m/%Y" }}</time>
+        </header>
+        <div class="content">{{ content }}</div>
+    </article>
+</section>

@@ -1,6 +1,7 @@
 ---
 title: Inicio
 layout: index
+icon: home
 ---
 
 {% if paginator.page == 1 %}
@@ -28,7 +29,7 @@ layout: index
             <article class="infinite-item">
                 <header>
                     <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-                    <time>{{ post.date }}</time>
+                    <time>{{ post.date | date: "%d/%m/%Y" }}</time>
                 </header>
                 <div class="content">{{ post.content }}</div>
             </article>
@@ -51,7 +52,7 @@ layout: index
         {% if paginator.next_page %}<a href="/page{{ paginator.next_page }}" class="next infinite-more-link">Siguiente</a>{% else %}<span class="next">Siguiente</span>{% endif %}
     </nav>
 
-    {% if site.js.infiniteScroll %}
+    {% if site.js contains 'infinitescroll' %}
         {% include congratulations.html %}
     {% endif %}
 </section>

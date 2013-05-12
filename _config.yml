@@ -7,14 +7,7 @@ future:       false
 pygments:     true
 markdown:     rdiscount
 permalink:    /:year/:month/:title.html
-paginate:     1
-
-maruku:
-  use_tex:    false
-  use_divs:   false
-  png_engine: blahtex
-  png_dir:    images/latex
-  png_url:    /images/latex
+paginate:     5
 
 author:
     name:       "Pablo Molina"
@@ -81,5 +74,7 @@ quotes:
       link: "http://es.wikiquote.org/wiki/Final_Fantasy#Final_Fantasy_X" }
 
 js:
-  infiniteScroll: true
-  cheatList: true
+  - infinitescroll
+  - cheatlist
+  - randomquote
+  - introwaypoint

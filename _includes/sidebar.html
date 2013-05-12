@@ -24,12 +24,12 @@
         </figcaption>
     </figure>
     <ul class="links">
-        <li class="rss">
+        <li class="rss link">
             <i class="icon-rss"></i>
             <a href="{{ site.data.rss }}" type="application/rss+xml" target="_blank">RSS</a>
         </li>
     {% for link in site.author.links %}
-        <li class="link.name">
+        <li class="link.name link">
             <i class="icon-{{ link.icon }}"></i>
             <a href="{{ link.url }}" class="url">{{ link.name }}</a>
         </li>

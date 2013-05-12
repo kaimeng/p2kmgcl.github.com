@@ -16,7 +16,6 @@ tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
 
 ## Algoritmo
 
-    {% highlight c %}
     Funcion busqueda_Secuencial (x:Telemento; A:Tconjunto; tam:Entero): Entero
     Variables
          i: Entero
@@ -31,11 +30,9 @@ tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
          Fin_Mientras
          Devolver -1
     Fin
-    {% endhighlight %}
 
 ## Implementación en C (enteros)
 
-    {% highlight c %}
     /**
      * @brief Funcion de búsqueda secuencial genérica
      * @param a Elemento a buscar
@@ -51,11 +48,9 @@ tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
                 return i;
         return -1;
     }
-    {% endhighlight %}
 
 ## Implementación en C (genérico)
 
-    {% highlight c %}
     /**
      * @brief Funcion de búsqueda secuencial genérica
      * @param a Elemento a buscar
@@ -74,4 +69,3 @@ tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
 
         return -1;
     }
-    {% endhighlight %}
