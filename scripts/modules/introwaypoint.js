@@ -12,7 +12,7 @@ p2kmgcl.modules.introWaypoint = function () {
             // y si es para arriba lo aumentamos
             $(this).animate({
                 'margin-bottom': (direction === 'up') ?
-                    '30em' : '5em'
+                    '30em' : '10em'
             }, 300);
         }, { offset: '25%' });
 };

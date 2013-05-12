@@ -41,6 +41,15 @@
             margin-bottom: 2em;
             border-bottom: none;
         }
+
+        > .cover {
+            display: block;
+            max-width: 92%;
+            margin: 1.5em auto;
+            padding: 2%;
+            background-color: #fff;
+            box-shadow: 0 0 .2em #888;
+        }
     }
 
     > .content {
@@ -52,6 +61,7 @@
         > h5,
         > h6,
         > ul,
+        > ol,
         > li,
         > pre,
         > .highlight {
@@ -116,6 +126,24 @@
         > iframe {
             border:     none;
             box-shadow: 0 0 2px lighten(@black, 75%);
+        }
+
+        figure,
+        img {
+            display: block;
+            max-width: 90%;
+            margin: 1.5em auto;
+            padding: 0;
+        }
+        
+        img {
+            padding: 2%;
+            background-color: #fff;
+            box-shadow: 0 0 .2em #888;
+        }
+
+        figure img {
+            max-width: 92%;
         }
     }
 }
