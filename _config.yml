@@ -74,7 +74,7 @@ quotes:
       link: "http://es.wikiquote.org/wiki/Final_Fantasy#Final_Fantasy_X" }
 
 # Activa el uso de la librería less (javascript)
-lesscss: true
+lesscss: false
 
 # Módulos de la web (/script/modules)
 jsmodules:

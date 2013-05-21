@@ -38,8 +38,8 @@ body:before {
 }
 body:after {
   top: 0;
-  left: -9999px;
-  width: 99999px;
+  left: -4500em;
+  width: 9999em;
   height: 1px;
 }
 h1,
@@ -93,6 +93,9 @@ a:active {
 pre,
 code {
   font-family: 'Inconsolata', Consolas, Monospace;
+}
+.hidden {
+  display: none !important;
 }
 .mainHeader > header {
   display: none;
@@ -615,6 +618,22 @@ body > section > header {
   text-shadow: 0 0 0.1em #990000;
   animation: aboutHeartShadow ease 1s infinite;
   opacity: 0.7;
+}
+.blog > .articleList {
+  position: relative;
+}
+.blog > .articleList.infinite-loading:after {
+  content: "Cargando más artículos...";
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 95%;
+  padding: 2.5%;
+  font-weight: bolder;
+  background-color: #ffffff;
+  box-shadow: 0 0 1em #ffffff, 0 0 4em #ffffff;
+  text-align: center;
 }
 .index > .intro {
   margin: 5em auto;
