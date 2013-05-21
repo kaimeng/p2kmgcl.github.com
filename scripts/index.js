@@ -35,6 +35,7 @@ window.p2kmgcl = {
         p2kmgcl.module('cheatList', true);
         p2kmgcl.module('randomQuote', true);
         p2kmgcl.module('introWaypoint', true);
+        p2kmgcl.module('showGoTop', true);
     }
 };
 
