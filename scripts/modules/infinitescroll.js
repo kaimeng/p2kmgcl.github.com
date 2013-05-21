@@ -17,7 +17,15 @@ p2kmgcl.modules.infiniteScroll = function () {
         more:               '.infinite-more-link',
         offset:             'bottom-in-view',
         loadingClass:       'infinite-loading',
-        onBeforePageLoad:   $.noop,
-        onAfterPageLoad:    $.noop
+        onBeforePageLoad:   function () {
+            // Esconde los agradecimientos
+            // (aún hay más)
+            $('.infiniteCongratulation').addClass('hidden');
+        },
+        onAfterPageLoad:    function () {
+            // Vuelve a mostrarlos para
+            // la próxima vez
+            $('.infiniteCongratulation').removeClass('hidden');
+        }
     });
 };
