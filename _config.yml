@@ -43,6 +43,47 @@ author:
       - { name: "YouTube",
           icon: "facetime-video",
           url:  "http://youtube.pablomolina.me"    }
+    programminglanguages:
+      - { name: "adobeFlash", title: "Adobe Flash Professional", level: 2,
+          link: "http://www.adobe.com/es/products/flash.html" }
+      - { name: "blender", title: "Blender", level: 4,
+          link: "http://www.blender.org/" }
+      - { name: "c", title: "C", level: 10,
+          link: "http://es.wikipedia.org/wiki/C_(lenguaje_de_programaci%C3%B3n)" }
+      - { name: "chromeDevTools", title: "Chrome Dev Tools", level: 7,
+          link: "http://www.chromium.org/devtools/" }
+      - { name: "css", title: "CSS", level: 9,
+          link: "http://es.wikipedia.org/wiki/CSS" }
+      - { name: "cpp", title: "C++", level: 9,
+          link: "http://es.wikipedia.org/wiki/C%2B%2B" }
+      - { name: "doxygen", title: "Doxygen", level: 7,
+          link: "http://www.stack.nl/~dimitri/doxygen/" }
+      - { name: "eclipse", title: "Eclipse", level: 7,
+          link: "http://www.eclipse.org/" }
+      - { name: "gimp", title: "Gimp", level: 6,
+          link: "http://www.gimp.org/" }
+      - { name: "git", title: "Git", level: 5,
+          link: "http://git-scm.com/" }
+      - { name: "html", title: "HTML", level: 8,
+          link: "http://es.wikipedia.org/wiki/Html" }
+      - { name: "javascript", title: "JavaScript", level: 8,
+          link: "http://es.wikipedia.org/wiki/JavaScript" }
+      - { name: "jquery", title: "jQuery", level: 9,
+          link: "http://jquery.com/" }
+      - { name: "libreOffice", title: "Libre Office", level: 8,
+          link: "http://es.libreoffice.org/" }
+      - { name: "microsoftOffice", title: "Microsoft Office", level: 8,
+          link: "http://office.microsoft.com/es-es/" }
+      - { name: "netbeans", title: "Netbeans", level: 6,
+          link: "http://netbeans.org/" }
+      - { name: "php", title: "PHP", level: 4,
+          link: "http://es.wikipedia.org/wiki/Php" }
+      - { name: "sql", title: "SQL", level: 8,
+          link: "http://es.wikipedia.org/wiki/SQL" }
+      - { name: "sublimetext", title: "Sublime Text", level: 7,
+          link: "http://www.sublimetext.com/" }
+      - { name: "wordpress", title: "Wordpress", level: 6,
+          link: "http://wordpress.org/" }
 
 web:
   url:          "http://pablomolina.me"
@@ -74,7 +115,8 @@ quotes:
       link: "http://es.wikiquote.org/wiki/Final_Fantasy#Final_Fantasy_X" }
 
 # Activa el uso de la librería less (javascript)
-lesscss: false
+lesscss: true
+lesscssenv: "production"
 
 # Módulos de la web (/script/modules)
 jsmodules:
@@ -83,3 +125,4 @@ jsmodules:
   - randomquote
   - introwaypoint
   - showgotop
+  - programmingchart
