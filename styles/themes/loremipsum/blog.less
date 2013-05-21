@@ -1,7 +1,22 @@
 .blog {
     > .articleList {
-        > header {
-
+        position: relative;
+        
+        &.infinite-loading {
+            &:after {
+                content: "Cargando más artículos...";
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 95%;
+                padding: 2.5%;
+                font-weight: bolder;
+                background-color: @bodyBgColor;
+                box-shadow: 0 0 1em @bodyBgColor,
+                            0 0 4em @bodyBgColor;
+                text-align: center;
+            }
         }
     }
 }

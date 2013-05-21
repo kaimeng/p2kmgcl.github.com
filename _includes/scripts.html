@@ -1,4 +1,4 @@
-    <script src="/scripts/libs/less/less-1.3.3.min.js"></script>
+    {% if site.lesscss %}<script src="/scripts/libs/less/less-1.3.3.min.js"></script>{% endif %}
     <script src="/scripts/libs/prefixfree/prefixfree-1.0.3.min.js"></script>
     <script src="/scripts/libs/modernizr/modernizr.custom.36981.js"></script>
     <script src="/scripts/libs/highlightjs/highlight.pack.js"></script>
@@ -6,11 +6,10 @@
 
     <script src="/scripts/libs/jquery/jquery-1.9.1.min.js"></script>
     <script src="/scripts/libs/jquery_waypoints/waypoints-2.0.2.min.js"></script>
-    <script src="/scripts/libs/jquery_waypoints/waypoints-sticky-2.0.2.min.js"></script>
     <script src="/scripts/libs/jquery_waypoints/waypoints-infinite-2.0.2.min.js"></script>
 
     <script src="/scripts/index.js"></script>
-    {% for module in site.js %}{% if module %}
+    {% for module in site.jsmodules %}{% if module %}
     <script src="/scripts/modules/{{ module }}.js"></script>
     {% endif %}{% endfor %}
 </body>

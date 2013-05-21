@@ -1,0 +1,632 @@
+@import url(http://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:400italic,400,700|Inconsolata);
+/**
+ * Paleta de colores: http://www.colourlovers.com/palette/92095/Giant_Goldfish
+ */
+html {
+  margin: 0;
+  padding: 0;
+  padding-right: 2.5em;
+  color: #222;
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  font-family: 'Open Sans', Verdana;
+  font-size: 14px;
+  margin: 3em auto;
+  margin-bottom: 0;
+  width: 90%;
+  max-width: 40em;
+  padding: 5em 1em;
+  padding-bottom: 1em;
+  position: relative;
+  overflow: visible;
+  border-right: solid #a2a2a2 thin;
+}
+body:before,
+body:after {
+  content: '';
+  display: block;
+  background-color: #a2a2a2;
+  position: absolute;
+}
+body:before {
+  top: -5em;
+  right: 0;
+  height: 10em;
+  width: 1px;
+}
+body:after {
+  top: 0;
+  left: -9999px;
+  width: 99999px;
+  height: 1px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Fjalla One', Fjalla One, Verdana;
+}
+h1 {
+  font-size: 1.5em;
+  margin: 1em 0;
+}
+h2 {
+  font-size: 1.4em;
+  margin: 1em 0;
+  color: #3c3c3c;
+  padding-left: 0.5em;
+}
+h3 {
+  font-size: 1.3em;
+  margin: 0.75em 0;
+}
+h4 {
+  font-size: 1.2em;
+  margin: 0.75em 0;
+}
+h5 {
+  font-size: 1.1em;
+  margin: 0.5em 0;
+}
+h6 {
+  font-size: 1.1em;
+  margin: 0.5em 0;
+  font-weight: normal;
+}
+a {
+  border-bottom: dotted #a7dbd8 thin;
+  color: #19889e;
+  cursor: pointer;
+  text-decoration: none;
+}
+a:hover {
+  border-bottom: solid #a7dbd8 thin;
+  color: #20adca;
+}
+a:active {
+  opacity: 1;
+}
+pre,
+code {
+  font-family: 'Inconsolata', Consolas, Monospace;
+}
+.mainHeader > header {
+  display: none;
+  position: absolute;
+}
+.mainMenu {
+  position: absolute;
+  right: 0;
+  top: -0.5em;
+  line-height: 0;
+  padding: 0;
+  background: #ffffff;
+  padding-right: 3em;
+  z-index: 200;
+}
+.mainMenu > header {
+  display: none;
+}
+.mainMenu > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+.mainMenu > ul > li {
+  display: inline-block;
+  padding: 0 0.2em;
+  padding-left: 0.5em;
+  margin-bottom: 0.5em;
+  white-space: nowrap;
+  position: relative;
+}
+.mainMenu > ul > li > i {
+  padding-right: 0;
+}
+.mainMenu > ul > li > a {
+  border-bottom: none;
+  color: #2f2f2f;
+}
+.mainMenu > ul > li.current > a {
+  font-weight: bolder;
+}
+.randomQuotes > header {
+  display: none;
+}
+.randomQuotes > ul {
+  padding-left: 0;
+}
+.randomQuotes > ul .quoteWrapper {
+  display: none;
+}
+.randomQuotes > ul .quoteWrapper.chosen {
+  display: block;
+}
+.randomQuotes > ul .quoteWrapper.chosen > .quote {
+  margin-left: 0;
+}
+.randomQuotes > ul .quoteWrapper.chosen > .quote > p {
+  font-family: 'Fjalla One', Fjalla One, Verdana;
+  font-size: 2.5em;
+  margin-bottom: 0;
+}
+.randomQuotes > ul .quoteWrapper.chosen > .quote > footer > cite {
+  font-size: 1em;
+  font-style: normal;
+  text-align: left;
+}
+.randomQuotes > ul .quoteWrapper.chosen > .quote > footer > cite:before {
+  color: #19889e;
+  content: '\2014 \2009';
+  padding-left: 0.25em;
+}
+.mainSidebar {
+  position: absolute;
+  top: -2.5em;
+  right: -2.5em;
+  text-align: right;
+  z-index: 300;
+}
+.mainSidebar > header {
+  display: none;
+}
+.mainSidebar > figure {
+  padding: 0;
+  margin: 0 auto;
+  margin-right: 0;
+}
+.mainSidebar > figure > img {
+  box-shadow: -0.1em 0.1em 0.1em #000000;
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+  margin: 0 auto;
+  margin-right: 0;
+}
+.mainSidebar > figure > figcaption {
+  display: none;
+}
+.mainSidebar .goTop {
+  position: fixed;
+  top: -20em;
+  transform: rotate(-90deg) translateY(-0.3em);
+  background-color: #ffffff;
+  box-shadow: 0 0 1em #ffffff;
+  transition: top ease 0.3s;
+}
+.mainSidebar .goTop.shown {
+  top: 3em;
+}
+.mainSidebar .goTop > a {
+  border-bottom: none;
+}
+.mainSidebar > .links {
+  position: absolute;
+  top: 3em;
+  right: 0;
+  text-align: right;
+  list-style: none;
+  display: block;
+  padding: 0;
+  padding-top: 3em;
+  margin: 0 auto;
+  width: 5em;
+  overflow: visible;
+  background-color: white;
+  z-index: -1;
+}
+.mainSidebar > .links > .link {
+  background-color: #ffffff;
+  padding: 0.25em 0;
+  white-space: nowrap;
+  text-align: center;
+}
+.mainSidebar > .links > .link > i {
+  font-size: 1.25em;
+  padding-left: 0.5em;
+  position: relative;
+  z-index: 2;
+  background-color: #ffffff;
+  color: #3c3c3c;
+  left: 0;
+  transition: ease 0.3s;
+  transition-property: left, color;
+}
+.mainSidebar > .links > .link:hover > i {
+  left: -40%;
+  color: #222222;
+}
+.mainSidebar > .links > .link > a {
+  display: inline-block;
+  height: 1.25em;
+  background-color: #ffffff;
+  border: none;
+  margin: 0 auto;
+  z-index: 1;
+  max-width: 0;
+  overflow: hidden;
+  position: relative;
+  left: 0;
+  transition: ease 0.3s;
+  transition-property: max-width, opacity, color, left;
+}
+.mainSidebar > .links > .link:hover > a {
+  max-width: 5em;
+  left: -45%;
+  opacity: 1;
+}
+@keyframes socialRainbowRSS {
+  0% {
+    color: #3c3c3c;
+  }
+  50% {
+    color: #f99000;
+  }
+  100% {
+    color: #3c3c3c;
+  }
+}
+@keyframes socialRainbowGooglePlus {
+  0% {
+    color: #3c3c3c;
+  }
+  50% {
+    color: #d34836;
+  }
+  100% {
+    color: #3c3c3c;
+  }
+}
+@keyframes socialRainbowGithub {
+  0% {
+    color: #3c3c3c;
+  }
+  50% {
+    color: #000000;
+  }
+  100% {
+    color: #3c3c3c;
+  }
+}
+@keyframes socialRainbowTwitter {
+  0% {
+    color: #3c3c3c;
+  }
+  50% {
+    color: #5db5de;
+  }
+  100% {
+    color: #3c3c3c;
+  }
+}
+@keyframes socialRainbowFacebook {
+  0% {
+    color: #3c3c3c;
+  }
+  50% {
+    color: #335795;
+  }
+  100% {
+    color: #3c3c3c;
+  }
+}
+@keyframes socialRainbowLinkedin {
+  0% {
+    color: #3c3c3c;
+  }
+  50% {
+    color: #0078a8;
+  }
+  100% {
+    color: #3c3c3c;
+  }
+}
+@keyframes socialRainbowMusic {
+  0% {
+    color: #3c3c3c;
+  }
+  50% {
+    color: #fc0807;
+  }
+  100% {
+    color: #3c3c3c;
+  }
+}
+@keyframes socialRainbowPencil {
+  0% {
+    color: #3c3c3c;
+  }
+  50% {
+    color: #9e7070;
+  }
+  100% {
+    color: #3c3c3c;
+  }
+}
+@keyframes socialRainbowFacetime {
+  0% {
+    color: #3c3c3c;
+  }
+  50% {
+    color: #af2b26;
+  }
+  100% {
+    color: #3c3c3c;
+  }
+}
+.mainSidebar > .links > .link > i.icon-rss {
+  color: #3c3c3c;
+  animation: socialRainbowRSS 2s ease-in-out 0.7s 1;
+}
+.mainSidebar > .links > .link > i.icon-google-plus {
+  color: #3c3c3c;
+  animation: socialRainbowGooglePlus 2s ease-in-out 1s 1;
+}
+.mainSidebar > .links > .link > i.icon-github {
+  color: #3c3c3c;
+  animation: socialRainbowGithub 2s ease-in-out 1.3s 1;
+}
+.mainSidebar > .links > .link > i.icon-twitter {
+  color: #3c3c3c;
+  animation: socialRainbowTwitter 2s ease-in-out 1.6s 1;
+}
+.mainSidebar > .links > .link > i.icon-facebook {
+  color: #3c3c3c;
+  animation: socialRainbowFacebook 2s ease-in-out 1.9s 1;
+}
+.mainSidebar > .links > .link > i.icon-linkedin {
+  color: #3c3c3c;
+  animation: socialRainbowLinkedin 2s ease-in-out 2.2s 1;
+}
+.mainSidebar > .links > .link > i.icon-music {
+  color: #3c3c3c;
+  animation: socialRainbowMusic 2s ease-in-out 2.5s 1;
+}
+.mainSidebar > .links > .link > i.icon-pencil {
+  color: #3c3c3c;
+  animation: socialRainbowPencil 2s ease-in-out 2.8s 1;
+}
+.mainSidebar > .links > .link > i.icon-facetime-video {
+  color: #3c3c3c;
+  animation: socialRainbowFacetime 2s ease-in-out 3.1s 1;
+}
+.mainSidebar > .links > .link:hover > i.icon-rss {
+  color: #f99000;
+}
+.mainSidebar > .links > .link:hover > i.icon-google-plus {
+  color: #d34836;
+}
+.mainSidebar > .links > .link:hover > i.icon-github {
+  color: #000000;
+}
+.mainSidebar > .links > .link:hover > i.icon-twitter {
+  color: #5db5de;
+}
+.mainSidebar > .links > .link:hover > i.icon-facebook {
+  color: #335795;
+}
+.mainSidebar > .links > .link:hover > i.icon-linkedin {
+  color: #0078a8;
+}
+.mainSidebar > .links > .link:hover > i.icon-music {
+  color: #fc0807;
+}
+.mainSidebar > .links > .link:hover > i.icon-pencil {
+  color: #9e7070;
+}
+.mainSidebar > .links > .link:hover > i.icon-facetime-video {
+  color: #af2b26;
+}
+body > section {
+  width: 90%;
+  z-index: 50;
+  position: relative;
+}
+body > section > header {
+  display: none;
+}
+.articleSingle,
+.articleList > article {
+  position: relative;
+  padding-bottom: 6em;
+  text-align: center;
+}
+.articleSingle:after,
+.articleList > article:after {
+  content: '';
+  position: absolute;
+  left: -9999px;
+  bottom: 3em;
+  width: 999999px;
+  height: 1px;
+  background-color: #a2a2a2;
+  display: block;
+}
+.articleSingle > header > h1,
+.articleList > article > header > h1 {
+  color: #126272;
+  font-weight: normal;
+  font-size: 2.5em;
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 0 auto;
+}
+.articleSingle > header > h1 > a,
+.articleList > article > header > h1 > a {
+  border-bottom: none;
+}
+.articleSingle > header > time,
+.articleList > article > header > time {
+  color: #f38630;
+  font-family: 'Fjalla One', Fjalla One, Verdana;
+  font-weight: normal;
+  font-size: 1.75em;
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 2em;
+  border-bottom: none;
+}
+.articleSingle > header > .cover,
+.articleList > article > header > .cover {
+  display: block;
+  max-width: 92%;
+  margin: 1.5em auto;
+  padding: 2%;
+  background-color: #fff;
+  box-shadow: 0 0 .2em #888;
+}
+.articleSingle > .content > h1,
+.articleList > article > .content > h1,
+.articleSingle > .content > h2,
+.articleList > article > .content > h2,
+.articleSingle > .content > h3,
+.articleList > article > .content > h3,
+.articleSingle > .content > h4,
+.articleList > article > .content > h4,
+.articleSingle > .content > h5,
+.articleList > article > .content > h5,
+.articleSingle > .content > h6,
+.articleList > article > .content > h6,
+.articleSingle > .content > ul,
+.articleList > article > .content > ul,
+.articleSingle > .content > ol,
+.articleList > article > .content > ol,
+.articleSingle > .content > li,
+.articleList > article > .content > li,
+.articleSingle > .content > pre,
+.articleList > article > .content > pre,
+.articleSingle > .content > .highlight,
+.articleList > article > .content > .highlight {
+  text-align: left;
+}
+.articleSingle > .content > p,
+.articleList > article > .content > p,
+.articleSingle > .content > blockquote,
+.articleList > article > .content > blockquote {
+  text-align: justify;
+}
+.articleSingle > .content > blockquote,
+.articleList > article > .content > blockquote {
+  border-left: solid 0.4em #f38630;
+  padding-left: 0.75em;
+  margin-left: 0.25em;
+  margin-right: 0;
+}
+.articleSingle > .content > blockquote ul,
+.articleList > article > .content > blockquote ul {
+  margin-left: 1em;
+  padding-left: 0;
+}
+.articleSingle > .content > ul,
+.articleList > article > .content > ul {
+  padding-left: 1.5em;
+}
+.articleSingle > .content > pre,
+.articleList > article > .content > pre,
+.articleSingle > .content > embed,
+.articleList > article > .content > embed,
+.articleSingle > .content > iframe,
+.articleList > article > .content > iframe,
+.articleSingle > .content > .highlight,
+.articleList > article > .content > .highlight {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 2%;
+  border: dotted #e1e1e1 thin;
+  overflow-x: auto;
+}
+.articleSingle > .content pre,
+.articleList > article > .content pre,
+.articleSingle > .content code,
+.articleList > article > .content code {
+  background-color: #f4f6ed;
+}
+.articleSingle > .content > pre,
+.articleList > article > .content > pre,
+.articleSingle > .content > .highlight,
+.articleList > article > .content > .highlight,
+.articleSingle > .content > p code,
+.articleList > article > .content > p code,
+.articleSingle > .content > blockquote code,
+.articleList > article > .content > blockquote code,
+.articleSingle > .content > ul code,
+.articleList > article > .content > ul code {
+  margin: 0 auto;
+  border: solid thin #69d2e7;
+  padding: 0.1em 1em;
+  border-radius: 0.25em;
+}
+.articleSingle > .content > p code,
+.articleList > article > .content > p code,
+.articleSingle > .content > blockquote code,
+.articleList > article > .content > blockquote code,
+.articleSingle > .content > ul code,
+.articleList > article > .content > ul code {
+  display: inline-block;
+  padding: 0.1em;
+}
+.articleSingle > .content > iframe,
+.articleList > article > .content > iframe {
+  border: none;
+  box-shadow: 0 0 2px #e1e1e1;
+}
+.articleSingle > .content figure,
+.articleList > article > .content figure,
+.articleSingle > .content img,
+.articleList > article > .content img {
+  display: block;
+  max-width: 90%;
+  margin: 1.5em auto;
+  padding: 0;
+}
+.articleSingle > .content img,
+.articleList > article > .content img {
+  padding: 2%;
+  background-color: #fff;
+  box-shadow: 0 0 .2em #888;
+}
+.articleSingle > .content figure img,
+.articleList > article > .content figure img {
+  max-width: 92%;
+}
+.page {
+  text-align: justify;
+}
+@keyframes aboutHeartShadow {
+  0% {
+    text-shadow: 0 0 0.1em #990000;
+  }
+  50% {
+    text-shadow: 0 0 0.25em #990000;
+  }
+  100% {
+    text-shadow: 0 0 0.1em #990000;
+  }
+}
+.page.about .icon-heart {
+  color: #990000;
+  text-shadow: 0 0 0.1em #990000;
+  animation: aboutHeartShadow ease 1s infinite;
+  opacity: 0.7;
+}
+.index > .intro {
+  margin: 5em auto;
+  margin-bottom: 10em;
+  transition: margin-bottom ease 0.3s;
+}
+.index > .intro.hiddenBlog {
+  margin-bottom: 30em;
+}
+.index > .intro > header {
+  display: none;
+}
+.index > .intro > p {
+  text-align: justify;
+}

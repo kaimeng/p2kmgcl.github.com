@@ -11,10 +11,9 @@
     <meta name="viewport" content="width=device-width"/>
     <link rel="stylesheet" href="/styles/libs/normalize/normalize-2.1.1.css" />
     <link rel="stylesheet" href="/scripts/libs/highlightjs/styles/github.css" />
-    
-    <link rel="stylesheet/less" href="/styles/index.less">
-    <link rel="stylesheet/less" href="/styles/libs/fontawesome/less/font-awesome.less" />
-    <link rel="stylesheet/less" href="/styles/libs/fontawesome/less/font-awesome-ie7.less" />
+    <link rel="stylesheet" href="/styles/libs/fontawesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/styles/libs/fontawesome/css/font-awesome-ie7.min.css" />
+    {% if site.lesscss %}<link rel="stylesheet/less" href="/styles/index.less" />{% else %}<link rel="stylesheet" href="/styles/index.css" />{% endif %}
 
     <script type="text/javascript">
       var _gaq = _gaq || [];
