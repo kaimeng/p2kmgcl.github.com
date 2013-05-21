@@ -73,7 +73,11 @@ quotes:
       origin: "Tidus - Final Fantasy X",
       link: "http://es.wikiquote.org/wiki/Final_Fantasy#Final_Fantasy_X" }
 
-js:
+# Activa el uso de la librería less (javascript)
+lesscss: true
+
+# Módulos de la web (/script/modules)
+jsmodules:
   - infinitescroll
   - cheatlist
   - randomquote
