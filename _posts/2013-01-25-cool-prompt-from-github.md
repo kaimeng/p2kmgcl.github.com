@@ -21,4 +21,3 @@ Aunque la lista de ficheros está hecha para MacOS -de hecho hay un fichero .osx
 
  - **Repositorio original**: [Github](https://github.com/mathiasbynens/dotfiles)
  - **Repositorio de Paul Irish**: [Github](https://github.com/paulirish/dotfiles)
- - **Mi versión adaptada a linux**: [Github](https://github.com/p2kmgcl/dotfiles/tree/linux)

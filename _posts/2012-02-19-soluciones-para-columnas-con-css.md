@@ -12,7 +12,6 @@ Un post muy cortito para aquellos que quieran crear un texto en HTML con varias 
 
 Si lo único que quieres es distribuir el texto en varias columnas y no te importa demasiado o no es importante el dónde se produce el salto de columna (a lo texto periodístico), utiliza este pequeño añadido que tiene css para estructurar el texto.
 
-    :::css
     article {
         text-align:     justify;
         max-width:      800px;
@@ -25,7 +24,6 @@ Si lo único que quieres es distribuir el texto en varias columnas y no te impor
 
 Si por el contrario te interesa poner un contenido concreto en cada columna lo mejor es separarlo en bloques distintos (además semánticamente es lo más lógico). Para esto crea una clase columna y aplícasela a cada una de ellas.
 
-    :::css
     body {
       text-align:   center;
     }

@@ -13,7 +13,6 @@ Como he dicho, este comportamiento es solo por defecto y podemos alterarlo usand
 
 En este punto es donde entra el uso de const, esta palabra usada junto a una variable **impide que sea modificada a lo largo del código**, pudiendo pasar esta variable mediante un puntero a ella o por referencia pero con la seguridad de que no será modificada. Un ejemplo:
 
-    :::c++
     function ordenaVector (int* v, const int& tam) {
         // Intentamos modificar la variable tam
         tam = 20;
@@ -25,7 +24,6 @@ En este código el cometido de la variable tam es proporcionarnos el número de 
 
 Y en este punto es donde surge la pregunta: ¿cómo se comporta un objeto constante cuando llamamos a sus métodos? Pues bien, la respuesta es sencilla y compleja a la vez: el compilador se comporta de una forma bastante inteligente en estos casos, ya que sólo nos impedirá llamar a los métodos de un objeto constante si éstos son modificadores, es decir, si alteran el contenido de los atributos del objeto. De esta forma, en el siguiente objeto:
 
-    :::c++
     class Pelota {
     public:
         Pelota(): tam(10) {};

@@ -14,7 +14,6 @@ Además permite posicionar en las esquinas (left top, right bottom...), dejar un
 
 Aquí dejo un ejemplo sencillo:
 
-    :::js
     var o1 = $("selector1"),
         o2 = $("selector2");
 

@@ -72,7 +72,6 @@ Y como vemos el vector queda perfectamente ordenado: `1 17 25 35 79 91`
 
 ## Demostración en C
 
-    :::c
     /****************************************************************
     * PROCEDIMIENTO RADIX SORT
     ***************************************************************/

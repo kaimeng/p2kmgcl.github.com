@@ -36,7 +36,6 @@ Primero vamos a definir qué queremos hacer con nuestra canción, creando la est
 
 Ahora creemos la estructura del modelo que nos permitirá hacer todo esto. Para ello creamos diversos métodos para cada una de las acciones que acabamos de mencionar.
 
-    :::js
     SongModel = Backbone.Model.extend({
         // Soy un constructor ^^
         initialize: function () {},
@@ -51,7 +50,6 @@ Ahora creemos la estructura del modelo que nos permitirá hacer todo esto. Para 
 
 Ahora tenemos que añadir algunos atributos que nos serán útiles para reproducir la canción. Backbone se encarga de almacenarlos cuando son pasados al constructor, pero nosotros vamos a definirlos para asegurarnos de que al menos existen:
 
-    :::js
     SongModel = Backbone.Model.extend({
         defaults: {
             title: '',
@@ -76,10 +74,10 @@ Ahora tenemos que añadir algunos atributos que nos serán útiles para reproduc
 
 Este método será el primero en ejecutarse cada vez que creemos una instancia de la clase. En nuestro caso lo único que necesitamos es crear un objeto domAudio si no nos lo han pasado:
 
-    :::js
     initialize: function (params) {
         if (!params.domElement) {
-            this.set('domElement', document.createElement('audio'));
+            this.set('domElement',
+                document.createElement('audio'));
         }
     }
 
@@ -91,7 +89,6 @@ Una de las muchas ventajas que ofrece Backbone, es el manejo de eventos personal
 
 Como primer evento vamos a escuchar el evento `ended` del objeto que hemos creado, y relanzarlo como `song:end` para notificar que la canción a finalizado.
 
-    :::js
     initialize: function (params) {
         /* ... */
      
@@ -101,7 +98,7 @@ Como primer evento vamos a escuchar el evento `ended` del objeto que hemos cread
         dom.addEventListener('ended', function () {
             me.setTime(0);
             me.trigger('song:end');
-        });
+                });
      
         return this;
     }
@@ -110,7 +107,6 @@ Como primer evento vamos a escuchar el evento `ended` del objeto que hemos cread
 
 Lo que haremos en este momento será comprobar si la canción ha sido cargada, y en caso de que no lo haya hecho prepararla y empezar la reproducción cuando esté lista.
 
-    :::js
     play: function () {
         var dom = this.get('domElement');
      
@@ -119,26 +115,27 @@ Lo que haremos en este momento será comprobar si la canción ha sido cargada, y
         if (dom.paused) {
      
             // Empezamos la carga de la cancion
-            if (typeof dom.src === 'undefined' || dom.src === '') {
+            if (typeof dom.src === 'undefined' ||
+                dom.src === '') {
                 dom.src = this.get('songUrl');
                 dom.preload = 'auto';
      
-                // Nuestro volumen será un porcentaje (de 0% a 100%)
+                // Nuestro volumen será un porcentaje
+                // (de 0% a 100%)
                 this.set('volume', dom.volume * 100);
             }
-            // Mandamos la orden de reproducción al objeto del DOM
+            // Mandamos la orden de reproducción
+            // al objeto del DOM
             dom.play();
      
             // Lanza el evento de reproduccion
             this.trigger('song:play');
         }
-     
         return this;
     }
 
 Como vemos hemos lanzado un evento `song:play` para que cuando usemos este modelo desde fuera sepamos que efectivamente la reproducción ha empezado. Aún falta un pequeño dato, y es que mientras la canción esté en reproducción, necesitamos saber en que instante de ella nos encontramos. Para esto establecemos un intervalo que lo comprobará:
 
-    :::js
     play: function () {
         if (dom.paused) {
             /* ... */
@@ -150,13 +147,20 @@ Como vemos hemos lanzado un evento `song:play` para que cuando usemos este model
                 if (!dom.paused) {
                     me.set({
                         'elapsedTime': dom.currentTime,
-                        // Haremos esta misma comprobación cada segundo mientras se reproduzca la canción
-                        'elapsedTimeTimeout': setTimeout(getCurrentTime, 1000)
+                        // Haremos esta misma comprobación cada
+                        // segundo mientras se reproduzcala
+                        // canción.
+                        'elapsedTimeTimeout':
+                            setTimeout(getCurrentTime, 1000)
                     });
      
                     // Si el total esta listo, lo obtiene
-                    // Es posible que este dato tarde en cargar (cagará cuando haya cargado la canción). Por eso en el bucle vamos comprobando si está listo o no.
-                    if (dom.readyState && me.get('totalTime') === -1) {
+                    // Es posible que este dato tarde en cargar
+                    // (cagará cuando haya cargado la canción).
+                    // Por eso en el bucle vamos comprobando si
+                    // está listo o no.
+                    if (dom.readyState &&
+                        me.get('totalTime') === -1) {
                         me.set('totalTime', dom.duration);
                     }
                 }
@@ -171,7 +175,6 @@ Como vemos hemos lanzado un evento `song:play` para que cuando usemos este model
 
 Con este método podemos y alternando entre pausa y reproducción, pero vamos a añadir un pequeño matiz: una variable booleana `forcePause` que intente hacer siempre una pausa (por si queremos intentar detener la reproducción esté o no esté en ejecución). Lanzamos también un evento de pausa para notificaciones externas.
 
-    :::js
     togglePause: function (forcePause) {
         if (this.get('domElement').paused && !forcePause) {
             this.play();
@@ -187,7 +190,6 @@ Con este método podemos y alternando entre pausa y reproducción, pero vamos a 
 
 Esto es de lo mas sencillo, nos apoyamos en el método anterior para pausar la reproducción, y luego ponemos la canción en el instante 0, ya que es el comportamiento habitual en los reproductores.
 
-    :::js
     stop: function () {
         this.togglePause(true);
         this.setTime(0);
@@ -198,7 +200,6 @@ Esto es de lo mas sencillo, nos apoyamos en el método anterior para pausar la r
 
 Para cambiar el volumen necesitamos una variable para el nuevo volumen. Aunque el objeto del DOM maneja el volumen con un valor entre 0 y 1, nosotros usaremos un porcentaje, que es bastante más claro de cara al usuario (usaremos algo similar en `setTime`).
 
-    :::js
     setVolume: function (volume) {
         var dom = this.get('domElement'),
             volume = volume / 100;
@@ -219,13 +220,14 @@ Para cambiar el volumen necesitamos una variable para el nuevo volumen. Aunque e
 
 Es una acción lógica querer subir o bajar el volumen sin conocer que valor exacto tiene, por ello añadimos un parámetro opcional `alter`, el cual provocará el que volumen pasado se sume al actual. He aquí la implementación y un ejemplo:
 
-    :::js
     setVolume: function (volume, alter) {
-        volume = !alter ? volume / 100 : dom.volume + volume / 100;
-     
+        volume = (!alter) ?
+                    volume / 100 :
+                    dom.volume + volume / 100;
+
         /* ... */
     }
- 
+
     // Establecemos el volumen a 50
     setVolume(50);
      
@@ -243,7 +245,6 @@ El cambio de tiempo se comportará de forma similar el cambio de volumen, ya que
 
 En caso de que la canción no se haya cargado por completo no podemos determinar que segundo es, así que no haremos nada.
 
-    :::js
     setTime: function (time, alter) {
         var totalTime = this.get('totalTime');
      
@@ -269,7 +270,6 @@ En caso de que la canción no se haya cargado por completo no podemos determinar
 
 Y por último, si el usuario necesita saber si se está reproduciendo, puede usar este método.
 
-    :::js
     isPaused: function () {
         return this.get('domElement').paused;
     }
