@@ -55,7 +55,7 @@ icon: home
         {% if paginator.next_page %}<a href="/page{{ paginator.next_page }}" class="next infinite-more-link">Siguiente</a>{% else %}<span class="next">Siguiente</span>{% endif %}
     </nav>
 
-    {% if site.js contains 'infinitescroll' %}
+    {% if site.jsmodules contains 'infinitescroll' %}
         {% include congratulations.html %}
     {% endif %}
 </section>
