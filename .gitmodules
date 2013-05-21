@@ -1,0 +1,3 @@
+[submodule "examples/mvc_html5player"]
+	path = examples/mvc_html5player
+	url = https://github.com/p2kmgcl/mvc_html5player.git
