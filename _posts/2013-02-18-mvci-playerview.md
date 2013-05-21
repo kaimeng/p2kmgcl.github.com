@@ -10,5 +10,5 @@ Hace unas semanas -bonito eufemismo- publiqué una entrada sobre como hacer un [
 
 Aquí tenéis el reproductor completamente funcional. Visitando el enlace podéis probarlo o ver el código fuente (que incluye el modelo la anterior entrada). Recordad de nuevo que el archivo de música es un fichero mp3 por lo que si lo intentáis reproducir en algunos navegadores es posible que no funcione. Este reproductor está probado en Google Chrome.
 
- - [Reproductor de música](http://www.p2kmgcl.com/examples/MVC/0001_html5player/app/)
- - [Código fuente](https://github.com/p2kmgcl/p2kmgcl.github.com/tree/main/examples/MVC/0001_html5player)
+ - [Reproductor de música](/examples/mvc_html5player/app/)
+ - [Código fuente](https://github.com/p2kmgcl/mvc_html5player)
