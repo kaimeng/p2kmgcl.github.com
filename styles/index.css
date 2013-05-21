@@ -602,22 +602,29 @@ body > section > header {
 .page {
   text-align: justify;
 }
-@keyframes aboutHeartShadow {
-  0% {
-    text-shadow: 0 0 0.1em #990000;
-  }
-  50% {
-    text-shadow: 0 0 0.25em #990000;
-  }
-  100% {
-    text-shadow: 0 0 0.1em #990000;
-  }
+.page.about > .tools > header {
+  display: none;
 }
-.page.about .icon-heart {
-  color: #990000;
-  text-shadow: 0 0 0.1em #990000;
-  animation: aboutHeartShadow ease 1s infinite;
-  opacity: 0.7;
+.page.about > .tools > ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+.page.about > .tools > ul > li {
+  display: inline-block;
+  vertical-align: middle;
+  width: 40%;
+  padding: 2%;
+}
+.page.about > .tools > ul > li > a > figure {
+  position: relative;
+}
+.page.about > .tools > ul > li > a > figure > img {
+  width: 100%;
+  z-index: 1;
+}
+.page.about > .tools > ul > li > a > figure > figcaption {
+  display: none;
 }
 .blog > .articleList {
   position: relative;
