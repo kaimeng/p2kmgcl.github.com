@@ -94,6 +94,7 @@ data:
   disqus:           "p2kmgcl"
   google-analytics: "UA-17072152-2"
   rss:              "http://feed.pablomolina.me"
+  imagePath:        "https://dl.dropboxusercontent.com/u/6037255/blogImages"
 
 meta:
   description:  "Blog personal de Pablo Molina sobre diseño web, programación, asuntos geek y, a veces, sencillamente cosas personales."
@@ -126,3 +127,4 @@ jsmodules:
   - introwaypoint
   - showgotop
   - programmingchart
+  - embedcomments

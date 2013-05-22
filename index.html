@@ -35,6 +35,11 @@ icon: home
                     {% endif %}
                 </header>
                 <div class="content">{{ post.content }}</div>
+                <footer>
+                    <section class="comments">
+                        <a onclick="p2kmgcl.module('embedComment', true, this, 'p2kmgcl', '{{ site.web.url }}{{ post.url }}')">Escribir un comentario</a>
+                    </section>
+                </footer>
             </article>
         {% endfor %}
     </section>
