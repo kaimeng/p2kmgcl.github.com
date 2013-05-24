@@ -36,9 +36,30 @@ icon: home
                 </header>
                 <div class="content">{{ post.content }}</div>
                 <footer>
-                    <section class="comments">
-                        <a onclick="p2kmgcl.module('embedComment', true, this, 'p2kmgcl', '{{ site.web.url }}{{ post.url }}')">Escribir un comentario</a>
-                    </section>
+                    <header>
+                        <h1>Pie de la entrada</h1>
+                    </header>
+
+                    <nav class="entryButtons"><ul>
+                        <li class="shareButton"><a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl={{ site.web.url }}{{ post.url }}">
+                            <i class="icon-share"></i>
+                            Compartir entrada
+                        </a></li>
+                        <li class="showComments"><a onclick="p2kmgcl.module('embedComment', true, this, 'p2kmgcl', '{{ site.web.url }}{{ post.url }}')">
+                            <i class="icon-edit"></i>
+                            Escribir un comentario
+                        </a></li>
+                    </ul></nav>
+                        
+                    <script type="text/javascript">
+                        var a2a_config = a2a_config || {};
+                        a2a_config.linkname = "{{ post.title }}";
+                        a2a_config.linkurl = "{{ site.web.url }}{{ post.url }}";
+                        a2a_config.locale = "es";
+                        a2a_config.num_services = 6;
+                        a2a_config.prioritize = ["google_plus", "facebook", "twitter", "tuenti", "reddit", "email"];
+                    </script>
+                    <script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
                 </footer>
             </article>
         {% endfor %}

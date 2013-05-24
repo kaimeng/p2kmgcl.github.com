@@ -6,9 +6,10 @@ html {
   margin: 0;
   padding: 0;
   padding-right: 2.5em;
-  color: #222;
+  color: #222222;
   width: 100%;
   overflow-x: hidden;
+  background-color: #ffffff;
 }
 body {
   font-family: 'Open Sans', Verdana;
@@ -220,7 +221,7 @@ code {
   margin: 0 auto;
   width: 5em;
   overflow: visible;
-  background-color: white;
+  background-color: transparent;
   z-index: -1;
 }
 .mainSidebar > .links > .link {
@@ -599,11 +600,58 @@ body > section > header {
 .articleList > article > .content figure img {
   max-width: 92%;
 }
+.articleSingle > footer,
+.articleList > article > footer {
+  margin-top: 2em;
+}
+.articleSingle > footer > header,
+.articleList > article > footer > header {
+  display: none;
+}
+.articleSingle > footer > .entryButtons > ul,
+.articleList > article > footer > .entryButtons > ul {
+  list-style: none;
+  padding-left: 0;
+}
+.articleSingle > footer > .entryButtons > ul > li,
+.articleList > article > footer > .entryButtons > ul > li {
+  display: inline-block;
+}
+.articleSingle > footer > .entryButtons > ul > li > a,
+.articleList > article > footer > .entryButtons > ul > li > a {
+  background-color: #3c3c3c;
+  border: none;
+  border-radius: 0.5em;
+  box-shadow: inset 0 0 0.25em #ffffff, 0.1em 0.1em 0.25em #222222;
+  color: #ffffff;
+  display: inline-block;
+  height: 4em;
+  left: 0;
+  margin: 0.5em 1em;
+  padding: 1em;
+  padding-left: 5.5em;
+  padding-bottom: 0;
+  position: relative;
+  text-align: left;
+  text-shadow: 1px 1px 1px #222222;
+  top: 0;
+  width: 5.5em;
+}
+.articleSingle > footer > .entryButtons > ul > li > a > i,
+.articleList > article > footer > .entryButtons > ul > li > a > i {
+  position: absolute;
+  font-size: 4em;
+  left: 0.2em;
+  top: 0.2em;
+}
+.articleSingle > footer > .entryButtons > ul > li > a:active,
+.articleList > article > footer > .entryButtons > ul > li > a:active {
+  top: 0.1em;
+  left: 0.1em;
+  box-shadow: 0.05em 0.05em 0.125em #222222;
+}
 .page {
   text-align: justify;
-}
-.page.about > .tools > header {
-  display: none;
 }
 .page.about > .tools > ul {
   list-style: none;
@@ -625,6 +673,49 @@ body > section > header {
 }
 .page.about > .tools > ul > li > a > figure > figcaption {
   display: none;
+}
+.page.about > .license {
+  text-align: center;
+  position: relative;
+  margin-top: 2em;
+  padding-top: 2em;
+}
+.page.about > .license > header {
+  display: none;
+}
+.page.about > .license > figure > figcaption > .formal {
+  display: none;
+}
+.page.about > .license:before {
+  content: '';
+  position: absolute;
+  left: -4500em;
+  top: 0;
+  width: 9999em;
+  height: 1px;
+  background-color: #a2a2a2;
+  display: block;
+}
+.page.curriculum > .programming > ul {
+  list-style: none;
+  padding-left: 0;
+  width: 20%;
+  text-align: right;
+  display: inline-block;
+  font-weight: bold;
+  position: relative;
+  top: -0.45em;
+}
+.page.curriculum > .programming > ul > li {
+  height: 1.5em;
+  padding-top: 0.5em;
+  overflow: hidden;
+}
+.page.curriculum > .programming > ul > li > a {
+  border-bottom: none;
+}
+.page.curriculum > .programming > canvas {
+  display: inline-block;
 }
 .blog > .articleList {
   position: relative;

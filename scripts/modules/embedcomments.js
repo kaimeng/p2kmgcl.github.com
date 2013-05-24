@@ -3,7 +3,7 @@
  */
 p2kmgcl.modules.embedComment = function (data) {
     var $link       = $(data[0]),
-        $parent     = $link.parent(),
+        $parent     = $link.parent().parent().parent().parent(),
         identifier  = data[1],
         url         = data[2],
         $disqus     = null,
@@ -30,16 +30,21 @@ p2kmgcl.modules.embedComment = function (data) {
                 });
             });
         };
+        console.log($parent[0]);
 
     // Esconde el enlace para mostrar los
     // comentarios
-    $link.slideUp(250);
+    $link.animate({ opacity: 0.5 }, 300);
 
     // Si había un link oculto, lo muestra
     if (p2kmgcl.modules.embedComment.prototype.$lastLink) {
-        p2kmgcl.modules.embedComment.prototype.$lastLink.slideDown(250);
+        p2kmgcl.modules.embedComment.prototype.$lastLink
+            .animate({ opacity: 1 }, 300);
+        p2kmgcl.modules.embedComment.prototype.$lastLink.attr('onclick', p2kmgcl.modules.embedComment.prototype.lastLinkOnClick);
     }
     p2kmgcl.modules.embedComment.prototype.$lastLink = $link;
+    p2kmgcl.modules.embedComment.prototype.lastLinkOnClick = $link.attr('onclick');
+    $link.removeAttr('onclick');
 
     if (window.DISQUS) {
         $disqus = $('#disqus_thread');
