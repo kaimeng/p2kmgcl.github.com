@@ -196,18 +196,17 @@ code {
   display: none;
 }
 .mainSidebar .goTop {
+  display: block;
   position: fixed;
   top: -20em;
   transform: rotate(-90deg) translateY(-0.3em);
   background-color: #ffffff;
   box-shadow: 0 0 1em #ffffff;
+  border-bottom: none;
   transition: top ease 0.3s;
 }
 .mainSidebar .goTop.shown {
   top: 3em;
-}
-.mainSidebar .goTop > a {
-  border-bottom: none;
 }
 .mainSidebar > .links {
   position: absolute;
@@ -608,17 +607,17 @@ body > section > header {
 .articleList > article > footer > header {
   display: none;
 }
-.articleSingle > footer > .entryButtons > ul,
-.articleList > article > footer > .entryButtons > ul {
+.articleSingle > footer > .entryButtons,
+.articleList > article > footer > .entryButtons {
   list-style: none;
   padding-left: 0;
 }
-.articleSingle > footer > .entryButtons > ul > li,
-.articleList > article > footer > .entryButtons > ul > li {
+.articleSingle > footer > .entryButtons > li,
+.articleList > article > footer > .entryButtons > li {
   display: inline-block;
 }
-.articleSingle > footer > .entryButtons > ul > li > a,
-.articleList > article > footer > .entryButtons > ul > li > a {
+.articleSingle > footer > .entryButtons > li > a,
+.articleList > article > footer > .entryButtons > li > a {
   background-color: #3c3c3c;
   border: none;
   border-radius: 0.5em;
@@ -637,15 +636,15 @@ body > section > header {
   top: 0;
   width: 5.5em;
 }
-.articleSingle > footer > .entryButtons > ul > li > a > i,
-.articleList > article > footer > .entryButtons > ul > li > a > i {
+.articleSingle > footer > .entryButtons > li > a > i,
+.articleList > article > footer > .entryButtons > li > a > i {
   position: absolute;
   font-size: 4em;
   left: 0.2em;
   top: 0.2em;
 }
-.articleSingle > footer > .entryButtons > ul > li > a:active,
-.articleList > article > footer > .entryButtons > ul > li > a:active {
+.articleSingle > footer > .entryButtons > li > a:active,
+.articleList > article > footer > .entryButtons > li > a:active {
   top: 0.1em;
   left: 0.1em;
   box-shadow: 0.05em 0.05em 0.125em #222222;

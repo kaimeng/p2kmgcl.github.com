@@ -29,19 +29,17 @@
     }
 
     .goTop {
+        display: block;
         position: fixed;
         top: -20em;
         transform: rotate(-90deg) translateY(-0.3em);
         background-color: @bodyBgColor;
         box-shadow: 0 0 1em @bodyBgColor;
+        border-bottom: none;
 
         transition: top ease 0.3s;
         &.shown {
             top: 3em;
-        }
-
-        > a {
-            border-bottom: none;
         }
     }
 

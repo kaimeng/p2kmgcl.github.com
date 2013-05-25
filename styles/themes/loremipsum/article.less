@@ -1,3 +1,7 @@
+.articleList > header {
+    display: none;
+}
+
 .articleSingle,
 .articleList > article {
     position:       relative;
@@ -53,7 +57,10 @@
     }
 
     > .content {
-        
+        > header:first-child {
+            display: none;
+        }
+
         > h1,
         > h2,
         > h3,
@@ -154,7 +161,7 @@
             display: none;
         }
 
-        > .entryButtons > ul {
+        > .entryButtons {
             list-style:     none;
             padding-left:    0;
 

@@ -34,22 +34,28 @@ icon: home
                     <img src="https://dl.dropboxusercontent.com/u/6037255/blogImages/{{ post.path | replace:'_posts/',''| replace:'.md','.jpg' }}" title="{{ post.image }}" alt="{{ post.image }}" class="cover" />
                     {% endif %}
                 </header>
-                <div class="content">{{ post.content }}</div>
-                <footer>
+                <section class="content">
                     <header>
-                        <h1>Pie de la entrada</h1>
+                        <h1>Contenido de la entrada</h1>
                     </header>
 
-                    <nav class="entryButtons"><ul>
+                    {{ post.content }}
+                </section>
+                <footer>
+                    <header>
+                        <h1>Enlaces y comentarios</h1>
+                    </header>
+
+                    <ul class="entryButtons">
                         <li class="shareButton"><a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl={{ site.web.url }}{{ post.url }}">
                             <i class="icon-share"></i>
-                            Compartir entrada
+                            <span>Compartir entrada</span>
                         </a></li>
                         <li class="showComments"><a onclick="p2kmgcl.module('embedComment', true, this, 'p2kmgcl', '{{ site.web.url }}{{ post.url }}')">
                             <i class="icon-edit"></i>
-                            Escribir un comentario
+                            <span>Escribir un comentario</span>
                         </a></li>
-                    </ul></nav>
+                    </ul>
                         
                     <script type="text/javascript">
                         var a2a_config = a2a_config || {};
