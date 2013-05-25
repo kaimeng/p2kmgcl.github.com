@@ -433,6 +433,9 @@ body > section {
 body > section > header {
   display: none;
 }
+.articleList > header {
+  display: none;
+}
 .articleSingle,
 .articleList > article {
   position: relative;
@@ -484,6 +487,10 @@ body > section > header {
   padding: 2%;
   background-color: #fff;
   box-shadow: 0 0 .2em #888;
+}
+.articleSingle > .content > header:first-child,
+.articleList > article > .content > header:first-child {
+  display: none;
 }
 .articleSingle > .content > h1,
 .articleList > article > .content > h1,
@@ -603,6 +610,10 @@ body > section > header {
 .articleList > article > footer {
   margin-top: 2em;
 }
+.articleSingle > footer > .share > header,
+.articleList > article > footer > .share > header,
+.articleSingle > footer > .comments > header,
+.articleList > article > footer > .comments > header,
 .articleSingle > footer > header,
 .articleList > article > footer > header {
   display: none;
@@ -616,6 +627,8 @@ body > section > header {
 .articleList > article > footer > .entryButtons > li {
   display: inline-block;
 }
+.articleSingle > footer > .share > a,
+.articleList > article > footer > .share > a,
 .articleSingle > footer > .entryButtons > li > a,
 .articleList > article > footer > .entryButtons > li > a {
   background-color: #3c3c3c;
@@ -636,6 +649,8 @@ body > section > header {
   top: 0;
   width: 5.5em;
 }
+.articleSingle > footer > .share > a > i,
+.articleList > article > footer > .share > a > i,
 .articleSingle > footer > .entryButtons > li > a > i,
 .articleList > article > footer > .entryButtons > li > a > i {
   position: absolute;
@@ -643,11 +658,57 @@ body > section > header {
   left: 0.2em;
   top: 0.2em;
 }
+.articleSingle > footer > .share > a:active,
+.articleList > article > footer > .share > a:active,
 .articleSingle > footer > .entryButtons > li > a:active,
 .articleList > article > footer > .entryButtons > li > a:active {
   top: 0.1em;
   left: 0.1em;
   box-shadow: 0.05em 0.05em 0.125em #222222;
+}
+.articleSingle > footer > .share > a,
+.articleList > article > footer > .share > a {
+  height: auto;
+  width: 80%;
+  max-width: 22em;
+  margin: 2em auto;
+  margin-bottom: 3em;
+  padding-bottom: 1.25em;
+}
+.articleSingle > footer > .share > a > span > em,
+.articleList > article > footer > .share > a > span > em {
+  font-size: 0.9em;
+  opacity: 0.7em;
+  position: relative;
+  bottom: 0.2em;
+  right: 0.2em;
+  font-weight: bolder;
+}
+.articleSingle > footer > .share > a > span > em:after,
+.articleList > article > footer > .share > a > span > em:after {
+  content: "No se garantiza que tus sueños se hagan realidad. Si esto ocurre por un casual, por favor, envía un correo a milagro@pablomolina.me";
+  position: absolute;
+  bottom: 100%;
+  font-weight: normal;
+  background-color: #222222;
+  border: none;
+  border-radius: 0.5em;
+  box-shadow: inset 0 0 0.25em #ffffff, 0.1em 0.1em 0.25em #222222;
+  color: #ffffff;
+  display: none;
+  padding: 1em;
+  opacity: 0.95;
+  z-index: 9999;
+}
+.articleSingle > footer > .share > a > span > em:hover:after,
+.articleList > article > footer > .share > a > span > em:hover:after {
+  display: block;
+}
+html.no-js .articleSingle > footer > .comments,
+html.no-js .articleList > article > footer > .comments,
+html.no-js .articleSingle > footer > .entryButtons > .showComments,
+html.no-js .articleList > article > footer > .entryButtons > .showComments {
+  display: none;
 }
 .page {
   text-align: justify;
@@ -705,6 +766,11 @@ body > section > header {
   position: relative;
   top: -0.45em;
 }
+html.no-canvas .page.curriculum > .programming > ul,
+html.no-js .page.curriculum > .programming > ul {
+  width: 100%;
+  text-align: center;
+}
 .page.curriculum > .programming > ul > li {
   height: 1.5em;
   padding-top: 0.5em;
@@ -713,8 +779,27 @@ body > section > header {
 .page.curriculum > .programming > ul > li > a {
   border-bottom: none;
 }
+html.no-canvas .page.curriculum > .programming > ul > li,
+html.no-js .page.curriculum > .programming > ul > li {
+  display: inline-block;
+  padding: 0.5em;
+  margin: 0.5em;
+  border-radius: 0.75em;
+  background-color: #19889e;
+  box-shadow: inset 0 0 0.5em #95dfee, inset 0 0 0.1em #222222, 0 0 0.3em #808080;
+  border: solid #555555 thin;
+  text-shadow: 0.075em 0.075em 0.075em #222222;
+}
+html.no-canvas .page.curriculum > .programming > ul > li > a,
+html.no-js .page.curriculum > .programming > ul > li > a {
+  color: #ffffff;
+}
 .page.curriculum > .programming > canvas {
   display: inline-block;
+}
+html.no-canvas .page.curriculum > .programming > canvas,
+html.no-js .page.curriculum > .programming > canvas {
+  display: none;
 }
 .blog > .articleList {
   position: relative;
@@ -732,6 +817,43 @@ body > section > header {
   box-shadow: 0 0 1em #ffffff, 0 0 4em #ffffff;
   text-align: center;
 }
+.blog .pagination {
+  text-align: center;
+  font-size: 1.25em;
+  font-weight: bold;
+  padding-bottom: 1em;
+  position: relative;
+  bottom: 1em;
+}
+.blog .pagination > header,
+.blog .pagination > a > span {
+  display: none;
+}
+.blog .pagination > span.previous,
+.blog .pagination > span.next {
+  opacity: 0;
+  max-width: 0.5em;
+  overflow: hidden;
+  display: inline-block;
+}
+.blog .pagination > .previous,
+.blog .pagination > .next {
+  border-bottom: none;
+  font-size: 1.75em;
+  position: relative;
+  top: 0.125em;
+  padding: 0 0.6em;
+}
+.blog .pagination > .pageNumber {
+  font-size: 0.8em;
+  color: #a2a2a2;
+}
+.blog .pagination > .pageNumber > .current,
+.blog .pagination > .pageNumber > .total {
+  color: #222222;
+  font-size: 1.2em;
+  padding: 0 0.3em;
+}
 .index > .intro {
   margin: 5em auto;
   margin-bottom: 10em;
@@ -745,4 +867,7 @@ body > section > header {
 }
 .index > .intro > p {
   text-align: justify;
+}
+html.no-js .infiniteCongratulation {
+  display: none;
 }

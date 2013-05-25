@@ -47,7 +47,7 @@ icon: home
                     </header>
 
                     <ul class="entryButtons">
-                        <li class="shareButton"><a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl={{ site.web.url }}{{ post.url }}">
+                        <li class="shareButton"><a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl={{ site.web.url }}{{ post.url }}" target="_blank">
                             <i class="icon-share"></i>
                             <span>Compartir entrada</span>
                         </a></li>
@@ -76,15 +76,15 @@ icon: home
             <h1>Navegación entre artículos</h1>
         </header>
 
-        {% if paginator.previous_page %}<a href="{% if paginator.previous_page != 1 %}/page{{ paginator.previous_page }}{% else %}/index.html{% endif %}" class="previous">Anterior</a>{% else %}<span class="previous">Anterior</span>{% endif %}
+        {% if paginator.previous_page %}<a href="{% if paginator.previous_page != 1 %}/page{{ paginator.previous_page }}{% else %}/index.html{% endif %}" class="previous"><i class="icon-caret-left"></i><span>Anterior</span></a>{% else %}<span class="previous">Anterior</span>{% endif %}
       
-        <span class="pageNumber">Página:
+        <span class="pageNumber">
             <span class="current">{{ paginator.page }}</span>
              de 
             <span class="total">{{ paginator.total_pages }}</span>
         </span>
 
-        {% if paginator.next_page %}<a href="/page{{ paginator.next_page }}" class="next infinite-more-link">Siguiente</a>{% else %}<span class="next">Siguiente</span>{% endif %}
+        {% if paginator.next_page %}<a href="/page{{ paginator.next_page }}" class="next infinite-more-link"><i class="icon-caret-right"></i><span>Siguiente</span></a>{% else %}<span class="next">Siguiente</span>{% endif %}
     </nav>
 
     {% if site.jsmodules contains 'infinitescroll' %}

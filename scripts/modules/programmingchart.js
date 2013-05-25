@@ -36,11 +36,11 @@ p2kmgcl.modules.programmingChart = function () {
         $valueElements.each(function (index) {
             var color = getRandomColor();
 
-            ctx.moveTo();
             ctx.beginPath();
-
-            ctx.closePath();
+            ctx.moveTo(0, index * elementHeight + 5);
             ctx.rect(0, index * elementHeight + 5, maxWidth * parseFloat($(this).attr('data-level')) / 10, elementLowHeight);
+            ctx.closePath();
+
             ctx.fillStyle = color;
             ctx.fill();
         });

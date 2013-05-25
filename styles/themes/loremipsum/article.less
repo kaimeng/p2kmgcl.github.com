@@ -245,7 +245,13 @@
                 &:hover:after {
                     display: block;
                 }
+
             }
+        }
+
+        html.no-js & > .comments,
+        html.no-js & > .entryButtons > .showComments {
+            display: none;
         }
     }
 }

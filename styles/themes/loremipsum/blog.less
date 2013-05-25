@@ -19,6 +19,50 @@
             }
         }
     }
+
+    .pagination {
+        text-align: center;
+        font-size: 1.25em;
+        font-weight: bold;
+        padding-bottom: 1em;
+        position: relative;
+        bottom: 1em;
+
+
+        > header,
+        > a > span {
+            display: none;
+        }
+
+        > span.previous,
+        > span.next {
+            opacity: 0;
+            max-width: 0.5em;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        > .previous,
+        > .next {
+            border-bottom: none;
+            font-size: 1.75em;
+            position: relative;
+            top: 0.125em;
+            padding: 0 0.6em;
+        }
+
+        >.pageNumber {
+            font-size: 0.8em;
+            color: lighten(@black, 50%);
+        
+            > .current,
+            > .total {
+                color: @black;
+                font-size: 1.2em;
+                padding: 0 0.3em;
+            }
+        }
+    }
 }
 
 .index {
@@ -38,4 +82,8 @@
             text-align: justify;
         }
     }
+}
+
+html.no-js .infiniteCongratulation {
+    display: none;
 }
