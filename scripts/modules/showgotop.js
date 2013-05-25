@@ -5,6 +5,7 @@ p2kmgcl.modules.showGoTop = function () {
     var $goTop = $('.goTop');
 
     $('.goTop').on('click', function () {
+        $(document).off('scroll');
         $('body, html').animate({
             scrollTop: 0
         }, 1000);

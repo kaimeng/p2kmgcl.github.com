@@ -3,7 +3,7 @@
  */
 p2kmgcl.modules.embedComment = function (data) {
     var $link       = $(data[0]),
-        $parent     = $link.parent().parent().parent().parent(),
+        $parent     = $link.parents('footer'),
         identifier  = data[1],
         url         = data[2],
         $disqus     = null,
@@ -30,7 +30,6 @@ p2kmgcl.modules.embedComment = function (data) {
                 });
             });
         };
-        console.log($parent[0]);
 
     // Esconde el enlace para mostrar los
     // comentarios
