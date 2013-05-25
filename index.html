@@ -51,15 +51,15 @@ icon: home
                             <i class="icon-share"></i>
                             <span>Compartir entrada</span>
                         </a></li>
-                        <li class="showComments"><a onclick="p2kmgcl.module('embedComment', true, this, 'p2kmgcl', '{{ site.web.url }}{{ post.url }}')">
+                        <li class="showComments"><a onclick="p2kmgcl.module('embedComment', true, { link: this, identifier: 'p2kmgcl', url: '{{ site.web.url }}{{ post.url }}' })">
                             <i class="icon-edit"></i>
-                            <span>Escribir un comentario</span>
+                            <span>Lista de comentarios</span>
                         </a></li>
                     </ul>
                         
                     <script type="text/javascript">
                         var a2a_config = a2a_config || {};
-                        a2a_config.linkname = "{{ post.title }}";
+                        a2a_config.linkname = "{{ post.title | replace:'"','\"' }}";
                         a2a_config.linkurl = "{{ site.web.url }}{{ post.url }}";
                         a2a_config.locale = "es";
                         a2a_config.num_services = 6;

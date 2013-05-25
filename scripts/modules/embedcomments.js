@@ -1,11 +1,11 @@
 /**
  * Añade los comentarios de disqus a la entrada actual para que el usuario pueda comentar.
  */
-p2kmgcl.modules.embedComment = function (data) {
-    var $link       = $(data[0]),
+p2kmgcl.modules.embedComment = function (opts, args) {
+    var $link       = $(args.link),
         $parent     = $link.parents('footer'),
-        identifier  = data[1],
-        url         = data[2],
+        identifier  = args.identifier,
+        url         = args.url,
         $disqus     = null,
         $htmlbody   = $('html, body'),
         $document   = $(document),
@@ -36,13 +36,13 @@ p2kmgcl.modules.embedComment = function (data) {
     $link.animate({ opacity: 0.5 }, 300);
 
     // Si había un link oculto, lo muestra
-    if (p2kmgcl.modules.embedComment.prototype.$lastLink) {
-        p2kmgcl.modules.embedComment.prototype.$lastLink
-            .animate({ opacity: 1 }, 300);
-        p2kmgcl.modules.embedComment.prototype.$lastLink.attr('onclick', p2kmgcl.modules.embedComment.prototype.lastLinkOnClick);
+    if (opts.proto.$lastLink) {
+        opts.proto.$lastLink
+            .animate({ opacity: 1 }, 300)
+            .attr('onclick', opts.proto.lastLinkOnClick);
     }
-    p2kmgcl.modules.embedComment.prototype.$lastLink = $link;
-    p2kmgcl.modules.embedComment.prototype.lastLinkOnClick = $link.attr('onclick');
+    opts.proto.$lastLink = $link;
+    opts.proto.lastLinkOnClick = $link.attr('onclick');
     $link.removeAttr('onclick');
 
     if (window.DISQUS) {

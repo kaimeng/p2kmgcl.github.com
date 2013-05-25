@@ -3,15 +3,18 @@
  * página a página por un bonito scroll infinito mucho
  * más interesante.
  */
-p2kmgcl.modules.infiniteScroll = function () {
-    var $blog = $('.blog');
+p2kmgcl.modules.infiniteScroll = function (opts) {
+    var $blog = $('.blog'),
+        $pagination = $blog.find('> .pagination'),
+        $infiniteContainer = $blog.find('> .infinite-container'),
+        $congratulation = $('.infiniteCongratulation');
 
     // Escondemos la paginación. No es relevante
     // si nuestro scroll es infinitio
-    $blog.find('> .pagination').hide();
+    $pagination.hide();
 
     // Caña!
-    $blog.find('> .infinite-container').waypoint('infinite', {
+    $infiniteContainer.waypoint('infinite', {
         container:          'auto',
         items:              '.infinite-item',
         more:               '.infinite-more-link',
@@ -20,12 +23,26 @@ p2kmgcl.modules.infiniteScroll = function () {
         onBeforePageLoad:   function () {
             // Esconde los agradecimientos
             // (aún hay más)
-            $('.infiniteCongratulation').addClass('hidden');
+            $congratulation.addClass('hidden');
+
+            // Guarda la última entrada
+            opts.proto.$lastEntry = $infiniteContainer.find('> .infinite-item:last-child');
         },
         onAfterPageLoad:    function () {
             // Vuelve a mostrarlos para
             // la próxima vez
-            $('.infiniteCongratulation').removeClass('hidden');
+            $congratulation.removeClass('hidden');
+
+            // Colorea los trozos de código
+            var $actualEntry = opts.proto.$lastEntry.next();
+
+            while ($actualEntry.size() > 0) {
+                $actualEntry.find('> .content > pre > code').each(function (codeBlock) {
+                    console.log(this);
+                    hljs.highlightBlock(this);
+                });
+                $actualEntry = $actualEntry.next();
+            }
         }
     });
 };

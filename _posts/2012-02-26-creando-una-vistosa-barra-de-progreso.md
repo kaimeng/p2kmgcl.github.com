@@ -30,6 +30,6 @@ Ahora pegamos el texto copiado directamente en nuestro fichero html y voilá, ya
 En resumen, lo que vamos a hacer a continuación es acceder al elemento "principal" del svg incrustado y vamos a modificar sus atributos "height" (altura) e "y" (posición vertical en el archivo svg).
 La modificación de la posición vertical no es más que un detalle para que la barra se rellene de abajo a arriba y no al revés, pero no es necesario cambiar este atributo.
 
-<a class="jsbin-embed" href="http://jsbin.com/ubiqex/5/embed?live"></a><script src="http://static.jsbin.com/js/embed.js"></script>
+<a class="jsbin-embed" href="http://jsbin.com/ubiqex/19/embed?live"></a><script src="http://static.jsbin.com/js/embed.js"></script>
 
  - Resultado ~ [jsBin](http://jsbin.com/ubiqex/5/edit#preview)

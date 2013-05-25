@@ -6,24 +6,69 @@
 window.p2kmgcl = {
     /**
      * Comprueba si un módulo de nombre name existe. Debe estar almacenado en el objeto modules de la clase. Además si se pasa un parámetro adicional, lo ejecutará con los argumentos restantes pasados
-     * @param  {string} name Nombre del módulo
-     * @param {boolean} execute Pasar true para ejecutar el módulo
-     * @return {boolean} True si está disponible, false si no.
+     * @param  {string || Array} modules Nombre del módulo o módulos. Pueden pasarse varios con "m1 m2 m3" o pasando un array de cadenas ["m1", "m2"]. Si se quieren pasar argumentos se debe pasar un array de objetos:
+     *  {
+     *      name: "m1",
+     *      exec: true,
+     *      args: {}
+     *  }
+     * @param {boolean:false} execute Pasar true para ejecutar el módulo
+     * @param {object:{}} args Objeto de argumentos pasados al módulo
+     * @return {boolean} True si está disponible, false si no. En caso de pasar varios módulos, devuelve true si todos existen.
      */
-    module: function (name, exec) {
-        if (typeof p2kmgcl.modules[name] === 'function') {
-            // Se ejecuta el módulo
-            if (exec === true) {
-                // Une todos los argumentos en una array, pero solo a partir del tercer argumento pasado
-                argumentList = [];
-                for (var i = 2; i < arguments.length; i++) {
-                    argumentList.push(arguments[i]);
-                }
-                p2kmgcl.modules[name](argumentList);
-            }
-            return true;
+    module: function (modules, exec, args) {
+        var allAvailable = true,
+            _module = null,
+            _exec = null,
+            _args = null,
+            _opts = null;
+
+        modules = (typeof modules === 'string')
+                    ? modules.split(' ')
+                    : modules;
+
+        if (!(modules instanceof Array)) {
+            throw new Error('Module must be an array or string');
         }
-        return false;
+
+        for (var i = 0; i < modules.length; i++) {
+            if (typeof modules[i] === 'object') {
+                _module = p2kmgcl.modules[modules[i].name];
+                _exec = modules[i].exec;
+                _args = modules[i].args;
+            
+            } else if (typeof modules[i] === 'string') {
+                _module = p2kmgcl.modules[modules[i]];
+                _exec = exec;
+                _args = args;
+
+            } else {
+                throw new Error('Invalid typeof module '
+                    + (typeof modules[i]));
+            }
+
+            if (typeof _module === 'function') {
+                allAvailable = allAvailable && true;
+            
+                // Solo lo ejecutamos si se indica
+                // así
+                if (_exec === true) {
+                    // Crea un objeto con varias opciones
+                    // útiles para el módulo
+                    _opts = {
+                        proto: _module.prototype
+                    };
+
+                    _module(_opts, (typeof _args === 'object') ? _args : {});
+                }
+            } else {
+                allAvailable = allAvailable && false;    
+            }
+        }
+
+        // Si i vale 0 no había ningún
+        // módulo así que devolverá false.
+        return i && allAvailable;
     },
 
     // Módulos que podrán ejecutarse
@@ -31,12 +76,14 @@ window.p2kmgcl = {
 
     // Ejecuta todos los métodos establecidos
     init: function () {
-        p2kmgcl.module('infiniteScroll', true);
-        p2kmgcl.module('cheatList', true);
-        p2kmgcl.module('randomQuote', true);
-        p2kmgcl.module('introWaypoint', true);
-        p2kmgcl.module('showGoTop', true);
-        p2kmgcl.module('programmingChart', true);
+        p2kmgcl.module([
+            'infiniteScroll',
+            'cheatList',
+            'randomQuote',
+            'introWaypoint',
+            'showGoTop',
+            'programmingChart'
+        ], true);
     }
 };
 
