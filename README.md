@@ -9,7 +9,6 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
  - Optimizar tema de LoremIpsum:
    - Aprovechar el uso de LessCSS para hacer cambios.
    - Añadir las media queries del tema css.
- - Revisar el aspecto de las entradas completas.
 
 # Lista de cambios
 

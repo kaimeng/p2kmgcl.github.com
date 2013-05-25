@@ -157,6 +157,8 @@
     > footer {
         margin-top: 2em;
 
+        > .share > header,
+        > .comments > header,
         > header {
             display: none;
         }
@@ -168,38 +170,80 @@
             > li {
                 display: inline-block;
 
-                > a {
-                    background-color: lighten(@black, 10%);
+            }
+        }
+
+        > .share > a,
+        > .entryButtons > li > a {
+            background-color: lighten(@black, 10%);
+            border: none;
+            border-radius: 0.5em;
+            box-shadow: inset 0 0 0.25em @bodyBgColor,
+                        0.1em 0.1em 0.25em @black;
+            color: @bodyBgColor;
+            display: inline-block;
+            height: 4em;
+            left: 0;
+            margin: 0.5em 1em;
+            padding: 1em;
+            padding-left: 5.5em;
+            padding-bottom: 0;
+            position: relative;
+            text-align: left;
+            text-shadow: 1px 1px 1px @black;
+            top: 0;
+            width: 5.5em;
+    
+            > i {
+                position: absolute;
+                font-size: 4em;
+                left: 0.2em;
+                top: 0.2em;
+            }
+
+            &:active {
+                top: 0.1em;
+                left: 0.1em;
+                box-shadow: 0.05em 0.05em 0.125em @black;
+            }
+        }
+
+        > .share > a {
+            height: auto;
+            width: 80%;
+            max-width: 22em;
+            margin: 2em auto;
+            margin-bottom: 3em;
+            padding-bottom: 1.25em;
+
+            > span > em {
+                font-size: 0.9em;
+                opacity: 0.7em;
+                position: relative;
+                bottom: 0.2em;
+                right: 0.2em;
+                font-weight: bolder;
+
+                &:after {
+                    content: "No se garantiza que tus sueños se hagan realidad. Si esto ocurre por un casual, por favor, envía un correo a milagro@pablomolina.me";
+                    position: absolute;
+                    bottom: 100%;
+                    font-weight: normal;
+
+                    background-color: @black;
                     border: none;
                     border-radius: 0.5em;
                     box-shadow: inset 0 0 0.25em @bodyBgColor,
                                 0.1em 0.1em 0.25em @black;
                     color: @bodyBgColor;
-                    display: inline-block;
-                    height: 4em;
-                    left: 0;
-                    margin: 0.5em 1em;
+                    display: none;
                     padding: 1em;
-                    padding-left: 5.5em;
-                    padding-bottom: 0;
-                    position: relative;
-                    text-align: left;
-                    text-shadow: 1px 1px 1px @black;
-                    top: 0;
-                    width: 5.5em;
-    
-                    > i {
-                        position: absolute;
-                        font-size: 4em;
-                        left: 0.2em;
-                        top: 0.2em;
-                    }
+                    opacity: 0.95;
+                    z-index: 9999;
+                }
 
-                    &:active {
-                        top: 0.1em;
-                        left: 0.1em;
-                        box-shadow: 0.05em 0.05em 0.125em @black;
-                    }
+                &:hover:after {
+                    display: block;
                 }
             }
         }
