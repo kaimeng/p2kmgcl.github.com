@@ -1,7 +1,6 @@
 ---
 layout: post
 title: MVC I - Reproductor de música HTML5 con Backbone. Introducción y Parte I - SongModel
-Cover: https://lh6.googleusercontent.com/-oZSKLu62A1k/UOTCfG2L8yI/AAAAAAAAjDY/bj61pVTcEEM/s400/4036379423_c08eea8b91_z.jpg
 image: Reproductor de música
 tags: [Backbone, CSS, HTML, Javascript, jQuery, MVC, MVC1, Música, Programación, Reproductor]
 ---
@@ -56,7 +55,7 @@ Ahora tenemos que añadir algunos atributos que nos serán útiles para reproduc
             artist: '',
             albumTitle: '',
             albumCover: '',
-     
+
             elapsedTime: -1,
             totalTime: -1,
             volume: -1,

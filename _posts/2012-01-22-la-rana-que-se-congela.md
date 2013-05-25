@@ -1,7 +1,6 @@
 ---
 layout: post
 title: La rana que se congela
-Cover: http://2.bp.blogspot.com/-I8OLeQ5pPJA/TvcWHTXGGKI/AAAAAAAADjg/fQ6_jWwXo3A/s320/Lithobates_sylvaticus_%2528wood_frog%2529.jpg
 image: Rafa
 tags: [Animales, Veo y no creo]
 ---

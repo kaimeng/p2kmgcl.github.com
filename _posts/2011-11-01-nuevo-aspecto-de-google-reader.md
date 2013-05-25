@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Nuevo aspecto de google reader
-Cover: http://3.bp.blogspot.com/-c3zv2frAK4c/Tq_-rF2pHSI/AAAAAAAAAi8/ymZ87LtJsuw/s1600/Sin+t%25C3%25ADtulo.png
 image: Nuevo aspecto de Google Reader con pequeñas modificaciones
 tags: [Google Reader, Noticias, RSS]
 ---

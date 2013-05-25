@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 90 GigaBytes de datos almacenados en bacterias
-Cover: http://1.bp.blogspot.com/-oYN5EJweyUI/TrUtQrinP9I/AAAAAAAAAk8/EqIYZvFZlpE/s1600/Bacteria202.jpg
 image: Conjunto de baterias
 tags: [Cuerpo Humano, Informática, Veo y no creo]
 ---

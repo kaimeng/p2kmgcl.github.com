@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Soluciones para columnas con CSS
-Cover: http://3.bp.blogspot.com/-COGjUVjgld0/T0FmDVIy_QI/AAAAAAAANhA/Tqqz5HXvusI/s400/wallpaper-1671149.jpg
 image: Logo de HTML5 y CSS3
 tags: [Columnas, CSS, Código, Diseño web, HTML, Tutoriales]
 ---

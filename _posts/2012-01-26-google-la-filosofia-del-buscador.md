@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Google+, la filosofía del buscador
-Cover: http://4.bp.blogspot.com/-CtQCJXUva8E/Tx_IqHIklUI/AAAAAAAAK4E/wTABIFuvGd8/s640/google%252B3.png
 image: Buscador de la red social de Google
 tags: [Google+, Redes sociales, Tecnología]
 ---

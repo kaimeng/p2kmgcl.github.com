@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Hace tiempo que no recuerdo ningún sueño
-Cover: http://1.bp.blogspot.com/-WWfs95r9siY/TwxU-UuBHcI/AAAAAAAAKSg/CVgb7qcDkxA/s320/tear_by_wishka.jpg
 image: Mujer llorando
 tags: [Lágrima, Pensamiento, Personal, Tristeza]
 ---

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Fabrica sangre artificial
-Cover: http://2.bp.blogspot.com/-1twfvEHGleE/TrUmJO_aweI/AAAAAAAAAkE/hL2ptnHfylI/s1600/070512113724.jpg
 image: Bote con sangre falsa
 tags: [Remedios Caseros, Veo y no creo]
 ---

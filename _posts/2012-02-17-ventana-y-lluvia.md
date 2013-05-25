@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Ventana y lluvia
-Cover: http://2.bp.blogspot.com/-HxADjF3HziY/Tz55xSUlNHI/AAAAAAAANgw/WXVmdhih7b0/s320/Rain_at_the_Window_by_magoscuro.jpg
 image: Una sombra ante una ventana en un paisaje lluvioso
 tags: [Cine, Comportamiento, Pensamiento, Sociedad]
 ---

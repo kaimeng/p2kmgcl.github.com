@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Probando la función "position" de jQuery UI
-Cover: http://3.bp.blogspot.com/-LSFtjMtQnU8/TxrH_qzeS6I/AAAAAAAAKfs/vrSl6XBAvcQ/s320/2510326188_2d113eb317_b.jpg
 image: Conferencia de jQuery en Tokio
 tags: [Javascript, jQuery, jQuery UI, Programación]
 ---

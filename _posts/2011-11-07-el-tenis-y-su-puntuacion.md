@@ -1,7 +1,6 @@
 ---
 layout: post
 title: El tenis y su puntuación
-Cover: http://4.bp.blogspot.com/-cACqSCp0PlQ/TrUjc99lMZI/AAAAAAAAAj8/s52ikjfhnXw/s400/tenis.jpg
 image: Raqueta de tenis
 tags: [Deporte, Veo y no creo]
 ---

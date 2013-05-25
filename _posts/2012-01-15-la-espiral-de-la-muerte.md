@@ -1,7 +1,6 @@
 ---
 layout: post
 title: La espiral de la muerte
-Cover: http://4.bp.blogspot.com/-LWNbTeGsAE8/TrUtzeQ_QCI/AAAAAAAAAlE/e4iOgkIEyMY/s320/la-asombrosa-espiral-de-la1.jpg
 image: Espiral de hormigas
 tags: [Animales, Veo y no creo]
 ---

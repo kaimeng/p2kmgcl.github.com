@@ -1,7 +1,6 @@
 ---
 layout: post
 title: La medusa inmortal
-Cover: http://1.bp.blogspot.com/-je-pw9VtWRE/TrUo9VO4JTI/AAAAAAAAAks/gy8vF5MGloQ/s320/Turritopsis-nutricula.jpeg
 image: Ejemplo de medusa Turritopsis nutricola
 tags: [Animales, Veo y no creo]
 ---

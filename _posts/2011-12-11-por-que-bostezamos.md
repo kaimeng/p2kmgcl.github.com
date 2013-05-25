@@ -1,6 +1,5 @@
 ---
 title: ¿Por qué bostezamos?
-Cover: http://3.bp.blogspot.com/-_SOYbqTy_Jo/TrUoIBsl3CI/AAAAAAAAAkk/-4jK1gGSe6M/s320/gran_bostezo_gatuno____by_letisto.jpg
 image: Gato bostezando
 Tags: [Cuerpo Humano, Veo y no creo]
 ---

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Matar a una mosca con 3 dedos, el salto inconsciente
-Cover: http://3.bp.blogspot.com/-xWqbPutin7A/Tvcbhy_8LuI/AAAAAAAADoo/_5wttl_oxOI/s320/20100916111019.jpg
 image: Yo mostrando como matar a una mosca
 tags: [Animales, Veo y no creo]
 ---

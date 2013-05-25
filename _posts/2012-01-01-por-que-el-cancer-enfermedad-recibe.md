@@ -1,6 +1,5 @@
 ---
 title: ¿Por qué el cáncer (enfermedad) recibe este nombre?
-Cover: http://1.bp.blogspot.com/-3rjWydBkvns/TrUrIfGUKdI/AAAAAAAAAk0/V3SVdHRzvzo/s320/CancerCC_cropped.jpg
 image: Constelación Cáncer en el cielo
 tags: [Cuerpo Humano, Enfermedades, Veo y no creo]
 ---

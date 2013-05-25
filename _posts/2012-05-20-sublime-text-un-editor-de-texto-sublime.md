@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Sublime Text - Un editor de texto sublime
-Cover: http://1.bp.blogspot.com/-QGeI-P_WA7A/T7kAAH9G4TI/AAAAAAAAZQs/1cf2S_yIQXo/s1600/sublimetext.jpg
 image: SublimeText con los temas claro y oscuro
 tags: [CSS, Herramientas, HTML, Javascript, Programación]
 ---

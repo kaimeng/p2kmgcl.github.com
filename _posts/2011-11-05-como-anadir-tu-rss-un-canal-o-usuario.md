@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Como añadir a tu RSS un canal o usuario de Youtube
-Cover: http://3.bp.blogspot.com/-GKVo4Pri8Fo/TrUf3BO_WRI/AAAAAAAAAjs/HuF8hN21C-k/s640/Sin+t%25C3%25ADtulo.png
 image: Muestra de la página a la que hay que acceder
 tags: [Noticias, RSS, Tutoriales, Universidad]
 ---

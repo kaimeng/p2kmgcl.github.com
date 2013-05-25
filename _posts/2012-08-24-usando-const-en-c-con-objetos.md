@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Usando const en C++ con objetos
-Cover: http://3.bp.blogspot.com/-DOgSFKOoCVw/UDdXCheQfPI/AAAAAAAAh5Y/vXVrgJdvNR4/s400/Dibujo.JPG
 image: Logo de C++ con una función que devuelve una referencia constante
 tags: [Análisis, C, C++, Const, Programación]
 ---

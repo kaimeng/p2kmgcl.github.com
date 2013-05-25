@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Cómo se reproducen las almejas
-Cover: http://1.bp.blogspot.com/-3LWRJvVZiAA/TrUmXLNm4BI/AAAAAAAAAkM/PXKSFAYh_U0/s320/LittleNeck_clams_USDA96c1862.jpg
 image: Almejas en las manos de un hombre
 tags: [Animales, Veo y no creo]
 ---

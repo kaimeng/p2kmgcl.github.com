@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Creando una vistosa barra de progreso en HTML5
-Cover: http://4.bp.blogspot.com/-EpcjXPuAyRo/T0OSeNixawI/AAAAAAAANhs/S9gYek3jxAE/s1600/pantallazo2.jpg
 image: Barra resultado
 tags: [CSS, Diseño web, HTML, Javascript, SVG, Tutoriales]
 ---

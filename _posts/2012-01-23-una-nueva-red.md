@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Una nueva red
-Cover: http://2.bp.blogspot.com/-41l4AeSWshI/TxwZFNzFx3I/AAAAAAAAK3M/PfgADeGb5Fw/s320/google%252B.png
 image: Imagen del registro en Google+
 tags: [Google+, Informática, Redes sociales]
 ---

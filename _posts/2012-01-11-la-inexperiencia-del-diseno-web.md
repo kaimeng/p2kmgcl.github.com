@@ -1,7 +1,6 @@
 ---
 layout: post
 title: La inexperiencia del diseño web
-Cover: http://1.bp.blogspot.com/-GSwnUEGfjX8/Tw1WeyZXz6I/AAAAAAAAKTU/0qjSHxWUqCE/s320/___Design____by_AquaLilia.jpg
 image: Mano pintada con tinta
 tags: [Consejos, Diseño web, Ingeniería del software, Investigación, Planificación, Tutoriales]
 ---

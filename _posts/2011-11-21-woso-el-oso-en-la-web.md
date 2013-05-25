@@ -1,7 +1,6 @@
 ---
 layout: post
 title: WOSO - El OSO en la web
-Cover: http://1.bp.blogspot.com/-lu4o9VYMJgs/TslTSR-rQqI/AAAAAAAAAmY/GUCv9-wT030/s1600/250px-Juego_del_oso.svg.png
 image: Muestra del proceso del juego OSO
 tags: [CSS, Informática, Javascript, Juegos, Programación]
 ---

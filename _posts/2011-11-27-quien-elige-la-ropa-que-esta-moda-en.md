@@ -1,6 +1,5 @@
 ---
 title: ¿Quién elige la ropa que esta "de moda" en cada temporada?
-Cover: http://3.bp.blogspot.com/-p05jZ4hI9gw/TrUm00YjF1I/AAAAAAAAAkU/N8n3qKzp0NE/s320/figurines_de_moda_01_by_pardoart.jpg
 image: Princesas Disney
 tags: [Ropa, Sociedad, Veo y no creo]
 ---

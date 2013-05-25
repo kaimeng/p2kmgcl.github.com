@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Canción de la ley SOPA
-Cover: http://2.bp.blogspot.com/-fPFPAwVbNUU/TyGptmK78iI/AAAAAAAAK4o/r1nfeCwoeoQ/s320/in_musica_by_BitaMig.jpg
 image: Un violín destrozándose
 tags: [Música, Pensamiento, Protesta, SOPA]
 ---

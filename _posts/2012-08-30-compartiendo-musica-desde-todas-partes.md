@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Compartiendo música desde todas partes
-Cover: http://4.bp.blogspot.com/-80XaiXxeCVY/UD9JkRfVkrI/AAAAAAAAh6M/CnxNcmQVniU/s1600/2951078801_a8e4c25530_b.jpg
 image: Onda mostrando varios artistas y grupos
 tags: [Chrome, Clementine, Compartir, Lastfm, Música, Navegador]
 ---

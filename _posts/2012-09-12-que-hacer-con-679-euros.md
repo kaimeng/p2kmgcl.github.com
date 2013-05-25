@@ -1,6 +1,6 @@
 ---
+layout: post
 title: ¿Qué hacer con 679 euros?
-Cover: http://1.bp.blogspot.com/-B7Umt_Q2nzc/UFLrAhw8-GI/AAAAAAAAiBE/sojvesEQakI/s1600/H-W5XA-CBU8-rW1FCq0FvpM-original.jpg
 image: Imagen del iPhone 5
 tags: [Android, Apple, Comida, Compra, Cámara, Energías renovables, Fotos, Gadgets, Google, GPS, iPhone, Módulo solar, Nokia, Portátil, Samsung, Sony, Tecnología, TomTom]
 ---
