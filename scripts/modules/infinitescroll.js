@@ -38,7 +38,6 @@ p2kmgcl.modules.infiniteScroll = function (opts) {
 
             while ($actualEntry.size() > 0) {
                 $actualEntry.find('> .content > pre > code').each(function (codeBlock) {
-                    console.log(this);
                     hljs.highlightBlock(this);
                 });
                 $actualEntry = $actualEntry.next();
