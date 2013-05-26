@@ -1,0 +1,18 @@
+.home {
+    > .intro {
+        margin: 5em auto;
+
+        // Esconde el blog si nos encontramos arriba del todo
+        margin-bottom: 10em;
+        transition: margin-bottom ease 0.3s;
+        &.hiddenBlog { margin-bottom: 30em; }
+
+        > header {
+            display: none;
+        }
+
+        > p {
+            text-align: justify;
+        }
+    }
+}

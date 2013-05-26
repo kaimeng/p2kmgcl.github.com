@@ -1,0 +1,56 @@
+.page.about {
+
+    > .tools {
+        > ul {
+            list-style: none;
+            padding-left: 0;
+            text-align: center;
+
+            > li {
+                display: inline-block;
+                vertical-align: middle;
+                width: 40%;
+                padding: 2%;
+
+                > a > figure {
+                    position: relative;
+
+                    > img {
+                        width: 100%;
+                        z-index: 1;
+                    }
+
+                    > figcaption {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    > .license {
+        text-align: center;
+        position: relative;
+        margin-top: 2em;
+        padding-top: 2em;
+
+        > header {
+            display: none;
+        }
+
+        > figure > figcaption > .formal {
+            display: none;
+        }
+
+        &:before {
+            content:            '';
+            position:           absolute;
+            left:               -4500em;
+            top:                0;
+            width:              9999em;
+            height:             1px;
+            background-color:   lighten(@black, 50%);
+            display:            block;
+        }
+    }
+}

@@ -1,0 +1,112 @@
+html {
+    margin:         0;
+    padding:        0;
+    padding-right:  2.5em;
+    color:          @black;
+    width:          100%;
+    overflow-x:     hidden;
+    background-color: @bodyBgColor;
+}
+
+body {
+    font-family:    @bodyFont;
+    font-size:      @bodyFontSize;
+    margin:         3em auto;
+    margin-bottom:  0;
+    width:          90%;
+    max-width:      40em;
+    padding:        5em 1em;
+    padding-bottom: 1em;
+    position:       relative;
+    overflow:       visible;
+    border-right:   solid lighten(@black, 50%) thin;
+
+    &:before,
+    &:after {
+        content:            '';
+        display:            block;
+        background-color:   lighten(@black, 50%);
+        position:           absolute;
+    }
+
+    &:before {
+        top:    -5em;
+        right:  0;
+        height: 10em;
+        width:  1px;
+    }
+
+    &:after {
+        top:    0;
+        left:   -4500em;
+        width:  9999em;
+        height: 1px;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: @titleFont;
+}
+
+h1 {
+    font-size:  1.5em;
+    margin:     1em 0;
+}
+
+h2 {
+    font-size:      1.4em;
+    margin:         1em 0;
+    color:          lighten(@black, 10%);
+    padding-left:   0.5em;
+}
+
+h3 {
+    font-size:  1.3em;
+    margin:     0.75em 0;
+}
+
+h4 {
+    font-size:  1.2em;
+    margin:     0.75em 0;
+}
+
+h5 {
+    font-size:  1.1em;
+    margin:     0.5em 0;
+}
+
+h6 {
+    font-size:      1.1em;
+    margin:         0.5em 0;
+    font-weight:    normal;
+}
+
+a {
+    border-bottom:      dotted @cleanPondWater thin;
+    color:              darken(@aoi, 30%);
+    cursor:             pointer;
+    text-decoration:    none;
+
+    &:hover {
+        border-bottom:  solid @cleanPondWater thin;
+        color:          darken(@aoi, 20%);
+    }
+
+    &:active {
+        opacity: 1;
+    }
+}
+
+pre,
+code {
+    font-family: @codeFont;
+}
+
+.hidden {
+    display: none !important;
+}

@@ -1,8 +1,8 @@
 /* TEAM */
 Webmaster: Pablo Molina
-Contact: p2kmgcl@gmail.com
+Contact: contact@pablomolina.me
 Website: http://pablomolina.me/
-Location: Jaén, Andalucía, España
+Location: Spain
 
 /* THANKS */
 Name: Lorena Garrido - https://plus.google.com/106295122995551671658/

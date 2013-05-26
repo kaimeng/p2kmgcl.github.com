@@ -1,0 +1,88 @@
+.mainHeader > header {
+    display: none;
+    position: absolute;
+}
+
+.mainMenu {
+    position:       absolute;
+    right:          0;
+    top:           -0.5em;
+    line-height:    0;
+    padding:        0;
+    background:     @bodyBgColor;
+    padding-right:  3em;
+    z-index:        200;
+
+    > header {
+        display: none;
+    }
+
+    > ul {
+        list-style: none;
+        padding:    0;
+        margin:     0;
+        text-align: right;
+    
+        > li {
+            display:        inline-block;
+            padding:        0 0.2em;
+            padding-left:   0.5em;
+            margin-bottom:  0.5em;
+            white-space:    nowrap;
+            position:       relative;
+
+            > i {
+                padding-right:  0;
+            }
+
+            > a {
+                border-bottom:  none;
+                color:          lighten(@black, 5%);
+            }
+
+            &.current > a {
+                font-weight:    bolder;
+            }
+        }
+    }
+}
+
+.randomQuotes {
+    > header {
+        display: none;
+    }
+
+    > ul {
+        padding-left: 0;
+
+        .quoteWrapper {
+            display: none;
+
+            &.chosen {
+                display: block;
+
+                > .quote {
+                    margin-left: 0;
+                
+                    > p {
+                        font-family: @titleFont;
+                        font-size: 2.5em;
+                        margin-bottom: 0;
+                    }
+
+                    > footer > cite {
+                        font-size: 1em;
+                        font-style: normal;
+                        text-align: left;
+
+                        &:before {
+                            color: darken(@aoi, 30%);
+                            content: '\2014 \2009';
+                            padding-left: 0.25em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,133 @@
+source:       .
+destination:  ./_site
+plugins:      ./_plugins
+
+lsi:          false
+future:       false
+pygments:     true
+markdown:     rdiscount
+permalink:    /:year/:month/:title.html
+paginate:     5
+
+author:
+    name:       "Pablo Molina"
+    givenName:  "Pablo"
+    familyName: "Molina"
+    alias:      "p2kmgcl"
+    photo:      "http://dl.dropbox.com/u/6037255/perfil.jpg"
+    mail:       "contact@pablomolina.me"
+    url:        "http://pablomolina.me"
+    bday:       "1991-10-01"
+    links:
+      - { name: "Google+",
+          icon: "google-plus",
+          url:  "http://googleplus.pablomolina.me" }
+      - { name: "GitHub",
+          icon: "github",
+          url:  "http://github.pablomolina.me"     }
+      - { name: "Twitter",
+          icon: "twitter",
+          url:  "http://twitter.pablomolina.me"    }
+      - { name: "Facebook",
+          icon: "facebook",
+          url:  "http://facebook.pablomolina.me"   }
+      - { name: "LinkedIn",
+          icon: "linkedin",
+          url:  "http://linkedin.pablomolina.me"   }
+      - { name: "LastFM",
+          icon: "music",
+          url:  "http://lastfm.pablomolina.me"     }
+      - { name: "DeviantArt",
+          icon: "pencil",
+          url:  "http://deviantart.pablomolina.me" }
+      - { name: "YouTube",
+          icon: "facetime-video",
+          url:  "http://youtube.pablomolina.me"    }
+    programminglanguages:
+      - { name: "adobeFlash", title: "Adobe Flash Professional", level: 2,
+          link: "http://www.adobe.com/es/products/flash.html" }
+      - { name: "blender", title: "Blender", level: 4,
+          link: "http://www.blender.org/" }
+      - { name: "c", title: "C", level: 10,
+          link: "http://es.wikipedia.org/wiki/C_(lenguaje_de_programaci%C3%B3n)" }
+      - { name: "chromeDevTools", title: "Chrome Dev Tools", level: 7,
+          link: "http://www.chromium.org/devtools/" }
+      - { name: "css", title: "CSS", level: 9,
+          link: "http://es.wikipedia.org/wiki/CSS" }
+      - { name: "cpp", title: "C++", level: 9,
+          link: "http://es.wikipedia.org/wiki/C%2B%2B" }
+      - { name: "doxygen", title: "Doxygen", level: 7,
+          link: "http://www.stack.nl/~dimitri/doxygen/" }
+      - { name: "eclipse", title: "Eclipse", level: 7,
+          link: "http://www.eclipse.org/" }
+      - { name: "gimp", title: "Gimp", level: 6,
+          link: "http://www.gimp.org/" }
+      - { name: "git", title: "Git", level: 5,
+          link: "http://git-scm.com/" }
+      - { name: "html", title: "HTML", level: 8,
+          link: "http://es.wikipedia.org/wiki/Html" }
+      - { name: "javascript", title: "JavaScript", level: 8,
+          link: "http://es.wikipedia.org/wiki/JavaScript" }
+      - { name: "jquery", title: "jQuery", level: 9,
+          link: "http://jquery.com/" }
+      - { name: "libreOffice", title: "Libre Office", level: 8,
+          link: "http://es.libreoffice.org/" }
+      - { name: "microsoftOffice", title: "Microsoft Office", level: 8,
+          link: "http://office.microsoft.com/es-es/" }
+      - { name: "netbeans", title: "Netbeans", level: 6,
+          link: "http://netbeans.org/" }
+      - { name: "php", title: "PHP", level: 4,
+          link: "http://es.wikipedia.org/wiki/Php" }
+      - { name: "sql", title: "SQL", level: 8,
+          link: "http://es.wikipedia.org/wiki/SQL" }
+      - { name: "sublimetext", title: "Sublime Text", level: 7,
+          link: "http://www.sublimetext.com/" }
+      - { name: "wordpress", title: "Wordpress", level: 6,
+          link: "http://wordpress.org/" }
+
+web:
+  url:          "http://pablomolina.me"
+  title:        "Pablo Molina"
+  subtitle:     "Piensa, inventa, comparte"
+
+data:
+  disqus:           "p2kmgcl"
+  google-analytics: "UA-17072152-2"
+  rss:              "http://feed.pablomolina.me"
+  imagePath:        "https://dl.dropboxusercontent.com/u/6037255/blogImages"
+
+meta:
+  description:  "Blog personal de Pablo Molina sobre diseño web, programación, asuntos geek y, a veces, sencillamente cosas personales."
+  keywords:
+    - Diseño web
+    - Programación
+    - Tecnología
+    - Internet
+    - Web Design
+    - Programation
+    - Technology
+
+quotes:
+  - { quote: "Yo soy porque nosotros somos.",
+      origin: "Ubuntu",
+      link: "http://es.wikipedia.org/wiki/Ubuntu_(filosof%C3%ADa)" }
+  - { quote: "Esta es mi historia y la acabaré cuando yo quiera.",
+      origin: "Tidus - Final Fantasy X",
+      link: "http://es.wikiquote.org/wiki/Final_Fantasy#Final_Fantasy_X" }
+
+# Activa el uso de la librería less (javascript)
+less:
+  js:          false
+  env:         "development"
+  bin:         "lessc"
+  path:        "styles"
+
+# Módulos de la web (/script/modules)
+jsmodules:
+  - infinitescroll
+  - cheatlist
+  - randomquote
+  - introwaypoint
+  - showgotop
+  - programmingchart
+  - embedcomments

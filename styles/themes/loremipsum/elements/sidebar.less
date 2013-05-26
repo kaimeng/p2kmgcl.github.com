@@ -1,0 +1,181 @@
+.mainSidebar {
+    position:   absolute;
+    top:        -2.5em;
+    right:      -2.5em;
+    text-align: right;
+    z-index:    300;
+
+    > header {
+        display: none;
+    }
+
+    > figure {
+        padding:        0;
+        margin:         0 auto;
+        margin-right:   0;
+
+        > img {
+            box-shadow:     -0.1em 0.1em 0.1em black;
+            border-radius:  50%;
+            width:          5em;
+            height:         5em;
+            margin:         0 auto;
+            margin-right:   0;
+        }
+
+        > figcaption {
+            display: none;
+        }
+    }
+
+    .goTop {
+        display: block;
+        position: fixed;
+        top: -20em;
+        transform: rotate(-90deg) translateY(-0.3em);
+        background-color: @bodyBgColor;
+        box-shadow: 0 0 1em @bodyBgColor;
+        border-bottom: none;
+
+        transition: top ease 0.3s;
+        &.shown {
+            top: 3em;
+        }
+    }
+
+    > .links {
+        position:           absolute;
+        top:                3em;
+        right:              0;
+        text-align:         right;
+        list-style:         none;
+        display:            block;
+        padding:            0;
+        padding-top:        3em;
+        margin:             0 auto;
+        width:              5em;
+        overflow:           visible;
+        background-color:   transparent;
+        z-index:            -1;
+
+        > .link {
+            background-color:   @bodyBgColor;
+            padding:            0.25em 0;
+            white-space:        nowrap;
+            text-align:         center;
+
+            > i {
+                font-size:              1.25em;
+                padding-left:           0.5em;
+                position:               relative;
+                z-index:                2;
+                background-color:       @bodyBgColor;
+                color:                  lighten(@black, 10%);
+                left:                   0;
+                transition:             ease 0.3s;
+                transition-property:    left, color;
+            }
+            
+            &:hover > i {
+                left:   -40%;
+                color:  @black;    
+            }
+
+            > a {
+                display:                inline-block;
+                height:                 1.25em;
+                background-color:       @bodyBgColor;
+                border:                 none;
+                margin:                 0 auto;
+                z-index:                1;
+                max-width:              0;
+                overflow:               hidden;
+                position:               relative;
+                left:                   0;
+                transition:             ease 0.3s;
+                transition-property:    max-width, opacity, color, left;
+            }
+
+            &:hover > a {
+                max-width:  5em;
+                left:       -45%;
+                opacity:    1;
+            }
+
+            @keyframes socialRainbowRSS {
+                0%   { color: lighten(@black, 10%);    }
+                50%  { color: @socialcolor-rss;        }
+                100% { color: lighten(@black, 10%);    }
+            }
+            @keyframes socialRainbowGooglePlus {
+                0%   { color: lighten(@black, 10%);    }
+                50%  { color: @socialcolor-googleplus; }
+                100% { color: lighten(@black, 10%);    }
+            }
+            @keyframes socialRainbowGithub {
+                0%   { color: lighten(@black, 10%);    }
+                50%  { color: @socialcolor-github;     }
+                100% { color: lighten(@black, 10%);    }
+            }
+            @keyframes socialRainbowTwitter {
+                0%   { color: lighten(@black, 10%);    }
+                50%  { color: @socialcolor-twitter;    }
+                100% { color: lighten(@black, 10%);    }
+            }
+            @keyframes socialRainbowFacebook {
+                0%   { color: lighten(@black, 10%);    }
+                50%  { color: @socialcolor-facebook;   }
+                100% { color: lighten(@black, 10%);    }
+            }
+            @keyframes socialRainbowLinkedin {
+                0%   { color: lighten(@black, 10%);    }
+                50%  { color: @socialcolor-linkedin;   }
+                100% { color: lighten(@black, 10%);    }
+            }
+            @keyframes socialRainbowMusic {
+                0%   { color: lighten(@black, 10%);    }
+                50%  { color: @socialcolor-lastfm;     }
+                100% { color: lighten(@black, 10%);    }
+            }
+            @keyframes socialRainbowPencil {
+                0%   { color: lighten(@black, 10%);    }
+                50%  { color: @socialcolor-deviantart; }
+                100% { color: lighten(@black, 10%);    }
+            }
+            @keyframes socialRainbowFacetime {
+                0%   { color: lighten(@black, 10%);    }
+                50%  { color: @socialcolor-youtube;    }
+                100% { color: lighten(@black, 10%);    }
+            }
+
+            > i.icon-rss            { color: lighten(@black, 10%);
+                                      animation: socialRainbowRSS 2s ease-in-out 0.7s 1;      }
+            > i.icon-google-plus    { color: lighten(@black, 10%);
+                                      animation: socialRainbowGooglePlus 2s ease-in-out 1s 1; }
+            > i.icon-github         { color: lighten(@black, 10%);
+                                      animation: socialRainbowGithub 2s ease-in-out 1.3s 1;   }
+            > i.icon-twitter        { color: lighten(@black, 10%);
+                                      animation: socialRainbowTwitter 2s ease-in-out 1.6s 1;  }
+            > i.icon-facebook       { color: lighten(@black, 10%);
+                                      animation: socialRainbowFacebook 2s ease-in-out 1.9s 1; }
+            > i.icon-linkedin       { color: lighten(@black, 10%);
+                                      animation: socialRainbowLinkedin 2s ease-in-out 2.2s 1; }
+            > i.icon-music          { color: lighten(@black, 10%);
+                                      animation: socialRainbowMusic 2s ease-in-out 2.5s 1;    }
+            > i.icon-pencil         { color: lighten(@black, 10%);
+                                      animation: socialRainbowPencil 2s ease-in-out 2.8s 1;   }
+            > i.icon-facetime-video { color: lighten(@black, 10%);
+                                      animation: socialRainbowFacetime 2s ease-in-out 3.1s 1; }
+
+            &:hover > i.icon-rss            { color: @socialcolor-rss;        }
+            &:hover > i.icon-google-plus    { color: @socialcolor-googleplus; }
+            &:hover > i.icon-github         { color: @socialcolor-github;     }
+            &:hover > i.icon-twitter        { color: @socialcolor-twitter;    }
+            &:hover > i.icon-facebook       { color: @socialcolor-facebook;   }
+            &:hover > i.icon-linkedin       { color: @socialcolor-linkedin;   }
+            &:hover > i.icon-music          { color: @socialcolor-lastfm;     }
+            &:hover > i.icon-pencil         { color: @socialcolor-deviantart; }
+            &:hover > i.icon-facetime-video { color: @socialcolor-youtube;    }
+        }
+    }
+}

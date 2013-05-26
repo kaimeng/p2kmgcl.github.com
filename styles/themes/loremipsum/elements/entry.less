@@ -1,0 +1,252 @@
+.entry {
+    position:       relative;
+    padding-bottom: 6em;
+    text-align:     center;
+
+    &:after {
+        content:            '';
+        position:           absolute;
+        left:               -9999px;
+        bottom:             3em;
+        width:              999999px;
+        height:             1px;
+        background-color:   lighten(@black, 50%);
+        display:            block;
+    }
+
+    > header {
+        > h1 {
+            color: darken(@aoi, 40%);
+            font-weight: normal;
+            font-size: 2.5em;
+            display: block;
+            width: 100%;
+            text-align: left;
+            margin: 0 auto;
+
+            > a {
+                border-bottom: none;
+            }
+        }
+
+        > time {
+            color: @giantGoldFish;
+            font-family: @titleFont;
+            font-weight: normal;
+            font-size: 1.75em;
+            display: block;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 2em;
+            border-bottom: none;
+        }
+
+        > .cover {
+            display: block;
+            max-width: 92%;
+            margin: 1.5em auto;
+            padding: 2%;
+            background-color: #fff;
+            box-shadow: 0 0 .2em #888;
+        }
+    }
+
+    > .content {
+        > header:first-child {
+            display: none;
+        }
+
+        > h1,
+        > h2,
+        > h3,
+        > h4,
+        > h5,
+        > h6,
+        > ul,
+        > ol,
+        > li,
+        > pre,
+        > .highlight {
+            text-align: left;
+        }
+
+        > p,
+        > blockquote {
+            text-align: justify;
+        }
+
+        > blockquote {
+            border-left:    solid 0.4em @giantGoldFish;
+            padding-left:   0.75em;
+            margin-left:    0.25em;
+            margin-right:   0;
+
+            ul {
+                margin-left:   1em;
+                padding-left:  0;
+            }
+        }
+
+        > ul {
+            padding-left:   1.5em;
+        }
+
+        > pre,
+        > embed,
+        > iframe,
+        > .highlight {
+            max-width:  90%;
+            margin:     0 auto;
+            padding:    2%;
+            border:     dotted lighten(@black, 75%) thin;
+            overflow-x: auto;
+        }
+
+        pre,
+        code {
+            background-color: lighten(@beachStorm, 10%);
+        }
+
+        > pre,
+        > .highlight,
+        > p code,
+        > blockquote code,
+        > ul code {
+            margin:             0 auto;
+            border:             solid thin @aoi;
+            padding:            0.1em 1em;
+            border-radius:      0.25em;
+        }
+
+        > p code,
+        > blockquote code,
+        > ul code {
+            display: inline-block;
+            padding: 0.1em;
+        }
+
+        > iframe {
+            border:     none;
+            box-shadow: 0 0 2px lighten(@black, 75%);
+        }
+
+        figure,
+        img {
+            display: block;
+            max-width: 90%;
+            margin: 1.5em auto;
+            padding: 0;
+        }
+        
+        img {
+            padding: 2%;
+            background-color: #fff;
+            box-shadow: 0 0 .2em #888;
+        }
+
+        figure img {
+            max-width: 92%;
+        }
+    }
+
+    > footer {
+        margin-top: 2em;
+
+        > .share > header,
+        > .comments > header,
+        > header {
+            display: none;
+        }
+
+        > .entryButtons {
+            list-style:     none;
+            padding-left:    0;
+
+            > li {
+                display: inline-block;
+
+            }
+        }
+
+        > .share > a,
+        > .entryButtons > li > a {
+            background-color: lighten(@black, 10%);
+            border: none;
+            border-radius: 0.5em;
+            box-shadow: inset 0 0 0.25em @bodyBgColor,
+                        0.1em 0.1em 0.25em @black;
+            color: @bodyBgColor;
+            display: inline-block;
+            height: 4em;
+            left: 0;
+            margin: 0.5em 1em;
+            padding: 1em;
+            padding-left: 5.5em;
+            padding-bottom: 0;
+            position: relative;
+            text-align: left;
+            text-shadow: 1px 1px 1px @black;
+            top: 0;
+            width: 5.5em;
+    
+            > i {
+                position: absolute;
+                font-size: 4em;
+                left: 0.2em;
+                top: 0.2em;
+            }
+
+            &:active {
+                top: 0.1em;
+                left: 0.1em;
+                box-shadow: 0.05em 0.05em 0.125em @black;
+            }
+        }
+
+        > .share > a {
+            height: auto;
+            width: 80%;
+            max-width: 22em;
+            margin: 2em auto;
+            margin-bottom: 3em;
+            padding-bottom: 1.25em;
+
+            > span > em {
+                font-size: 0.9em;
+                opacity: 0.7em;
+                position: relative;
+                bottom: 0.2em;
+                right: 0.2em;
+                font-weight: bolder;
+
+                &:after {
+                    content: "No se garantiza que tus sueños se hagan realidad. Si esto ocurre por un casual, por favor, envía un correo a milagro@pablomolina.me";
+                    position: absolute;
+                    bottom: 100%;
+                    font-weight: normal;
+
+                    background-color: @black;
+                    border: none;
+                    border-radius: 0.5em;
+                    box-shadow: inset 0 0 0.25em @bodyBgColor,
+                                0.1em 0.1em 0.25em @black;
+                    color: @bodyBgColor;
+                    display: none;
+                    padding: 1em;
+                    opacity: 0.95;
+                    z-index: 9999;
+                }
+
+                &:hover:after {
+                    display: block;
+                }
+
+            }
+        }
+
+        html.no-js & > .comments,
+        html.no-js & > .entryButtons > .showComments {
+            display: none;
+        }
+    }
+}
