@@ -33,6 +33,7 @@ icon: home
                     {% if post.image %}
                     <img src="https://dl.dropboxusercontent.com/u/6037255/blogImages/{{ post.path | replace:'_posts/',''| replace:'.md','.jpg' }}" title="{{ post.image }}" alt="{{ post.image }}" class="cover" />
                     {% endif %}
+                    <a class="author" href="https://plus.google.com/117214944861012231268?rel=author">Por {{ site.author.name }}</a>
                 </header>
                 <section class="content">
                     <header>
