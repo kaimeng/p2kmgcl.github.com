@@ -118,7 +118,7 @@ quotes:
 # Activa el uso de la librería less (javascript)
 less:
   js:          true
-  env:         "development"
+  env:         "production"
   bin:         "lessc"
   path:        "styles"
 
