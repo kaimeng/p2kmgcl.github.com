@@ -425,25 +425,12 @@ code {
 .mainSidebar > .links > .link:hover > i.icon-facetime-video {
   color: #af2b26;
 }
-body > section {
-  width: 90%;
-  z-index: 50;
-  position: relative;
-}
-body > section > header {
-  display: none;
-}
-.articleList > header {
-  display: none;
-}
-.articleSingle,
-.articleList > article {
+.entry {
   position: relative;
   padding-bottom: 6em;
   text-align: center;
 }
-.articleSingle:after,
-.articleList > article:after {
+.entry:after {
   content: '';
   position: absolute;
   left: -9999px;
@@ -453,8 +440,7 @@ body > section > header {
   background-color: #a2a2a2;
   display: block;
 }
-.articleSingle > header > h1,
-.articleList > article > header > h1 {
+.entry > header > h1 {
   color: #126272;
   font-weight: normal;
   font-size: 2.5em;
@@ -463,12 +449,10 @@ body > section > header {
   text-align: left;
   margin: 0 auto;
 }
-.articleSingle > header > h1 > a,
-.articleList > article > header > h1 > a {
+.entry > header > h1 > a {
   border-bottom: none;
 }
-.articleSingle > header > time,
-.articleList > article > header > time {
+.entry > header > time {
   color: #f38630;
   font-family: 'Fjalla One', Fjalla One, Verdana;
   font-weight: normal;
@@ -479,8 +463,7 @@ body > section > header {
   margin-bottom: 2em;
   border-bottom: none;
 }
-.articleSingle > header > .cover,
-.articleList > article > header > .cover {
+.entry > header > .cover {
   display: block;
   max-width: 92%;
   margin: 1.5em auto;
@@ -488,149 +471,105 @@ body > section > header {
   background-color: #fff;
   box-shadow: 0 0 .2em #888;
 }
-.articleSingle > .content > header:first-child,
-.articleList > article > .content > header:first-child {
+.entry > .content > header:first-child {
   display: none;
 }
-.articleSingle > .content > h1,
-.articleList > article > .content > h1,
-.articleSingle > .content > h2,
-.articleList > article > .content > h2,
-.articleSingle > .content > h3,
-.articleList > article > .content > h3,
-.articleSingle > .content > h4,
-.articleList > article > .content > h4,
-.articleSingle > .content > h5,
-.articleList > article > .content > h5,
-.articleSingle > .content > h6,
-.articleList > article > .content > h6,
-.articleSingle > .content > ul,
-.articleList > article > .content > ul,
-.articleSingle > .content > ol,
-.articleList > article > .content > ol,
-.articleSingle > .content > li,
-.articleList > article > .content > li,
-.articleSingle > .content > pre,
-.articleList > article > .content > pre,
-.articleSingle > .content > .highlight,
-.articleList > article > .content > .highlight {
+.entry > .content > h1,
+.entry > .content > h2,
+.entry > .content > h3,
+.entry > .content > h4,
+.entry > .content > h5,
+.entry > .content > h6,
+.entry > .content > ul,
+.entry > .content > ol,
+.entry > .content > li,
+.entry > .content > pre,
+.entry > .content > .highlight {
   text-align: left;
 }
-.articleSingle > .content > p,
-.articleList > article > .content > p,
-.articleSingle > .content > blockquote,
-.articleList > article > .content > blockquote {
+.entry > .content > p,
+.entry > .content > blockquote {
   text-align: justify;
 }
-.articleSingle > .content > blockquote,
-.articleList > article > .content > blockquote {
+.entry > .content > blockquote {
   border-left: solid 0.4em #f38630;
   padding-left: 0.75em;
   margin-left: 0.25em;
   margin-right: 0;
 }
-.articleSingle > .content > blockquote ul,
-.articleList > article > .content > blockquote ul {
+.entry > .content > blockquote ul {
   margin-left: 1em;
   padding-left: 0;
 }
-.articleSingle > .content > ul,
-.articleList > article > .content > ul {
+.entry > .content > ul {
   padding-left: 1.5em;
 }
-.articleSingle > .content > pre,
-.articleList > article > .content > pre,
-.articleSingle > .content > embed,
-.articleList > article > .content > embed,
-.articleSingle > .content > iframe,
-.articleList > article > .content > iframe,
-.articleSingle > .content > .highlight,
-.articleList > article > .content > .highlight {
+.entry > .content > pre,
+.entry > .content > embed,
+.entry > .content > iframe,
+.entry > .content > .highlight {
   max-width: 90%;
   margin: 0 auto;
   padding: 2%;
   border: dotted #e1e1e1 thin;
   overflow-x: auto;
 }
-.articleSingle > .content pre,
-.articleList > article > .content pre,
-.articleSingle > .content code,
-.articleList > article > .content code {
+.entry > .content pre,
+.entry > .content code {
   background-color: #f4f6ed;
 }
-.articleSingle > .content > pre,
-.articleList > article > .content > pre,
-.articleSingle > .content > .highlight,
-.articleList > article > .content > .highlight,
-.articleSingle > .content > p code,
-.articleList > article > .content > p code,
-.articleSingle > .content > blockquote code,
-.articleList > article > .content > blockquote code,
-.articleSingle > .content > ul code,
-.articleList > article > .content > ul code {
+.entry > .content > pre,
+.entry > .content > .highlight,
+.entry > .content > p code,
+.entry > .content > blockquote code,
+.entry > .content > ul code {
   margin: 0 auto;
   border: solid thin #69d2e7;
   padding: 0.1em 1em;
   border-radius: 0.25em;
 }
-.articleSingle > .content > p code,
-.articleList > article > .content > p code,
-.articleSingle > .content > blockquote code,
-.articleList > article > .content > blockquote code,
-.articleSingle > .content > ul code,
-.articleList > article > .content > ul code {
+.entry > .content > p code,
+.entry > .content > blockquote code,
+.entry > .content > ul code {
   display: inline-block;
   padding: 0.1em;
 }
-.articleSingle > .content > iframe,
-.articleList > article > .content > iframe {
+.entry > .content > iframe {
   border: none;
   box-shadow: 0 0 2px #e1e1e1;
 }
-.articleSingle > .content figure,
-.articleList > article > .content figure,
-.articleSingle > .content img,
-.articleList > article > .content img {
+.entry > .content figure,
+.entry > .content img {
   display: block;
   max-width: 90%;
   margin: 1.5em auto;
   padding: 0;
 }
-.articleSingle > .content img,
-.articleList > article > .content img {
+.entry > .content img {
   padding: 2%;
   background-color: #fff;
   box-shadow: 0 0 .2em #888;
 }
-.articleSingle > .content figure img,
-.articleList > article > .content figure img {
+.entry > .content figure img {
   max-width: 92%;
 }
-.articleSingle > footer,
-.articleList > article > footer {
+.entry > footer {
   margin-top: 2em;
 }
-.articleSingle > footer > .share > header,
-.articleList > article > footer > .share > header,
-.articleSingle > footer > .comments > header,
-.articleList > article > footer > .comments > header,
-.articleSingle > footer > header,
-.articleList > article > footer > header {
+.entry > footer > .share > header,
+.entry > footer > .comments > header,
+.entry > footer > header {
   display: none;
 }
-.articleSingle > footer > .entryButtons,
-.articleList > article > footer > .entryButtons {
+.entry > footer > .entryButtons {
   list-style: none;
   padding-left: 0;
 }
-.articleSingle > footer > .entryButtons > li,
-.articleList > article > footer > .entryButtons > li {
+.entry > footer > .entryButtons > li {
   display: inline-block;
 }
-.articleSingle > footer > .share > a,
-.articleList > article > footer > .share > a,
-.articleSingle > footer > .entryButtons > li > a,
-.articleList > article > footer > .entryButtons > li > a {
+.entry > footer > .share > a,
+.entry > footer > .entryButtons > li > a {
   background-color: #3c3c3c;
   border: none;
   border-radius: 0.5em;
@@ -649,25 +588,20 @@ body > section > header {
   top: 0;
   width: 5.5em;
 }
-.articleSingle > footer > .share > a > i,
-.articleList > article > footer > .share > a > i,
-.articleSingle > footer > .entryButtons > li > a > i,
-.articleList > article > footer > .entryButtons > li > a > i {
+.entry > footer > .share > a > i,
+.entry > footer > .entryButtons > li > a > i {
   position: absolute;
   font-size: 4em;
   left: 0.2em;
   top: 0.2em;
 }
-.articleSingle > footer > .share > a:active,
-.articleList > article > footer > .share > a:active,
-.articleSingle > footer > .entryButtons > li > a:active,
-.articleList > article > footer > .entryButtons > li > a:active {
+.entry > footer > .share > a:active,
+.entry > footer > .entryButtons > li > a:active {
   top: 0.1em;
   left: 0.1em;
   box-shadow: 0.05em 0.05em 0.125em #222222;
 }
-.articleSingle > footer > .share > a,
-.articleList > article > footer > .share > a {
+.entry > footer > .share > a {
   height: auto;
   width: 80%;
   max-width: 22em;
@@ -675,8 +609,7 @@ body > section > header {
   margin-bottom: 3em;
   padding-bottom: 1.25em;
 }
-.articleSingle > footer > .share > a > span > em,
-.articleList > article > footer > .share > a > span > em {
+.entry > footer > .share > a > span > em {
   font-size: 0.9em;
   opacity: 0.7em;
   position: relative;
@@ -684,8 +617,7 @@ body > section > header {
   right: 0.2em;
   font-weight: bolder;
 }
-.articleSingle > footer > .share > a > span > em:after,
-.articleList > article > footer > .share > a > span > em:after {
+.entry > footer > .share > a > span > em:after {
   content: "No se garantiza que tus sueños se hagan realidad. Si esto ocurre por un casual, por favor, envía un correo a milagro@pablomolina.me";
   position: absolute;
   bottom: 100%;
@@ -700,18 +632,23 @@ body > section > header {
   opacity: 0.95;
   z-index: 9999;
 }
-.articleSingle > footer > .share > a > span > em:hover:after,
-.articleList > article > footer > .share > a > span > em:hover:after {
+.entry > footer > .share > a > span > em:hover:after {
   display: block;
 }
-html.no-js .articleSingle > footer > .comments,
-html.no-js .articleList > article > footer > .comments,
-html.no-js .articleSingle > footer > .entryButtons > .showComments,
-html.no-js .articleList > article > footer > .entryButtons > .showComments {
+html.no-js .entry > footer > .comments,
+html.no-js .entry > footer > .entryButtons > .showComments {
   display: none;
 }
 .page {
   text-align: justify;
+}
+body > section {
+  width: 90%;
+  z-index: 50;
+  position: relative;
+}
+body > section > header {
+  display: none;
 }
 .page.about > .tools > ul {
   list-style: none;
@@ -756,7 +693,7 @@ html.no-js .articleList > article > footer > .entryButtons > .showComments {
   background-color: #a2a2a2;
   display: block;
 }
-.page.curriculum > .programming > ul {
+.curriculum > .programming > ul {
   list-style: none;
   padding-left: 0;
   width: 20%;
@@ -766,21 +703,21 @@ html.no-js .articleList > article > footer > .entryButtons > .showComments {
   position: relative;
   top: -0.45em;
 }
-html.no-canvas .page.curriculum > .programming > ul,
-html.no-js .page.curriculum > .programming > ul {
+html.no-canvas .curriculum > .programming > ul,
+html.no-js .curriculum > .programming > ul {
   width: 100%;
   text-align: center;
 }
-.page.curriculum > .programming > ul > li {
+.curriculum > .programming > ul > li {
   height: 1.5em;
   padding-top: 0.5em;
   overflow: hidden;
 }
-.page.curriculum > .programming > ul > li > a {
+.curriculum > .programming > ul > li > a {
   border-bottom: none;
 }
-html.no-canvas .page.curriculum > .programming > ul > li,
-html.no-js .page.curriculum > .programming > ul > li {
+html.no-canvas .curriculum > .programming > ul > li,
+html.no-js .curriculum > .programming > ul > li {
   display: inline-block;
   padding: 0.5em;
   margin: 0.5em;
@@ -790,19 +727,22 @@ html.no-js .page.curriculum > .programming > ul > li {
   border: solid #555555 thin;
   text-shadow: 0.075em 0.075em 0.075em #222222;
 }
-html.no-canvas .page.curriculum > .programming > ul > li > a,
-html.no-js .page.curriculum > .programming > ul > li > a {
+html.no-canvas .curriculum > .programming > ul > li > a,
+html.no-js .curriculum > .programming > ul > li > a {
   color: #ffffff;
 }
-.page.curriculum > .programming > canvas {
+.curriculum > .programming > canvas {
   display: inline-block;
 }
-html.no-canvas .page.curriculum > .programming > canvas,
-html.no-js .page.curriculum > .programming > canvas {
+html.no-canvas .curriculum > .programming > canvas,
+html.no-js .curriculum > .programming > canvas {
   display: none;
 }
 .blog > .articleList {
   position: relative;
+}
+.blog > .articleList > header {
+  display: none;
 }
 .blog > .articleList.infinite-loading:after {
   content: "Cargando más artículos...";
@@ -854,20 +794,20 @@ html.no-js .page.curriculum > .programming > canvas {
   font-size: 1.2em;
   padding: 0 0.3em;
 }
-.index > .intro {
+html.no-js .blog > .infiniteCongratulation {
+  display: none;
+}
+.home > .intro {
   margin: 5em auto;
   margin-bottom: 10em;
   transition: margin-bottom ease 0.3s;
 }
-.index > .intro.hiddenBlog {
+.home > .intro.hiddenBlog {
   margin-bottom: 30em;
 }
-.index > .intro > header {
+.home > .intro > header {
   display: none;
 }
-.index > .intro > p {
+.home > .intro > p {
   text-align: justify;
-}
-html.no-js .infiniteCongratulation {
-  display: none;
 }

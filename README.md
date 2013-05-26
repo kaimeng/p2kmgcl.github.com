@@ -7,8 +7,8 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 # Tareas pendientes
 
  - Optimizar tema de LoremIpsum:
-   - Aprovechar el uso de LessCSS para hacer cambios.
    - Añadir las media queries del tema css.
+   - Comentar el código para hacer más fácil el desarrollo.
 
 # Lista de cambios
 

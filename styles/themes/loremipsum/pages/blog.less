@@ -1,6 +1,10 @@
 .blog {
     > .articleList {
         position: relative;
+
+        > header {
+            display: none;
+        }
         
         &.infinite-loading {
             &:after {
@@ -63,27 +67,8 @@
             }
         }
     }
-}
-
-.index {
-    > .intro {
-        margin: 5em auto;
-
-        // Esconde el blog si nos encontramos arriba del todo
-        margin-bottom: 10em;
-        transition: margin-bottom ease 0.3s;
-        &.hiddenBlog { margin-bottom: 30em; }
-
-        > header {
-            display: none;
-        }
-
-        > p {
-            text-align: justify;
-        }
+    
+    html.no-js & > .infiniteCongratulation {
+        display: none;
     }
-}
-
-html.no-js .infiniteCongratulation {
-    display: none;
 }
