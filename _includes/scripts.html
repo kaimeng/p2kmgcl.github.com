@@ -1,5 +1,5 @@
-    {% if site.lesscss %}
-        <script>less = { env: "{{ site.lesscssenv }}" };</script>
+    {% if site.less.js %}
+        <script>less = { env: "{{ site.less.env }}" };</script>
         <script src="/scripts/libs/less/less-1.3.3.min.js"></script>
     {% endif %}
     <script src="/scripts/libs/prefixfree/prefixfree-1.0.3.min.js"></script>
