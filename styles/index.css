@@ -21,7 +21,7 @@ pre,code{font-family:'Inconsolata',Consolas,Monospace;}
 @media (max-width:640px){.mainHeader>.mainMenu>ul>li{margin-bottom:0;margin-right:0;padding:0.75em 1em;background-color:transparent;}.mainHeader>.mainMenu>ul>li.current{background-color:#222222;color:#ffffff;}.mainHeader>.mainMenu>ul>li.current>a{color:inherit;}}
 @media (max-width:640px){.mainHeader>.mainMenu{position:static;top:0;left:0;padding-right:0;font-size:1.1em;}.mainHeader>.mainMenu>ul{text-align:center;}}
 .randomQuotes>header{display:none;}
-.randomQuotes>ul{padding-left:0;}.randomQuotes>ul .quoteWrapper{display:none;}.randomQuotes>ul .quoteWrapper.chosen{display:block;}.randomQuotes>ul .quoteWrapper.chosen>.quote{margin-left:0;}.randomQuotes>ul .quoteWrapper.chosen>.quote>p{font-family:'Fjalla One',Fjalla One,Verdana;font-size:2.5em;margin-bottom:0;}
+@media (max-width:640px){.randomQuotes{width:90%;padding:0 5%;}}.randomQuotes>ul{padding-left:0;}.randomQuotes>ul .quoteWrapper{display:none;}.randomQuotes>ul .quoteWrapper.chosen{display:block;}.randomQuotes>ul .quoteWrapper.chosen>.quote{margin-left:0;}.randomQuotes>ul .quoteWrapper.chosen>.quote>p{font-family:'Fjalla One',Fjalla One,Verdana;font-size:2.5em;margin-bottom:0;}
 .randomQuotes>ul .quoteWrapper.chosen>.quote>footer>cite{font-size:1em;font-style:normal;text-align:left;}.randomQuotes>ul .quoteWrapper.chosen>.quote>footer>cite:before{color:#19889e;content:'\2014 \2009';padding-left:0.25em;}
 .mainSidebar{position:absolute;top:-2.5em;right:-2.5em;text-align:right;z-index:300;}@media (max-width:640px){.mainSidebar{position:relative;top:0;left:0;text-align:center;width:100%;background-image:url(https://dl.dropboxusercontent.com/u/6037255/cover.jpg);background-size:cover;padding:1em 0;box-shadow:0 0 1em #222222;}}.mainSidebar>header{display:none;}
 .mainSidebar>figure{padding:0;margin:0 auto;margin-right:0;}.mainSidebar>figure>img{box-shadow:-0.1em 0.1em 0.1em #000000;border-radius:50%;width:5em;height:5em;margin:0 auto;margin-right:0;}@media (max-width:640px){.mainSidebar>figure>img{width:7em;height:7em;}}
@@ -49,7 +49,7 @@ pre,code{font-family:'Inconsolata',Consolas,Monospace;}
 .mainSidebar>.links>.link:hover>i.icon-music{color:#fc0807;}
 .mainSidebar>.links>.link:hover>i.icon-pencil{color:#9e7070;}
 .mainSidebar>.links>.link:hover>i.icon-facetime-video{color:#af2b26;}
-.entry{position:relative;padding-bottom:6em;text-align:center;}@media (max-width:640px){.entry.single{margin-top:5em;}}.entry:after{content:'';position:absolute;left:-9999px;bottom:3em;width:999999px;height:1px;background-color:#a2a2a2;display:block;}
+.entry{position:relative;padding-bottom:6em;text-align:center;}@media (max-width:640px){.entry{padding:0 5%;padding-bottom:6em;}.entry.single{margin-top:5em;}}.entry:after{content:'';position:absolute;left:-9999px;bottom:3em;width:999999px;height:1px;background-color:#a2a2a2;display:block;}@media (max-width:640px){.entry:after{left:0;width:100%;}}
 .entry>header>h1{color:#126272;font-weight:normal;font-size:2.5em;display:block;width:100%;text-align:left;margin:0 auto;}.entry>header>h1>a{border-bottom:none;}
 .entry>header>time{color:#f38630;font-family:'Fjalla One',Fjalla One,Verdana;font-weight:normal;font-size:1.75em;display:block;width:100%;text-align:left;margin-bottom:2em;border-bottom:none;}
 .entry>header>.cover{display:block;max-width:92%;margin:1.5em auto;padding:2%;background-color:#fff;box-shadow:0 0 .2em #888;}
@@ -76,7 +76,7 @@ pre,code{font-family:'Inconsolata',Consolas,Monospace;}
 html.no-js .entry>footer>.comments,html.no-js .entry>footer>.entryButtons>.showComments{display:none;}
 .page{text-align:justify;}
 body>section{width:90%;z-index:50;position:relative;}body>section>header{display:none;}
-@media (max-width:640px){body>section{margin:0 auto;}}
+@media (max-width:640px){body>section{margin:0 auto;width:100%;}}
 .page.about>.tools>ul{list-style:none;padding-left:0;text-align:center;}.page.about>.tools>ul>li{display:inline-block;vertical-align:middle;width:40%;padding:2%;}.page.about>.tools>ul>li>a>figure{position:relative;}.page.about>.tools>ul>li>a>figure>img{width:100%;z-index:1;}
 .page.about>.tools>ul>li>a>figure>figcaption{display:none;}
 .page.about>.license{text-align:center;position:relative;margin-top:2em;padding-top:2em;}.page.about>.license>header{display:none;}
@@ -93,6 +93,6 @@ html.no-canvas .curriculum>.programming>ul>li,html.no-js .curriculum>.programmin
 .blog .pagination>.previous,.blog .pagination>.next{border-bottom:none;font-size:1.75em;position:relative;top:0.125em;padding:0 0.6em;}
 .blog .pagination>.pageNumber{font-size:0.8em;color:#a2a2a2;}.blog .pagination>.pageNumber>.current,.blog .pagination>.pageNumber>.total{color:#222222;font-size:1.2em;padding:0 0.3em;}
 html.no-js .blog>.infiniteCongratulation{display:none;}
-.home>.intro{margin:5em auto;margin-bottom:10em;transition:margin-bottom ease 0.3s;}@media (max-width:640px){.home>.intro{margin-bottom:0em;}}.home>.intro.hiddenBlog{margin-bottom:30em;}@media (max-width:640px){.home>.intro.hiddenBlog{margin-bottom:0em;}}
+.home>.intro{margin:5em auto;margin-bottom:10em;transition:margin-bottom ease 0.3s;}@media (max-width:640px){.home>.intro{margin-bottom:0em;padding:0 5%;width:90%;}}.home>.intro.hiddenBlog{margin-bottom:30em;}@media (max-width:640px){.home>.intro.hiddenBlog{margin-bottom:0em;}}
 .home>.intro>header{display:none;}
 .home>.intro>p{text-align:justify;}

@@ -8,7 +8,6 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 
  - Optimizar tema de LoremIpsum:
    - 640:
-     - Acortar el tamaño de las lineas horizontales tras los articulos.
      - Aumentar ligeramente el tamaño de la letra, sobretodo el
        de los enlaces a redes sociales y las cabeceras de las secciones
        (contacto, herramientas utilizadas...).
