@@ -4,6 +4,9 @@
     text-align:     center;
 
     @media (max-width: @sizeTablet) {
+        padding: 0 5%;
+        padding-bottom: 6em;
+
         &.single {
             margin-top: 5em;
         }
@@ -18,6 +21,11 @@
         height:             1px;
         background-color:   lighten(@black, 50%);
         display:            block;
+
+        @media (max-width: @sizeTablet) {
+            left: 0;
+            width: 100%;
+        }
     }
 
     > header {
