@@ -5,7 +5,18 @@
         // Esconde el blog si nos encontramos arriba del todo
         margin-bottom: 10em;
         transition: margin-bottom ease 0.3s;
-        &.hiddenBlog { margin-bottom: 30em; }
+        
+        @media (max-width: @sizeTablet) {
+            margin-bottom: 0em;
+        }
+
+        &.hiddenBlog {
+            margin-bottom: 30em;
+            
+            @media (max-width: @sizeTablet) {
+                margin-bottom: 0em;
+            }
+        }
 
         > header {
             display: none;

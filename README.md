@@ -7,10 +7,20 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 # Tareas pendientes
 
  - Optimizar tema de LoremIpsum:
-   - Añadir las media queries del tema css.
+   - Adaptar tema a una pantalla aún más pequeña.
    - Comentar el código para hacer más fácil el desarrollo.
+ - Añadir pie de página.
 
 # Lista de cambios
+
+## 4.1.0 (2013-05-27)
+
+ - Los comentarios se cargan dinámicamente en la página inicial.
+ - Ahora hay un botón para compartir entradas.
+ - Los módulos de javascript reciben los parámetros de forma más clara y  funcionan mejor.
+ - Ahora la página de inicio se llama home (en las clases css).
+ - Las entradas tienen la clase entry.
+ - El tema LoremIpsum ha sido reordenado y adaptado a tablets.
 
 ## 4.0.0 (2013-05-22)
 

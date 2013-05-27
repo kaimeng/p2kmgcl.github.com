@@ -2,6 +2,9 @@
     text-align: justify;
 }
 
+// Todas las secciones que
+// "cuelgan" de body
+// tienen las mismas características
 body > section {
     width:      90%;
     z-index:    50;
@@ -9,5 +12,9 @@ body > section {
 
     > header {
         display: none;
+    }
+
+    @media (max-width: @sizeTablet) {
+        margin: 0 auto;
     }
 }

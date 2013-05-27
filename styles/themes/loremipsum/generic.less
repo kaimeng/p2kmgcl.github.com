@@ -1,7 +1,6 @@
 html {
     margin:         0;
     padding:        0;
-    padding-right:  2.5em;
     color:          @black;
     width:          100%;
     overflow-x:     hidden;
@@ -13,34 +12,40 @@ body {
     font-size:      @bodyFontSize;
     margin:         3em auto;
     margin-bottom:  0;
-    width:          90%;
+    width: 90%;
     max-width:      40em;
     padding:        5em 1em;
     padding-bottom: 1em;
     position:       relative;
     overflow:       visible;
-    border-right:   solid lighten(@black, 50%) thin;
 
-    &:before,
+    // Linea vertical que recorre toda la página
+    border-right: solid thin lighten(@black, 50%);
+
+    // Linea superior horizontal
     &:after {
         content:            '';
         display:            block;
         background-color:   lighten(@black, 50%);
         position:           absolute;
-    }
-
-    &:before {
-        top:    -5em;
-        right:  0;
-        height: 10em;
-        width:  1px;
-    }
-
-    &:after {
         top:    0;
         left:   -4500em;
         width:  9999em;
         height: 1px;
+    }
+
+    @media (max-width: @sizeTablet) {
+        position: static;
+        border-right: none;
+        padding: 0;
+        margin: 3em 0;
+        margin-top: 0;
+        width: 100%;
+        max-width: none;
+
+        &:after {
+            display: none;
+        } 
     }
 }
 

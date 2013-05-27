@@ -1,52 +1,95 @@
-.mainHeader > header {
-    display: none;
-    position: absolute;
-}
-
-.mainMenu {
-    position:       absolute;
-    right:          0;
-    top:           -0.5em;
-    line-height:    0;
-    padding:        0;
-    background:     @bodyBgColor;
-    padding-right:  3em;
-    z-index:        200;
-
-    > header {
-        display: none;
+.mainHeader {
+    @media (max-width:  @sizeTablet) {
+        position: static;
+        width: 100%;
+        padding: 0;
+        background-color: darken(@bodyBgColor, 5%);
     }
 
-    > ul {
-        list-style: none;
-        padding:    0;
-        margin:     0;
-        text-align: right;
+     > header {
+        display: none;
+        position: absolute;
+    }
+
+    // Menú principal con las páginas
+    // de la web
+    > .mainMenu {
+        position:       absolute;
+        right:          0.5em;
+        top:           -0.5em;
+        line-height:    0;
+        padding:        0;
+        padding-right:  3em;
+        z-index:        200;
     
-        > li {
-            display:        inline-block;
-            padding:        0 0.2em;
-            padding-left:   0.5em;
-            margin-bottom:  0.5em;
-            white-space:    nowrap;
-            position:       relative;
+        > header {
+            display: none;
+        }
+    
+        > ul {
+            list-style: none;
+            padding:    0;
+            margin:     0;
+            text-align: right;
+        
+            > li {
+                display:        inline-block;
+                background:     @bodyBgColor;
+                padding:        0 0.2em;
+                padding-left:   0.5em;
+                margin-right:   0.5em;
+                margin-bottom:  0.5em;
+                white-space:    nowrap;
+                position:       relative;
+    
+                > i {
+                    padding-right:  0;
+                }
+    
+                > a {
+                    border-bottom:  none;
+                    color:          lighten(@black, 5%);
+                }
+    
+                &.current > a {
+                    font-weight:    bolder;
+                }
 
-            > i {
-                padding-right:  0;
+                @media (max-width: @sizeTablet) {
+                    margin-bottom: 0;
+                    margin-right: 0;
+                    padding: 0.75em 1em;
+                    background-color: transparent;
+
+                    &.current {
+                        background-color: @black;
+                        color: @bodyBgColor;
+
+                        > a {
+                            color: inherit;
+                        }
+                    }
+                }
             }
-
-            > a {
-                border-bottom:  none;
-                color:          lighten(@black, 5%);
-            }
-
-            &.current > a {
-                font-weight:    bolder;
+        }
+    
+        @media (max-width: @sizeTablet) {
+            position: static;
+            top: 0;
+            left: 0;
+            padding-right: 0;
+            font-size: 1.1em;
+    
+            > ul {
+                text-align: center;
             }
         }
     }
 }
-
+    
+    // Cita aleatoria
+// que se muestra en la página
+// inicial
 .randomQuotes {
     > header {
         display: none;

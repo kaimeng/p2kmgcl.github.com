@@ -3,6 +3,12 @@
     padding-bottom: 6em;
     text-align:     center;
 
+    @media (max-width: @sizeTablet) {
+        &.single {
+            margin-top: 5em;
+        }
+    }
+
     &:after {
         content:            '';
         position:           absolute;

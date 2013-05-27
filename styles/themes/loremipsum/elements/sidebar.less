@@ -1,3 +1,5 @@
+// Barra lateral con los enlaces de mi perfil,
+// la foto y la navegación (ir arriba)
 .mainSidebar {
     position:   absolute;
     top:        -2.5em;
@@ -5,10 +7,24 @@
     text-align: right;
     z-index:    300;
 
+    @media (max-width: @sizeTablet) {
+        position: relative;
+        top: 0;
+        left: 0;
+        text-align: center;
+        width: 100%;
+    
+        background-image: url(https://dl.dropboxusercontent.com/u/6037255/cover.jpg);
+        background-size: cover;
+        padding: 1em 0;
+        box-shadow: 0 0 1em @black;
+    }
+
     > header {
         display: none;
     }
 
+    // Imagen de perfil
     > figure {
         padding:        0;
         margin:         0 auto;
@@ -21,13 +37,37 @@
             height:         5em;
             margin:         0 auto;
             margin-right:   0;
+
+            @media (max-width: @sizeTablet) {
+                width: 7em;
+                height: 7em;
+            }
         }
 
         > figcaption {
             display: none;
+
+            @media (max-width: @sizeTablet) {
+                display: block;
+
+                > span,
+                > time,
+                > a {
+                    display: none;
+                }
+
+                > .fn.n {
+                    display: block;
+                    font-family: @titleFont;
+                    font-size: 4em;
+                    color: @bodyBgColor;
+                    text-shadow: 1px 1px 1px @black;
+                }
+            }
         }
     }
 
+    // Enlace para volver arriba
     .goTop {
         display: block;
         position: fixed;
@@ -36,13 +76,32 @@
         background-color: @bodyBgColor;
         box-shadow: 0 0 1em @bodyBgColor;
         border-bottom: none;
+        width: 6em;
 
         transition: top ease 0.3s;
         &.shown {
             top: 3em;
+
+            @media (max-width: @sizeTablet) {
+                top: 0.25em;
+                right: -0.25em;
+                width: 1.5em;
+                padding: 0.5em;
+                border-radius: 2em;
+                background-color: transparent;
+
+                > i {
+                    background-color: @bodyBgColor;
+                }
+
+                > span {
+                    display: none;
+                }
+            }
         }
     }
 
+    // Enlaces sociales
     > .links {
         position:           absolute;
         top:                3em;
@@ -58,11 +117,28 @@
         background-color:   transparent;
         z-index:            -1;
 
+        @media (max-width: @sizeTablet) {
+            position: relative;
+            top: 0;
+            left: 0;
+            padding-top: 1em;
+            width: 100%;
+            max-width: 15em;
+            text-align: center;
+        }
+
         > .link {
             background-color:   @bodyBgColor;
             padding:            0.25em 0;
             white-space:        nowrap;
             text-align:         center;
+
+            @media (max-width: @sizeTablet) {
+                position: relative;
+                display: inline-block;
+                background-color: transparent;
+                color: @bodyBgColor;
+            }
 
             > i {
                 font-size:              1.25em;
@@ -74,11 +150,22 @@
                 left:                   0;
                 transition:             ease 0.3s;
                 transition-property:    left, color;
+
+                @media (max-width: @sizeTablet) {
+                    padding: 0.5em;
+                    font-size: 1.5em;
+                    background-color: transparent;
+                    text-shadow: 1px 1px 1px @black;
+                }
             }
             
             &:hover > i {
                 left:   -40%;
-                color:  @black;    
+                color:  @black;
+
+                @media (max-width: @sizeTablet)  {
+                    left: 0;
+                }
             }
 
             > a {
@@ -90,81 +177,103 @@
                 z-index:                1;
                 max-width:              0;
                 overflow:               hidden;
+                padding-left:           0.25em;
+                padding-top:            0.1em;
                 position:               relative;
                 left:                   0;
                 transition:             ease 0.3s;
                 transition-property:    max-width, opacity, color, left;
+            
+                @media (max-width: @sizeTablet) {
+                    position: absolute;
+                    left: -50%;
+                    top: 0;
+                    z-index: 110;
+                    max-width: 100%;
+                    opacity: 0;
+
+                    color: @bodyBgColor;
+                    font-weight: bolder;
+                    padding: 0.5em;
+                    background-color: @black;
+                }
             }
 
             &:hover > a {
-                max-width:  5em;
+                max-width:  10em;
                 left:       -45%;
                 opacity:    1;
+
+                @media (max-width: @sizeTablet) {
+                    left: 0;
+                    opacity: 1;
+                    z-index: 120;
+                }
             }
 
             @keyframes socialRainbowRSS {
-                0%   { color: lighten(@black, 10%);    }
+                0%   { color: inherit;    }
                 50%  { color: @socialcolor-rss;        }
-                100% { color: lighten(@black, 10%);    }
+                100% { color: inherit;    }
             }
             @keyframes socialRainbowGooglePlus {
-                0%   { color: lighten(@black, 10%);    }
+                0%   { color: inherit;    }
                 50%  { color: @socialcolor-googleplus; }
-                100% { color: lighten(@black, 10%);    }
+                100% { color: inherit;    }
             }
             @keyframes socialRainbowGithub {
-                0%   { color: lighten(@black, 10%);    }
+                0%   { color: inherit;    }
                 50%  { color: @socialcolor-github;     }
-                100% { color: lighten(@black, 10%);    }
+                100% { color: inherit;    }
             }
             @keyframes socialRainbowTwitter {
-                0%   { color: lighten(@black, 10%);    }
+                0%   { color: inherit;    }
                 50%  { color: @socialcolor-twitter;    }
-                100% { color: lighten(@black, 10%);    }
+                100% { color: inherit;    }
             }
             @keyframes socialRainbowFacebook {
-                0%   { color: lighten(@black, 10%);    }
+                0%   { color: inherit;    }
                 50%  { color: @socialcolor-facebook;   }
-                100% { color: lighten(@black, 10%);    }
+                100% { color: inherit;    }
             }
             @keyframes socialRainbowLinkedin {
-                0%   { color: lighten(@black, 10%);    }
+                0%   { color: inherit;    }
                 50%  { color: @socialcolor-linkedin;   }
-                100% { color: lighten(@black, 10%);    }
+                100% { color: inherit;    }
             }
             @keyframes socialRainbowMusic {
-                0%   { color: lighten(@black, 10%);    }
+                0%   { color: inherit;    }
                 50%  { color: @socialcolor-lastfm;     }
-                100% { color: lighten(@black, 10%);    }
+                100% { color: inherit;    }
             }
             @keyframes socialRainbowPencil {
-                0%   { color: lighten(@black, 10%);    }
+                0%   { color: inherit;    }
                 50%  { color: @socialcolor-deviantart; }
-                100% { color: lighten(@black, 10%);    }
+                100% { color: inherit;    }
             }
             @keyframes socialRainbowFacetime {
-                0%   { color: lighten(@black, 10%);    }
+                0%   { color: inherit;    }
                 50%  { color: @socialcolor-youtube;    }
-                100% { color: lighten(@black, 10%);    }
+                100% { color: inherit;    }
             }
 
-            > i.icon-rss            { color: lighten(@black, 10%);
+            > i.icon-rss            { color: inherit;
                                       animation: socialRainbowRSS 2s ease-in-out 0.7s 1;      }
-            > i.icon-google-plus    { color: lighten(@black, 10%);
+            > i.icon-google-plus    { color: inherit;
                                       animation: socialRainbowGooglePlus 2s ease-in-out 1s 1; }
-            > i.icon-github         { color: lighten(@black, 10%);
+            > i.icon-github         { color: inherit;
                                       animation: socialRainbowGithub 2s ease-in-out 1.3s 1;   }
-            > i.icon-twitter        { color: lighten(@black, 10%);
+            > i.icon-twitter        { color: inherit;
                                       animation: socialRainbowTwitter 2s ease-in-out 1.6s 1;  }
-            > i.icon-facebook       { color: lighten(@black, 10%);
+            > i.icon-facebook       { color: inherit;
                                       animation: socialRainbowFacebook 2s ease-in-out 1.9s 1; }
-            > i.icon-linkedin       { color: lighten(@black, 10%);
+            > i.icon-linkedin       { color: inherit;
                                       animation: socialRainbowLinkedin 2s ease-in-out 2.2s 1; }
-            > i.icon-music          { color: lighten(@black, 10%);
+            > i.icon-music          { color: inherit;
                                       animation: socialRainbowMusic 2s ease-in-out 2.5s 1;    }
-            > i.icon-pencil         { color: lighten(@black, 10%);
+            > i.icon-pencil         { color: inherit;
                                       animation: socialRainbowPencil 2s ease-in-out 2.8s 1;   }
-            > i.icon-facetime-video { color: lighten(@black, 10%);
+            > i.icon-facetime-video { color: inherit;
                                       animation: socialRainbowFacetime 2s ease-in-out 3.1s 1; }
 
             &:hover > i.icon-rss            { color: @socialcolor-rss;        }
