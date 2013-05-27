@@ -7,9 +7,27 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 # Tareas pendientes
 
  - Optimizar tema de LoremIpsum:
-   - Adaptar tema a una pantalla aún más pequeña.
+   - 640:
+     - Acortar el tamaño de las lineas horizontales tras los articulos.
+     - Aumentar ligeramente el tamaño de la letra, sobretodo el
+       de los enlaces a redes sociales y las cabeceras de las secciones
+       (contacto, herramientas utilizadas...).
+   - Adaptar tema a una pantalla aún más pequeña (480 y 240).
    - Comentar el código para hacer más fácil el desarrollo.
+ - Agradecimiento: 
+   - Hacer comprobacion desde waypoint e insertar solo
+     si no estan los enlaces de cambio de página.
+   - Solo esconder los enlaces de cambio de página mientras se carga nuevo
+     contenido.
+   - Actualizar los enlaces de cambio de pagina para que funcione.
+ - Añadir modulo para ocultar el menu en las versiones móviles. 
  - Añadir pie de página.
+ - Incluir la portada de la imagen en el cuerpo de la entrada (y en el feed).
+ - Añadir enlace al feed.
+ - Crear sitemap.
+ - Adaptar gráfico de programación para que se redimensione al cambiar el tamaño de la página.
+ - Hacer que los enlaces del currículum sean enlaces externos.
+ - Hacer que funcione la lista de trucos (comandos cheatlist, huevos de pascua, etc...).
 
 # Lista de cambios
 
