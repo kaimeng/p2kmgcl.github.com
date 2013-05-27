@@ -7,10 +7,6 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 # Tareas pendientes
 
  - Optimizar tema de LoremIpsum:
-   - 640:
-     - Aumentar ligeramente el tamaño de la letra, sobretodo el
-       de los enlaces a redes sociales y las cabeceras de las secciones
-       (contacto, herramientas utilizadas...).
    - Adaptar tema a una pantalla aún más pequeña (480 y 240).
    - Comentar el código para hacer más fácil el desarrollo.
  - Agradecimiento: 
