@@ -6,6 +6,7 @@
 
     <meta name="description" content="{{ site.meta.description }}" />
     <meta name="keywords" content="{% for keyword in site.meta.keywords %}{{ keyword }}, {% endfor %}{{ site.author.name }}" />
+    <link rel="alternate" type="application/rss+xml" title="Feed de {{ site.web.title }} (RSS 2.0)" href="{{ site.data.rss }}">
     <meta name="generator" content="Jekyll" />
     
     <meta name="viewport" content="width=device-width"/>
