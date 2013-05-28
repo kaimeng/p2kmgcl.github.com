@@ -11,11 +11,15 @@
             <h1>Menú principal</h1>
         </header>
         <ul>
-            {% for _page in site.pages limit:4 %}{% if _page.title %}
-                <li{% if _page.url == page.url %} class="current"{% endif %}>
-                    <i class="icon-{{ _page.icon }}"></i>
-                    <a href="{{ _page.url }}">{{ _page.title }}</a>
-                </li>
+            <li{% if "/index.html" == page.url %} class="current"{% endif %}>
+                <i class="icon-home"></i>
+                <a href="/">Inicio</a>
+            </li>
+            {% for _page in site.pages %}{% if _page.title and _page.menu %}
+            <li{% if _page.url == page.url %} class="current"{% endif %}>
+                <i class="icon-{{ _page.icon }}"></i>
+                <a href="{{ _page.url }}">{{ _page.title }}</a>
+            </li>
             {% endif %}{% endfor %}
         </ul>
     </nav>
