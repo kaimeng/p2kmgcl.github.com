@@ -17,7 +17,6 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
    - Actualizar los enlaces de cambio de pagina para que funcione.
  - Añadir modulo para ocultar el menu en las versiones móviles. 
  - Añadir pie de página.
- - Incluir la portada de la imagen en el cuerpo de la entrada (y en el feed).
  - Añadir enlace al feed.
  - Crear sitemap.
  - Adaptar gráfico de programación para que se redimensione al cambiar el tamaño de la página.

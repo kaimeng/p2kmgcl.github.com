@@ -30,16 +30,15 @@ icon: home
                 <header>
                     <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
                     <time>{{ post.date | date: "%d/%m/%Y" }}</time>
-                    {% if post.image %}
-                    <img src="https://dl.dropboxusercontent.com/u/6037255/blogImages/{{ post.path | replace:'_posts/',''| replace:'.md','.jpg' }}" title="{{ post.image }}" alt="{{ post.image }}" class="cover" />
-                    {% endif %}
                     <a class="author" href="https://plus.google.com/117214944861012231268?rel=author">Por {{ site.author.name }}</a>
                 </header>
                 <section class="content">
                     <header>
                         <h1>Contenido de la entrada</h1>
                     </header>
-
+                    {% if post.image %}
+                    <img src="https://dl.dropboxusercontent.com/u/6037255/blogImages/{{ post.path | replace:'_posts/',''| replace:'.md','.jpg' }}" title="{{ post.image }}" alt="{{ post.image }}" class="cover" />
+                    {% endif %}
                     {{ post.content }}
                 </section>
                 <footer>

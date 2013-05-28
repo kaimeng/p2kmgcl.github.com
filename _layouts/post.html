@@ -11,9 +11,6 @@ layout: index
         <header>
             <h1>{{ page.title }}</h1>
             <time>{{ page.date | date: "%d/%m/%Y" }}</time>
-            {% if page.image %}
-            <img src="{{ site.data.imagePath }}/{{ page.path | replace:'_posts/',''| replace:'.md','.jpg' }}" title="{{ page.image }}" alt="{{ page.image }}" class="cover" />
-            {% endif %}
             <a class="author" href="https://plus.google.com/117214944861012231268?rel=author">Por {{ site.author.name }}</a>
         </header>
 
@@ -21,7 +18,9 @@ layout: index
             <header>
                 <h1>Contenido de la entrada</h1>
             </header>
-
+            {% if page.image %}
+            <img src="{{ site.data.imagePath }}/{{ page.path | replace:'_posts/',''| replace:'.md','.jpg' }}" title="{{ page.image }}" alt="{{ page.image }}" class="cover" />
+            {% endif %}
             {{ content }}
         </section>
 
