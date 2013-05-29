@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Discordia
 tags: [Discordia, Negativo]
 image: Un relámpago desgarrando una nube sombría
