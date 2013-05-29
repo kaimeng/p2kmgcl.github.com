@@ -13,8 +13,8 @@ a{border-bottom:dotted #a7dbd8 thin;color:#19889e;cursor:pointer;text-decoration
 a:active{opacity:1;}
 pre,code{font-family:'Inconsolata',Consolas,Monospace;}
 .hidden{display:none !important;}
-@media (max-width:640px){.mainHeader{position:static;width:100%;padding:0;background-color:#f2f2f2;}}.mainHeader>header{display:none;position:absolute;}
-.mainHeader>.mainMenu{position:absolute;right:0.5em;top:-0.5em;line-height:0;padding:0;padding-right:3em;z-index:200;}.mainHeader>.mainMenu>header{display:none;}
+@media (max-width:640px){.mainHeader{position:static;width:100%;padding:0;background-color:#f2f2f2;}}.mainHeader>.title,.mainHeader>.subtitle{display:none;position:absolute;}
+.mainHeader>.mainMenu{position:absolute;right:0.5em;top:-0.5em;line-height:0;padding:0;padding-right:3em;z-index:200;}.mainHeader>.mainMenu>h1{display:none;}
 .mainHeader>.mainMenu>ul{list-style:none;padding:0;margin:0;text-align:right;}.mainHeader>.mainMenu>ul>li{display:inline-block;background:#ffffff;padding:0 0.2em;padding-left:0.5em;margin-right:0.5em;margin-bottom:0.5em;white-space:nowrap;position:relative;}.mainHeader>.mainMenu>ul>li>i{padding-right:0;}
 .mainHeader>.mainMenu>ul>li>a{border-bottom:none;color:#2f2f2f;}
 .mainHeader>.mainMenu>ul>li.current>a{font-weight:bolder;}
