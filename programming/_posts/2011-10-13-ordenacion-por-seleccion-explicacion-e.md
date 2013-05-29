@@ -3,7 +3,6 @@ layout: post
 title: Ordenación por selección (explicación e implementación) 
 image: Muestra el funcionamiento del algoritmo
 tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
-categories: [Programación]
 ---
 
 Este algoritmo de eficiencia lineal es adecuado para conjuntos relativamente pequeños. Hace n (número de elementos del vector) pasadas eliminando en cada una el elemento más pequeño encontrado y colocándolo al principio.

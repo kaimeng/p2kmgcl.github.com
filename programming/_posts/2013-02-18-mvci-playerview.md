@@ -3,7 +3,6 @@ layout: post
 title: MVC I - Reproductor de música HTML5 con Backbone. Parte II - PlayerView
 tags: [Miniproyecto, Backbone, Vistas, JavaScript, Plantillas, JQuery]
 image: Muestra del reproductor que se obtiene con la aplicación
-categories: [Programación]
 ---
 
 Hace unas semanas -bonito eufemismo- publiqué una entrada sobre como hacer un [reproductor de música con Backbone](http://www.p2kmgcl.com/2013/01/mvc-iintroduccion-y-parte-1-songmodel.html), el cual presentaba el "problema" de no tener interfaz. Pues bien, siguiendo con el uso de las vistas de Backbone, ya sabéis lo que toca hoy.

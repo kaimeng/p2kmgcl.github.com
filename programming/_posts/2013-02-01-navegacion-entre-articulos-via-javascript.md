@@ -2,7 +2,6 @@
 layout: post
 title: Navegación entre artículos vía JavaScript
 tags: [JavaScript, Navegación, jQuery, Scroll]
-categories: [Programación]
 ---
 
 Pues tal y como explica el título, podéis navegar entre artículo y artículo pulsando botones de `siguiente` y `anterior` o con las teclas `j`  y `k`.

@@ -2,7 +2,6 @@
 layout: post
 title: Obteniendo una web mediante un script
 image: Texto 'Code is Poetry' sobre fondo negro
-categories: [Programación]
 tags: [CShell, Script]
 ---
 

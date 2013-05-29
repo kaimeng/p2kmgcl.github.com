@@ -3,7 +3,6 @@ layout: post
 title: Radix Sort y su magnífica ordenación por cubetas
 image: Muestra de las cubetas que usa el algoritmo
 tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
-categories: [Programación]
 ---
 
 La ordenación Radix se basa en la clasificación de los datos que queremos ordenar por una clave. Dicha clave ha de ser una característica de cada dato que pueda ser descompuesta el elementos más pequeños que permitan clasificar los elementos poco a poco. Suponiendo los números enteros, la clave se tomaría como las cifras.

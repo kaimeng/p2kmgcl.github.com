@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Cuando no ves los colores
-categories: [Personal]
 image: Cara formada con papeles de colores
 ---
 

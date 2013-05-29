@@ -2,7 +2,6 @@
 layout: post
 title: Antes de saludar al mundo (introducción a la programación)
 image: Logotipo del lenguaje de programación C
-categories: [Programación]
 tags: [Destino... C, Destino... Pro, Guia Básica]
 ---
 

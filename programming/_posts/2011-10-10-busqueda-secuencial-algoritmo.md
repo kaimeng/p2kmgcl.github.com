@@ -2,7 +2,6 @@
 layout: post
 title: Búsqueda Secuencial (algoritmo, explicación e implementación genérica)
 image: Muestra de la eficiencia de la búsqueda secuencial
-categories: [Programación]
 tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
 ---
 

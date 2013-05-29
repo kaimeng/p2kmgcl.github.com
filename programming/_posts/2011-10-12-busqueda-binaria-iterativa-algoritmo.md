@@ -3,7 +3,6 @@ layout: post
 title: Búsqueda Binaria Iterativa (algoritmo, explicación e implementación genérica)
 image: Demostración del funcionamiento del algoritmo
 tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
-categories: [Programación]
 ---
 
 ## Datos
