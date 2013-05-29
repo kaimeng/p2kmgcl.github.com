@@ -29,23 +29,16 @@ icon: home
             <article class="infinite-item entry">
                 <header>
                     <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-                    <time>{{ post.date | date: "%d/%m/%Y" }}</time>
+                    <time>{{ post.date | date: "%Y-%m-%d" }}</time>
                     <a class="author" href="https://plus.google.com/117214944861012231268?rel=author">Por {{ site.author.name }}</a>
                 </header>
-                <section class="content">
-                    <header>
-                        <h1>Contenido de la entrada</h1>
-                    </header>
+                <div class="content">
                     {% if post.image %}
                     <img src="https://dl.dropboxusercontent.com/u/6037255/blogImages/{{ post.path | replace:'_posts/',''| replace:'.md','.jpg' }}" title="{{ post.image }}" alt="{{ post.image }}" class="cover" />
                     {% endif %}
                     {{ post.content }}
-                </section>
+                </div>
                 <footer>
-                    <header>
-                        <h1>Enlaces y comentarios</h1>
-                    </header>
-
                     <ul class="entryButtons">
                         <li class="shareButton"><a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl={{ site.web.url }}{{ post.url }}" target="_blank">
                             <i class="icon-share"></i>

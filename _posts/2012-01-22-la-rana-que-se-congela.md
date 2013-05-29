@@ -1,7 +1,7 @@
 ---
 layout: post
 title: La rana que se congela
-image: Rafa
+image: Rana descrita en el artículo
 tags: [Animales, Veo y no creo]
 ---
 
