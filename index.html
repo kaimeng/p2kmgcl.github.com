@@ -26,48 +26,9 @@ icon: home
         </header>
 
         {% for post in paginator.posts %}
-            <article class="infinite-item entry">
-                <header>
-                    <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-                    <time>{{ post.date | date: "%d/%m/%Y" }}</time>
-                    <a class="author" href="https://plus.google.com/117214944861012231268?rel=author">Por {{ site.author.name }}</a>
-                </header>
-                <section class="content">
-                    <header>
-                        <h1>Contenido de la entrada</h1>
-                    </header>
-                    {% if post.image %}
-                    <img src="https://dl.dropboxusercontent.com/u/6037255/blogImages/{{ post.path | replace:'_posts/',''| replace:'.md','.jpg' }}" title="{{ post.image }}" alt="{{ post.image }}" class="cover" />
-                    {% endif %}
-                    {{ post.content }}
-                </section>
-                <footer>
-                    <header>
-                        <h1>Enlaces y comentarios</h1>
-                    </header>
-
-                    <ul class="entryButtons">
-                        <li class="shareButton"><a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl={{ site.web.url }}{{ post.url }}" target="_blank">
-                            <i class="icon-share"></i>
-                            <span>Compartir entrada</span>
-                        </a></li>
-                        <li class="showComments"><a onclick="p2kmgcl.module('embedComment', true, { link: this, identifier: 'p2kmgcl', url: '{{ site.web.url }}{{ post.url }}' })">
-                            <i class="icon-edit"></i>
-                            <span>Lista de comentarios</span>
-                        </a></li>
-                    </ul>
-                        
-                    <script type="text/javascript">
-                        var a2a_config = a2a_config || {};
-                        a2a_config.linkname = "{{ post.title | replace:'"','\"' }}";
-                        a2a_config.linkurl = "{{ site.web.url }}{{ post.url }}";
-                        a2a_config.locale = "es";
-                        a2a_config.num_services = 6;
-                        a2a_config.prioritize = ["google_plus", "facebook", "twitter", "tuenti", "reddit", "email"];
-                    </script>
-                    <script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
-                </footer>
-            </article>
+            {% assign content = post.content %}
+            {% assign post_type = 'long' %}
+            {% include post_content.html %}
         {% endfor %}
     </section>
 

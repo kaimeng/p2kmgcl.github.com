@@ -2,73 +2,12 @@
 layout: index
 ---
 
-<section class="blog">
+<section class="blog{% if page.categories %} {{ page.categories }}{% endif %}">
     <header>
         <h1>Entrada del blog</h1>
     </header>
 
-    <article class="single entry">
-        <header>
-            <h1>{{ page.title }}</h1>
-            <time>{{ page.date | date: "%d/%m/%Y" }}</time>
-            <a class="author" href="https://plus.google.com/117214944861012231268?rel=author">Por {{ site.author.name }}</a>
-        </header>
-
-        <section class="content">
-            <header>
-                <h1>Contenido de la entrada</h1>
-            </header>
-            {% if page.image %}
-            <img src="{{ site.data.imagePath }}/{{ page.path | replace:'_posts/',''| replace:'.md','.jpg' }}" title="{{ page.image }}" alt="{{ page.image }}" class="cover" />
-            {% endif %}
-            {{ content }}
-        </section>
-
-        <footer>
-            <header>
-                <h1>Enlaces y comentarios</h1>
-            </header>
-
-            <section class="share">
-                <header>
-                    <h1>Enlaces</h1>
-                </header>
-
-                <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl={{ site.web.url }}{{ post.url }}" target="_blank">
-                    <i class="icon-share"></i>
-                    <span>¿Te ha gustado? ¿te parece útil? ¿te gustan los gatitos? Comparte esta entrada y todos tus sueños se harán realidad.<em>*</em></span>
-                </a>
-
-                <script type="text/javascript">
-                    var a2a_config = a2a_config || {};
-                    a2a_config.linkname = "{{ post.title }}";
-                    a2a_config.linkurl = "{{ site.web.url }}{{ post.url }}";
-                    a2a_config.locale = "es";
-                    a2a_config.num_services = 6;
-                    a2a_config.prioritize = ["google_plus", "facebook", "twitter", "tuenti", "reddit", "email"];
-                </script>
-                <script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
-            </section>
-
-            <section class="comments">
-                <header>
-                    <h1>Comentarios</h1>
-                </header>
-                
-                <div id="disqus_thread"></div>
-                <script type="text/javascript">
-                    var disqus_shortname = '{{ site.data.disqus }}',
-                        disqus_identifier = '{{ site.web.url }}{{ page.url }}';
-                    (function() {
-                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                        
-                        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                </script>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            </section>
-        </footer>
-    </article>
+    {% assign post = page %}
+    {% assign post_type = 'single' %}
+    {% include post_content.html %}
 </section>

@@ -1,0 +1,14 @@
+---
+layout: page
+title: Programación
+icon: code
+menu: true
+---
+
+<section class="blog programming">
+    {% for post in site.posts %}{% if post.categories contains 'programming' %}
+        {% assign content = post.content %}
+        {% assign post_type = 'list' %}
+        {% include post_content.html %}
+    {% endif %}{% endfor %}
+</section>
