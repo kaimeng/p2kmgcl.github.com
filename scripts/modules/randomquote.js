@@ -8,7 +8,7 @@ p2kmgcl.modules.randomQuote = function () {
             rand = parseInt(Math.random() * $li.size());
 
         // Si habia notas esconde la vieja y muestra la nueva
-        if ($li.size() > 0) {
+        if ($li.size() == 1) {
             $old.removeClass('chosen');
             $($li[rand]).addClass('chosen');
         }

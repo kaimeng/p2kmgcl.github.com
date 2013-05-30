@@ -115,6 +115,9 @@ quotes:
   - { quote: "Esta es mi historia y la acabaré cuando yo quiera.",
       origin: "Tidus - Final Fantasy X",
       link: "http://es.wikiquote.org/wiki/Final_Fantasy#Final_Fantasy_X" }
+  - { quote: "Cada vez que alguien no documenta un trozo de código dios mata un gatito.",
+      origin: "Pablo Molina",
+      link: "https://twitter.com/p2kmgcl/status/340011188752629760" }
 
 # Activa el uso de la librería less (javascript)
 less:

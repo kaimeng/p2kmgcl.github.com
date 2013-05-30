@@ -1,4 +1,21 @@
+.blogSeparation {
+    margin-bottom: 5em;
+    text-align: justify;
+
+    > h1 {
+        font-size: 2em;
+    }
+
+    @media (max-width: @sizeTablet) {
+        padding: 0 5%;
+    }
+}
+
 .blog {
+    &.personal {
+        margin-top: 0.25em;
+    }
+
     > .articleList {
         position: relative;
 

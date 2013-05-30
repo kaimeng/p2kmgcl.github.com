@@ -2,7 +2,6 @@
 layout: page
 title: Programación
 icon: code
-menu: true
 ---
 
 <section class="blog programming">
@@ -10,7 +9,7 @@ menu: true
 
     {% for post in site.posts %}{% if post.categories contains 'programming' %}
         {% assign content = post.content %}
-        {% assign post_type = 'list' %}
+        {% assign post_type = 'long' %}
         {% include post_content.html %}
     {% endif %}{% endfor %}
 </section>

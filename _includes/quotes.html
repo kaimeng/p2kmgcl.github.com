@@ -4,7 +4,7 @@
     </header>
     <ul>
     {% for quote in site.quotes %}
-        <li class="quoteWrapper{% if forloop.index == 1 %} chosen{% endif %}"><blockquote class="quote">
+        <li class="quoteWrapper{% if forloop.index == 1 or all_quotes %} chosen{% endif %}"><blockquote class="quote">
             <p>{{ quote.quote }}</p>
             {% if quote.origin %}
                 <footer><cite>

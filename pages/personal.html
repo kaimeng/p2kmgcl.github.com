@@ -1,15 +1,14 @@
 ---
 layout: page
-title: Puzles
+title: Personal
 icon: puzzle-piece
-menu: true
 ---
 
 <section class="blog personal">
     <h1>Blog - Entradas personales</h1>
 
     {% for post in site.posts %}{% if post.categories contains 'personal' %}
-        {% assign post_type = 'cover' %}
+        {% assign post_type = 'long' %}
         {% assign content = post.content %}
         {% include post_content.html %}
     {% endif %}{% endfor %}
