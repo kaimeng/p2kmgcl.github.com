@@ -3,10 +3,8 @@ layout: index
 ---
 
 <section class="blog{% if page.categories %} {{ page.categories }}{% endif %}">
-    <header>
-        <h1>Entrada del blog</h1>
-    </header>
-
+    <h1>Entrada del blog</h1>
+    
     {% assign post = page %}
     {% assign post_type = 'single' %}
     {% include post_content.html %}

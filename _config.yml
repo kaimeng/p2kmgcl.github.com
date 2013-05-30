@@ -10,14 +10,15 @@ permalink:    /:year/:month/:title.html
 paginate:     5
 
 author:
-    name:       "Pablo Molina"
-    givenName:  "Pablo"
-    familyName: "Molina"
-    alias:      "p2kmgcl"
-    photo:      "http://dl.dropbox.com/u/6037255/perfil.jpg"
-    mail:       "contact@pablomolina.me"
-    url:        "http://pablomolina.me"
-    bday:       "1991-10-01"
+    name:             "Pablo Molina"
+    givenName:        "Pablo"
+    familyName:       "Molina"
+    alias:            "p2kmgcl"
+    photo:            "http://dl.dropboxusercontent.com/u/6037255/perfil.jpg"
+    mail:             "contact@pablomolina.me"
+    url:              "http://pablomolina.me"
+    bday:             "1991-10-01"
+    googleAuthorship: "https://plus.google.com/117214944861012231268?rel=author"
     links:
       - { name: "Google+",
           icon: "google-plus",
@@ -91,10 +92,10 @@ web:
   subtitle:     "Piensa, inventa, comparte"
 
 data:
-  disqus:           "p2kmgcl"
-  google-analytics: "UA-17072152-2"
-  rss:              "http://feed.pablomolina.me"
-  imagePath:        "https://dl.dropboxusercontent.com/u/6037255/blogImages"
+  disqus:          "p2kmgcl"
+  googleAnalitics: "UA-17072152-3"
+  rss:             "http://feed.pablomolina.me"
+  imagePath:       "https://dl.dropboxusercontent.com/u/6037255/blogImages"
 
 meta:
   description:  "Blog personal de Pablo Molina sobre diseño web, programación, asuntos geek y, a veces, sencillamente cosas personales."

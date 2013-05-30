@@ -6,9 +6,7 @@ icon: home
 
 {% if paginator.page == 1 %}
     <section class="home">
-        <header>
-            <h1>Página principal</h1>
-        </header>
+        <h1>Página principal</h1>
 
         {% include quotes.html %}
         {% include intro.html %}
@@ -16,14 +14,10 @@ icon: home
 {% endif %}
 
 <section class="blog">
-    <header>
-        <h1>Blog</h1>
-    </header>
+    <h1>Blog</h1>
 
     <section class="articleList infinite-container">
-        <header>
-            <h1>Lista de artículos</h1>
-        </header>
+        <h1>Lista de artículos</h1>
 
         {% for post in paginator.posts %}
             {% assign content = post.content %}
@@ -33,9 +27,7 @@ icon: home
     </section>
 
     <nav class="pagination">
-        <header>
-            <h1>Navegación entre artículos</h1>
-        </header>
+        <h1>Navegación entre artículos</h1>
 
         {% if paginator.previous_page %}<a href="{% if paginator.previous_page != 1 %}/page{{ paginator.previous_page }}{% else %}/index.html{% endif %}" class="previous"><i class="icon-caret-left"></i><span>Anterior</span></a>{% else %}<span class="previous">Anterior</span>{% endif %}
       

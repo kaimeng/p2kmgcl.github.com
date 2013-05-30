@@ -1,7 +1,7 @@
 ---
 layout: post
 title: La nube de Matrix - ToS;DR
-image: Texto blanco sobre fondo blanco 'The google hash you...'
+image: Texto blanco sobre fondo negro 'The google hash you...'
 tags: [Google, La nube, Matrix, ToS-DR, Términos y condiciones]
 ---
 

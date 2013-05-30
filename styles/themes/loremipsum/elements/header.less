@@ -6,7 +6,8 @@
         background-color: darken(@bodyBgColor, 5%);
     }
 
-     > header {
+    > .title,
+    > .subtitle {
         display: none;
         position: absolute;
     }
@@ -21,8 +22,8 @@
         padding:        0;
         padding-right:  3em;
         z-index:        200;
-    
-        > header {
+
+        > h1 {
             display: none;
         }
     
@@ -31,6 +32,7 @@
             padding:    0;
             margin:     0;
             text-align: right;
+            width: 100%;
         
             > li {
                 display:        inline-block;
@@ -39,6 +41,7 @@
                 padding-left:   0.5em;
                 margin-right:   0.5em;
                 margin-bottom:  0.5em;
+
                 white-space:    nowrap;
                 position:       relative;
     

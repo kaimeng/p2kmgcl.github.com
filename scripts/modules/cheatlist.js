@@ -3,7 +3,7 @@
  */
 p2kmgcl.modules.cheatList = function ()  {
     var template = '<article class="cheatList">\
-                <header><h1>Lista de trucos</h1></header>\
+                <h1>Lista de trucos</h1>\
                 \
                 <ul>\
                     <li>Puedes volver a ver esta lista escribiendo en la página inicial <code>getcheatlist</code>.</li>\

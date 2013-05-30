@@ -17,4 +17,4 @@ Lo que conseguimos colocando los dedos de esta forma es simular la forma de vari
 
 Actualmente se está investigando este complejo sistema de defensa que tienen para poder utilizarlo en la seguridad de los vehículos a motor (que los airbags salten antes, que nos proteja de desvíos en las curvas, etc).
 
-![](http://1.bp.blogspot.com/-cIC6YZhuBEQ/Tvcbh_UHyXI/AAAAAAAADok/toy9d9oY5HM/s320/20100916111025.jpg)
+![Muestra de la posición de los dedos necesaria](http://1.bp.blogspot.com/-cIC6YZhuBEQ/Tvcbh_UHyXI/AAAAAAAADok/toy9d9oY5HM/s320/20100916111025.jpg)

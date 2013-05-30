@@ -6,6 +6,8 @@ menu: true
 ---
 
 <section class="blog personal">
+    <h1>Blog - Entradas personales</h1>
+
     {% for post in site.posts %}{% if post.categories contains 'personal' %}
         {% assign post_type = 'cover' %}
         {% assign content = post.content %}

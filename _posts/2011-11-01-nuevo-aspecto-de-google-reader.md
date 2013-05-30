@@ -7,7 +7,7 @@ tags: [Google Reader, Noticias, RSS]
 
 Yo, desde casita, apruebo el nuevo aspecto de google reader que la verdad me parece que encaja bastante con el nuevo aspecto de sus aplicaciones en general. No obstante, he creado una pequeña modificación con CSS3 que le da un aspecto para mi gusto más atractivo:
 
-![](http://2.bp.blogspot.com/-Itq2yp7R5Tc/Tq_-qRHibaI/AAAAAAAAAi4/mfJJOtqXs-8/s640/Sin+t%25C3%25ADtulo3.png)
+![Muestra del nuevo google reader tras aplicar las modificaciones](http://2.bp.blogspot.com/-Itq2yp7R5Tc/Tq_-qRHibaI/AAAAAAAAAi4/mfJJOtqXs-8/s640/Sin+t%25C3%25ADtulo3.png)
 
 Aquí está el código que he usado para la modificación:
 

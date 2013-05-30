@@ -1,13 +1,17 @@
 <article class="entry infinite-item {{ post_type }}{% if post.categories %} {{ post.categories | join:' ' }}{% endif %}">
     <header>
         <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-        <time>{{ post.date | date: "%d/%m/%Y" }}</time>
-        <a class="author" href="https://plus.google.com/117214944861012231268?rel=author">Por {{ site.author.name }}</a>
+        <time>{{ post.date | date: "%d-%m-%Y" }}</time>
+
+        {% comment %} Si hay un autor en la entrada muestra a éste,
+           en caso contrario muestra al autor por defecto {% endcomment %}
+        {% if post.author and post.author_url %}
+            <a class="author" href="{{ post.author_url }}">{{ post.author }}</a>
+        {% else %}
+            <a class="author" href="{{ site.author.googleAuthorship }}">Por {{ site.author.name }}</a>
+        {% endif %}
     </header>
-    <section class="content">
-        <header>
-            <h1>Contenido de la entrada</h1>
-        </header>
+    <div class="content">
         {% if post.image and post_type != 'list' %}
         <img src="{{ site.data.imagePath }}{{ post.url | replace:'.html','.jpg' }}" title="{{ post.image }}" alt="{{ post.image }}" class="cover" />
         {% endif %}
@@ -15,19 +19,13 @@
         {% if post_type == 'long' or post_type == 'single' %}
         {{ content }}
         {% endif %}
-    </section>
+    </div>
     
     {% if post_type == 'long' or post_type == 'single' %}
     <footer>
-        <header>
-            <h1>Enlaces y comentarios</h1>
-        </header>
-
         {% if post_type == 'single' %}
         <section class="share">
-            <header>
-                <h1>Enlaces</h1>
-            </header>
+            <h1>Enlaces</h1>
 
             <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl={{ site.web.url }}{{ post.url }}" target="_blank">
                 <i class="icon-share"></i>
@@ -35,9 +33,7 @@
             </a>
         </section>
         <section class="comments">
-            <header>
-                <h1>Comentarios</h1>
-            </header>
+            <h1>Comentarios</h1>
             
             <div id="disqus_thread"></div>
             <script type="text/javascript">
@@ -77,7 +73,6 @@
             a2a_config.prioritize = ["google_plus", "facebook", "twitter", "tuenti", "reddit", "email"];
         </script>
         <script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
-    
     </footer>
     {% endif %}
 </article>
