@@ -5,6 +5,7 @@ plugins:      ./_plugins
 lsi:          false
 future:       false
 pygments:     true
+safe:         true
 markdown:     rdiscount
 permalink:    /:year/:month/:title.html
 paginate:     5
