@@ -3,7 +3,7 @@ layout: post
 title: Flotando en una soga
 tags: [Abrazo, Ausencia]
 image: Dos figuras de decoración abrazadas
-image_origin: http://www.flickr.com/photos/49503002139@N01/323875688/in/photolist-uBWXA-wutRh-wxnct-BCstz-Fa6wC-FRzSS-FYXps-HmpX4-K6DYR-KipLP-L6avh-NWVmz-NWVxX-PnTvC-Q2Psi-RJDUB-ZnQVH-2aGEGR-2U5XBg-2UEsqo-34nHp4-3hD4XV-3hD63F-3hD6CD-3M72NW-4aoGLY-4eJsK8-4gFTix-4kc73S-4mQfNj-4omWyF-4yhSzT-4A6CGm-4AHiz6-4C44QY-4EfsQx-4EXAgm-4GGTuw-4HKJqV-4KgKd4-4KXFkn-4QaNsh-4SpMdS-4WacKC-4XAgcj-4ZRKig-4ZVWGG-4ZVWQ7-4ZVWWb-52fHmu-55R7VT
+image_origin: http://www.flickr.com/photos/arimoore/323875688/
 ---
 
     Sueño arenoso
