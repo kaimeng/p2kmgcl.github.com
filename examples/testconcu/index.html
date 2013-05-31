@@ -8,6 +8,9 @@ title: Preguntas de exámenes de Programación concurrente
     <p>Esta relación de preguntas está sacada de los exámenes de la asignatura. <strong>Puedes terminar el test cuando quieras</strong>, el resultado se calculará en función de las preguntas que hayas contestado/pasado. <strong>Cada pregunta incorrecta resta un tercio</strong> de las preguntas correctas. La nota final se calcula sobre 10 puntos.</p>
 </div>
 
+<ul id="concuList">
+</ul>
+
 <div id="concuQuestion">
     <h1></h1>
     <ul>
@@ -30,7 +33,12 @@ title: Preguntas de exámenes de Programación concurrente
         margin-left: 5%;
     }
 
+    #concuList {
+        list-style: none;
+    }
+
     #concuQuestion,
+    #concuList > li,
     #testConcuIntro {
         width: 80%;
         font-size: 1.2em;
@@ -46,21 +54,30 @@ title: Preguntas de exámenes de Programación concurrente
         font-size: 1em;
     }
 
-    #concuQuestion > ul > li {
-        padding: 0.25em;
-        margin: 0.25em;
+    #concuQuestion > ul,
+    #concuList > li > ul {
+        padding-left: 0;
+    }
+
+    #concuQuestion > ul > li,
+    #concuList > li > ul > li {
+        padding: 0.5em;
+        margin: 0.5em;
         border-radius: 0.25em;
         cursor: pointer;
         transition: ease 0.3s;
         transition-property: color, background-color;
+        list-style: none;
     }
 
-    #concuQuestion > ul > li.answered {
+    #concuQuestion > ul > li.answered,
+    #concuList > li > ul > li.answered {
         color: #eee;
         background-color: red;
     }
 
-    #concuQuestion > ul > li.answered.correct {
+    #concuQuestion > ul > li.answered.correct,
+    #concuList > li > ul > li.answered.correct {
         background-color: green;
     }
 
@@ -69,11 +86,13 @@ title: Preguntas de exámenes de Programación concurrente
 <script src="/scripts/libs/underscore/underscore-1.4.4.min.js"></script>
 <script>window.onload = function () {
 
-var $template = $('#concuQuestion'),
+var $history = $('#concuList'),
+    $template = $('#concuQuestion'),
     $title = $template.find('>h1'),
     $answers = $template.find('>ul>li'),
     $endButton = $('#concuQuestionForceEnd'),
     $passButton = $('#concuQuestionPassQuestion'),
+    $body = $('html, body'),
 
     correctPoint = 0,
     incorrectPoint = 0,
@@ -126,41 +145,53 @@ var $template = $('#concuQuestion'),
         // es el de reiniciar
         $endButton
             .html('Reiniciar')
-            .off('click')
             .on('click', function () {
                 window.location.href = window.location.href;
             });
     },
 
     nextQuestion = function () {
-        $template.fadeOut(100, function () {
+        $template.slideUp(500, function () {
+            var $new = $('<li>' + $template.html() + '</li>');
+            $history.append($new.hide());
+
             if (concuQuestions.questions.length > 0) {
                 showQuestion(concuQuestions.questions.pop());
             } else {
                 showResult();
             }
-            $template.fadeIn(100);
+            
+            $new.slideDown(500);
+            $template.slideDown(500);
+            $body.animate({
+                scrollTop: $body.height() * 2
+            }, 500);
         });
     },
 
     passQuestion = function () {
-        console.log('passed');
         totalPassed++;
         $template
             .find('>ul>.correct')
                 .addClass('answered')
             .end()
-            .delay(2000);
+            .delay(1000);
 
         nextQuestion();
     },
 
     clicked = function () {
-        console.log('answered');
         var $this = $(this).addClass('answered');
+
         totalAnswered++;
         if ($this.hasClass('correct')) {
             totalCorrect++;
+        } else {
+            // Muestra la correcta para que se
+            // vea si hemos fallado
+            $template
+                .find('>ul>.correct')
+                    .addClass('answered');
         }
 
         $template.delay(1000);
