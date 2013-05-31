@@ -51,7 +51,8 @@
         font-weight: bold;
         padding-bottom: 1em;
         position: relative;
-        bottom: 1em;
+        bottom: 2em;
+        left: -0.1em;
 
 
         > header,
@@ -61,7 +62,11 @@
 
         > span.previous,
         > span.next {
-            opacity: 0;
+            > span {
+                display: none;
+            }
+
+            opacity: 0.2;
             max-width: 0.5em;
             overflow: hidden;
             display: inline-block;

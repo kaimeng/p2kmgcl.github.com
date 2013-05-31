@@ -13,5 +13,5 @@ p2kmgcl.modules.introWaypoint = function () {
             } else {
                 $(this).removeClass('hiddenBlog');
             }
-        }, { offset: '25%' });
+        }, { offset: '50%' });
 };
