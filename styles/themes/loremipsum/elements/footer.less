@@ -1,0 +1,54 @@
+.mainFooter {
+    position: relative;
+    width: 90%;
+    margin: 1em auto;
+    padding-top: 2em;
+    margin-top: 4em;
+    margin-right: 10%;
+
+    @media (max-width: @sizeTablet) {
+        width: 100%;
+    }
+
+    &:before {
+        content:            '';
+        position:           absolute;
+        left:               -4500em;
+        top:                0;
+        width:              9999em;
+        height:             1px;
+        background-color:   lighten(@black, 50%);
+        display:            block;
+
+        @media (max-width: @sizeTablet) {
+            left: 0;
+            width: 100%;
+        }
+    }
+
+    > .license {
+        text-align: center;
+        position: relative;
+
+        > h1 {
+            display: none;
+        }
+
+        > figure > figcaption > .formal {
+            display: none;
+        }
+    }
+}
+
+html.no-js {
+    .mainFooter {
+        position: relative;
+        bottom: 2em;
+    }
+
+    .blog.list ~ .mainFooter {
+        margin-top: 0;
+        padding-top: 6em;
+        bottom: 8em;
+    }
+}

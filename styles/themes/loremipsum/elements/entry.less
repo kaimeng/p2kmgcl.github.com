@@ -28,6 +28,26 @@
         }
     }
 
+    &.single {
+        padding-bottom: 0;
+
+        &:after {
+            display: none;
+        }
+    }
+
+    &:last-child {
+        padding-bottom: 0;
+        
+        &:after {
+            display: none;
+        }
+    }
+
+    html.no-js &:last-child {
+        padding-bottom: 6em;
+    }
+
     > header {
         > h1 {
             color: darken(@aoi, 40%);
