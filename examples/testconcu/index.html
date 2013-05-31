@@ -1,0 +1,484 @@
+---
+layout: page
+title: Preguntas de exámenes de Programación concurrente
+---
+
+<div id="testConcuIntro">
+    <h1>Test de preguntas de Sistemas Concurrentes y Distribuidos</h1>
+    <p>Esta relación de preguntas está sacada de los exámenes de la asignatura. <strong>Puedes terminar el test cuando quieras</strong>, el resultado se calculará en función de las preguntas que hayas contestado/pasado. <strong>Cada pregunta incorrecta resta un tercio</strong> de las preguntas correctas. La nota final se calcula sobre 10 puntos.</p>
+</div>
+
+<div id="concuQuestion">
+    <h1></h1>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<button id="concuQuestionPassQuestion">Saltar pregunta</button>
+<button id="concuQuestionForceEnd">Terminar el test</button>
+
+<style>
+
+    #concuQuestion,
+    #testConcuIntro,
+    #concuQuestionPassQuestion,
+    #concuQuestionForceEnd {
+        margin-left: 5%;
+    }
+
+    #concuQuestion,
+    #testConcuIntro {
+        width: 80%;
+        font-size: 1.2em;
+        background-color: #eee;
+        padding: 0.25em 2.5%;
+        margin-bottom: 1em;
+        margin-top: 2em;
+        border-radius: 0.5em;
+    }
+
+    #testConcuIntro {
+        background-color: transparent;
+        font-size: 1em;
+    }
+
+    #concuQuestion > ul > li {
+        padding: 0.25em;
+        margin: 0.25em;
+        border-radius: 0.25em;
+        cursor: pointer;
+        transition: ease 0.3s;
+        transition-property: color, background-color;
+    }
+
+    #concuQuestion > ul > li.answered {
+        color: #eee;
+        background-color: red;
+    }
+
+    #concuQuestion > ul > li.answered.correct {
+        background-color: green;
+    }
+
+</style>
+
+<script src="/scripts/libs/underscore/underscore-1.4.4.min.js"></script>
+<script>window.onload = function () {
+
+var $template = $('#concuQuestion'),
+    $title = $template.find('>h1'),
+    $answers = $template.find('>ul>li'),
+    $endButton = $('#concuQuestionForceEnd'),
+    $passButton = $('#concuQuestionPassQuestion'),
+
+    correctPoint = 0,
+    incorrectPoint = 0,
+    totalAnswered = 0,
+    totalPassed = 0,
+    totalCorrect = 0,
+
+    showQuestion = function (question) {
+        var maxAnswers = $answers.size(),
+            badAnswers = _.shuffle(question.badAnswers),
+            goodAnswer = _.shuffle(question.goodAnswers).pop(),
+            answers = _.first(badAnswers, maxAnswers - 1),
+            $shuffled = _.shuffle($answers);
+
+        // Añade una pregunta correcta al azar
+        answers.push(goodAnswer);
+        answers = _.shuffle(answers);
+
+
+        $title.html(question.title);
+        for (var i = 0; i < maxAnswers; i++) {
+            $shuffled[i].innerHTML = answers[i];
+            $shuffled[i].className = '';
+            if (answers[i] == goodAnswer) {
+                $shuffled[i].className = 'correct';
+            }
+        }
+    },
+
+    showResult = function () {
+        // Analiza lo que vale cada punto
+        correctPoint = 10 / (totalAnswered + totalPassed);
+        incorrectPoint = correctPoint / 3;
+        var result = totalCorrect * correctPoint -
+                     (totalAnswered
+                        - totalCorrect
+                        - totalPassed) * incorrectPoint;
+
+        $template.html('<h1>Fin del test</h1><ul>' +
+            '<li class="passed">Sin contestar: ' + totalPassed + '</li>' +
+            '<li class="correct">Correctas: ' + totalCorrect + '</li>' +
+            '<li class="incorrect">Incorrectas: ' + (totalAnswered - totalCorrect) + '</li>' +
+            '<li class="puntuacion">Puntuación: ' + result.toFixed(2) + '</li></ul>');
+
+        // Desaparece el botón de
+        // pasar pregunta
+        $passButton.remove();
+
+        // Ahora el botón de terminar
+        // es el de reiniciar
+        $endButton
+            .html('Reiniciar')
+            .off('click')
+            .on('click', function () {
+                window.location.href = window.location.href;
+            });
+    },
+
+    nextQuestion = function () {
+        $template.fadeOut(100, function () {
+            if (concuQuestions.questions.length > 0) {
+                showQuestion(concuQuestions.questions.pop());
+            } else {
+                showResult();
+            }
+            $template.fadeIn(100);
+        });
+    },
+
+    passQuestion = function () {
+        console.log('passed');
+        totalPassed++;
+        $template
+            .find('>ul>.correct')
+                .addClass('answered')
+            .end()
+            .delay(2000);
+
+        nextQuestion();
+    },
+
+    clicked = function () {
+        console.log('answered');
+        var $this = $(this).addClass('answered');
+        totalAnswered++;
+        if ($this.hasClass('correct')) {
+            totalCorrect++;
+        }
+
+        $template.delay(1000);
+        nextQuestion();
+    },
+
+    init = function () {
+        $endButton.on('click', showResult);
+        $passButton.on('click', passQuestion);
+        $answers.on('click', clicked);
+
+        // Desordena las preguntas y muestra la primera
+        concuQuestions.questions = _.shuffle(concuQuestions.questions);
+        showQuestion(concuQuestions.questions.pop());
+    },
+
+    concuQuestions = {
+        questions: [
+            {
+                "title": "Desde el punto de vista de un Sistema Operativo un proceso es:",
+                "badAnswers": [
+                    "Entidad lógica que podrá ser cargada en memoria para su planiﬁcación.",
+                    "Entidad lógica que se almacena en un dispositivo de almacenamiento.",
+                    "Ninguna de las anteriores es correcta."
+                ],
+                "goodAnswers": [
+                    "Entidad lógica a la que la CPU podrá planiﬁcar y asignar recursos."
+                ]
+            },
+            {
+                "title": "La ejecución concurrente de varios procesos implica:",
+                "badAnswers": [
+                    "La necesidad de múltiples unidades de procesamiento.",
+                    "Que existan múltiples programas dentro del sistema.",
+                    "Un sistema Operativo Monoprogramado."
+                ],
+                "goodAnswers": [
+                    "Una arquitectura del Sistema Operativo que la permita."
+                ]
+            },
+            {
+                "title": "Para un correcto funcionamiento de los procesos concurrentes se debe asegurar:",
+                "badAnswers": [
+                    "La exclusión mutua y la sincronización.",
+                    "Sólo la exclusión mutua.",
+                    "La exclusión mutua, la sincronización y evitar el interbloqueo."
+                ],
+                "goodAnswers": [
+                    "Ninguna de las anteriores es correcta."
+                ]
+            },
+            {
+                "title": "La relación existente entre procesos e hilos es:",
+                "badAnswers": [
+                    "El Sistema Operativo debe manejar la misma información que para el mantenimiento de los procesos.",
+                    "Los recursos podrán ser asociados tanto a los procesos como a los hilos.",
+                    "Los procesos son estructuras ligeras mientras que los hilos son estructuras pesadas."
+                ],
+                "goodAnswers": [
+                    "Los hilos están asociados al proceso que los crea."
+                ]
+            },
+                {
+                "title": "La posibilidad que nos permite un sistema multihilo es:",
+                "badAnswers": [
+                    "No ofrece ninguna ventaja sobre un sistema multiproceso.",
+                    "Son un elemento presente en todos los Sistemas Operativos.",
+                    "Ninguna de las anteriores es correcta."
+                ],
+                "goodAnswers": [
+                    "Permite una mejor paralización de un problema sin necesidad de crear nuevos procesos."
+                ]
+            },
+            {
+                "title": "Para poder seguir la ejecución de un hilo será necesario almacenar:",
+                "badAnswers": [
+                    "Una cantidad de información similar a la necesaria para gestionar un proceso.",
+                    "La información de contexto, pila y recursos asignados.",
+                    "Ninguna de las anteriores es correcta."
+                ],
+                "goodAnswers": [
+                    "Al menos la información de contexto y pila."
+                ]
+            },
+            {
+                "title": "La exclusión mutua entre diferentes procesos garantiza:",
+                "badAnswers": [
+                    "No es necesario garantizar la exclusión mutua entre procesos.",
+                    "Sólo es necesaria en Sistemas Distribuidos.",
+                    "El acceso seguro a los recursos compartidos."
+                ],
+                "goodAnswers": [
+                    "El acceso seguro a la información compartida entre procesos."
+                ]
+            },
+            {
+                "title": "El algoritmo de Dekker:",
+                "badAnswers": [
+                    "Soluciona el problema de sincronización entre procesos.",
+                    "Es un algoritmo incorrecto para la solución de la exclusión mutua.",
+                    "Sufre de inanición para el problema de la exclusión mutua."
+                ],
+                "goodAnswers": [
+                    "Soluciona mediante espera ocupada el problema de la exclusión mutua."
+                ]
+            },
+            {
+                "title": "El algoritmo de Peterson frente al de Dekker:",
+                "badAnswers": [
+                    "Tiene una mejor solución para el problema de sincronización entre procesos.",
+                    "No tiene el problema de espera ocupada que sí tiene el de Dekker.",
+                    "Es más eﬁciente que el algoritmo de Dekker."
+                ],
+                "goodAnswers": [
+                    "Ninguna de las anteriores es correcta."
+                ]
+            },
+            {
+                "title": "Los semáforos son",
+                "badAnswers": [
+                    "Herramientas que solucionan el problema de la exclusión mutua.",
+                    "Herramientas para el problemas de concurrencia en Sistemas Distribuidos.",
+                    "Ninguna de las anteriores es correcta."
+                ],
+                "goodAnswers": [
+                    "Una estructura de datos con operaciones atómicas para su manejo."
+                ]
+            },
+            {
+                "title": "La inicialización de la variable de un semáforo:",
+                "badAnswers": [
+                    "No se iniciativa en un ciclo de vida.",
+                    "Puede inicializarse tantas veces como se quiera.",
+                    "Ninguna de las anteriores es correcta."
+                ],
+                "goodAnswers": [
+                    "Sólo puede hacerse una única vez en su ciclo de vida."
+                ]
+            },
+            {
+                "title": "La operación signal(..) de un semáforo:",
+                "badAnswers": [
+                    "Incrementará siempre el valor de la variable del semáforo.",
+                    "No hará nada a la variable del semáforo.",
+                    "Si hay procesos bloqueados no incrementará el valor de la variable del semáforo."
+                ],
+                "goodAnswers": [
+                    "Ninguna de las anteriores es correcta."
+                ]
+            },
+            {
+                "title": "Los monitores en relación a los semáforos:",
+                "badAnswers": [
+                    "Son herramientas de más bajo nivel de programación.",
+                    "No ayudan más que los semáforos.",
+                    "Ninguna de las anteriores es correcta."
+                ],
+                "goodAnswers": [
+                    "Son herramientas de más alto nivel de programación con una estructura que ayuda a la corrección del programa."
+                ]
+            },
+            {
+                "title": "La característica principal de un monitor es:",
+                "badAnswers": [
+                    "Solucionan el problema de la sincronización entre procesos     concurrentes.",
+                    "Sólo hay un proceso en el monitor en cada momento.",
+                    "Ninguna de las anteriores es correcta."
+                ],
+                "goodAnswers": [
+                    "Todas las funciones se ejecutan en exclusión mutua."
+                ]
+            },
+            {
+                "title": "Las variables de condición en un monitor:",
+                "badAnswers": [
+                    "Garantizan la exclusión mutua de las funciones del monitor.",
+                    "Son como los semáforos dentro del monitor.",
+                    "Controlan diferentes condiciones dentro del monitor."
+                ],
+                "goodAnswers": [
+                    "Son necesarias para poder mantener la sincronización de los procesos dentro del monitor."
+                ]
+            },
+            {
+                "title": "El paso de mensajes entre procesos es necesario para:",
+                "badAnswers": [
+                    "El correcto funcionamiento entre procesos dentro de los    Sistemas Concurrentes.",
+                    "Permite intercambiar información entre procesos.",
+                    "Soluciona el problema de la exclusion mutua entre procesos en un Sistema Distribuido."
+                ],
+                "goodAnswers": [
+                    "El correcto funcionamiento entre procesos en un Sistema    Distribuido."
+                ]
+            },
+            {
+                "title": "En la comunicación directa entre procesos es necesario:",
+                "badAnswers": [
+                    "Conocer el destinatario del mensaje.",
+                    "Conocer el remitente del mensaje.",
+                    "No se requiere ningún tipo de identiﬁcación."
+                ],
+                "goodAnswers": [
+                    "El emisor debe conocer al destinatario y el receptor al remitente."
+                ]
+            },
+            {
+                "title": "En la comunicación asíncrona entre procesos:",
+                "badAnswers": [
+                    "El buﬀer sólo se comparte entre emisor y receptor.",
+                    "No ha necesidad de buﬀer en la transmisión.",
+                    "El tama˜no de buﬀer debe especiﬁcarse en la comunicación."
+                ],
+                "goodAnswers": [
+                    "Ninguna de las anteriores es correcta."
+                ]
+            },
+            {
+                "title": "En la comunicación asíncrona entre procesos:",
+                "badAnswers": [
+                    "La primitiva de envío bloqueará el emisor.",
+                    "Ninguna primitiva de envío o recepción bloquearán a los    procesos implicados.",
+                    "Ambas primitivas de envío o recepción bloquearán a los procesos implicados."
+                ],
+                "goodAnswers": [
+                    "La primitiva de recepción bloqueará al proceso si no hay   datos en en buzón."
+                ]
+            },
+            {
+                "title": "En el problema del productor/consumidor si la primitiva de envío no bloquea al productor:",
+                "badAnswers": [
+                    "El emisor deberá asegurarse que el consumidor est´e disponible .",
+                    "No hay solución posible con esa suposición de partida.",
+                    "Ninguna de las anteriores es correcta."
+                ],
+                "goodAnswers": [
+                    "Deberemos utilizar un buzón de tama˜no indeﬁnido."
+                ]
+            },
+            {
+                "title": "En la comunicación síncrona entre procesos:",
+                "badAnswers": [
+                    "El emisor espera siempre al receptor antes de iniciar la   transmisión.",
+                    "El receptor espera siempre al emisor antes de iniciar la   transmisión.",
+                    "Ni emisor ni receptor esperan antes de iniciar la transmisión. "
+                ],
+                "goodAnswers": [
+                    "El primero que alcanza la primitiva de comunicación deberá esperar hasta que el otro alcance la suya antes de iniciar la transmisión."
+                ]
+            },
+            {
+                "title": "La utilización de un canal:",
+                "badAnswers": [
+                    "Establecerá el tipo de sincronización necesaria en la  comunicación.",
+                    "Permitirá el almacenamiento de información para la     comunicación entre procesos.",
+                    "Ninguna de las anteriores es correcta."
+                ],
+                "goodAnswers": [
+                    "Establecerá el tipo de información que se transmitirán emisor  y receptor en una comunicación síncrona."
+                ]
+            },
+            {
+                "title": "La utilización de un canal de sincronización:",
+                "badAnswers": [
+                    "Permite deﬁnir un tipo por defecto en la comunicación síncrona .",
+                    "No existe ese tipo de canales.",
+                    "Es el tipo de canales habituales en las comunicaciones sínconas."
+                ],
+                "goodAnswers": [
+                    "Se utilizará como elemento de sincronización entre procesos    en entornos remotos."
+                ]
+            },
+            {
+                "title": "La llamada a procedimiento remoto:",
+                "badAnswers": [
+                    "Es un tipo de comunicación habitual en Sistemas Distribuidos." ,
+                    "Es un elemento necesario en la estructura de los Sistemas  Distribuidos.",
+                    "Ninguna de las anteriores es correcta."
+                ],
+                "goodAnswers": [
+                    "Permite la ejecución de un procedimiento presente en un    proceso remoto dentro de un Sistema Distribuido."
+                ]
+            },
+            {
+                "title": "Un proceso que invoca una llamada a procedimiento remoto:",
+                "badAnswers": [
+                    "No esperará a la respuesta por parte del proceso remoto.",
+                    "Sólo implica una degradación de las prestaciones del proceso   dentro del sistema.",
+                    "El programador deberá conocer información relativa a la estructura del proceso remoto."
+                ],
+                "goodAnswers": [
+                    "Desde el punto de vista del programador es trasparente como    si utilizara una biblioteca perteneciente a su sistema."
+                ]
+            },
+            {
+                "title": "En el proceso de resolución de una llamada a procedimiento remoto:",
+                "badAnswers": [
+                    "Los mensajes que han de transmitirse deberá confeccionarlos    el programador.",
+                    "El programador deberá tener presente la codiﬁcación de la  información el la máquina remota.",
+                    "Ninguna de las anteriores es correcta."
+                ],
+                "goodAnswers": [
+                    "Es responsabilidad del sistema la solución a la transmisión    de la información."
+                ]
+            },
+            {
+                "title": "En la llamada a procedimiento remoto:",
+                "badAnswers": [
+                    "Los dos sistemas deberán tener una misma arquitectura.",
+                    "Deberá ser el mismo Sistema Operativo en las máquinas remotas. ",
+                    "Se utilizará el mismo lenguaje de programación para codiﬁcar   los procesos."
+                ],
+                "goodAnswers": [
+                    "Ninguna de las anteriores es correcta."
+                ]
+            },
+        ]
+    };
+
+    init();
+};
+</script>
