@@ -66,7 +66,7 @@ html.no-js .entry:last-child{padding-bottom:6em;}
 .entry>.content>p,.entry>.content>blockquote{text-align:justify;}
 .entry>.content>blockquote{border-left:solid 0.4em #f38630;padding-left:0.75em;margin-left:0.25em;margin-right:0;}.entry>.content>blockquote ul{margin-left:1em;padding-left:0;}
 .entry>.content>ul{padding-left:1.5em;}
-.entry>.content>pre,.entry>.content>embed,.entry>.content>iframe,.entry>.content>.highlight{max-width:90%;margin:0 auto;padding:2%;border:dotted #e1e1e1 thin;overflow-x:auto;}
+.entry>.content>pre,.entry>.content>div,.entry>.content>embed,.entry>.content>iframe,.entry>.content>.highlight{max-width:90%;margin:0 auto;padding:2%;border:dotted #e1e1e1 thin;overflow-x:auto;}
 .entry>.content pre,.entry>.content code{background-color:#f4f6ed;}
 .entry>.content>pre,.entry>.content>.highlight,.entry>.content>p code,.entry>.content>blockquote code,.entry>.content>ul code{margin:0 auto;border:solid thin #69d2e7;padding:0.1em 1em;border-radius:0.25em;}
 .entry>.content>p code,.entry>.content>blockquote code,.entry>.content>ul code{display:inline-block;padding:0.1em;}
