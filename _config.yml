@@ -118,6 +118,9 @@ quotes:
   - { quote: "Cada vez que alguien no documenta un trozo de código dios mata un gatito.",
       origin: "Pablo Molina",
       link: "https://twitter.com/p2kmgcl/status/340011188752629760" }
+  - { quote: "Join us now and share the software; You'll be free, hackers, you'll be free.",
+      origin: "Canción del Software Libre",
+      link: "http://es.wikipedia.org/wiki/Free_Software_Song" }
 
 # Activa el uso de la librería less (javascript)
 less:
