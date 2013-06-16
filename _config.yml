@@ -131,7 +131,7 @@ less:
 
 # Módulos de la web (/script/modules)
 jsmodules:
-  - infinitescroll
+  #- infinitescroll
   - cheatlist
   - randomquote
   - introwaypoint
