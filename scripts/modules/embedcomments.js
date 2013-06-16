@@ -4,8 +4,8 @@
 p2kmgcl.modules.embedComment = function (opts, args) {
     var $link       = $(args.link),
         $parent     = $link.parents('footer'),
+        shortname   = args.shortname,
         identifier  = args.identifier,
-        url         = args.url,
         $disqus     = null,
         $htmlbody   = $('html, body'),
         $document   = $(document),
@@ -45,6 +45,12 @@ p2kmgcl.modules.embedComment = function (opts, args) {
     opts.proto.lastLinkOnClick = $link.attr('onclick');
     $link.removeAttr('onclick');
 
+    // Actualiza las variables de disqus
+    disqus_shortname = shortname;
+    disqus_identifier = identifier;
+    disqus_url = args.url;
+    disqus_title = args.title;
+
     if (window.DISQUS) {
         $disqus = $('#disqus_thread');
 
@@ -70,14 +76,11 @@ p2kmgcl.modules.embedComment = function (opts, args) {
         scrollToFooter(900, catchScroll);
         $disqus = $('<div id="disqus_thread"></div>');
         $disqus.appendTo($parent);
-        
-        disqus_identifier = identifier;
-        disqus_url = url;
 
         var dsq = document.createElement('script');
             dsq.type = 'text/javascript';
             dsq.async = true;
-            dsq.src = 'http://' + disqus_identifier + '.disqus.com/embed.js';
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         $('head').append(dsq);
     }
 };

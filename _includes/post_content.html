@@ -38,7 +38,10 @@
             <div id="disqus_thread"></div>
             <script type="text/javascript">
                 var disqus_shortname = '{{ site.data.disqus }}',
-                    disqus_identifier = '{{ site.web.url }}{{ page.url }}';
+                    disqus_identifier = '{{ page.url }}',
+                    disqus_url = '{{ site.web.url }}{{ post.url }}',
+                    disqus_title = "{{ post.title | replace:'"','\"' }}";
+
                 (function() {
                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                     
@@ -57,7 +60,7 @@
                 <i class="icon-share"></i>
                 <span>Compartir entrada</span>
             </a></li>
-            <li class="showComments"><a onclick="p2kmgcl.module('embedComment', true, { link: this, identifier: 'p2kmgcl', url: '{{ site.web.url }}{{ post.url }}' })">
+            <li class="showComments"><a onclick='p2kmgcl.module("embedComment", true, { link: this, shortname: "{{ site.data.disqus }}", identifier: "{{ post.url }}", url: "{{ site.web.url }}{{ post.url }}", title: "{{ post.title | replace:'"','\"' }}" })'>
                 <i class="icon-edit"></i>
                 <span>Lista de comentarios</span>
             </a></li>
