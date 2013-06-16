@@ -17,7 +17,8 @@ window.p2kmgcl = {
      * @return {boolean} True si está disponible, false si no. En caso de pasar varios módulos, devuelve true si todos existen.
      */
     module: function (modules, exec, args) {
-        var allAvailable = true,
+        var $html = $('html');
+            allAvailable = true,
             _module = null,
             _exec = null,
             _args = null,
@@ -48,6 +49,9 @@ window.p2kmgcl = {
             }
 
             if (typeof _module === 'function') {
+                $html
+                    .removeClass('no-js-module-' + modules[i])
+                    .addClass('js-module-' + modules[i]);
                 allAvailable = allAvailable && true;
             
                 // Solo lo ejecutamos si se indica
@@ -62,6 +66,9 @@ window.p2kmgcl = {
                     _module(_opts, (typeof _args === 'object') ? _args : {});
                 }
             } else {
+                $html
+                    .removeClass('js-module-' + modules[i])
+                    .addClass('no-js-module-' + modules[i]);
                 allAvailable = allAvailable && false;    
             }
         }
