@@ -6,20 +6,17 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 
 # Tareas pendientes
 
- - Optimizar tema de LoremIpsum:
-   - Adaptar tema a una pantalla aún más pequeña (480 y 240).
- - Agradecimiento: 
-   - Hacer comprobacion desde waypoint e insertar solo
-     si no estan los enlaces de cambio de página.
-   - Solo esconder los enlaces de cambio de página mientras se carga nuevo
-     contenido.
-   - Actualizar los enlaces de cambio de pagina para que funcione.
- - Añadir modulo para ocultar el menu en las versiones móviles.
- - Adaptar gráfico de programación para que se redimensione al cambiar el tamaño de la página.
- - Hacer que los enlaces del currículum sean enlaces externos.
+ - Activar navegación con AJAX.
  - Hacer que funcione la lista de trucos (comandos cheatlist, huevos de pascua, etc...).
 
 # Lista de cambios
+
+## 4.2.0 (2013-06-18)
+
+ - Web adaptada a móviles.
+ - Creadas varias categorías en el blog.
+ - Arreglados (definitivamente) los comentarios de disqus.
+ - Actualizadas las páginas de currículum y acerca de.
 
 ## 4.1.0 (2013-05-27)
 
