@@ -4,12 +4,14 @@
     width: 90%;
 
     > article {
-        margin-bottom: 5em;
+        margin-bottom: 3em;
 
-        > h1 {
+        > h1,
+        > header > h1 {
             font-size: 2em;
             font-weight: normal;
             padding-bottom: 0.25em;
+            text-align: left;
         }
     }
 }
@@ -26,8 +28,39 @@ body > section {
         display: none;
     }
 
+    > header {
+        margin: 0 auto;
+        margin-bottom: 4em;
+
+        > h1 {
+            font-weight: normal;
+            font-size: 2em;
+        }
+
+        > p {
+            text-align: justify;
+        }
+    }
+
+    &.feeds > header {
+        margin-bottom: 1em;
+    }
+
     @media (max-width: @sizeTablet) {
         margin: 0 auto;
         width: 100%;
+
+        > header {
+            width: 90%;
+            margin-bottom: 3em;
+        }
+
+        &.feeds {
+            width: 90%;
+            > header {
+                width: 100%;
+                margin-bottom: 1em;
+            }
+        }
     }
 }
