@@ -113,7 +113,7 @@ html.no-canvas .curriculum>.programming>ul>li,html.no-js .curriculum>.programmin
 .blog.personal{margin-top:0.25em;}
 .blog>.articleList{position:relative;}@media (max-width:640px){.blog>.articleList{margin-top:5em;}}.blog>.articleList>h1{display:none;}
 .blog>.articleList.infinite-loading:after{content:"Cargando más artículos...";display:block;position:fixed;bottom:0;left:0;width:95%;padding:2.5%;font-weight:bolder;background-color:#ffffff;box-shadow:0 0 1em #ffffff,0 0 4em #ffffff;text-align:center;}
-.blog .pagination{text-align:center;font-size:1.25em;font-weight:bold;padding-bottom:1em;position:relative;top:2em;left:-0.1em;}.blog .pagination>header,.blog .pagination>h1,.blog .pagination>a>span{display:none;}
+.blog .pagination{text-align:center;font-size:17.5px;font-weight:bold;padding-bottom:1em;position:relative;top:2em;left:-0.1em;}.blog .pagination>header,.blog .pagination>h1,.blog .pagination>a>span{display:none;}
 .blog .pagination>span.previous,.blog .pagination>span.next{opacity:0.2;max-width:0.5em;overflow:hidden;display:inline-block;}.blog .pagination>span.previous>span,.blog .pagination>span.next>span{display:none;}
 .blog .pagination>.previous,.blog .pagination>.next{border-bottom:none;font-size:1.75em;position:relative;top:0.125em;padding:0 0.6em;}
 .blog .pagination>.pageNumber{font-size:0.8em;color:#a2a2a2;}.blog .pagination>.pageNumber>.current,.blog .pagination>.pageNumber>.total{color:#222222;font-size:1.2em;padding:0 0.3em;}
