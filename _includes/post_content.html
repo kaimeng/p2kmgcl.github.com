@@ -11,7 +11,7 @@
             <a class="author" href="{{ site.author.googleAuthorship }}">Por {{ site.author.name }}</a>
         {% endif %}
 
-        {% if post_type == 'list' and post.image %}
+        {% if post_type == 'cover' and post.image %}
             <img src="{{ site.data.imagePath }}{{ post.url | replace:'.html','.jpg' }}" title="{{ post.image }}" alt="{{ post.image }}" class="cover" />
         {% endif %}
     </header>
