@@ -1,3 +1,11 @@
+body > section.blog {
+    font-size: 0;
+
+    > * {
+        font-size: @bodyFontSize;
+    }
+}
+
 .entry {
     position:       relative;
     padding-bottom: 6em;
@@ -12,11 +20,13 @@
         }
     }
 
-    &.cover {
-        border: solid black thin;
-        padding: 10em 1%;
-        margin: 1em 1%;
-        width: 45%;
+    &.cover {        
+        padding: 0;
+        margin: 1em 2%;
+        box-sizing: border-box;
+        border: solid @black thin;
+        width: 46%;
+        height: 8em;
         display: inline-block;
         background-size: cover;
         overflow: hidden;
@@ -26,12 +36,9 @@
         transition: ease 0.1s;
         transition-property: box-shadow, transform;
 
-        @media (max-width: @sizePhone) {
-            width: 100%;
-            padding: 5em 0;
-            margin: 0.1em auto;
-            float: left;
-            border: none;
+        @media (max-width: @sizeSmall) {
+            width: 96%;
+            margin: 0.5em 2%;
         }
 
         &:after {
@@ -49,15 +56,15 @@
             
             padding: 0.2em;
 
-            font-size: 0.9em;
-            color: @bodyBgColor;
-            background-color: fadeout(@black, 30%);
-            text-shadow: 0.1em 0.1em 0.1em @black,
-                         0 0 0.1em @black;
-            
+            font-size: 0.5em;
+            font-weight: normal;
+            color: fadeout(@black, 5%);
+            background-color: fadeout(@bodyBgColor, 10%);
+            text-shadow: 1px 1px 1px @bodyBgColor, 5%;
             opacity: 1;
+            
             transition: ease 0.5s;
-            transition-property: opacity;
+            transition-property: background-color, opacity;
 
             @media (max-width: @sizePhone) {
                 padding-top: 1em;
@@ -66,7 +73,7 @@
         }
 
         &:hover {
-            box-shadow: 0 0 1em @black;
+            box-shadow: 0 0 1em lighten(@black, 40%);
             transform: scale(1.02);
 
             @media (max-width: @sizePhone) {
@@ -75,11 +82,57 @@
             }
 
             > header > h1 > a {
-                opacity: 0;
+                opacity: 0.3;
+                background-color: fadeout(@bodyBgColor, 70%);
             }
         }
 
         > header > time {
+            display: none;
+        }
+    }
+
+    &.list {
+        padding: 0.5em 1em;
+        margin: 0.2em auto;
+        width: 100%;
+        box-sizing: border-box;
+        background-color: darken(@bodyBgColor, 5%);
+
+        &:nth-child(odd) {
+            background-color: darken(@bodyBgColor, 1%);
+        }
+
+        > header {
+            padding: 0;
+            margin: 0 auto;
+            width: 100%;
+            font-size: 0;
+
+            > h1,
+            > time {
+                padding: 0;
+                margin: 0 auto;
+                box-sizing: border-box;
+                display: table-cell;
+                vertical-align: bottom;
+            }
+
+            > h1 {
+                font-size: @bodyFontSize * 1.2;
+                font-family: @bodyFont;
+                font-weight: bold;
+            }
+
+            > time {
+                font-size: @bodyFontSize * 1.75;
+                min-width: 6em;
+                text-align: right;
+                opacity: 0.8;
+            }
+        }
+
+        &:after {
             display: none;
         }
     }
