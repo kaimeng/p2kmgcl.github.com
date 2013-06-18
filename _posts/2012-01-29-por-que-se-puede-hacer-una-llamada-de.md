@@ -1,5 +1,6 @@
 ---
 title: ¿Por qué se puede hacer una llamada de emergencia sin cobertura?
+layout: post
 image: Samsung Galaxy Mini con una antena de telefonía de fondo
 tags: [Móvil, Sociedad, Tecnología, Veo y no creo]
 ---

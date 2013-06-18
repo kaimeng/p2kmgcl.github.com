@@ -1,5 +1,6 @@
 ---
 title: ¿Tiene eco el graznido de un pato?
+layout: post
 image: El Pato Donald (Disney) pescando
 tags: [Animales, Mitos y Leyendas, Veo y no creo]
 ---
