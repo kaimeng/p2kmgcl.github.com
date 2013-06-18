@@ -6,12 +6,26 @@
         <h1>Menú principal</h1>
         
         <ul>
-            <li{% if "/index.html" == page.url %} class="current"{% endif %}>
+            <li class="home{% if "/index.html" == page.url %} current{% endif %}">
                 <i class="icon-home"></i>
                 <a href="/">Inicio</a>
             </li>
-            {% for _page in site.pages %}{% if _page.title and _page.menu %}
-            <li{% if _page.url == page.url %} class="current"{% endif %}>
+            <li class="blog {% if page.url == "/pages/programming.html" or page.url == "/pages/personal.html" or page.url == "/pages/rare.html" %} current {% endif %}">
+                <i class="icon-book"></i>
+                <span>Blog</span>
+
+                <ul>
+                    {% for _page in site.pages %}{% if _page.title and _page.menu and _page.blog == true %}
+                    <li class="{{ _page.menu }}{% if _page.url == page.url %} current{% endif %}">
+                        <i class="icon-{{ _page.icon }}"></i>
+                        <a href="{{ _page.url }}">{{ _page.title }}</a>
+                    </li>
+                    {% endif %}{% endfor %}
+                </ul>
+            </li>
+
+            {% for _page in site.pages %}{% if _page.title and _page.menu and _page.blog != true %}
+            <li class="{{ _page.menu }}{% if _page.url == page.url %} current{% endif %}">
                 <i class="icon-{{ _page.icon }}"></i>
                 <a href="{{ _page.url }}">{{ _page.title }}</a>
             </li>

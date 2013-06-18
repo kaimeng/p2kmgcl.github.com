@@ -2,7 +2,7 @@
 title: Currículum
 layout: page
 icon: file-alt
-menu: true
+menu: curriculum
 date: 2013-05-28
 ---
 
@@ -10,26 +10,29 @@ date: 2013-05-28
     <h1>Currículum</h1>
 
     <article class="version">
-        <h1>Enlace a Google Drive</h1>
+        <h1>Currículum completo</h1>
 
         <p><em>Última versión</em>: 1.4.1 (15/01/2013)</p>
         <p>El documento presentado a continuación <strong>es un currículum genérico</strong> que puede descargarse en los siguientes idiomas:
             <ul>
-                <li><a href="https://docs.google.com/document/d/1wgut7Ehze7gUIOD5ZwOzkE3UVSl54MviwaXHPzpdAM8/edit">Español</a></li>
-                <li><a href="https://docs.google.com/document/d/1Jau47thoOk-C2p8tYMRHBc_VCDK518LzrgWYbF4OxM4/edit">English</a></li>
+                <li><a href="https://docs.google.com/document/d/1wgut7Ehze7gUIOD5ZwOzkE3UVSl54MviwaXHPzpdAM8/edit" target="_blank">Español</a></li>
+                <li><a href="https://docs.google.com/document/d/1Jau47thoOk-C2p8tYMRHBc_VCDK518LzrgWYbF4OxM4/edit" target="_blank">English</a></li>
             </ul>
         Para acceder al documento no tienes más que pinchar en uno de los enlaces. Aparecerá la web de Google Drive, puedes descargarlo en el menú <code>Archivo > Descargar como</code>.
         </p>
 
-        <p><strong>Si deseas algo más específico</strong> no dudes en pedirme la información que necesites en <a href="mailto:contact@pablomolina.me">mi correo</a> o cualquier enlace que encuentres.</p>
+        <p><strong>Si deseas algo más específico</strong> no dudes en pedirme la información que necesites en <a href="mailto:contact@pablomolina.me" target="_blank">mi correo</a> o cualquier enlace que encuentres.</p>
     </article>
 
     <article class="programming">
-        <h1>Conocimientos de programación</h1>
+        <header>
+            <h1>Conocimientos de programación</h1>
+            <p>A continuación se muestran algunas de mis habilidades programando, desde programas manejados hasta lenguajes de programación o herramientas con las que estoy familiarizado. Es posible que haya olvidado algo, así que si buscas algo que no aparezca en la lista <a href="mailto:contact@pablomolina.me" target="_blank">pregúntame</a>.</p>
+        </header>
 
         <ul>{% for language in site.author.programminglanguages %}
             <li class="{{ language.name }}" data-level="{{ language.level }}">
-                <a href="{{ language.link }}" target="_blank">{{ language.title }}</a>
+                <a href="{{ language.link }}" target="_blank" title="{{ language.title }}">{{ language.title }}</a>
             </li>
         {% endfor %}</ul>
     </article>

@@ -19,12 +19,7 @@ icon: home
     {% if paginator.page == 1 %}
     <article class="blogSeparation">
         <h1>Secciones del blog</h1>
-        <p>Las secciones mostradas a continuación son una pequeña separación de todo el contenido del blog. Si quieres leer un poco de todo puedes seguir bajando y tendrás todas las entradas entre mezcladas. Dicen que si haces eso encontrarás un premio, aunque quien sabe...</p>
-
-        <ul>
-            <li><a href="/pages/programming.html"><strong>Programación</strong></a>: <span>Entradas dedicadas exclusivamente a temas tecnológicos, informáticos, y de ceros y unos en general.</span></li>
-            <li><a href="/pages/personal.html"><strong>Personal</strong></a>: <span>Entradas algo más personales que que podrían llamarse poesías, aunque ciertamente son desahogos escritos.</span></li>
-        </ul>
+        <p>Las entradas que se listan a continuación son <strong>todas</strong> las entradas del blog ordenadas por fecha. Si quieres algo más organizado, consulta en el menú principal las distintas categorías.</p>
     </article>
     {% endif %}
 
@@ -49,6 +44,6 @@ icon: home
             <span class="total">{{ paginator.total_pages }}</span>
         </span>
 
-        {% if paginator.next_page %}<a href="/page{{ paginator.next_page }}" class="next infinite-more-link"><i class="icon-caret-right"></i><span>Siguiente</span></a>{% else %}<span class="next"><i class="icon-caret-left"></i><span>Siguiente</span></span>{% endif %}
+        {% if paginator.next_page %}<a href="/page{{ paginator.next_page }}" class="next infinite-more-link"><i class="icon-caret-right"></i><span>Siguiente</span></a>{% else %}<span class="next"><i class="icon-caret-right"></i><span>Siguiente</span></span>{% endif %}
     </nav>
 </section>

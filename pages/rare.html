@@ -1,0 +1,20 @@
+---
+layout: page
+title: Rarezas
+icon: barcode
+menu: rare
+blog: true
+---
+
+<section class="blog programming">
+    <header>
+        <h1>Blog - Rarezas</h1>
+        <p>Estas entradas no tienen un tema concreto y pueden haber sido escritas como anuncio, un pensamiento mal elaborado o un intento de programación que quedó en nada. De todas formas ¿quién sabe? a lo mejor encuentras algo interesante...</p>
+    </header>
+
+    {% for post in site.posts %}{% if post.categories == empty %}
+        {% assign content = post.content %}
+        {% assign post_type = 'list' %}
+        {% include post_content.html %}
+    {% endif %}{% endfor %}
+</section>
