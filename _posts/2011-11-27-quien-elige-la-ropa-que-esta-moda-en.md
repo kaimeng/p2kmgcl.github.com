@@ -1,5 +1,6 @@
 ---
 title: ¿Quién elige la ropa que esta "de moda" en cada temporada?
+layout: post
 image: Princesas Disney
 tags: [Ropa, Sociedad, Veo y no creo]
 ---

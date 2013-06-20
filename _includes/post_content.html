@@ -6,9 +6,9 @@
         {% comment %} Si hay un autor en la entrada muestra a éste,
            en caso contrario muestra al autor por defecto {% endcomment %}
         {% if post.author and post.author_url %}
-            <a class="author" href="{{ post.author_url }}">{{ post.author }}</a>
+            <a class="author" href="{{ post.author_url }}" target="_blank">{{ post.author }}</a>
         {% else %}
-            <a class="author" href="{{ site.author.googleAuthorship }}">Por {{ site.author.name }}</a>
+            <a class="author" href="{{ site.author.googleAuthorship }}" target="_blank">Por {{ site.author.name }}</a>
         {% endif %}
 
         {% if post_type == 'cover' and post.image %}

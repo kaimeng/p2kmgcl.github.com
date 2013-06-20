@@ -14,6 +14,8 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 ## Actuales
 
  - Módulos movidos a una nueva carpeta para que jekyll los una todos.
+ - Actualizado sitemap.xml para páginas sin fecha (se toma la actual) y cambiadas las prioridades de las páginas.
+ - Añadido metadato excerpt a las páginas para que no se repita la metadescripción de cada página.
 
 ## 4.2.0 (2013-06-18)
 
