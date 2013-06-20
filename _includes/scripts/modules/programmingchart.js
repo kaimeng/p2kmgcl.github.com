@@ -2,7 +2,7 @@
  * Crea un gráfico a partir de la lista de habilidades de programación
  * y lo inserta en el currículum.
  */
-p2kmgcl.modules.programmingChart = function () {
+function () {
     var $curriculum = $(".page.curriculum"),
         $programming = $curriculum.find("> .programming"),
         $valueList = $programming.find("> ul"),
@@ -53,4 +53,4 @@ p2kmgcl.modules.programmingChart = function () {
         }
         return arguments.callee;
     }()));
-};
+}

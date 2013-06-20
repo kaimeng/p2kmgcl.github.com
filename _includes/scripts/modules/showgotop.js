@@ -1,7 +1,7 @@
 /**
  * Muestra el elemento de volver arriba cuando es necesario.
  */
-p2kmgcl.modules.showGoTop = function () {
+function () {
     var $goTop = $('.goTop');
 
     $('.goTop').on('click', function () {
@@ -18,4 +18,4 @@ p2kmgcl.modules.showGoTop = function () {
             $goTop.addClass('shown');
         }
     }, { offset: '-50%' });
-};
+}

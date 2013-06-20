@@ -1,7 +1,7 @@
 /**
  * Muestra solo una de las notas de la cabecera.
  */
-p2kmgcl.modules.randomQuote = function () {
+function () {
     $('.randomQuotes > ul').each(function () {
         var $li = $(this).find(' > .quoteWrapper'),
             $old = $(this).find(' > .quoteWrapper.chosen'),
@@ -13,4 +13,4 @@ p2kmgcl.modules.randomQuote = function () {
             $($li[rand]).addClass('chosen');
         }
     });
-};
+}

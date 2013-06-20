@@ -1,7 +1,7 @@
 /**
  * Añade los comentarios de disqus a la entrada actual para que el usuario pueda comentar.
  */
-p2kmgcl.modules.embedComment = function (opts, args) {
+function (opts, args) {
     var $link       = $(args.link),
         $parent     = $link.parents('footer'),
         shortname   = args.shortname,
@@ -83,4 +83,4 @@ p2kmgcl.modules.embedComment = function (opts, args) {
             dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         $('head').append(dsq);
     }
-};
+}

@@ -3,7 +3,7 @@
  * página a página por un bonito scroll infinito mucho
  * más interesante.
  */
-p2kmgcl.modules.infiniteScroll = function (opts) {
+function (opts) {
     var $blog = $('.blog'),
         $pagination = $blog.find('> .pagination'),
         $infiniteContainer = $blog.find('> .infinite-container'),
@@ -44,4 +44,4 @@ p2kmgcl.modules.infiniteScroll = function (opts) {
             }
         }
     });
-};
+}

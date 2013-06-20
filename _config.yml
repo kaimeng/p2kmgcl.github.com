@@ -128,13 +128,3 @@ less:
   env:         "development"
   bin:         "lessc"
   path:        "styles"
-
-# Módulos de la web (/script/modules)
-jsmodules:
-  #- infinitescroll
-  - cheatlist
-  - randomquote
-  - introwaypoint
-  - showgotop
-  - programmingchart
-  - embedcomments

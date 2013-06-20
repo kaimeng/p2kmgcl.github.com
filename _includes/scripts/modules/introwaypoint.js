@@ -2,7 +2,7 @@
  * Crea una separación en la pantalla inicial que en principio
  * solo muestra la introducción.
  */
-p2kmgcl.modules.introWaypoint = function () {
+function () {
     // Añade la separación inicial
     $('.intro')
         .addClass('hiddenBlog')
@@ -14,4 +14,4 @@ p2kmgcl.modules.introWaypoint = function () {
                 $(this).removeClass('hiddenBlog');
             }
         }, { offset: '25%' });
-};
+}

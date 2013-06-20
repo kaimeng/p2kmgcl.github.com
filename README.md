@@ -11,6 +11,10 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 
 # Lista de cambios
 
+## Actuales
+
+ - Módulos movidos a una nueva carpeta para que jekyll los una todos.
+
 ## 4.2.0 (2013-06-18)
 
  - Web adaptada a móviles.
