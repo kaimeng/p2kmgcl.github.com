@@ -6,26 +6,18 @@
  * @type {Object}
  */
 window.p2kmgcl = new function () {
-    var _proto = this.constructor.prototype,
-        _themeFunction = function () {},
+    var _localKey = window.location.hostname,
+        _localStorage = {},
+
+        _proto = this.constructor.prototype,
         _modules = {
             //infiniteScroll:   {% comment %}{% include scripts/modules/infinitescroll.js %}{% endcomment %},
-            
             embedComment:       {% include scripts/modules/embedcomments.js %},
             introWaypoint:      {% include scripts/modules/introwaypoint.js %},
             programmingChart:   {% include scripts/modules/programmingchart.js %},
             randomQuote:        {% include scripts/modules/randomquote.js %},
             showGoTop:          {% include scripts/modules/showgotop.js %}
         };
-
-    /**
-     * Cambia la función que se activará cuando se ejecute el tema
-     * @param {function} themeFunction Nueva función a ejecutar
-     */
-    _proto.setThemeFunction = function (themeFunction) {
-        _themeFunction = themeFunction;
-        return this;
-    };
 
     /**
      * Comprueba si un módulo de nombre name existe. Debe estar almacenado en el objeto modules de la clase. Además si se pasa un parámetro adicional, lo ejecutará con los argumentos restantes pasados
@@ -102,21 +94,46 @@ window.p2kmgcl = new function () {
     };
 
     /**
+     * Obtiene datos del almacenamiento local
+     * @param {string} key Cadena de texto que identifica su ubicación
+     * @return {anything} El valor de la clave
+     */
+    _proto.getLocal = function (key) {
+        return _localStorage[key];
+    };
+
+    /**
+     * Actualiza la clave key con el valor val
+     * @param  {string} key Clave que se quiere actualizar
+     * @param  {anything} val Valor que quiere dársele
+     * @return {this}
+     */
+    _proto.setLocal = function (key, val) {
+        // Actualiza el valor
+        _localStorage[key] = val;
+        window.localStorage[_localKey] = JSON.stringify(_localStorage);
+
+        return this;
+    };
+
+    /**
      * La carga ha terminado, empecemos con el lio.
      */
     _proto.init = function () {
-        _themeFunction();
+        _localStorage = JSON.parse(window.localStorage[_localKey] || '{}');
+
+        _proto.module([
+            "introWaypoint",
+            "programmingChart",
+            "randomQuote",
+            "showGoTop"
+        ], true);
+        
         return this;
     };
 
     return this;
 };
-
-{% if site.less.js %}
-    // Lesscss
-    less = { env: "{{ site.less.env }}" };
-    {% include scripts/libs/less/less-1.3.3.min.js %}
-{% endif %}
 
 // Modernizr
 {% include scripts/libs/modernizr/modernizr-2.6.2-custom-36981.min.js %}
@@ -131,6 +148,10 @@ window.p2kmgcl = new function () {
 // jQuery Waypoints
 {% include scripts/libs/jquery_waypoints/waypoints-2.0.2.min.js %}
 {% include scripts/libs/jquery_waypoints/waypoints-infinite-2.0.2.min.js %}
+
+// Lesscss
+less = { env: "{{ site.less.env }}" };
+{% include scripts/libs/less/less-1.3.3.min.js %}
 
 // Finalmente activa el tema
 $(p2kmgcl.init);
