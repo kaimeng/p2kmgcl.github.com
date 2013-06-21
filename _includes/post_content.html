@@ -31,7 +31,7 @@
         <section class="share">
             <h1>Enlaces</h1>
 
-            <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl={{ site.web.url }}{{ post.url }}" target="_blank">
+            <a href="{{ site.data.shareUrl }}{{ site.web.url }}{{ post.url }}" target="_blank">
                 <i class="icon-share"></i>
                 <span>¿Te ha gustado? ¿te parece útil? ¿te gustan los gatitos? Comparte esta entrada y todos tus sueños se harán realidad.<em>*</em></span>
             </a>
@@ -60,7 +60,7 @@
         {% else %}
         
         <ul class="entryButtons">
-            <li class="shareButton"><a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl={{ site.web.url }}{{ post.url }}" target="_blank">
+            <li class="shareButton"><a href="{{ site.data.shareUrl }}{{ site.web.url }}{{ post.url }}" target="_blank">
                 <i class="icon-share"></i>
                 <span>Compartir entrada</span>
             </a></li>
@@ -70,16 +70,6 @@
             </a></li>
         </ul>
         {% endif %}
-        
-        <script type="text/javascript">
-            var a2a_config = a2a_config || {};
-            a2a_config.linkname = "{{ post.title | replace:'"','\"' }}";
-            a2a_config.linkurl = "{{ site.web.url }}{{ post.url }}";
-            a2a_config.locale = "es";
-            a2a_config.num_services = 6;
-            a2a_config.prioritize = ["google_plus", "facebook", "twitter", "tuenti", "reddit", "email"];
-        </script>
-        <script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
     </footer>
     {% endif %}
 </article>

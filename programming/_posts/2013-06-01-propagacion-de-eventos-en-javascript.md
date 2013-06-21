@@ -19,8 +19,7 @@ Además sabemos que **los estilos y el comportamiento son conceptos completament
 
 En el siguiente ejemplo `gchild` es hijo de `child` y de `parent`, y aunque con la posición absoluta lo hemos sacado de donde debería estar, los eventos siguen propagándose como si no hubiera pasado nada.
 
-<pre class="codepen" data-height="300" data-type="result" data-href="tbxkp" data-user="p2kmgcl" data-safe="true"><code></code><a href="http://codepen.io/p2kmgcl/pen/tbxkp">Check out this Pen!</a></pre>
-<script async src="http://codepen.io/assets/embed/ei.js"></script>
+<pre class="_cssdeck_embed" data-pane="output" data-user="p2kmgcl" data-href="propagacion-de-eventos-en-javascript" data-version="0"></pre><script async src="http://cssdeck.com/assets/js/embed.js"></script>
 
 Pero la pregunta es, ¿cómo ocurre esta propagación?, ¿en que orden se ejecutan estas funciones?, ¿puedo distinguir en que *estado* me encuentro?
 
