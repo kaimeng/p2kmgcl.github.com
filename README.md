@@ -11,12 +11,13 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 
 # Lista de cambios
 
-## Actuales
+## 4.3.0 (2013-06-21)
 
  - Módulos movidos a una nueva carpeta para que jekyll los una todos.
  - Librerías de estilos unidas (al igual que los módulos).
  - Actualizado sitemap.xml para páginas sin fecha (se toma la actual) y cambiadas las prioridades de las páginas.
  - Añadido metadato excerpt a las páginas para que no se repita la metadescripción de cada página.
+ - Añadido manifiesto de la caché para optimizar recursos.
 
 ## 4.2.0 (2013-06-18)
 
