@@ -31,7 +31,7 @@
         <section class="share">
             <h1>Enlaces</h1>
 
-            <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl={{ site.web.url }}{{ post.url }}" target="_blank">
+            <a href="{{ site.data.shareUrl }}{{ site.web.url }}{{ post.url }}" target="_blank">
                 <i class="icon-share"></i>
                 <span>¿Te ha gustado? ¿te parece útil? ¿te gustan los gatitos? Comparte esta entrada y todos tus sueños se harán realidad.<em>*</em></span>
             </a>
@@ -60,7 +60,7 @@
         {% else %}
         
         <ul class="entryButtons">
-            <li class="shareButton"><a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl={{ site.web.url }}{{ post.url }}" target="_blank">
+            <li class="shareButton"><a href="{{ site.data.shareUrl }}{{ site.web.url }}{{ post.url }}" target="_blank">
                 <i class="icon-share"></i>
                 <span>Compartir entrada</span>
             </a></li>
