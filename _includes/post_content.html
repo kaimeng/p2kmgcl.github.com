@@ -70,16 +70,6 @@
             </a></li>
         </ul>
         {% endif %}
-        
-        <script type="text/javascript">
-            var a2a_config = a2a_config || {};
-            a2a_config.linkname = "{{ post.title | replace:'"','\"' }}";
-            a2a_config.linkurl = "{{ site.web.url }}{{ post.url }}";
-            a2a_config.locale = "es";
-            a2a_config.num_services = 6;
-            a2a_config.prioritize = ["google_plus", "facebook", "twitter", "tuenti", "reddit", "email"];
-        </script>
-        <script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
     </footer>
     {% endif %}
 </article>
