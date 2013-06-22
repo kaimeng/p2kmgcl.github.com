@@ -1,4 +1,4 @@
-<article class="entry infinite-item {{ post_type }}{% if post.categories %} {{ post.categories | join:' ' }}{% endif %}" {% if post_type == 'cover' %}style="background-image: url({{ site.data.imagePath }}{{ post.url | replace:'.html','.jpg' }})"{% endif %}>
+<article class="entry infinite-item {{ post_type }}{% if post.categories %} {{ post.categories | join:' ' }}{% endif %}" {% if post_type == 'cover' and post.image %}style="background-image: url({{ site.data.imagePath }}{{ post.url | replace:'.html','.jpg' }})"{% endif %}>
     <header>
         <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
         <time>{{ post.date | date: "%d-%m-%Y" }}</time>
@@ -9,10 +9,6 @@
             <a class="author" href="{{ post.author_url }}" target="_blank">{{ post.author }}</a>
         {% else %}
             <a class="author" href="{{ site.author.googleAuthorship }}" target="_blank">Por {{ site.author.name }}</a>
-        {% endif %}
-
-        {% if post_type == 'cover' and post.image %}
-            <img src="{{ site.data.imagePath }}{{ post.url | replace:'.html','.jpg' }}" title="{{ post.image }}" alt="{{ post.image }}" class="cover" />
         {% endif %}
     </header>
     
@@ -44,7 +40,7 @@
                 var disqus_shortname = '{{ site.data.disqus }}',
                     disqus_identifier = '{{ page.url }}',
                     disqus_url = '{{ site.web.url }}{{ post.url }}',
-                    disqus_title = "{{ post.title | replace:'"','\"' }}";
+                    disqus_title = "{{ post.title | replace:'"','\"' | replace: "'", "\'" }}";
 
                 (function() {
                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -64,7 +60,7 @@
                 <i class="icon-share"></i>
                 <span>Compartir entrada</span>
             </a></li>
-            <li class="showComments"><a onclick='p2kmgcl.module("embedComment", true, { link: this, shortname: "{{ site.data.disqus }}", identifier: "{{ post.url }}", url: "{{ site.web.url }}{{ post.url }}", title: "{{ post.title | replace:'"','\"' }}" })'>
+            <li class="showComments"><a onclick='p2kmgcl.module("embedComment", true, { link: this, shortname: "{{ site.data.disqus }}", identifier: "{{ post.url }}", url: "{{ site.web.url }}{{ post.url }}", title: "{{ post.title | replace:'"','\"' | replace: "'", "\'" }}" })'>
                 <i class="icon-edit"></i>
                 <span>Lista de comentarios</span>
             </a></li>
