@@ -1,4 +1,6 @@
-<article class="entry infinite-item {{ post_type }}{% if post.categories %} {{ post.categories | join:' ' }}{% endif %}" {% if post_type == 'cover' and post.image %}style="background-image: url({{ site.data.imagePath }}{{ post.url | replace:'.html','.jpg' }})"{% endif %}>
+{% include post_data.html %}
+
+<article class="entry {{ post_class }}" {{ post_style }}>
     <header>
         <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
         <time>{{ post.date | date: "%d-%m-%Y" }}</time>
@@ -15,7 +17,7 @@
     {% if post_type == 'long' or post_type == 'single' %}
     <div class="content">
         {% if post.image %}
-        <img src="{{ site.data.imagePath }}{{ post.url | replace:'.html','.jpg' }}" title="{{ post.image }}" alt="{{ post.image }}" class="cover" />
+        <img src="{{ post_image }}" title="{{ post.image }}" alt="{{ post.image }}" class="cover" />
         {% endif %}
         {{ content }}
     </div>
