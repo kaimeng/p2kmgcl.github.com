@@ -3,8 +3,6 @@
 
 /* Normalize */
 {% include styles/normalize/normalize-2.1.2.min.css %}
-/* Code theme */
-{% include styles/highlight_theme/github.min.css %}
 /* Font awesome */
 {% include styles/fontawesome/css/font-awesome.min.css %}
 /* Font awesome IE */

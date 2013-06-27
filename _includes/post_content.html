@@ -1,4 +1,4 @@
-<article class="entry infinite-item {{ post_type }}{% if post.categories %} {{ post.categories | join:' ' }}{% endif %}" {% if post_type == 'cover' and post.image %}style="background-image: url({{ site.data.imagePath }}{{ post.url | replace:'.html','.jpg' }})"{% endif %}>
+<article class="entry infinite-item {{ post_type }}{% if post.categories %} {{ post.categories | join:' ' }}{% endif %}">
     <header>
         <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
         <time>{{ post.date | date: "%d-%m-%Y" }}</time>
@@ -10,12 +10,16 @@
         {% else %}
             <a class="author" href="{{ site.author.googleAuthorship }}" target="_blank">Por {{ site.author.name }}</a>
         {% endif %}
+
+        {% if post_type == 'cover' %}
+        <figure class="cover"><img src="{{ site.data.imagePath }}{{ post.url | replace:'.html','.jpg' }}" title="{{ post.image }}" alt="{{ post.image }}" /><figcaption>{{ post.image }}</figcaption></figure>
+        {% endif %}
     </header>
     
     {% if post_type == 'long' or post_type == 'single' %}
     <div class="content">
         {% if post.image %}
-        <img src="{{ site.data.imagePath }}{{ post.url | replace:'.html','.jpg' }}" title="{{ post.image }}" alt="{{ post.image }}" class="cover" />
+        <figure class="cover"><img src="{{ site.data.imagePath }}{{ post.url | replace:'.html','.jpg' }}" title="{{ post.image }}" alt="{{ post.image }}" /><figcaption>{{ post.image }}</figcaption></figure>
         {% endif %}
         {{ content }}
     </div>

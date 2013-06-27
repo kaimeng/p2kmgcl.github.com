@@ -1,0 +1,79 @@
+// Fuente: http://www.fontsquirrel.com/fonts/Tuffy
+// Fuente: http://www.fontsquirrel.com/fonts/Inconsolata
+
+@fontTuffyPath: '/assets/fonts/tuffy/';
+@fontInconsolataPath: '/assets/fonts/inconsolata/';
+
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('@{fontInconsolataPath}Inconsolata-webfont.eot');
+    src: url('@{fontInconsolataPath}Inconsolata-webfont.eot?#iefix') format('embedded-opentype'),
+         url('@{fontInconsolataPath}Inconsolata-webfont.woff') format('woff'),
+         url('@{fontInconsolataPath}Inconsolata-webfont.ttf') format('truetype'),
+         url('@{fontInconsolataPath}Inconsolata-webfont.svg#TuffyRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TuffyRegular';
+    src: url('@{fontTuffyPath}Tuffy-webfont.eot');
+    src: url('@{fontTuffyPath}Tuffy-webfont.eot?#iefix') format('embedded-opentype'),
+         url('@{fontTuffyPath}Tuffy-webfont.woff') format('woff'),
+         url('@{fontTuffyPath}Tuffy-webfont.ttf') format('truetype'),
+         url('@{fontTuffyPath}Tuffy-webfont.svg#TuffyRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TuffyItalic';
+    src: url('@{fontTuffyPath}Tuffy_Italic-webfont.eot');
+    src: url('@{fontTuffyPath}Tuffy_Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('@{fontTuffyPath}Tuffy_Italic-webfont.woff') format('woff'),
+         url('@{fontTuffyPath}Tuffy_Italic-webfont.ttf') format('truetype'),
+         url('@{fontTuffyPath}Tuffy_Italic-webfont.svg#TuffyItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TuffyBold';
+    src: url('@{fontTuffyPath}Tuffy_Bold-webfont.eot');
+    src: url('@{fontTuffyPath}Tuffy_Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('@{fontTuffyPath}Tuffy_Bold-webfont.woff') format('woff'),
+         url('@{fontTuffyPath}Tuffy_Bold-webfont.ttf') format('truetype'),
+         url('@{fontTuffyPath}Tuffy_Bold-webfont.svg#TuffyBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TuffyBoldItalic';
+    src: url('@{fontTuffyPath}Tuffy_Bold_Italic-webfont.eot');
+    src: url('@{fontTuffyPath}Tuffy_Bold_Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('@{fontTuffyPath}Tuffy_Bold_Italic-webfont.woff') format('woff'),
+         url('@{fontTuffyPath}Tuffy_Bold_Italic-webfont.ttf') format('truetype'),
+         url('@{fontTuffyPath}Tuffy_Bold_Italic-webfont.svg#TuffyBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@bodyFontFace:     'TuffyRegular';
+@titleFontFace:    'TuffyBold';
+@codeFontFace:     'Inconsolata', Monospace;
+
+@bodyFontSize:     18px;
+
+@orange: #FF8000;
+@green:  #008000;
+@indigo: #4B0082;
+@red:    #F00;
+
+@white:     #fff;
+@black:     #222;
+
+@bodyColor:      @white;
+@contentColor:   @white;
+
+@linkColor: darken(@white, 10%);

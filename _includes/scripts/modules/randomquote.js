@@ -2,7 +2,7 @@
  * Muestra solo una de las notas de la cabecera.
  */
 function () {
-    $('.randomQuotes > ul').each(function () {
+    $('#randomQuotes > ul').each(function () {
         var $li = $(this).find(' > .quoteWrapper'),
             $old = $(this).find(' > .quoteWrapper.chosen'),
             rand = parseInt(Math.random() * $li.size());

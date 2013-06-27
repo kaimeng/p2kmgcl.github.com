@@ -1,0 +1,79 @@
+/**
+ * Aspecto genérico de la web
+ */
+html {
+    width: 100%;
+    box-sizing: border-box;
+
+    // Crea el tipo de letra
+    font-family: @bodyFontFace;
+    font-size: @bodyFontSize;
+
+    // Colores de cada sección
+    &.section-home { background-color: @orange; }
+    &.section-blog {
+        background-color: @green;
+        &.section-blog-category-personal { background-color: @red; }
+        &.section-blog-category-programming { background-color: @indigo; }
+    }
+    &.section-curriculum { background-color: @indigo; }
+    &.section-about { background-color: @red; }
+    color: @bodyColor;
+    background-color: @black;
+}
+
+
+body {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 70em;
+    margin: 0 auto;
+
+    box-sizing: border-box;
+    padding: 0 5%;
+    padding-top: 2em;
+
+    transition: width ease 0.3s;
+    @media (max-height: @sizePhone) {
+        width: 80%;
+    }
+
+    @media (max-width: @sizeTablet) {
+        width: 100%;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+   font-family: @titleFontFace;
+   font-weight: normal;
+   text-shadow: 1px 1px 1px @black;
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2.25em;}
+h3 { font-size: 2em; }
+h4 { font-size: 1.75em; }
+h5 { font-size: 1.5em; }
+h6 { font-size: 1.25em; }
+
+cite,
+em {
+    font-family: 'TuffyItalic';
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Damos aspecto a los enlaces
+a {
+    color: @linkColor;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}

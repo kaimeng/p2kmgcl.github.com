@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MVC I - Reproductor de música HTML5 con Backbone. Introducción y Parte I - SongModel
+title: MVC I - Reproductor de música HTML5 con Backbone. Parte I - SongModel
 image: Reproductor de música
 tags: [Backbone, CSS, HTML, Javascript, jQuery, MVC, MVC1, Música, Programación, Reproductor]
 ---

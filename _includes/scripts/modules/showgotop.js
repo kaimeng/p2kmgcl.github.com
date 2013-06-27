@@ -11,7 +11,7 @@ function () {
         }, 1000);
     });
 
-    $('.mainSidebar').waypoint(function (direction) {
+    $('#hcard-pablomolina').waypoint(function (direction) {
         if (direction === 'up') {
             $goTop.removeClass('shown');
         } else {
