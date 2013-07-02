@@ -5,7 +5,7 @@ tags: [dotfiles, Github, Programación, Prompt, Bash, Paul Irish]
 image: Muestra de mi terminal una vez aplicados los cambios del repositorio .dotfile
 ---
 
-Aunque estoy de exámenes, sigo manteniendome en mi contínuo aprendizaje informático a base de ver vídeos, programar y probar cosas nuevas. En este proceso he topado con un vídeo en el que [Paul Irish](paul) explicaba varias formas de organizarte cuando vas a empezar un proyecto web y diversas aplicaciones para ello -una de ellas [yeoman](yeoman), cómo no-. El caso es que algo que mencionó me llamó mucho la atención, y es como topé con un repositorio en github en el que se mantiene una estructura de ficheros para personalizar la línea de comandos con un montón de *juguetes*:
+Aunque estoy de exámenes, sigo manteniendome en mi contínuo aprendizaje informático a base de ver vídeos, programar y probar cosas nuevas. En este proceso he topado con un vídeo en el que [Paul Irish](http://www.paulirish.com/) explicaba varias formas de organizarte cuando vas a empezar un proyecto web y diversas aplicaciones para ello -una de ellas [yeoman](yeoman), cómo no-. El caso es que algo que mencionó me llamó mucho la atención, y es como topé con un repositorio en github en el que se mantiene una estructura de ficheros para personalizar la línea de comandos con un montón de *juguetes*:
 
  - Atajos para comandos en github.
  - Búsquedas en la consola.
