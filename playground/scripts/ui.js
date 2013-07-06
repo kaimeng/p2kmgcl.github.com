@@ -47,7 +47,7 @@ $(function () { var
 
             if (e.which == 122 &&
                 editorFocus.length > 0) {
-                event.preventDefault();
+                e.preventDefault();
 
                 wrapper.toggleClass('p2kmgclEditorFullscreen');
                 _isFullScreen = wrapper.hasClass('p2kmgclEditorFullscreen');
