@@ -6,8 +6,10 @@
  * @type {Object}
  */
 window.p2kmgcl = new function () {
-    var _localKey = window.location.hostname,
-        _localStorage = {},
+    var _localKey = window.location.hostname + '_p2kmgcl',
+        _localStorage = null,
+        _localTimeout = null,
+        _localCallbacks = [],
 
         _proto = this.constructor.prototype,
         _modules = {
@@ -96,10 +98,20 @@ window.p2kmgcl = new function () {
     /**
      * Obtiene datos del almacenamiento local
      * @param {string} key Cadena de texto que identifica su ubicación
+     * @param {function} callback Se ejecutará cuando la carga esté completa,
+     *  se tomará como parámetro el nombre de la clave y su valor
      * @return {anything} El valor de la clave
      */
-    _proto.getLocal = function (key) {
-        return _localStorage[key];
+    _proto.getLocal = function (key, ready) {
+        if (_localStorage !== null) {
+            return _localStorage[key];
+        } else {
+            _localCallbacks.push({
+                fn: ready || console.log,
+                key: key
+            });
+            return null;
+        }
     };
 
     /**
@@ -111,7 +123,14 @@ window.p2kmgcl = new function () {
     _proto.setLocal = function (key, val) {
         // Actualiza el valor
         _localStorage[key] = val;
-        window.localStorage[_localKey] = JSON.stringify(_localStorage);
+
+        // Guarda al pasar 1 segundo
+        // para evitar guardados repetidos
+        clearTimeout(_localTimeout);
+        _localTimeout = setTimeout(function () {
+            window.localStorage[_localKey] = JSON.stringify(_localStorage);
+            _localTimeout = null;
+        }, 1000);
 
         return this;
     };
@@ -121,6 +140,10 @@ window.p2kmgcl = new function () {
      */
     _proto.init = function () {
         _localStorage = JSON.parse(window.localStorage[_localKey] || '{}');
+        for (var i = 0; i < _localCallbacks.length; i++) {
+            _localCallbacks[i].fn(  _localCallbacks[i].key,
+                                    _localStorage[_localCallbacks[i].key]);
+        }
 
         _proto.module([
             "introWaypoint",
@@ -133,7 +156,7 @@ window.p2kmgcl = new function () {
     };
 
     return this;
-};
+}
 
 // Modernizr
 {% include scripts/libs/modernizr/modernizr-2.6.2-custom-36981.min.js %}
