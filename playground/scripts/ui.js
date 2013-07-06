@@ -53,8 +53,10 @@ $(function () { var
                 _isFullScreen = wrapper.hasClass('p2kmgclEditorFullscreen');
 
                 if (_isFullScreen) {
+                    _resizable.resizable('disable');
                     editorFocus.addClass('CodeMirror-fullscreen-focus');
                 } else {
+                    _resizable.resizable('enable');
                     $('.CodeMirror-fullscreen-focus')
                         .removeClass('CodeMirror-fullscreen-focus');
                 }

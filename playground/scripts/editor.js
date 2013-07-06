@@ -35,6 +35,11 @@ $(function () { p2kmgcl.playground = (function () { var
 	_outputWindow,
 	_outputDocument,
 
+	// Código generado
+	_outputStyle,
+	_outputScript,
+	_outputHTML,
+
 	/**
 	 * Crea los editores de texto
 	 * para cada lenguaje
@@ -92,15 +97,39 @@ $(function () { p2kmgcl.playground = (function () { var
 	},
 
 	/**
+	 * Guarda los datos del editor en la base de datos
+	 * local de HTML5
+	 */
+	_localSave = function () {
+		p2kmgcl.setLocal('playground', new Date());
+		p2kmgcl.setLocal('playground_style', _outputStyle);
+		p2kmgcl.setLocal('playground_script', _outputScript);
+		p2kmgcl.setLocal('playground_html', _outputHTML);
+	},
+
+	/**
+	 * Carga los datos del editor desde localhost
+	 */
+	_localLoad = function () {
+		p2kmgcl.getLocal('playground', function (key, val) {
+			// Habia un guardado
+			if (val) {
+				_editors.content['less'].codemirror.setValue(p2kmgcl.getLocal('playground_style') || '');
+				_editors.content['javascript'].codemirror.setValue(p2kmgcl.getLocal('playground_script') || '');
+				_editors.content['htmlmixed'].codemirror.setValue(p2kmgcl.getLocal('playground_html') || '');
+			}
+		});
+	},
+
+	/**
 	 * Actualiza la vista con el
 	 * contenido de las entradas
 	 */
-	_updateOutput = _.throttle(function (codemirror, changes) {
-		var outputStyle  =	_editors.content['less'].codemirror.getValue(),
-			outputScript =	_editors.content['javascript'].codemirror.getValue(),
-			outputHTML   =	_editors.content['htmlmixed'].codemirror.getValue(),
-			outputJsLibs =  '';
-
+	_updateOutput = _.debounce(function (codemirror, changes) {
+		var	outputJsLibs  =  '';
+			_outputStyle  =	_editors.content['less'].codemirror.getValue(),
+			_outputScript =	_editors.content['javascript'].codemirror.getValue(),
+			_outputHTML   =	_editors.content['htmlmixed'].codemirror.getValue();
 
 		for (var lib in _jsLibs.content) {
 			outputJsLibs += '<script src="' + _jsLibs.path + '/' +
@@ -109,15 +138,16 @@ $(function () { p2kmgcl.playground = (function () { var
 
 		var outputCode   =	'<!DOCTYPE html><html>'+
 							'<head><meta charset="utf-8" />'+
-							'<style type="text/less">' + outputStyle + '</style>'+
-							'</head><body>'+ outputHTML + outputJsLibs +
-							'<script>' + outputScript + '</script>'+
+							'<style type="text/less">' + _outputStyle + '</style>'+
+							'</head><body>'+ _outputHTML + outputJsLibs +
+							'<script>' + _outputScript + '</script>'+
 							'</body></html>';
 
 		console.clear();
 		_outputDocument.open();
 		_outputDocument.write(outputCode);
 		_outputDocument.close();
+		_localSave();
 	}, 250),
 
 	/**
@@ -136,6 +166,9 @@ $(function () { p2kmgcl.playground = (function () { var
 			_editors.content[language]
 				.codemirror.on('change', _updateOutput);
 		}
+
+		// Si existe el guardado local lo cargamos
+		_localLoad();
 	};
 
 	// Comencemos
