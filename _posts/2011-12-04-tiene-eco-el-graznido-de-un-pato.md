@@ -34,4 +34,3 @@ Por ahí circula una leyenda urbana que dice que la voz de un pato no produce ec
  > "Hay una pequeña diferencia, pero en esta sala sería muy difícil de oír", dijo el profesor Cox. "Esta es la razón por la que surge el mito. Un pato es bastante tranquilo, y el eco no se escucha."
 
  - Imagen | [Donald Duck by *zdrer456](http://browse.deviantart.com/?qh=&section=&q=donald+duck#/d37us57)
- - Artículo completo | [Acoustics professor proves ducks do echo](Acoustics professor proves ducks do echo)
