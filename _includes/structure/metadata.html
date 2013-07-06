@@ -1,0 +1,13 @@
+<meta charset="utf-8">
+<title>{% if page.title and page.title != 'Inicio' %}{{ page.title }} | {% endif %}{{ site.web.title }} | {{ site.web.subtitle }}</title>
+
+<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | replace:'"','&#34;' }}{% else %}{{ site.meta.description }}{% endif %}" />
+
+<meta name="keywords" content="{{ site.meta.keywords | join: ', ' }}, {{ site.author.name }}{% if page.tags %}, {{ page.tags | join: ', ' }}{% endif %}" />
+<meta name="generator" content="Jekyll" />
+<meta name="viewport" content="width=device-width"/>
+
+<link rel="alternate" type="application/rss+xml" title="Todas las entradas | {{ site.web.title }}" href="{{ site.data.rss }}/all.rss">
+<link rel="alternate" type="application/rss+xml" title="Rarezas | {{ site.web.title }}" href="{{ site.data.rss }}/rare.rss">
+<link rel="alternate" type="application/rss+xml" title="Pensamientos | {{ site.web.title }}" href="{{ site.data.rss }}/personal.rss">
+<link rel="alternate" type="application/rss+xml" title="Programación | {{ site.web.title }}" href="{{ site.data.rss }}/programming.rss">

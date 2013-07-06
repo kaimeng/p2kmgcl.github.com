@@ -128,7 +128,7 @@ window.p2kmgcl = new function () {
             "randomQuote",
             "showGoTop"
         ], true);
-        
+
         return this;
     };
 
@@ -143,15 +143,17 @@ window.p2kmgcl = new function () {
 // Underscore
 {% include scripts/libs/underscore/underscore-1.4.4.min.js %}
 // jQuery
-{% include scripts/libs/jquery/jquery-1.9.1.min.js %}
+if (typeof $ == 'undefined') { {% include scripts/libs/jquery/jquery-1.9.1.min.js %} }
 
 // jQuery Waypoints
 {% include scripts/libs/jquery_waypoints/waypoints-2.0.2.min.js %}
 {% include scripts/libs/jquery_waypoints/waypoints-infinite-2.0.2.min.js %}
 
 // Lesscss
+if (typeof less == 'undefined') {
 less = { env: "{{ site.less.env }}" };
 {% include scripts/libs/less/less-1.3.3.min.js %}
+}
 
 // Finalmente activa el tema
 $(p2kmgcl.init);
