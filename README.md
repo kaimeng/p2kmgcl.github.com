@@ -11,6 +11,10 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 
 # Lista de cambios
 
+## 4.4.0 (2013-07-07)
+
+ - Creado [playground](http://pablomolina.me)
+
 ## 4.3.0 (2013-06-21)
 
  - Módulos movidos a una nueva carpeta para que jekyll los una todos.
