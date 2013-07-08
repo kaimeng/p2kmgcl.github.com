@@ -5,7 +5,11 @@
         {% assign post_imageFormat = 'jpg' %}
     {% endif %}
 
-    {% capture post_image %}{{ site.data.imagePath }}{{ post.url | replace:'.html','.' }}{{ post_imageFormat }}{% endcapture %}
+    {% if site.less.theme == 'loremipsum' %}
+        {% assign post_imageSize = '_w473' %}
+    {% endif %}
+
+    {% capture post_image %}{{ site.data.imagePath }}{{ post.url | replace:'.html','' }}{{ post_imageSize }}.{{ post_imageFormat }}{% endcapture %}
 {% endif %}
 
 {% capture post_class %}{{ post_type }}{% if post.categories %} {{ post.categories | join:' ' }}{% endif %}{% endcapture %}

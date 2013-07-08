@@ -125,7 +125,8 @@ quotes:
 
 # Activa el uso de la librería less (javascript)
 less:
-  js:          false
-  env:         "production"
-  bin:         "lessc"
-  path:        "styles"
+  theme: "loremipsum"
+  js:    false
+  env:   "production"
+  bin:   "lessc"
+  path:  "styles"
