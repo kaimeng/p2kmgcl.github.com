@@ -2,7 +2,7 @@
  * Crea un gráfico a partir de la lista de habilidades de programación
  * y lo inserta en el currículum.
  */
-function () {
+function programmingChart () {
     var $curriculum = $(".page.curriculum"),
         $programming = $curriculum.find("> .programming"),
         $valueList = $programming.find("> ul"),
@@ -17,7 +17,7 @@ function () {
 
     $(window).on('resize', (function () {
         if ($valueList.size() > 0) {
-            var elementHeight = parseInt($valueList.css('font-size')) * 2,
+            var elementHeight = parseInt($valueList.css('font-size'), 10) * 2,
                 elementLowHeight = elementHeight - 5;
 
             canvas.width = $curriculum.width() * 0.65;

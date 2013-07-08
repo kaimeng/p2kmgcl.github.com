@@ -1,7 +1,7 @@
 /**
  * Añade los comentarios de disqus a la entrada actual para que el usuario pueda comentar.
  */
-function (opts, args) {
+function embedComments (opts, args) {
     var $link       = $(args.link),
         $parent     = $link.parents('footer'),
         shortname   = args.shortname,
@@ -14,9 +14,7 @@ function (opts, args) {
         // artículo
         scrollToFooter = function (time, callback, offset) {
             $htmlbody.animate({
-                scrollTop: $parent.offset().top
-                            - $(window).height() / 5
-                            + (offset || 0)
+                scrollTop: $parent.offset().top - $(window).height() / 5 + (offset || 0)
             }, time || 1, callback);
         },
 
@@ -65,8 +63,8 @@ function (opts, args) {
                 DISQUS.reset({
                     reload: true,
                     config: function () {
-                        this.page.identifier = identifier,
-                        this.page.url = url
+                        this.page.identifier = identifier;
+                        this.page.url = url;
                     }
                 });
                 $disqus.slideDown(1);

@@ -1,7 +1,7 @@
 /**
  * Muestra el elemento de volver arriba cuando es necesario.
  */
-function () {
+function showGoTop () {
     var $goTop = $('.goTop');
 
     $('.goTop').on('click', function () {
