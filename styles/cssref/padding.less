@@ -1,0 +1,35 @@
+// IE 7 no soporta inherit
+// IE 8 requiere !DOCTYPE
+// http://www.w3schools.com/cssref/pr_padding.asp
+
+.padding1 (@padding: 0) {
+    padding: @padding;
+}
+
+.padding2 (@vertical: 0, @horizontal: 0) {
+    padding: @vertical @horizontal;
+}
+
+.padding3 (@top: 0, @right: 0, @bottom: 0) {
+    padding: @top @right @bottom;
+}
+
+.padding4 (@top: 0, @right: 0, @bottom: 0, @left: 0) {
+    padding: @top @right @bottom @left;
+}
+
+.paddingTop (@padding: 0) {
+    padding-top: @padding;
+}
+
+.paddingRight (@padding: 0) {
+    padding-right: @padding;
+}
+
+.paddingBottom (@padding: 0) {
+    padding-bottom: @padding;
+}
+
+.paddingLeft (@padding: 0) {
+    padding-left: @padding;
+}

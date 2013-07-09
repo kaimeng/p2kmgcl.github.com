@@ -1,0 +1,9 @@
+// HEX y RGB están solortados en todos los navegadores
+// RGBA, HSL y HSLA funciona en IE9+, Firefox3+, Chrome, Safari y Opera10+
+// http://www.w3schools.com/cssref/css_colors_legal.asp
+// http://www.w3schools.com/cssref/css_colornames.asp
+// Colores estándar: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, orange, purple, red, silver, teal, white, yellow.
+.color (@color) {
+    color: rgb(red(@color), green(@color), blue(@color));
+    color: rgba(red(@color), green(@color), blue(@color), alpha(@color));
+}

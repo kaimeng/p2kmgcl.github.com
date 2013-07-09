@@ -1,0 +1,79 @@
+@import 'color.less';
+
+// IE7 no soporta inherit
+// IE8 requiere !DOCTYPE
+// HEX y RGB están solortados en todos los navegadores
+// RGBA, HSL y HSLA funciona en IE9+, Firefox3+, Chrome, Safari y Opera10+
+// http://www.w3schools.com/cssref/css_colors_legal.asp
+// http://www.w3schools.com/cssref/css_colornames.asp
+// Colores estándar: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, orange, purple, red, silver, teal, white, yellow.
+.backgroundColor (@color) {
+    background-color: rgb(red(@color), green(@color), blue(@color));
+    background-color: rgba(red(@color), green(@color), blue(@color), alpha(@color));
+}
+
+// Valores: left/right/center/%/val top/bottom/center/%/val
+.backgroundPosition (@horizontal: 0%, @vertical: 0%) {
+    background-position: @horizontal @vertical;
+}
+
+// IE9+, FF4+, Opera, Chrome, Safari5+
+// Valores: auto/length/%/contain/cover
+.backgroundSize (@size: auto) {
+    background-size: @size;
+
+    html.no-backgroundsize & {
+        background-size: auto;
+    }
+}
+
+// IE7 no soporta inherit
+// IE8 requiere !DOCTYPE
+// Valores: repeat/repeat-x/repeat-y/no-repeat
+.backgroundRepeat (@repeat: repeat) {
+    background-repeat: @repeat;
+}
+
+// IE9+, FF4+, Opera, Chrome, Safari5+
+// Valores: padding-box/border-box/content-box
+// Si background-attachment está a fixed, esto no hace nada
+.backgroundOrigin (@origin: padding-box) {
+    background-origin: @origin;
+}
+
+// IE9+, FF, Opera, Chrome, Safari
+// Valores: border-box/padding-box/content-box
+.backgroundClip (@clip: border-box) {
+    background-clip: @clip;
+}
+
+// Soportado en todos los navegadores
+// Valores: fixed/scroll/local
+.backgroundAttachment (@attachment: scroll) {
+    background-attachment: @attachment;
+}
+
+// IE7 no soporta inherit
+// IE8 requiere !DOCTYPE
+// IE8- no soporta varias imagenes como fondo
+.backgroundImage (@image: none) {
+    background-image: @image;
+}
+
+// IE7 no soporta inherit
+// IE8 requiere !DOCTYPE
+// http://www.w3schools.com/cssref/css3_pr_background.asp
+.background (@color: transparent,
+             @position: 0% 0%,
+             @size: auto,
+             @repeat: repeat,
+             @origin: padding-box,
+             @clip: border-box,
+             @attachment: scroll,
+             @image: none) {
+
+    background: @color @position @size @repeat @origin @clip @attachment @image;
+    html.no-backgroundsize & {
+        background-size: auto;
+    }
+}
