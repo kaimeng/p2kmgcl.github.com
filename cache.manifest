@@ -4,8 +4,9 @@ CACHE MANIFEST
 # Ultima actualización: {{ site.time | date: "%Y-%m-%d %H:%M:%S" }}
 
 CACHE:
-/styles/libs.css
-/styles/index.css
+/{{ site.less.cssPath }}/libs.css
+/{{ site.less.themePath }}/{{ site.less.theme }}.css
+/{{ site.less.themePath }}/{{ site.less.theme }}/index.less
 
 /scripts/index.js
 /scripts/libs/highlightjs/highlightjs-min.js
@@ -15,6 +16,7 @@ CACHE:
 /assets/fonts/fontawesome-webfont.svg
 /assets/fonts/fontawesome-webfont.ttf
 /assets/fonts/fontawesome-webfont.woff
+/assets/fonts/fontawesome-webfont.woff?v=3.1.0
 /assets/github_logo.png
 /assets/jekyll_logo.png
 

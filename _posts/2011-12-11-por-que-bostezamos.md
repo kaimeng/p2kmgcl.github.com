@@ -1,4 +1,5 @@
 ---
+layout: post
 title: ¿Por qué bostezamos?
 image: Gato bostezando
 Tags: [Cuerpo Humano, Veo y no creo]

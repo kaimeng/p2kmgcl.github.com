@@ -2,7 +2,7 @@
  * Crea una separación en la pantalla inicial que en principio
  * solo muestra la introducción.
  */
-function () {
+function introWaypoint () {
     // Añade la separación inicial
     $('.intro')
         .addClass('hiddenBlog')

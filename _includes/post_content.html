@@ -1,7 +1,9 @@
-<article class="entry infinite-item {{ post_type }}{% if post.categories %} {{ post.categories | join:' ' }}{% endif %}">
+{% include post_data.html %}
+
+<article class="entry {{ post_class }}" {{ post_style }}>
     <header>
         <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-        <time>{{ post.date | date: "%d-%m-%Y" }}</time>
+        <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%d-%m-%Y" }}</time>
 
         {% comment %} Si hay un autor en la entrada muestra a éste,
            en caso contrario muestra al autor por defecto {% endcomment %}
@@ -12,14 +14,20 @@
         {% endif %}
 
         {% if post_type == 'cover' %}
-        <figure class="cover"><img src="{{ site.data.imagePath }}{{ post.url | replace:'.html','.jpg' }}" title="{{ post.image }}" alt="{{ post.image }}" /><figcaption>{{ post.image }}</figcaption></figure>
+        <figure class="cover">
+        	<img src="{{ post_image }}" title="{{ post.image }}" alt="{{ post.image }}" />
+        	<figcaption>{{ post.image }}</figcaption>
+        </figure>
         {% endif %}
     </header>
     
     {% if post_type == 'long' or post_type == 'single' %}
     <div class="content">
         {% if post.image %}
-        <figure class="cover"><img src="{{ site.data.imagePath }}{{ post.url | replace:'.html','.jpg' }}" title="{{ post.image }}" alt="{{ post.image }}" /><figcaption>{{ post.image }}</figcaption></figure>
+        <figure class="cover">
+        	<img src="{{ post_image }}" title="{{ post.image }}" alt="{{ post.image }}" />
+        	<figcaption>{{ post.image }}</figcaption>
+        </figure>
         {% endif %}
         {{ content }}
     </div>

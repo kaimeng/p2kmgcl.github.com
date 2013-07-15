@@ -1,4 +1,5 @@
 ---
+layout: post
 title: ¿Por qué el cáncer (enfermedad) recibe este nombre?
 image: Constelación Cáncer en el cielo
 tags: [Cuerpo Humano, Enfermedades, Veo y no creo]

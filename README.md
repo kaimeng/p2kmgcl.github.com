@@ -8,8 +8,17 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 
  - Activar navegación con AJAX.
  - Hacer que funcione la lista de trucos (comandos cheatlist, huevos de pascua, etc...).
+ - Eliminar dependencias de prefix-free (adaptar Loremipsum).
 
 # Lista de cambios
+
+## 4.5.0 [Pendiente]
+
+ - Reducida la carga de Modernizr.
+
+## 4.4.0 (2013-07-07)
+
+ - Creado [playground](http://pablomolina.me)
 
 ## 4.3.0 (2013-06-21)
 

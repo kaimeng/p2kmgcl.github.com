@@ -1,0 +1,6 @@
+no-js
+section-{{ page.section }}
+{% if page.section == 'blog' %}
+    section-blog-{% if page.menu %}list{% else %}single{% endif %}
+    section-blog-category-{% if page.menu %}{{ page.menu }}{% else %}{% if page.categories == empty %}rare{% else %}{{ page.categories }}{% endif %}{% endif %}
+{% endif %}

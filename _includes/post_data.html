@@ -1,0 +1,17 @@
+{% if post.image %}
+    {% if post.imageFormat %}
+        {% assign post_imageFormat = post.imageFormat %}
+    {% else %}
+        {% assign post_imageFormat = 'jpg' %}
+    {% endif %}
+
+    {% if site.less.theme == 'loremipsum' %}
+        {% assign post_imageSize = '_w473' %}
+    {% endif %}
+
+    {% capture post_image %}{{ site.data.imagePath }}{{ post.url | replace:'.html','' }}{{ post_imageSize }}.{{ post_imageFormat }}{% endcapture %}
+{% endif %}
+
+{% capture post_class %}{{ post_type }}{% if post.categories %} {{ post.categories | join:' ' }}{% endif %}{% endcapture %}
+
+{% capture post_style %}{% if post_type == 'cover' and post.image %}style="background-image: url({{ post_image }})"{% endif %}{% endcapture %}

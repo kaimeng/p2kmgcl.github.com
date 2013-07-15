@@ -9,7 +9,7 @@
             {% if quote.origin %}
                 <footer><cite>
                     {% if quote.link %}
-                        <a href="{{ quote.link }}">{{ quote.origin }}</a>
+                        <a href="{{ quote.link }}" target="_blank">{{ quote.origin }}</a>
                     {% else %}
                         {{ quote.origin }}
                     {% endif %}

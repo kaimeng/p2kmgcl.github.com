@@ -1,0 +1,17 @@
+// IE 7 no soporta inherit
+// IE 8 requiere !DOCTYPE
+// http://www.w3schools.com/cssref/pr_pos_overflow.asp
+// Valores: visible, hidden, scroll, auto, inherit
+
+.overflowX (@overflow: auto) {
+    overflow-x: @overflow;
+}
+
+.overflowY (@overflow: auto) {
+    overflow-y: @overflow;
+}
+
+.overflow (@overflowX: auto, @overflowY: @overflowX) {
+    .overflowX(@overflowX);
+    .overflowY(@overflowY);
+}

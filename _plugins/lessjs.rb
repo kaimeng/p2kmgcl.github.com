@@ -3,7 +3,7 @@ module Jekyll
   class CssFile < StaticFile
     def write(dest)
       dest_path = destination(dest)
-      FileUtils.mv(path, dest_path)
+      FileUtils.cp(path, dest_path)
     end
   end
 
@@ -12,25 +12,28 @@ module Jekyll
     priority :low
     
     def generate(site)
-      less_path = site.config['less']['path']
-      css_path = site.config['less']['path']
-      lessc_bin = site.config['less']['bin'] || 'lessc'
+      less_themes     = site.config['less']['themeList']
+      less_themePath  = site.config['less']['themePath'] + '/'
+      less_cssPath    = site.config['less']['themePath'] + '/'
+      less_bin        = site.config['less']['bin'] || 'lessc'
       
-      FileUtils.mkdir_p(css_path)
-        begin
-          command = [lessc_bin, ' -x ',
-                     less_path + '/index.less',
-                     ' > ',
-                     css_path + '/index.css'
-                    ].join(' ')
+      for less_theme in less_themes
+        FileUtils.mkdir_p(less_cssPath)
+          begin
+            command = [less_bin, ' -x ',
+                       less_themePath + less_theme + '/index.less',
+                       ' > ',
+                       less_cssPath + less_theme + '.css'
+                      ].join(' ')
+            
+            puts 'Compiling LESS: ' + command
+            puts `#{command}`
+            raise "LESS compilation error" if $?.to_i != 0
+          end
           
-          puts 'Compiling LESS: ' + command
-          puts `#{command}`
-          raise "LESS compilation error" if $?.to_i != 0
-        end
-        
-        # Add this output file so it won't be "cleaned away"
-        site.static_files << CssFile.new(site, site.source, css_path, 'index.css')
+          # Add this output file so it won't be "cleaned away"
+          site.static_files << CssFile.new(site, site.source, less_cssPath, less_theme + '.css')
+      end
     end
   end
 end
