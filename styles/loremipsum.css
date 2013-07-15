@@ -1,4 +1,5 @@
-html{margin:0;padding:0;color:#222222;width:100%;overflow-x:hidden;background-color:#ffffff;}
+@import url(http://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:400italic,700italic,400,700|Inconsolata:400,700);
+html{background-color:#ffffff;color:#222222;margin:0;overflow-x:hidden;padding:0;width:100%;}
 body{font-family:Open Sans,'Open Sans',Verdana;font-size:14px;margin:3em auto;margin-bottom:0;width:90%;max-width:40em;padding:5em 1em;padding-bottom:1em;position:relative;overflow:visible;border-right:solid thin #a2a2a2;}body:after{content:'';display:block;background-color:#a2a2a2;position:absolute;top:0;left:-4500em;width:9999em;height:1px;}
 @media (max-width:640px){body{position:static;border-right:none;padding:0;margin:3em 0;margin-top:0;width:100%;max-width:none;font-size:16px;}body:after{display:none;}}
 h1,h2,h3,h4,h5,h6{font-family:Fjalla One,'Fjalla One',Verdana;}

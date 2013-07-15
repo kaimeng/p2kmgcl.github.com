@@ -5,10 +5,10 @@ guard 'webrick', :docroot => '_site' do
 end
 
 guard 'jekyll' do
-  watch /.*/
+  watch /.html|.md|.less|.js|.json/
   ignore /_site/
 end
 
 guard 'livereload', :grace_period => 0.1 do
-  watch(/.*/)
+  watch(/.css|.js|.html/)
 end
