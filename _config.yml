@@ -9,6 +9,23 @@ markdown:     rdiscount
 permalink:    /:year/:month/:title.html
 paginate:     5
 
+prose:
+    siteurl: "http://pablomolina.me"
+    metadata:
+        _posts:
+            - name: 'layout'
+              element: 'text'
+              value: 'post'
+            - name: 'image'
+              element: 'text'
+              value: ''
+            - name: 'imageOrigin'
+              element: 'text'
+              value: ''
+            - name: 'tags'
+              element: 'text'
+              value: '[]'
+
 author:
     name:             "Pablo Molina"
     givenName:        "Pablo"
