@@ -12,13 +12,6 @@
         {% else %}
             <a class="author" href="{{ site.author.googleAuthorship }}" target="_blank">Por {{ site.author.name }}</a>
         {% endif %}
-
-        {% if post_type == 'cover' %}
-        <figure class="cover">
-        	<img src="{{ post_image }}" title="{{ post.image }}" alt="{{ post.image }}" />
-        	<figcaption>{{ post.image }}</figcaption>
-        </figure>
-        {% endif %}
     </header>
     
     {% if post_type == 'long' or post_type == 'single' %}
