@@ -19,6 +19,7 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
  - Actualizados y minimizados los módulos.
  - Añadidos csaaer y alibel-tpv.
  - Más entradas y mejores.
+ - Playground pasado a un repositorio independiente.
 
 ## 4.4.0 (2013-07-07)
 
