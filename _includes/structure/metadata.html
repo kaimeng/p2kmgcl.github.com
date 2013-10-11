@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>{% if paginator %}{% if paginator.page != 1 %}[{{ paginator.page }}]{% endif %}{% endif %}{% if page.title and page.title != 'Inicio' %}{{ page.title }} | {% endif %}{{ site.web.title }} | {{ site.web.subtitle }}</title>
+<title>{% if paginator %}{% if paginator.page != 1 %}[{{ paginator.page }}] {% endif %}{% endif %}{% if page.title and page.title != 'Inicio' %}{{ page.title }} | {% endif %}{{ site.web.title }} | {{ site.web.subtitle }}</title>
 
 <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | replace:'"','&#34;' }} | {% endif %}{{ site.meta.description }}{% if paginator %}{% if paginator.page != 1 %} | Página {{ paginator.page }}{% endif %}{% endif %}" />
 
