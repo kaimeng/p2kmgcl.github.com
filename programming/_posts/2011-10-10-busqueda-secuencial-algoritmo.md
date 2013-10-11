@@ -3,6 +3,7 @@ layout: post
 title: Búsqueda Secuencial (algoritmo, explicación e implementación genérica)
 image: Muestra de la eficiencia de la búsqueda secuencial
 tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
+excerpt: Implementación genérica del algoritmo de búsqueda secuencial. Es un algoritmo sencillo, pero conviene estudiarlo para dar los primeros pasos en la programación.
 ---
 
 ## Datos

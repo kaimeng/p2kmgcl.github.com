@@ -3,6 +3,7 @@ layout: post
 title: Búsqueda Binaria Iterativa (algoritmo, explicación e implementación genérica)
 image: Demostración del funcionamiento del algoritmo
 tags: [Destino... C, Destino... Pro, Ordenación y Búsqueda]
+excerpt: Análisis de un algoritmo extemadamente eficiente si te tiene un conjunto de datos ordenado. A veces conviene ordenar primero el conjunto y después buscar elementos.
 ---
 
 ## Datos
