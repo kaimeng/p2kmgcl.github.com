@@ -12,9 +12,13 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 
 # Lista de cambios
 
-## 4.5.0 [Pendiente]
+## 4.5.0 (2013-10-11)
 
  - Reducida la carga de Modernizr.
+ - Minimizados y actualizados los códigos de las librerías.
+ - Actualizados y minimizados los módulos.
+ - Añadidos csaaer y alibel-tpv.
+ - Más entradas y mejores.
 
 ## 4.4.0 (2013-07-07)
 
