@@ -9,7 +9,6 @@ CACHE:
 /{{ site.less.themePath }}/{{ site.less.theme }}/index.less
 
 /scripts/index.js
-/scripts/libs/highlightjs/highlightjs-min.js
 
 /assets/fonts/FontAwesome.otf
 /assets/fonts/fontawesome-webfont.eot
