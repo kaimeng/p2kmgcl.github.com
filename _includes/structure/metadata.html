@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <title>{% if page.title and page.title != 'Inicio' %}{{ page.title }} | {% endif %}{{ site.web.title }} | {{ site.web.subtitle }}</title>
 
-<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | replace:'"','&#34;' }} | {% endif %}{{ site.meta.description }}" />
+<meta name="description" content="{% if paginator %}{% if paginator.page != 1 %}[{{ paginator.page }}]{% endif %}{% endif %}{% if page.excerpt %}{{ page.excerpt | replace:'"','&#34;' }} | {% endif %}{{ site.meta.description }}" />
 
 <meta name="keywords" content="{{ site.meta.keywords | join: ', ' }}, {{ site.author.name }}{% if page.tags %}, {{ page.tags | join: ', ' }}{% endif %}" />
 <meta name="generator" content="Jekyll" />
