@@ -45,7 +45,7 @@ function keyCodeGetter () {
 	keyCodeGetter.prototype.checkWord = 
 	keyCodeGetter.prototype.checkWord ||
 	function () {
-		var _word = word.toString();
+		var _word = word.join('');
 		if (typeof keyCodeGetter.prototype.dictionary[_word] == 'function') {
 			keyCodeGetter.prototype.dictionary[_word]();
 		}

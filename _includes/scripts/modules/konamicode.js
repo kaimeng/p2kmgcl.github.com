@@ -4,7 +4,7 @@ function konamiCode () {
 	$(document.createElement('div'))
 		.css({
 			'background-color': '#000',
-			'opacity': '0.8',
+			'opacity': '0.9',
 			'position': 'fixed',
 			'top': 0,
 			'left': 0,
@@ -32,6 +32,7 @@ function konamiCode () {
 		.html('Pulsa aquí para ocultar este mensaje')
 		.css({
 			color: 'red',
+			'font-size': '1.5em',
 			'text-align': 'center',
 			'margin': '1em auto',
 			'cursor': 'pointer'
