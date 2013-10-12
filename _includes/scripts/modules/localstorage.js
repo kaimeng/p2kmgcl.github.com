@@ -1,4 +1,4 @@
-function localStorate () {
+function localStorage () {
     var _localKey = window.location.hostname + '_p2kmgcl',
         _localStorage = null,
         _localTimeout = null,
@@ -11,7 +11,7 @@ function localStorate () {
      *  se tomará como parámetro el nombre de la clave y su valor
      * @return {anything} El valor de la clave
      */
-    _proto.getLocal = function (key, ready) {
+    localStorage.prototype.getLocal = function (key, ready) {
         if (_localStorage !== null) {
             if (typeof ready === 'function') {
                 return ready(key, _localStorage[key]);
@@ -33,7 +33,7 @@ function localStorate () {
      * @param  {anything} val Valor que quiere dársele
      * @return {this}
      */
-    _proto.setLocal = function (key, val) {
+    localStorage.prototype.setLocal = function (key, val) {
         // Actualiza el valor
         _localStorage[key] = val;
 
