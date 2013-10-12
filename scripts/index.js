@@ -23,7 +23,8 @@ window.p2kmgcl = new function () {
             programmingChart:   {% include scripts/modules/minified/programmingchart.min.js %},
             randomQuote:        {% include scripts/modules/minified/randomquote.min.js %},
             showGoTop:          {% include scripts/modules/minified/showgotop.min.js %},
-            localStorage:       {% include scripts/modules/minified/localstorage.min.js %}
+            keyCodeGetter:      {% include scritps/modules/minified/keycodegetter.min.js %},
+            konamiCode:         {% include scritps/modules/minified/komanicode.min.js %}
         };
 
     // Crea el método de carga de módulos
