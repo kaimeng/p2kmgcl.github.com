@@ -17,6 +17,9 @@
     {% include structure/sidebar.html %}
     {{ content }}
     {% include structure/footer.html %}
+    <script>window.p2kmgclCallbacks.push(
+        function () { p2kmgcl.module(['keyCodeGetter', 'konamiCode'], true); }
+    );</script>
     <script src="/scripts/index.js" async></script>
 </body>
 </html>
