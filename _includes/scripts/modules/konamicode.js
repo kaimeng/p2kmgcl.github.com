@@ -2,6 +2,8 @@ function konamiCode () {
 	konamiCode.prototype.konamiCodeMask =
 	konamiCode.prototype.konamiCodeMask || 
 	$(document.createElement('div'))
+        .hide()
+        .appendTo(document.body)
 		.css({
 			'background-color': '#000',
 			'opacity': '0.9',
@@ -38,18 +40,12 @@ function konamiCode () {
 			'cursor': 'pointer'
 		})
 		.on('click', function () {
-			konamiCode.prototype.konamiCodeMask.fadeOut(function () {
-			konamiCode.prototype.konamiCodeMask.remove();
-			konamiCode.prototype.inserted = false;
-		})})
+			konamiCode.prototype.konamiCodeMask.fadeOut()
+		})
 		.appendTo(konamiCode.prototype.konamiCodeMask);
 
 	// Evita que se ejecute varias veces seguidas
 	if (!konamiCode.prototype.inserted) {
-        konamiCode.prototype.inserted = true;
-        konamiCode.prototype.konamiCodeMask
-            .hide()
-            .appendTo(document.body)
-            .fadeIn();
+        konamiCode.prototype.konamiCodeMask.fadeIn();
 	}
 };
