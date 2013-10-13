@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" class="{% include structure/htmlclass.html %}" manifest="/cache.manifest">
+<html lang="es" class="{% include structure/htmlclass.html %}" manifest="{{ site.baseurl }}/cache.manifest">
 <head>
     {% include structure/metadata.html %}
     {% include structure/styles.html %}
@@ -20,6 +20,6 @@
     <script>window.p2kmgclCallbacks.push(
         function () { p2kmgcl.module(['keyCodeGetter'], true); }
     );</script>
-    <script src="/scripts/index.js" async></script>
+    <script src="{{ site.baseurl }}/scripts/index.js" async></script>
 </body>
 </html>

@@ -1,3 +1,5 @@
 /_site/
 /node_modules/
 .c9revisions
+_config_c9.yml
+_guardfile_c9

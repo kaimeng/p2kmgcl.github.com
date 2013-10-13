@@ -41,14 +41,14 @@ icon: home
     <nav class="pagination">
         <h1>Navegación entre artículos</h1>
 
-        {% if paginator.previous_page %}<a href="{% if paginator.previous_page != 1 %}/page{{ paginator.previous_page }}{% else %}/index.html{% endif %}" class="previous"><i class="icon-caret-left"></i><span>Anterior</span></a>{% else %}<span class="previous"><i class="icon-caret-left"></i><span>Anterior</span></span>{% endif %}
-      
+        {% if paginator.previous_page %}<a href="{{ site.baseurl }}{% if paginator.previous_page != 1 %}/page{{ paginator.previous_page }}{% else %}/index.html{% endif %}" class="previous"><i class="icon-caret-left"></i><span>Anterior</span></a>{% else %}<span class="previous"><i class="icon-caret-left"></i><span>Anterior</span></span>{% endif %}
+
         <span class="pageNumber">
             <span class="current">{{ paginator.page }}</span>
-             de 
+             de
             <span class="total">{{ paginator.total_pages }}</span>
         </span>
 
-        {% if paginator.next_page %}<a href="/page{{ paginator.next_page }}" class="next infinite-more-link"><i class="icon-caret-right"></i><span>Siguiente</span></a>{% else %}<span class="next"><i class="icon-caret-right"></i><span>Siguiente</span></span>{% endif %}
+        {% if paginator.next_page %}<a href="{{ site.baseurl }}/page{{ paginator.next_page }}" class="next infinite-more-link"><i class="icon-caret-right"></i><span>Siguiente</span></a>{% else %}<span class="next"><i class="icon-caret-right"></i><span>Siguiente</span></span>{% endif %}
     </nav>
 </section>

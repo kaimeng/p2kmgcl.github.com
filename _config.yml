@@ -9,6 +9,7 @@ markdown:     rdiscount
 permalink:    /:year/:month/:title.html
 paginate:     5
 
+baseurl: ""
 prose:
     siteurl: "http://pablomolina.me"
     metadata:

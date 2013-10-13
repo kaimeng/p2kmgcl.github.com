@@ -4,20 +4,20 @@ CACHE MANIFEST
 # Ultima actualización: {{ site.time | date: "%Y-%m-%d %H:%M:%S" }}
 
 CACHE:
-/{{ site.less.cssPath }}/libs.css
-/{{ site.less.themePath }}/{{ site.less.theme }}.css
-/{{ site.less.themePath }}/{{ site.less.theme }}/index.less
+{{ site.baseurl }}/{{ site.less.cssPath }}/libs.css
+{{ site.baseurl }}/{{ site.less.themePath }}/{{ site.less.theme }}.css
+{{ site.baseurl }}/{{ site.less.themePath }}/{{ site.less.theme }}/index.less
 
-/scripts/index.js
+{{ site.baseurl }}/scripts/index.js
 
-/assets/fonts/FontAwesome.otf
-/assets/fonts/fontawesome-webfont.eot
-/assets/fonts/fontawesome-webfont.svg
-/assets/fonts/fontawesome-webfont.ttf
-/assets/fonts/fontawesome-webfont.woff
-/assets/fonts/fontawesome-webfont.woff?v=3.1.0
-/assets/github_logo.png
-/assets/jekyll_logo.png
+{{ site.baseurl }}/assets/fonts/FontAwesome.otf
+{{ site.baseurl }}/assets/fonts/fontawesome-webfont.eot
+{{ site.baseurl }}/assets/fonts/fontawesome-webfont.svg
+{{ site.baseurl }}/assets/fonts/fontawesome-webfont.ttf
+{{ site.baseurl }}/assets/fonts/fontawesome-webfont.woff
+{{ site.baseurl }}/assets/fonts/fontawesome-webfont.woff?v=3.1.0
+{{ site.baseurl }}/assets/github_logo.png
+{{ site.baseurl }}/assets/jekyll_logo.png
 
 NETWORK:
 *
