@@ -9,8 +9,9 @@
         // Esconde el blog si nos encontramos arriba del todo
         margin-bottom: 10em;
         transition: margin-bottom ease 0.3s;
-        
+
         @media (max-width: @sizeTablet) {
+            margin-top: 1em;
             margin-bottom: 0em;
             padding: 0 5%;
             width: 90%;
@@ -18,7 +19,7 @@
 
         &.hiddenBlog {
             margin-bottom: 30em;
-            
+
             @media (max-width: @sizeTablet) {
                 margin-bottom: 0em;
             }
@@ -30,6 +31,101 @@
 
         > p {
             text-align: justify;
+        }
+    }
+}
+
+// Cita aleatoria
+// que se muestra en la página
+// inicial
+@media (min-width: @sizeTablet) {
+    #randomQuotes {
+        padding: 0 5%;
+
+        > header {
+            display: none;
+        }
+
+        > ul {
+            padding-left: 0;
+
+            .quoteWrapper {
+                display: none;
+
+                &.chosen {
+                    display: block;
+
+                    > .quote {
+                        margin-left: 0;
+
+                        > p {
+                            font-family: @titleFont;
+                            font-size: 2.5em;
+                            margin-bottom: 0;
+                        }
+
+                        > footer > cite {
+                            font-size: 1em;
+                            font-style: normal;
+                            text-align: left;
+
+                            &:before {
+                                color: darken(@aoi, 30%);
+                                content: '\2014 \2009';
+                                padding-left: 0.25em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Cita aleatoria
+// que se muestra en la página
+// inicial
+@media (max-width: (@sizeTablet - 1)) {
+    #randomQuotes {
+        padding: 1em 5%;
+        padding-top: 2em;
+
+        > header {
+            display: none;
+        }
+
+        > ul {
+            padding-left: 0;
+
+            .quoteWrapper {
+                display: none;
+
+                &.chosen {
+                    display: block;
+
+                    > .quote {
+                        margin-left: 0;
+
+                        > p {
+                            font-family: @titleFont;
+                            font-size: 1.5em;
+                            margin-bottom: 0;
+                        }
+
+                        > footer > cite {
+                            font-size: 1em;
+                            font-style: normal;
+                            text-align: left;
+
+                            &:before {
+                                color: darken(@aoi, 30%);
+                                content: '\2014 \2009';
+                                padding-left: 0.25em;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

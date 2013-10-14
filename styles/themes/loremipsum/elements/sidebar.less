@@ -1,306 +1,306 @@
 // Barra lateral con los enlaces de mi perfil,
 // la foto y la navegación (ir arriba)
-#hcard-pablomolina {
-    position:   absolute;
-    top:        -2.5em;
-    right:      -2.5em;
-    text-align: right;
-    z-index:    300;
+@media (min-width: @sizeTablet) {
+    #hcard-pablomolina {
+        position:   absolute;
+        top:        -2.5em;
+        right:      -2.5em;
+        text-align: right;
+        z-index:    300;
 
-    @media (max-width: @sizeTablet) {
-        position: relative;
-        top: 0;
-        left: 0;
-        text-align: center;
-        width: 100%;
-    
-        background-image: url(https://dl.dropboxusercontent.com/u/6037255/cover_640x480.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding: 1em 0;
-        box-shadow: 0 -1px 1px @black,
-                    0 1px 1px @bodyBgColor,
-                    0 0.5em 0.75em lighten(@black, 70%);
-    }
-
-    @media (max-width: @sizeSmall) {
-        > figure {
+        > header {
             display: none;
         }
 
-        > .links {
-            padding-top: 0 !important;
-        }
-    }
-
-    > header {
-        display: none;
-    }
-
-    // Imagen de perfil
-    > figure {
-        padding:        0;
-        margin:         0 auto;
-        margin-right:   0;
-
-        > img {
-            box-shadow:     -0.1em 0.1em 0.1em black;
-            border-radius:  50%;
-            width:          5em;
-            height:         5em;
+        // Imagen de perfil
+        > figure {
+            padding:        0;
             margin:         0 auto;
             margin-right:   0;
 
-            @media (max-width: @sizeTablet) {
-                width: 7em;
-                height: 7em;
+            > img {
+                box-shadow:     -0.1em 0.1em 0.1em black;
+                border-radius:  50%;
+                width:          5em;
+                height:         5em;
+                margin:         0 auto;
+                margin-right:   0;
+            }
+
+            > figcaption {
+                display: none;
             }
         }
 
-        > figcaption {
+        // Enlace para volver arriba
+        .goTop {
             display: none;
+            position: fixed;
+            top: -20em;
+            transform: rotate(-90deg) translateY(-0.3em);
+            background-color: @bodyBgColor;
+            box-shadow: 0 0 1em @bodyBgColor;
+            border-bottom: none;
+            width: 6em;
+            cursor: pointer;
 
-            @media (max-width: @sizeTablet) {
+            &.shown {
                 display: block;
-
-                > span,
-                > time,
-                > a {
-                    display: none;
-                }
-
-                > .fn.n {
-                    display: block;
-                    font-family: @titleFont;
-                    font-size: 4em;
-                    color: @bodyBgColor;
-                    text-shadow: 1px 1px 1px @black;
-                }
+                top: 3em;
             }
         }
-    }
 
-    // Enlace para volver arriba
-    .goTop {
-        display: none;
-        position: fixed;
-        top: -20em;
-        transform: rotate(-90deg) translateY(-0.3em);
-        background-color: @bodyBgColor;
-        box-shadow: 0 0 1em @bodyBgColor;
-        border-bottom: none;
-        width: 6em;
-        cursor: pointer;
+        // Enlaces sociales
+        > .links {
+            position:           absolute;
+            top:                3em;
+            right:              0;
+            text-align:         right;
+            list-style:         none;
+            display:            block;
+            padding:            0;
+            padding-top:        3em;
+            margin:             0 auto;
+            width:              5em;
+            overflow:           visible;
+            background-color:   transparent;
+            z-index:            -1;
 
-        &.shown {
-            display: block;
-            top: 3em;
-
-            @media (max-width: @sizeTablet) {
-                top: 0.25em;
-                right: -0.25em;
-                width: 1.5em;
-                padding: 0.5em;
-                background-color: transparent;
-                box-shadow: 0 0 0 @bodyBgColor;
+            > .link {
+                background-color:   @bodyBgColor;
+                padding:            0.25em 0;
+                white-space:        nowrap;
+                text-align:         center;
 
                 > i {
-                    text-shadow: 0.1em 0.1em 0.1em @bodyBgColor;
+                    font-size:              1.25em;
+                    padding-left:           0.5em;
+                    position:               relative;
+                    z-index:                2;
+                    background-color:       @bodyBgColor;
+                    color:                  lighten(@black, 10%);
+                    left:                   0;
+                    transition:             ease 0.3s;
+                    transition-property:    left, color;
                 }
 
-                > span {
-                    display: none;
+                &:hover > i {
+                    left:   -40%;
+                    color:  @black;
                 }
+
+                > a {
+                    display:                inline-block;
+                    height:                 1.25em;
+                    background-color:       @bodyBgColor;
+                    border:                 none;
+                    margin:                 0 auto;
+                    z-index:                1;
+                    max-width:              0;
+                    overflow:               hidden;
+                    padding-left:           0.25em;
+                    padding-top:            0.1em;
+                    position:               relative;
+                    left:                   0;
+                    transition:             ease 0.3s;
+                    transition-property:    max-width, opacity, color, left;
+                }
+
+                &:hover > a {
+                    max-width:  10em;
+                    left:       -45%;
+                    opacity:    1;
+                }
+
+                @keyframes socialRainbowRSS {
+                    0%   { color: inherit;    }
+                    50%  { color: @socialcolor-rss;        }
+                    100% { color: inherit;    }
+                }
+                @keyframes socialRainbowGooglePlus {
+                    0%   { color: inherit;    }
+                    50%  { color: @socialcolor-googleplus; }
+                    100% { color: inherit;    }
+                }
+                @keyframes socialRainbowGithub {
+                    0%   { color: inherit;    }
+                    50%  { color: @socialcolor-github;     }
+                    100% { color: inherit;    }
+                }
+                @keyframes socialRainbowTwitter {
+                    0%   { color: inherit;    }
+                    50%  { color: @socialcolor-twitter;    }
+                    100% { color: inherit;    }
+                }
+                @keyframes socialRainbowFacebook {
+                    0%   { color: inherit;    }
+                    50%  { color: @socialcolor-facebook;   }
+                    100% { color: inherit;    }
+                }
+                @keyframes socialRainbowLinkedin {
+                    0%   { color: inherit;    }
+                    50%  { color: @socialcolor-linkedin;   }
+                    100% { color: inherit;    }
+                }
+                @keyframes socialRainbowMusic {
+                    0%   { color: inherit;    }
+                    50%  { color: @socialcolor-lastfm;     }
+                    100% { color: inherit;    }
+                }
+                @keyframes socialRainbowPencil {
+                    0%   { color: inherit;    }
+                    50%  { color: @socialcolor-deviantart; }
+                    100% { color: inherit;    }
+                }
+                @keyframes socialRainbowFacetime {
+                    0%   { color: inherit;    }
+                    50%  { color: @socialcolor-youtube;    }
+                    100% { color: inherit;    }
+                }
+
+                > i.icon-rss            { color: inherit;
+                                          animation: socialRainbowRSS 2s ease-in-out 0.7s 1;      }
+                > i.icon-google-plus    { color: inherit;
+                                          animation: socialRainbowGooglePlus 2s ease-in-out 1s 1; }
+                > i.icon-github         { color: inherit;
+                                          animation: socialRainbowGithub 2s ease-in-out 1.3s 1;   }
+                > i.icon-twitter        { color: inherit;
+                                          animation: socialRainbowTwitter 2s ease-in-out 1.6s 1;  }
+                > i.icon-facebook       { color: inherit;
+                                          animation: socialRainbowFacebook 2s ease-in-out 1.9s 1; }
+                > i.icon-linkedin       { color: inherit;
+                                          animation: socialRainbowLinkedin 2s ease-in-out 2.2s 1; }
+                > i.icon-music          { color: inherit;
+                                          animation: socialRainbowMusic 2s ease-in-out 2.5s 1;    }
+                > i.icon-pencil         { color: inherit;
+                                          animation: socialRainbowPencil 2s ease-in-out 2.8s 1;   }
+                > i.icon-facetime-video { color: inherit;
+                                          animation: socialRainbowFacetime 2s ease-in-out 3.1s 1; }
+
+                &:hover > i.icon-rss            { color: @socialcolor-rss;        }
+                &:hover > i.icon-google-plus    { color: @socialcolor-googleplus; }
+                &:hover > i.icon-github         { color: @socialcolor-github;     }
+                &:hover > i.icon-twitter        { color: @socialcolor-twitter;    }
+                &:hover > i.icon-facebook       { color: @socialcolor-facebook;   }
+                &:hover > i.icon-linkedin       { color: @socialcolor-linkedin;   }
+                &:hover > i.icon-music          { color: @socialcolor-lastfm;     }
+                &:hover > i.icon-pencil         { color: @socialcolor-deviantart; }
+                &:hover > i.icon-facetime-video { color: @socialcolor-youtube;    }
             }
         }
     }
+}
 
-    // Enlaces sociales
-    > .links {
-        position:           absolute;
-        top:                3em;
-        right:              0;
-        text-align:         right;
-        list-style:         none;
-        display:            block;
-        padding:            0;
-        padding-top:        3em;
-        margin:             0 auto;
-        width:              5em;
-        overflow:           visible;
-        background-color:   transparent;
-        z-index:            -1;
+@media (max-width:  (@sizeTablet - 1)) {
+    #hcard-pablomolina {
+        &:hover {
+            max-height: 100%;
+            width: 12em;
 
-        @media (max-width: @sizeTablet) {
-            position: relative;
-            top: 0;
-            left: 0;
-            padding-top: 1em;
-            width: 100%;
-            max-width: 15em;
-            text-align: center;
-            font-size: 1.2em;
+            > .links {
+                display: block;
+            }
         }
 
-        > .link {
-            background-color:   @bodyBgColor;
-            padding:            0.25em 0;
-            white-space:        nowrap;
-            text-align:         center;
+        > header {
+            display: none;
+        }
 
-            @media (max-width: @sizeTablet) {
+        > figure {
+            > img {
+                position: fixed;
+                top: 0em;
+                right: 0em;
+                border-radius: 50%;
+                width: 1.9em;
+                height: 1.9em;
+                border: solid @black thin;
+                z-index: 150;
+                cursor: pointer;
+            }
+
+            > figcaption {
+                display: none;
+            }
+        }
+
+        > .links {
+            font-size: @bodyFontSize * 1.2;
+            background-color: lighten(@black, 5%);
+            color: @beachStorm;
+            list-style: none;
+
+            padding: 1em 0.5em;
+            padding-top: 0.75em;
+
+            position: fixed;
+            top: 1em;
+            right: 0;
+            width: 12em;
+            height: 100%;
+            display: none;
+
+            overflow: hidden;
+            overflow-y: auto;
+            z-index: 140;
+
+            &:hover {
+                display: block;
+            }
+
+            > li {
                 position: relative;
-                display: inline-block;
-                background-color: transparent;
-                color: @bodyBgColor;
-            }
+                margin: 0.5em auto;
+                text-align: right;
 
-            > i {
-                font-size:              1.25em;
-                padding-left:           0.5em;
-                position:               relative;
-                z-index:                2;
-                background-color:       @bodyBgColor;
-                color:                  lighten(@black, 10%);
-                left:                   0;
-                transition:             ease 0.3s;
-                transition-property:    left, color;
-
-                @media (max-width: @sizeTablet) {
-                    padding: 0.5em;
-                    font-size: 1.5em;
-                    background-color: transparent;
-                    text-shadow: 1px 1px 1px @black;
-                }
-            }
-            
-            &:hover > i {
-                left:   -40%;
-                color:  @black;
-
-                @media (max-width: @sizeTablet)  {
-                    left: 0;
-                }
-            }
-
-            > a {
-                display:                inline-block;
-                height:                 1.25em;
-                background-color:       @bodyBgColor;
-                border:                 none;
-                margin:                 0 auto;
-                z-index:                1;
-                max-width:              0;
-                overflow:               hidden;
-                padding-left:           0.25em;
-                padding-top:            0.1em;
-                position:               relative;
-                left:                   0;
-                transition:             ease 0.3s;
-                transition-property:    max-width, opacity, color, left;
-            
-                @media (max-width: @sizeTablet) {
+                &:after {
+                    content: ' ';
                     position: absolute;
-                    left: -20%;
-                    top: 10%;
-                    z-index: 110;
-                    max-width: 100%;
-                    opacity: 0;
-                    font-size: 0.8em;
-
-                    color: @bodyBgColor;
-                    font-weight: bolder;
-                    padding: 0.5em;
-                    background-color: @black;
+                    bottom: -0.5em;
+                    left: 2.5%;
+                    width: 95%;
+                    height: 1px;
+                    background-color: darken(@beachStorm, 10%);
                 }
-            }
 
-            &:hover > a {
-                max-width:  10em;
-                left:       -45%;
-                opacity:    1;
+                > i {
+                    font-size: 1.4em;
+                    display: inline-block;
+                    width: 1em;
+                    padding-top: 0.5em;
+                    padding-right: 0.4em;
+                    overflow: hidden;
+                    text-align: center;
+                }
 
-                @media (max-width: @sizeTablet) {
+                > a {
+                    padding: 0;
+                    color: inherit;
+                    text-decoration: none;
+                    border-bottom: none;
+                    font-size: 1.2em;
+
+                    display: inline-block;
+                    position: absolute;
+                    top: 0;
                     left: 0;
-                    opacity: 1;
-                    z-index: 120;
+                    padding-right: 20%;
+                    width: 80%;
+                    height: 100%;
+                    line-height: 2.5em;
+
+                    &:hover {
+                        background-color: fadeOut(@beachStorm, 90%);
+                    }
+                    &:active {
+                        background-color: fadeOut(@beachStorm, 80%);
+                    }
                 }
             }
+        }
 
-            @keyframes socialRainbowRSS {
-                0%   { color: inherit;    }
-                50%  { color: @socialcolor-rss;        }
-                100% { color: inherit;    }
-            }
-            @keyframes socialRainbowGooglePlus {
-                0%   { color: inherit;    }
-                50%  { color: @socialcolor-googleplus; }
-                100% { color: inherit;    }
-            }
-            @keyframes socialRainbowGithub {
-                0%   { color: inherit;    }
-                50%  { color: @socialcolor-github;     }
-                100% { color: inherit;    }
-            }
-            @keyframes socialRainbowTwitter {
-                0%   { color: inherit;    }
-                50%  { color: @socialcolor-twitter;    }
-                100% { color: inherit;    }
-            }
-            @keyframes socialRainbowFacebook {
-                0%   { color: inherit;    }
-                50%  { color: @socialcolor-facebook;   }
-                100% { color: inherit;    }
-            }
-            @keyframes socialRainbowLinkedin {
-                0%   { color: inherit;    }
-                50%  { color: @socialcolor-linkedin;   }
-                100% { color: inherit;    }
-            }
-            @keyframes socialRainbowMusic {
-                0%   { color: inherit;    }
-                50%  { color: @socialcolor-lastfm;     }
-                100% { color: inherit;    }
-            }
-            @keyframes socialRainbowPencil {
-                0%   { color: inherit;    }
-                50%  { color: @socialcolor-deviantart; }
-                100% { color: inherit;    }
-            }
-            @keyframes socialRainbowFacetime {
-                0%   { color: inherit;    }
-                50%  { color: @socialcolor-youtube;    }
-                100% { color: inherit;    }
-            }
-
-            > i.icon-rss            { color: inherit;
-                                      animation: socialRainbowRSS 2s ease-in-out 0.7s 1;      }
-            > i.icon-google-plus    { color: inherit;
-                                      animation: socialRainbowGooglePlus 2s ease-in-out 1s 1; }
-            > i.icon-github         { color: inherit;
-                                      animation: socialRainbowGithub 2s ease-in-out 1.3s 1;   }
-            > i.icon-twitter        { color: inherit;
-                                      animation: socialRainbowTwitter 2s ease-in-out 1.6s 1;  }
-            > i.icon-facebook       { color: inherit;
-                                      animation: socialRainbowFacebook 2s ease-in-out 1.9s 1; }
-            > i.icon-linkedin       { color: inherit;
-                                      animation: socialRainbowLinkedin 2s ease-in-out 2.2s 1; }
-            > i.icon-music          { color: inherit;
-                                      animation: socialRainbowMusic 2s ease-in-out 2.5s 1;    }
-            > i.icon-pencil         { color: inherit;
-                                      animation: socialRainbowPencil 2s ease-in-out 2.8s 1;   }
-            > i.icon-facetime-video { color: inherit;
-                                      animation: socialRainbowFacetime 2s ease-in-out 3.1s 1; }
-
-            &:hover > i.icon-rss            { color: @socialcolor-rss;        }
-            &:hover > i.icon-google-plus    { color: @socialcolor-googleplus; }
-            &:hover > i.icon-github         { color: @socialcolor-github;     }
-            &:hover > i.icon-twitter        { color: @socialcolor-twitter;    }
-            &:hover > i.icon-facebook       { color: @socialcolor-facebook;   }
-            &:hover > i.icon-linkedin       { color: @socialcolor-linkedin;   }
-            &:hover > i.icon-music          { color: @socialcolor-lastfm;     }
-            &:hover > i.icon-pencil         { color: @socialcolor-deviantart; }
-            &:hover > i.icon-facetime-video { color: @socialcolor-youtube;    }
+        > .goTop {
+            display: none;
         }
     }
 }
