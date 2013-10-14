@@ -12,8 +12,13 @@
 }
 
 .blog {
-    &.personal {
-        margin-top: 0.25em;
+    font-size: 0;
+    > * {
+        font-size: @bodyFontSize;
+    }
+
+    @media (max-width: @sizeTablet) {
+        margin-top: @bodyFontSize * 4;
     }
 
     > .articleList {
@@ -26,7 +31,7 @@
         > h1 {
             display: none;
         }
-        
+
         &.infinite-loading {
             &:after {
                 content: "Cargando más artículos...";
@@ -85,7 +90,7 @@
         >.pageNumber {
             font-size: 0.8em;
             color: lighten(@black, 50%);
-        
+
             > .current,
             > .total {
                 color: @black;
