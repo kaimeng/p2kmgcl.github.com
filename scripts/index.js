@@ -37,3 +37,8 @@ window.p2kmgcl = new function () {
 for (var i = 0; i < window.p2kmgclCallbacks.length; i++) {
     window.p2kmgclCallbacks[i]();
 }
+// A partir de ahora todos los elementos insertados se ejecutan
+// automáticamente
+window.p2kmgclCallbacks.push = function (element) {
+    element();
+}

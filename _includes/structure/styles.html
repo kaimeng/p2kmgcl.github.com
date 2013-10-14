@@ -1,6 +1,16 @@
-<link rel="stylesheet" href="{{ site.baseurl }}/styles/libs.css" />
+<noscript class="unloadedStyle" data-href="{{ site.baseurl }}/styles/libs.css"></noscript>
 {% if site.less.env == "development" %}
-<link rel="stylesheet/less" href="{{ site.baseurl }}/{{ site.less.themePath }}/{{ site.less.theme }}/index.less" />
+<noscript class="unloadedStyle" data-href="{{ site.baseurl }}/{{ site.less.themePath }}/{{ site.less.theme }}/index.less"></noscript>
 {% else %}
-<link rel="stylesheet" href="{{ site.baseurl }}/{{ site.less.themePath }}/{{ site.less.theme }}.css" />
+<noscript class="unloadedStyle" data-href="{{ site.baseurl }}/{{ site.less.themePath }}/{{ site.less.theme }}.css"></noscript>
 {% endif %}
+<script>p2kmgclCallbacks.push(function () {
+    var styles = document.getElementsByClassName('unloadedStyle'),
+        newLink;
+    for (var i = 0; i < styles.length; i++) {
+        newLink = document.createElement('link');
+        newLink.rel = 'stylesheet';
+        newLink.href = styles[i].dataset.href;
+        document.head.appendChild(newLink);
+    }
+});</script>
