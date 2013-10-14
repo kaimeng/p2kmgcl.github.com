@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="{{ site.baseurl }}/styles/libs.css" />
-{% if site.less.js %}
+{% if site.less.env == "development" %}
 <link rel="stylesheet/less" href="{{ site.baseurl }}/{{ site.less.themePath }}/{{ site.less.theme }}/index.less" />
 {% else %}
 <link rel="stylesheet" href="{{ site.baseurl }}/{{ site.less.themePath }}/{{ site.less.theme }}.css" />
