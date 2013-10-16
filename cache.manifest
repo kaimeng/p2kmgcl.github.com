@@ -5,8 +5,11 @@ CACHE MANIFEST
 
 CACHE:
 {{ site.baseurl }}/{{ site.less.cssPath }}/libs.css
-{{ site.baseurl }}/{{ site.less.themePath }}/{{ site.less.theme }}.css
-{{ site.baseurl }}/{{ site.less.themePath }}/{{ site.less.theme }}/index.less
+{% for theme in site.less.themeList %}
+{% for module in site.less.themeModules %}
+{{ site.baseurl }}/{{ site.less.themePath }}/{{ theme }}/build_css/{{ module }}.css
+{% endfor %}
+{% endfor %}
 
 {{ site.baseurl }}/scripts/index.js
 

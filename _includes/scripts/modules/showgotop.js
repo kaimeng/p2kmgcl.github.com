@@ -2,9 +2,9 @@
  * Muestra el elemento de volver arriba cuando es necesario.
  */
 function showGoTop () {
-    var $goTop = $('.goTop');
+    var $goTop = $('#goTopLink');
 
-    $('.goTop').on('click', function () {
+    $goTop.on('click', function () {
         $(document).off('scroll');
         $('body, html').animate({
             scrollTop: 0

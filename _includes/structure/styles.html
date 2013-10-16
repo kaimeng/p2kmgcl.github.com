@@ -1,10 +1,14 @@
 <noscript class="unloadedStyle" data-href="{{ site.baseurl }}/styles/libs.css"></noscript>
-{% if site.less.env == "development" %}
-<noscript class="unloadedStyle" data-href="{{ site.baseurl }}/{{ site.less.themePath }}/{{ site.less.theme }}/index.less"></noscript>
-{% else %}
-<noscript class="unloadedStyle" data-href="{{ site.baseurl }}/{{ site.less.themePath }}/{{ site.less.theme }}.css"></noscript>
+
+{% capture themePath %}{{ site.baseurl }}/{{ site.less.themePath }}/{{ site.less.theme }}/build_css/{% endcapture %}
+<noscript class="unloadedStyle" data-href="{{ themePath }}/main.css"></noscript>
+{% if layout == 'page' %}
+    <noscript class="unloadedStyle" data-href="{{ themePath }}/page.css"></noscript>
 {% endif %}
-<script>p2kmgclCallbacks.push(function () {
+{{ site }}
+{{ layout }}
+
+<script>window.p2kmgclCallbacks.push(function () {
     var styles = document.getElementsByClassName('unloadedStyle'),
         newLink;
     for (var i = 0; i < styles.length; i++) {

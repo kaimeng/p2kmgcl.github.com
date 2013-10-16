@@ -3,7 +3,6 @@
 
 {% include scripts/libs/highlightjs/highlightjs-7.3.min.js %}
 window.p2kmgclCallbacks.push(function () { hljs.initHighlightingOnLoad(); });
-{% if site.less.env == "development" %}if (typeof less == 'undefined') { less = { env: "{{ site.less.env }}" }; {% include scripts/libs/less/less-1.4.1.min.js %} }{% endif %}
 {% include scripts/libs/modernizr/modernizr-2.6.2-custom.min.js %}
 {% include scripts/libs/prefixfree/prefixfree-1.0.7.min.js %}
 if (typeof $ == 'undefined') { {% include scripts/libs/jquery/jquery-1.10.2.min.js %} }
