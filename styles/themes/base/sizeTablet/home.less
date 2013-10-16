@@ -1,0 +1,45 @@
+@import '../index.less';
+// Página principal de la página.
+// Contiene una frase aleatoria y una introducción a la web.
+
+body > .home {
+    // Frase aleatoria mostrada en la
+    // cabecera de la página
+    #randomQuotes {
+        // Título de la sección
+        > h1 {}
+
+        > ul {
+
+            > .quoteWrapper {
+                > blockquote {
+                    // Contenido de la cita
+                    > p {}
+
+                    // Origen de la cita
+                    // (solo se muestra en algunas)
+                    > footer {
+                        > cite {
+
+                            // Cita con un enlace al autor,
+                            // si no hay enlace, este enlace no existirá
+                            // y el autor se mostrará en la etiqueta
+                            // "cite" superior.
+                            > a {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Introducción a la página
+    > .intro {
+        > header {
+            > h1 {}
+            > p {}
+        }
+
+        > p {}
+    }
+}

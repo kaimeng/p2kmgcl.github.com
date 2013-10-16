@@ -1,0 +1,59 @@
+@import '../index.less';
+// Cabecera de la página
+
+#mainHeader {
+    // Título y subtítulo
+    > .title {}
+    > .subtitle {}
+
+    // Menú principal
+    #mainMenu {
+        // Cabecera del menú
+        > h1 {
+            > i {}
+            > span {}
+        }
+        // Primer nivel del menú
+        > ul {
+            > li {
+                > a {
+                    > i {}
+                    > span {}
+                }
+
+                // Lugar actual
+                &.current {}
+
+                // Nivel del blog
+                &.blog {
+                    // Cabecera
+                    > span {
+                        > i {}
+                        > span {}
+                    }
+
+                    // Segundo nivel del menú
+                    > ul {
+                        > li {
+                            > a {
+                                > i {}
+                                > span {}
+                            }
+
+                            // Lugar actual
+                            &.current {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Enlace para ir arriba
+    #goTopLink {
+        html.no-js & {}
+
+        > i {}
+        > span {}
+    }
+}

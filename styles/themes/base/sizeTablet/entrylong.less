@@ -1,0 +1,48 @@
+@import '../index.less';
+// Una entrada que muestra todo su contenido
+// salvo los comentarios (muestra un enlace a ellos)
+
+.entry.long {
+    // Cabecera de la entrada
+    > header {
+        > h1 {
+            a {}
+        }
+        > time {}
+        > .author {}
+    }
+
+    // Contenido de la entrada
+    // (incluída la portada)
+    > .content {
+        @import 'entrycontent.less';
+    }
+
+    // Pie de la entrada
+    > footer {
+        > .entryButtons {
+            > .shareButton {
+                > a {
+                    > i {}
+                    > span {}
+                }
+            }
+
+            > .showComments {
+                // Qué hacer cuando no hay javascript
+                html.no-js & {}
+
+                > a {
+                    > i {}
+                    > span {}
+                }
+            }
+        }
+
+        // Comentarios que se muestran
+        // al pulsar el botón ".showComments"
+        > #disqus_thread {
+            > iframe {}
+        }
+    }
+}

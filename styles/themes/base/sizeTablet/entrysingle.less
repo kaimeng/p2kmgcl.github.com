@@ -1,0 +1,49 @@
+@import '../index.less';
+// Una entrada que muestra todo su contenido incluídos los comentarios
+
+.entry.single {
+    // Cabecera de la entrada
+    > header {
+        > h1 {
+            a {}
+        }
+        > time {}
+        > .author {}
+    }
+
+    // Contenido de la entrada
+    // (incluída la portada)
+    > .content {
+        @import 'entrycontent.less';
+    }
+
+    // Pie de la entrada
+    > footer {
+
+        // Botones para compartir la entrada
+        > .share {
+            // 'Compartir entrada'
+            > h1 {}
+
+            > a {
+                > i {}
+                > span {}
+            }
+        }
+
+        // Lista de comentarios
+        > .comments {
+            // 'Comentarios'
+            > h1 {}
+
+            > #disqus_thread {
+                > iframe {}
+            }
+
+            // 'Comentarios no disponibles'
+            > noscript {}
+            // 'Powered by disqus'
+            > .dsq-brlink {}
+        }
+    }
+}

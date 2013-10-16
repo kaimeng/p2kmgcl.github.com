@@ -1,0 +1,29 @@
+@import '../index.less';
+// Estilos principales
+// del cuerpo
+
+html {
+    font-size: @bodyFontSize;
+    font-family: @bodyFont;
+    color: @mainColor;
+    background-color: @backgroundColor;
+}
+
+// Aspecto de los
+// encabezados
+h1, h2, h3, h4, h5, h6 {
+    font-family: @titleFont;
+}
+
+// Color de los enlaces
+a { color: @linkColor;
+    &:hover { color: average(@linkColor, @highlightColor); }
+    &:active { color: @highlightColor; }
+}
+
+@media (min-width: @sizeTablet) {
+    @import '../sizeTablet/generic.less';
+    @import '../sizeTablet/header.less';
+    @import '../sizeTablet/sidebar.less';
+    @import '../sizeTablet/footer.less';
+}
