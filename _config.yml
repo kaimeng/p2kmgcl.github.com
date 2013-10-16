@@ -143,9 +143,11 @@ quotes:
 
 # Activa el uso de la librería less (javascript)
 less:
-  env:        "production"
-  bin:        "lessc"
-  cssPath:    "styles"
-  themePath:  "styles/themes"
-  theme:      "loremipsum"
-  themeList:  ["loremipsum", "4colors"]
+  env:          "production"
+  bin:          "lessc"
+  cssPath:      "styles"
+  themePath:    "styles/themes"
+  theme:        "loremipsum"
+  themeList:    ["loremipsum", "4colors"]
+  themeModules: ["main", "page", "list",
+                 "entrycover", "entrylist", "entrylong", "entrysingle"]

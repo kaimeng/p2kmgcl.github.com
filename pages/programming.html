@@ -11,12 +11,16 @@ excerpt: Cuando me centro en programar me gusta investigar por mi cuenta y, si e
 <section class="blog programming list">
     <header>
         <h1>Blog - Programación e informática</h1>
-        <p>Cuando me centro en programar me gusta investigar por mi cuenta y, si encuentro algo realmente interesante, lo guardo aquí para utilizarlo en el futuro. También hay algunos <i>experimentos</i> o simplemente ideas para implementar, pero en general son artículos bastante prácticos.</p>    
+        <p>Cuando me centro en programar me gusta investigar por mi cuenta y, si encuentro algo realmente interesante, lo guardo aquí para utilizarlo en el futuro. También hay algunos <i>experimentos</i> o simplemente ideas para implementar, pero en general son artículos bastante prácticos.</p>
     </header>
 
-    {% for post in site.posts %}{% if post.categories contains 'programming' %}
-        {% assign content = post.content %}
-        {% assign post_type = 'list' %}
-        {% include post_content.html %}
-    {% endif %}{% endfor %}
+    <section class="articleList">
+        <h1>Lista de artículos</h1>
+
+        {% for post in site.posts %}{% if post.categories contains 'programming' %}
+            {% assign content = post.content %}
+            {% assign post_type = 'list' %}
+            {% include post_content.html %}
+        {% endif %}{% endfor %}
+    </section>
 </section>

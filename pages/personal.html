@@ -15,9 +15,13 @@ excerpt: Pensamientos propios que nada tienen que ver con programación o inform
         <p>Si te han gustado y tienes ganas de leer más cosas de este tipo puedes echar un vistazo a <a href="http://deviantart.pablomolina.me/" target='_blank'>mi perfil en DeviantArt</a> o <a href="http://feed.pablomolina.me/">suscribirte al blog</a> (las "entradas personales" son lo que estás buscando).</p>
     </header>
 
-    {% for post in site.posts %}{% if post.categories contains 'personal' %}
-        {% assign post_type = 'cover' %}
-        {% assign content = post.content %}
-        {% include post_content.html %}
-    {% endif %}{% endfor %}
+    <section class="articleList">
+        <h1>Lista de artículos</h1>
+
+        {% for post in site.posts %}{% if post.categories contains 'personal' %}
+            {% assign post_type = 'cover' %}
+            {% assign content = post.content %}
+            {% include post_content.html %}
+        {% endif %}{% endfor %}
+    </section>
 </section>

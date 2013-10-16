@@ -1,10 +1,9 @@
 <section id="randomQuotes">
-    <header>
-        <h1>Frases importantes</h1>
-    </header>
+    <h1>Frases importantes</h1>
+
     <ul>
     {% for quote in site.quotes %}
-        <li class="quoteWrapper{% if forloop.index == 1 or all_quotes %} chosen{% endif %}"><blockquote class="quote">
+        <li class="quoteWrapper{% if forloop.index == 1 or all_quotes %} chosen{% endif %}"><blockquote>
             <p>{{ quote.quote }}</p>
             {% if quote.origin %}
                 <footer><cite>

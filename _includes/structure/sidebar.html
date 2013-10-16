@@ -1,43 +1,61 @@
 <aside id="hcard-pablomolina" class=" vcard">
-    <header>
-        <h1>Información del autor</h1>
-    </header>
+    <h1>Información del autor</h1>
 
     <figure>
         <img alt="Foto de perfil de {{ site.author.name }}" title="Foto de perfil de {{ site.author.name }}" src="{{ site.author.photo }}" width="125" height="125" class="photo" />
-        <figcaption>
-            <span class="fn n">
-                <span class="given-name">{{ site.author.givenName }}</span>
-                <span class="family-name">{{ site.author.familyName }}</span>
-            </span>
-            <span class="nickname">{{ site.author.alias }}</span>
-            <time class="bday">{{ site.author.bday }}</time>
-            <a href="mailto:{{ site.author.mail }}" class="email">
-                <i class="icon-envelope"></i>
-                {{ site.author.mail }}
-            </a>
-            <a href="{{ site.web.url }}" class="url">{{ site.author.url }}</a>
-            <span class="adr">
-                <span class="country-name">España</span>
-            </span>
-            <span class="role">Estudiante</span>
-        </figcaption>
+        <figcaption><ul>
+            <li class="name">
+                <span class="tag">Nombre:</span>
+                <span class="fn n">
+                    <span class="given-name">{{ site.author.givenName }}</span>
+                    <span class="family-name">{{ site.author.familyName }}</span>
+                </span>
+            </li>
+            <li class="alias">
+                <span class="tag">Alias:</span>
+                <span class="nickname">{{ site.author.alias }}</span>
+            </li>
+            <li class="birthday">
+                <span class="tag">Fecha de nacimiento:</span>
+                <time class="bday">{{ site.author.bday }}</time>
+            </li>
+            <li class="mail">
+                <span class="tag">Correo:</span>
+                <a href="mailto:{{ site.author.mail }}" class="email">
+                    <i class="icon-envelope"></i>
+                    <span>{{ site.author.mail }}</span>
+                </a>
+            </li>
+            <li class="website">
+                <span class="tag">Página web:</span>
+                <a href="{{ site.web.url }}" class="url">{{ site.author.url }}</a>
+            </li>
+            <li class="address">
+                <span class="tag">Dirección:</span>
+                <span class="adr">
+                    <span class="country-name">España</span>
+                </span>
+            </li>
+            <li class="job">
+                <span class="tag">Ocupación</span>
+                <span class="role">Estudiante</span>
+            </li>
+        </ul></figcaption>
     </figure>
     <ul class="links">
         <li class="rss link">
-            <i class="icon-rss"></i>
-            <a href="{{ site.data.rss }}" type="application/rss+xml">RSS</a>
+            <a href="{{ site.data.rss }}" type="application/rss+xml">
+                <i class="icon-rss"></i>
+                <span>RSS</span>
+            </a>
         </li>
     {% for link in site.author.links %}
-        <li class="link.name link">
-            <i class="icon-{{ link.icon }}"></i>
-            <a href="{{ link.url }}" class="url" target="_blank">{{ link.name }}</a>
+        <li class="{{ link.name }} link">
+            <a href="{{ link.url }}" class="url" target="_blank">
+                <i class="icon-{{ link.icon }}"></i>
+                <span>{{ link.name }}</span>
+            </a>
         </li>
     {% endfor %}
     </ul>
-
-    <a href="javascript:void(0)" class="goTop">
-        <span>Ir arriba</span>
-        <i class="icon-circle-arrow-right icon-large"></i>
-    </a>
 </aside>

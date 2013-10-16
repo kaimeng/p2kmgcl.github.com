@@ -16,18 +16,23 @@
 
         <ul>
             <li class="home{% if "/index.html" == page.url %} current{% endif %}">
-                <i class="icon-home"></i>
-                <a href="{{ site.baseurl }}/index.html">Inicio</a>
+                <a href="{{ site.baseurl }}/index.html">
+                    <i class="icon-home"></i>
+                    <span>Inicio</span>
+                </a>
             </li>
             <li class="blog {% if page.url == "/pages/programming.html" or page.url == "/pages/personal.html" or page.url == "/pages/rare.html" %} current {% endif %}">
-                <i class="icon-book"></i>
-                <span>Blog</span>
-
+                <span>
+                    <i class="icon-book"></i>
+                    <span>Blog</span>
+                </span>
                 <ul>
                     {% for _page in site.pages %}{% if _page.title and _page.menu and _page.blog == true %}
                     <li class="{{ _page.menu }}{% if _page.url == page.url %} current{% endif %}">
-                        <i class="icon-{{ _page.icon }}"></i>
-                        <a href="{{ site.baseurl }}{{ _page.url }}">{{ _page.title }}</a>
+                        <a href="{{ site.baseurl }}{{ _page.url }}">
+                            <i class="icon-{{ _page.icon }}"></i>
+                            <span>{{ _page.title }}</span>
+                        </a>
                     </li>
                     {% endif %}{% endfor %}
                 </ul>
@@ -35,10 +40,17 @@
 
             {% for _page in site.pages %}{% if _page.title and _page.menu and _page.blog != true %}
             <li class="{{ _page.menu }}{% if _page.url == page.url %} current{% endif %}">
-                <i class="icon-{{ _page.icon }}"></i>
-                <a href="{{ site.baseurl }}{{ _page.url }}">{{ _page.title }}</a>
+                <a href="{{ site.baseurl }}{{ _page.url }}">
+                    <i class="icon-{{ _page.icon }}"></i>
+                    <span>{{ _page.title }}</span>
+                </a>
             </li>
             {% endif %}{% endfor %}
         </ul>
     </nav>
+
+    <a href="javascript:void(0)" id="goTopLink">
+        <i class="icon-circle-arrow-right icon-large"></i>
+        <span>Ir arriba</span>
+    </a>
 </header>
