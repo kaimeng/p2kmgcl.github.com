@@ -1,7 +1,5 @@
 @import '../index.less';
 
 body > .page {
-    @media (min-width: @sizeTablet) {
-        @import '../sizeTablet/entrycontent.less';
-    }
+    @import '../sizeTablet/entrycontent.less' screen and (min-width: @sizeTablet);
 }

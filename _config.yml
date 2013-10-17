@@ -147,7 +147,7 @@ less:
   bin:          "lessc"
   cssPath:      "styles"
   themePath:    "styles/themes"
-  theme:        "base"
-  themeList:    ["base"]
+  theme:        "loremipsum"
+  themeList:    ["base", "loremipsum"]
   themeModules: ["main", "page", "list",
                  "entrycover", "entrylist", "entrylong", "entrysingle"]

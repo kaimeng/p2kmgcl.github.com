@@ -1,0 +1,64 @@
+@import '../index.less';
+// Barra lateral con información
+// sobre el autor
+
+#hcard-pablomolina {
+    // 'Información del autor'
+    > h1 {}
+
+    > figure {
+        // Imagen de perfil
+        > img {}
+
+        // Datos del perfil
+        > figcaption {
+            > ul {
+
+                // Cada elemento es un dato distinto
+                > li {
+                    &.name {}
+                    &.alias {}
+                    &.birthday {}
+                    &.mail {}
+                    &.website {}
+                    &.address {}
+                    &.job {}
+
+                    // Etiqueta que determina qué dato es
+                    > .tag {}
+
+                    // Dato en concreto
+                    > span {
+                        &.fn.n {}
+                        &.nickname {}
+                        &.bday {}
+                        &.email {}
+                        &.url {}
+                        &.adr {}
+                        &.role {}
+                    }
+                }
+            }
+        }
+    }
+
+    // Enlaces sociales
+    > .links {
+        > .link {
+            &.rss {}
+            &.Google+ {}
+            &.GitHub {}
+            &.Twitter {}
+            &.Facebook {}
+            &.LinkedIn {}
+            &.LastFM {}
+            &.DeviantArt {}
+            &.YouTube {}
+
+            > a {
+                > i {}
+                > span {}
+            }
+        }
+    }
+}

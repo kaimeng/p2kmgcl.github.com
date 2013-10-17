@@ -1,42 +1,28 @@
 /**
- * Paleta de colores:
- *  http://www.colourlovers.com/palette/92095/Giant_Goldfish
+ * Autor: Pablo Molina <pablomolina.me>
+ * Nombre: Loremipsum
+ * Descripción: Primer tema creado para la web
+ * Colores: http://www.colourlovers.com/palette/92095/Giant_Goldfish
+ * Fuentes: Fjalla One, Open Sans, Inconsolata
  */
 
-@import url(http://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:400italic,700italic,400,700|Inconsolata:400,700);
+// Tipografías
 @titleFont: Fjalla One, 'Fjalla One', Verdana;
 @bodyFont: Open Sans, 'Open Sans', Verdana;
 @codeFont: Inconsolata, 'Inconsolata', Consolas, Monospace;
 @bodyFontSize: 14px;
 
+// Tamaños de pantalla
+@sizeLarge:  1920px;
 @sizeScreen: 960px;
 @sizeTablet: 640px;
 @sizePhone:  480px;
 @sizeSmall:  320px;
 @sizeTiny:   240px;
 
-@bodyBgColor: #fff;
-
-@black: #222;
-@aoi: #69D2E7;
-@cleanPondWater: #A7DBD8;
-@beachStorm: #E0E4CC;
-@giantGoldFish: #F38630;
-@unrealFoodPills: #FA6900;
-
-@import '../../highlight_theme/github.less';
-@import "../../cssref/index.less";
-@import '../../mixins/socialcolors.less';
-
-@import 'generic.less';
-
-@import 'elements/header.less';
-@import 'elements/sidebar.less';
-@import 'elements/entry.less';
-@import 'elements/page.less';
-@import 'elements/footer.less';
-
-@import 'pages/about.less';
-@import 'pages/curriculum.less';
-@import 'pages/blog.less';
-@import 'pages/home.less';
+// Colores
+@backgroundColor: #E0E4CC;
+@mainColor: #222222;
+@secondaryColor: #FA6900;
+@linkColor: darken(#69D2E7, 10%);
+@highlightColor: #69D2E7;
