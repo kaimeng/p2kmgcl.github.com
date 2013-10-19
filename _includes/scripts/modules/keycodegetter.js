@@ -31,7 +31,8 @@ function keyCodeGetter () {
 	keyCodeGetter.prototype.dictionary =
 	keyCodeGetter.prototype.dictionary || {
 		'↑↑↓↓←→←→BA': function () { p2kmgcl.module('konamiCode', true); },
-		'↑↑↓↓←→←→BA┘': function () { p2kmgcl.module('konamiCode', true); }
+		'↑↑↓↓←→←→BA┘': function () { p2kmgcl.module('konamiCode', true); },
+		'LORENA': function () { p2kmgcl.module('lorenaBirthday', true); }
 	};
 
 	keyCodeGetter.prototype.showWord =

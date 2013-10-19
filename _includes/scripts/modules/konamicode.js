@@ -48,4 +48,4 @@ function konamiCode () {
 	if (!konamiCode.prototype.inserted) {
         konamiCode.prototype.konamiCodeMask.fadeIn();
 	}
-};
+}
